@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <li><a href="#/home">首页</a></li>
+    <li><a href="#/about">关于</a></li>
+
+    <div id="routeView">
+        <!-- 放组件 -->
+    </div>
+
+    <script>
+        let routeView = document.getElementById('routeView')
+
+        const routes = [
+            {
+                path: '#/home',
+                component: '首页内容'
+            },
+            {
+                path: '#/about',
+                component: '关于内容'
+            }
+        ]
+
+        window.addEventListener('hashchange', onHashChange)
+
+        window.addEventListener('DOMContentLoaded', onHashChange)
+
+        function onHashChange () {
+            console.log(location);
+            routes.forEach((item, index) => {
+                if (item.path === location.hash) {
+                    routeView.innerHTML = item.component
+                }
+            })
+        }
+    </script>
+</body>
+</html>

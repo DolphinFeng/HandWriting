@@ -1,0 +1,28 @@
+<script>
+    let ev = new Event('first')
+    let ev2 = new Event('second')
+
+    function A() {
+        setTimeout(() => {
+            console.log('A');
+            window.dispatchEvent(ev)
+        }, 1000)
+    }
+
+    A() // 执行A，同时发布这个first事件
+
+    function B() {
+        setTimeout(() => {
+            console.log('B');
+            window.dispatchEvent(ev2)
+        }, 500)
+    }
+
+    window.addEventListener('first', B)
+
+    function C() {
+        console.log('C');
+    }
+
+    window.addEventListener('second', C)
+</script>

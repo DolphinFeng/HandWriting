@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="app">按钮</button>
+
+    <script>
+        let btn = document.getElementById('app')
+
+        const send = () => {
+            console.log('提交');
+        }
+        btn.addEventListener('click', debounce(send, 1000))
+        // btn.addEventListener('click', throttle(send, 1000))
+
+        function debounce(fn, wait) {
+            let timer
+            return function () {
+                let args = arguments
+                if (timer) clearTimeout(timer)
+                timer = setTimeout(() => {
+                    fn.call(this, ...args)
+                }, wait)
+            }
+        }
+    </script>
+</body>
+
+</html>

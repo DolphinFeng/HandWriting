@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">新歌速递</button>
+    <ul id="ul"></ul>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        const btn = document.getElementById('btn')
+        btn.addEventListener('click', () => {
+            $.ajax({
+                url: 'http://172.22.22.71:3000/top/song?type=8',
+                method: 'GET',
+                dataType: 'json',
+                success: function (res) {
+                    res.data.forEach((song) => {
+                        let li = document.createElement('li')
+                        li.innerHTML = song.name
+                        document.getElementById('ul').appendChild(li)
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>

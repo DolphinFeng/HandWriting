@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* position: relative; */
+        }
+
+        .card {
+            margin-right: 9px;
+            width: 168px;
+            height: 115px;
+            background-color: #FCE8E8;
+            border-radius: 9px;
+            position: relative;
+        }
+        div[abc='abc']{
+            background-color: #D6DFFF;
+        }
+
+        .pic {
+            width: 156px;
+            height: 79px;
+            border-radius: 6px;
+            background-size: cover;
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            /* z-index: 0; */
+            /* position: relative; */
+        }
+
+        .head {
+            display: flex;
+            align-items: center;
+            margin-left: 6px;
+            margin-top: 7px;
+        }
+
+        .icon {
+            display: block;
+            width: 15px;
+            height: 15px;
+            margin-right: 4px;
+        }
+
+        .title-one {
+            font-size: 13px;
+            line-height: 13px;
+            font-weight: bold;
+            color: #FF401A;
+        }
+
+        .footer{
+            width: 100%;
+            position: absolute;
+            top: 30px;
+        }
+        .name{
+            font-size: 12px;
+            position: absolute;
+            top: 40px;
+            left: 9px;
+            right: 9px;
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .detail{
+            position: absolute;
+            font-size: 11px;
+            top: 60px;
+            display: flex;
+            color: white;
+            left: 9px;
+        }
+        .discount{
+            margin-left: 4px;
+            width: auto;
+            height: 15px;
+            border-radius: 4px;
+            background-color: #FFDD00;
+        }
+        span{
+            font-size: 9px;
+            line-height: 9px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="head">
+                <img class="icon"
+                    src="https://gw.alicdn.com/imgextra/i3/O1CN01C0y7Ry1mNwhWE3UFP_!!6000000004943-2-tps-30-30.png" />
+                <div class="title-one">特惠酒店</div>
+            </div>
+            <img class="pic"
+                src="https://gw.alicdn.com/imgextra/i1/O1CN01Ciq6wV1qWstNezguW_!!6000000005504-0-tps-312-158.jpg" />
+            <div class="footer">
+                <div class="name">QMAX企鹅极光电竞公寓</div>
+                <div class="detail">
+                    <div class="price">￥322起</div>
+                    <div class="discount"><span>已优惠￥100</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" abc="abc">
+            <div class="head">
+                <img class="icon"
+                    src="https://gw.alicdn.com/imgextra/i1/O1CN01eSv65P1eOqYLiq9Nm_!!6000000003862-2-tps-30-30.png" />
+                <div class="title-one">囤周边好货</div>
+            </div>
+            <img class="pic"
+                src="https://gw.alicdn.com/imgextra/i3/O1CN01Y7CkUq1eABsWOMS2Q_!!6000000003830-0-tps-312-158.jpg" />
+            <div class="footer">
+                <div class="name">杭州滨江诗莉莉天地酒店套餐</div>
+                <div class="detail">
+                    <div class="price">￥109起</div>
+                    <div class="discount"><span>不约可退</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

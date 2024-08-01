@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button></button>
+    </div>
+
+    <script>
+
+
+        // 找到dom的id：
+        // 手写 getElementById 方法去获取DOM结构
+        // 一开始写的function findId(tree, id){} 被怼死，后面直接操作tree还没用this指向又被怼
+        // 面试官说你平常是怎么用的 getElementById ? 你能直接放tree参数进去 ? 挂原型......
+        const tree = {
+            id: 1,
+            children: [
+                {
+                    id: 2,
+                    children: [
+                        {
+                            id: 3,
+                            children: [
+                                {
+                                    id: 4,
+                                    children: [],
+                                },
+                            ],
+                        },
+                        {
+                            id: 5,
+                            children: [],
+                        },
+                    ],
+                },
+                {
+                    id: 6,
+                    children: [],
+                },
+            ],
+        };
+
+        Object.prototype.findIdDfs = function (id) {
+            if (!this) return null;
+            if (this.id === id) {
+                return this;
+            }
+
+            if (this.children) {
+                for (let i = 0; i < this.children.length; i++) {
+                    const findtree = this.children[i].findIdDfs(id);
+                    if (findtree) {
+                        return findtree;
+                    }
+                }
+            }
+            return null;
+        };
+
+        console.log(tree.findIdDfs(5));
+
+        Object.prototype.findIdBfs = function (id) {
+            const queue = [this];
+            while (queue.length > 0) {
+                const node = queue.shift();
+                if (node.id === id) {
+                    return node;
+                }
+
+                if (node.children && node.children.length > 0) {
+                    for (let i = 0; i < node.children.length; i++) {
+                        queue.push(node.children[i]);
+                    }
+                }
+            }
+            return null;
+        };
+
+        console.log(tree.findIdBfs(5));
+    </script>
+</body>
+
+</html>

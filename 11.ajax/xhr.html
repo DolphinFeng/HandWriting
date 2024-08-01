@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">新歌速递</button>
+    <ul id="ul"></ul>
+
+    <script>
+        const btn = document.getElementById('btn')
+        btn.addEventListener('click', () => {
+            let xhr = new XMLHttpRequest() 
+            xhr.open('GET', 'http://172.22.22.71:3000/top/song?type=7', true) // true表示异步请求，false表示同步
+            xhr.onreadystatechange = () => { // 接收后端响应
+                if(xhr.readyState === 4 && xhr.status === 200) { // readyState 0 表示刚创建xhr，1表示准备好了请求体，2表示已经调用了send，3表示正在接收响应体，4表示数据解析完成，status 200表示正确并返回正确结果
+                    let res = JSON.parse(xhr.responseText)
+                    res.data.forEach((song) => {
+                        console.log(song.name);
+                        let li = document.createElement('li')
+                        li.innerHTML = song.name
+                        document.getElementById('ul').appendChild(li)
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

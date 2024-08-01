@@ -1,12 +1,29 @@
+/**
+ * 自定义实现的 call 方法，用于改变函数的 this 指向并执行该函数
+ * @param {Object} ctx - 要绑定的 this 对象
+ * @param {...*} args - 传递给函数的参数
+ * @returns {*} 函数执行的返回值
+ */
 Function.prototype.myCall = function(ctx) {
-    if (typeof this !== 'function') { // 调用call的一定是函数
-        throw new TypeError('myCall is not a function')
+    // 确保调用 myCall 的是一个函数
+    if (typeof this !== 'function') {
+        throw new TypeError('myCall is not a function');
     }
-    let args = Array.from(arguments).slice(1) // 第一个参数是对象，切割掉
-    ctx.fn = this // this就是函数，往对象属性上挂函数声明，隐式绑定
-    let res = ctx.fn(...args) // 参数需要还给函数本身
-    delete ctx.fn // 防止foo也会有个返回值  删除之前添加到对象身上的函数，避免对对象造成影响
-    return res
+    
+    // 获取传递的参数，去掉第一个参数（ctx）
+    let args = Array.from(arguments).slice(1);
+    
+    // 将当前函数（this）作为 ctx 的一个属性进行绑定
+    ctx.fn = this;
+    
+    // 执行函数并传递参数
+    let res = ctx.fn(...args);
+    
+    // 删除临时添加的属性，避免对 ctx 对象造成影响
+    delete ctx.fn;
+    
+    // 返回函数执行的结果
+    return res;
 }
 
 // 原理：判断类型、拿到参数、赋值函数、函数调用参数、删除函数、返回res

@@ -7,11 +7,10 @@ function Car () {
 
 // console.log(car);
 
-function myNew (...args) {
-    let obj = {}
-    obj.__proto__ = args[0].prototype
-    let res = args[0].call(obj, ...args.slice(1))
-    return res instanceof Object ? res : obj
+function myNew (Constructor, ...args) {
+    const obj = Object.create(Constructor.prototype)
+    const result = Constructor.apply(obj, args)
+    return (result && typeof result === 'object') ? result : obj
 }
 
 let car = myNew(Car)

@@ -56,6 +56,46 @@ fixes issue #12
 - test: 改动测试部分
 - chore: 修改非核心逻辑，eg. 修改文档生成工具
 - ci: 修改 ci 部分
+  
+  ～
+
+# mac 安装 mvm
+  - 卸载原先 node
+    > 若 node -v 发现没有版本，则不需进行如下步骤
+
+```
+    sudo npm uninstall npm -g
+    sudo rm -rf /usr/local/lib/node /usr/local/lib/node_modules /var/db/receipts/org.nodejs.*
+    sudo rm -rf /usr/local/include/node /Users/$USER/.npm
+    sudo rm /usr/local/bin/node
+    sudo rm /usr/local/share/man/man1/node.1
+    sudo rm /usr/local/lib/dtrace/node.d
+```
+  - 安装 nvm
+    [源码](https://github.com/nvm-sh/nvm)
+    直接下载上面的源码 nvm-master.zip
+    随后进入终端打开该文件夹， 运行 `sh install.sh` 安装成功
+  - 检验是否安装成功
+    nvm -v
+  - 安装指定 node 版本
+    nvm i 16 
+    > 这里以 16 为例
+
+```
+    nvm use 16
+    nvm list
+```
+    > 查看所有的 node 版本
+
+# mnpm 安装
+  终端输入：
+
+```
+  alias mnpm="npm --registry=http://r.npm.sankuai.com \
+  --cache=$HOME/.cache/mnpm \
+  --disturl=http://npm.sankuai.com/mirrors/node \
+  --userconfig=$HOME/.mnpmrc" 
+```
 
 # git 指令
 
@@ -70,3 +110,56 @@ fixes issue #12
 
 ## reset
 场景：已经把当前 commit 推入到远程，其实 commit 信息写错了，现在希望撤回。拿到那个 commit 的 hash 值 然后 `git reset <commit hash>`，这个效果就是将指定 commit 从远程撤回，然后重新 commit 即可
+
+# vscode 插件
+- Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code
+- Live Server
+- Import Cost
+- Paste Image
+- Markdown All in One
+- Markdown Preview Enhanced
+- ES7 React/Redux/GraphQL/React-Native snippets
+- Reactjs code snippets
+- Vetur
+- Vue - Official
+- ESLint
+- Git Graph
+- GitLens — Git supercharged
+- React Native Tools
+- PostCSS Language Support
+  
+  ～
+
+# 辅助网站
+- markdown 语法大全：https://markdown.com.cn/basic-syntax/
+- json 格式转换： json.cn
+- git 指令：https://www.atlassian.com/zh/git/tutorials/merging-vs-rebasing
+- react 事件顺序：https://www.cnblogs.com/echolun/p/15518631.html
+- js 异步问题：https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/async%20%26%20performance/ch2.md#%E4%BF%A1%E4%BB%BB%E9%97%AE%E9%A2%98
+- 工程化：https://mp.weixin.qq.com/s/NuH-sga13okeMVGDFZWFtQ
+  
+  ## 算法
+1. 入门指南：
+   灵茶山艾府 - 分享｜如何科学刷题？
+   https://leetcode.cn/circle/discuss/RvFUtj/
+2. 周赛讲解：
+   灵茶山艾府的 leetcode 周赛讲解
+   https://space.bilibili.com/206214?spm_id_from=333.337.0.0
+3. 模版库：
+   灵茶山艾府的算法竞赛模板库(go 版本)
+   https://github.com/EndlessCheng/codeforces-go
+   我的算法学习笔记、模版库(python、go、ts 都有一些)
+   https://github.com/981377660LMT/algorithm-study
+4. 百科全书：
+   算法教程网站
+   https://oi-wiki.org/
+
+
+# 辅助应用
+- clashx 🪜
+- fork git 可视化工具
+- oh my zsh
+- Xcode ios 模拟器
+- Charles 抓包工具
+  
+  ～

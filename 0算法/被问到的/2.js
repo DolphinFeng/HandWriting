@@ -1,21 +1,34 @@
-// { a: 1, b: 2, c: 3 } -> [['a', 1], ['b', 2], ['c', 3]]
-
+// 将 如下 obj 转换为 [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]
 let obj = { a: 1, b: 2, c: 3 }
 
-let arr = []
+/**
+ * 将对象转换为键值对数组
+ * @param {Object} obj - 需要转换的对象
+ * @returns {Array} - 返回键值对数组
+ */
+const objectToArray = (obj) => {
+  // 使用 Object.entries 方法将对象转换为键值对数组
+  return Object.entries(obj);
+};
 
-for (let item in obj) {
-    arr.push(item, obj[item])
+const result = objectToArray(obj);
+
+console.log(result);
+
+
+/**
+ * 手写实现 Object.entries 方法
+ * @param {Object} obj - 需要转换的对象
+ * @returns {Array} - 返回键值对数组
+ */
+function myEntries(obj) {
+    let entries = []
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            entries.push([key, obj[key]])
+        }
+    }
+    return entries
 }
 
-let res = []
-for (let i = 0; i < arr.length; i += 2) {
-    res.push(arr.slice(i, i + 2))
-}
-
-console.log(res);
-
-// for in 遍历对象，其key本身就是string类型，无需转换，然后将key，obj[key]都同时放进数组形成一维数组
-// 然后在新建一个数组，用于存入二维
-
-// 转回去
+console.log(myEntries(obj));

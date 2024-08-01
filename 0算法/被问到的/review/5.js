@@ -1,4 +1,8 @@
 // 遍历给定节点id的所有子节点，如有结果以数组形式输出
+// fn(tree, '1', 'id') => ['2', '3', '4','5', '6', '7', '8', '9']
+// fn(tree, '8', 'id') => ['9']
+// fn(tree, '5', 'id') => 当前节点下无子节点
+
 const tree = [
     {
         id: "1",
@@ -25,17 +29,37 @@ const tree = [
     }
 ]
 
-function find(root, id) {
-    let arr = []
-    for (let item of root) {      
-            if(item.id == id){
-                
+
+function fn (tree, targetId, isField) {
+    let res = []
+    
+    function traverse (nodes) {
+        for (let node of nodes) {
+            if (node[isField] === targetId) {
+                collectionChildren(node.children)
+                return
             }
-            arr.push(item.id)
-            if (item.children) {
-                arr.push(...find(item.children,-1))
+            if (node.children) {
+                traverse(node.children)
             }
+        }
     }
-    return arr
+
+    function collectionChildren (children) {
+        if (!children || children.length === 0) {
+            res = '当前节点下无子节点'
+            return
+        }
+        for (let child of children) {
+            res.push(child[isField])
+            if (child.children) {
+                collectionChildren(child.children)
+            }
+        }
+    }
+
+    traverse(tree)
+    return res
 }
-console.log(find(tree, 2));
+
+console.log(fn(tree, '1', 'id'));

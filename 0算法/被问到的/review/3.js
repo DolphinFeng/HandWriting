@@ -1,32 +1,23 @@
-function request() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => { // 模拟一个2s的请求
-            resolve('请求成功')
-        }, 2000)
-    })
-}
+// 模拟一个请求，没超时就是resolve，超时则reject
 
-function start (wait) {
+function simulate (timeout) {
     return new Promise((resolve, reject) => {
-        request()
-        .then((res) => {
-            resolve(res)
-        })
-        .catch((err) => {
-            reject(err)
-        })
+        let request = Math.random() * 2000
+
         setTimeout(() => {
-            reject('请求超时')
-        }, wait)
+            if (request <= timeout) {
+                resolve('请求成功')
+            } else {
+                reject('请求超时')
+            }
+        }, request)
     })
 }
 
-let delay = 3000  // 超过3s就超时
-
-start(delay)
-.then(res => {
-    console.log(res);
-})
-.catch(err => {
-    console.log(err);
-})
+simulate(1000)
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((err) => {
+        console.log(err);
+    })

@@ -1,16 +1,12 @@
-Function.prototype.myApply = function (ctx) {
+Function.prototype.myApply = function (ctx, args) {
     if (typeof this !== 'function') {
-        throw new TypeError('is not a function')
+        throw new TypeError('myApply is not a function')
     }
 
-    let res 
-    let fn = Symbol()
+    ctx = ctx || globalThis
+    const fn = Symbol()
     ctx[fn] = this
-    if (arguments[1]) {
-        res = ctx[fn](...arguments[1])
-    } else {
-        res = ctx[fn]
-    }
+    const res = args ? ctx[fn](...args) : ctx[fn]()
     delete ctx[fn]
     return res
 }

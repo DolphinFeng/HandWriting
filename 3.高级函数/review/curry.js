@@ -6,9 +6,9 @@ const sortFn = (...args) => {
     return args.sort()
 }
 
-function currying (fn) {
-    let args
-    return function result (...rest) {
+const currying = (fn) => {
+    const args = []
+    const result = (...rest) => {
         if (rest.length === 0) {
             return fn(...args)
         } else {
@@ -16,6 +16,7 @@ function currying (fn) {
             return result
         }
     }
+    return result
 }
 
 console.log(currying(add)(1)(2)(3)());

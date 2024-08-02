@@ -20,7 +20,17 @@ const tree = {
             children: [
                 {
                     val: 6,
-                    children: []
+                    children: [
+                        {
+                            val: 8,
+                            children: [
+                                {
+                                    val: 9,
+                                    children: []
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     val: 7,
@@ -31,16 +41,19 @@ const tree = {
     ]
 }
 
-function maxLevel (node) {
-    let level = 0
-    function dfs (root, l) {
+// 求树的最大深度
+
+function maxLevel (tree) {
+    let level = 0;
+    function dfs (node, l) {
         level = Math.max(level, l)
-        for (let child of root.children) {
-            dfs(child, l + 1)
+        for (let child of node.children) {
+            dfs (child, l + 1)
         }
     }
-    dfs(node, 1)
-    return level
+    dfs (tree, 1)
+    return level 
 }
+
 
 console.log(maxLevel(tree));

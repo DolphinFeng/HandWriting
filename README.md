@@ -127,6 +127,7 @@ fixes issue #12
 - GitLens — Git supercharged
 - React Native Tools
 - PostCSS Language Support
+- Tabnine: AI Chat & Autocomplete for JavaScript, Python, Typescript, Java, PHP, Go, an
   
   ～
 

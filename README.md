@@ -137,6 +137,7 @@ fixes issue #12
 - react 事件顺序：https://www.cnblogs.com/echolun/p/15518631.html
 - js 异步问题：https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/async%20%26%20performance/ch2.md#%E4%BF%A1%E4%BB%BB%E9%97%AE%E9%A2%98
 - 工程化：https://mp.weixin.qq.com/s/NuH-sga13okeMVGDFZWFtQ
+-  vue3编译原理解密：https://vue-compiler.iamouyang.cn/guide/vue-to-js.html
   
   ## 算法
 1. 入门指南：

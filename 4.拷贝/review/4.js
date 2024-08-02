@@ -1,6 +1,5 @@
 // JSON structredClone
 function deepCopy (obj) {
-    // return JSON.parse(JSON.stringify(obj))
     return structuredClone(obj)
 }
 

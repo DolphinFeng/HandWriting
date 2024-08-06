@@ -6,21 +6,36 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- 按钮，用于触发获取新歌的操作 -->
     <button id="btn">新歌速递</button>
+    <!-- 列表，用于展示获取到的新歌 -->
     <ul id="ul"></ul>
 
+    <!-- 引入jQuery库 -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
+        // 获取按钮元素
         const btn = document.getElementById('btn')
+        
+        // 为按钮添加点击事件监听器
         btn.addEventListener('click', () => {
+            // 使用jQuery的ajax方法发送GET请求
             $.ajax({
+                // 请求的URL
                 url: 'http://172.22.22.71:3000/top/song?type=8',
+                // 请求方法
                 method: 'GET',
+                // 期望的响应数据类型
                 dataType: 'json',
+                // 请求成功时的回调函数
                 success: function (res) {
+                    // 遍历响应数据中的每首歌
                     res.data.forEach((song) => {
+                        // 创建一个新的列表项元素
                         let li = document.createElement('li')
+                        // 设置列表项的内容为歌曲名称
                         li.innerHTML = song.name
+                        // 将列表项添加到ul元素中
                         document.getElementById('ul').appendChild(li)
                     })
                 }

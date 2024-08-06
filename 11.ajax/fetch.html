@@ -10,15 +10,23 @@
     <ul id="ul"></ul>
 
     <script>
+        // 获取按钮元素
         const btn = document.getElementById('btn')
+        
+        // 为按钮添加点击事件监听器
         btn.addEventListener('click', () => {
+            // 发送请求获取新歌数据
             fetch('http://172.22.22.71:3000/top/song?type=7')
-            .then(data => data.json())
+            .then(data => data.json()) // 将响应数据转换为 JSON 格式
             .then(res => {
+                // 遍历返回的歌曲数据
                 res.data.forEach((song) => {
+                    // 创建新的列表项元素
                     let li = document.createElement('li')
+                    // 设置列表项的内容为歌曲名称
                     li.innerHTML = song.name
-                    document.getElementById('li').appendChild(li)
+                    // 将列表项添加到 ul 元素中
+                    document.getElementById('ul').appendChild(li)
                 })
             })
         })

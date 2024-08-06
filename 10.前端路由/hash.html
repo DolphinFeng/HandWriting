@@ -6,16 +6,20 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- 导航链接 -->
     <li><a href="#/home">首页</a></li>
     <li><a href="#/about">关于</a></li>
 
+    <!-- 路由视图容器 -->
     <div id="routeView">
         <!-- 放组件 -->
     </div>
 
     <script>
+        // 获取路由视图的 DOM 元素
         let routeView = document.getElementById('routeView')
 
+        // 定义路由数组，每个路由包含路径和组件内容
         const routes = [
             {
                 path: '#/home',
@@ -27,10 +31,16 @@
             }
         ]
 
+        // 监听 hashchange 事件，当 URL 的 hash 部分发生变化时触发 onHashChange 函数
         window.addEventListener('hashchange', onHashChange)
 
+        // 监听 DOMContentLoaded 事件，当初始 HTML 文档被完全加载和解析时触发 onHashChange 函数
         window.addEventListener('DOMContentLoaded', onHashChange)
 
+        /**
+         * 当 URL 的 hash 部分发生变化时调用此函数
+         * 根据当前的 hash 值匹配相应的路由，并将对应的组件内容显示在 routeView 中
+         */
         function onHashChange () {
             console.log(location);
             routes.forEach((item, index) => {

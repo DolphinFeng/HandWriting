@@ -6,49 +6,41 @@
  * @param {Number} parallelCount - 并发数，表示同时运行的最大任务数
  * @returns {Promise} - 返回一个 Promise，当所有任务完成后执行 resolve
  */
-function parallelTask(tasks, parallelCount = 2) {
+function parallelTask (task, parallelCount) {
     return new Promise((resolve, reject) => {
-        let activeTasks = 0; // 当前正在执行的任务数
-        let taskIndex = 0; // 当前任务索引
-        const results = []; // 存储每个任务的结果
-
-        // 运行任务的函数
-        function runTask() {
-            // 如果所有任务都已分配且没有活动任务，则完成
+        let activeTasks = 0;
+        let taskIndex = 0;
+        const results = []
+        function runTask () {
             if (taskIndex >= tasks.length) {
                 if (activeTasks === 0) {
-                    resolve(results); // 所有任务完成，执行 resolve
+                    resolve(results)
                 }
-                return;
+                return
             }
 
-            const currentTaskIndex = taskIndex++; // 获取当前任务索引并递增
-            activeTasks++; // 增加活动任务数
-
-            // 执行当前任务
+            const currentTaskIndex = taskIndex++;
+            activeTasks++;
             tasks[currentTaskIndex]()
-                .then(result => {
-                    results[currentTaskIndex] = result; // 存储任务结果
-                    activeTasks--; // 任务完成，减少活动任务数
-                    runTask(); // 继续运行下一个任务
-                })
-                .catch(error => {
-                    reject(error); // 任务出错，执行 reject
-                });
-
-            // 如果活动任务数小于并发数，继续运行下一个任务
-            if (activeTasks < parallelCount) {
+            .then(result => {
+                results[currentTaskIndex] = result;
+                activeTasks--;
                 runTask();
+            })
+            .catch(error => {
+                reject(error)
+            })
+
+            if (activeTasks < parallelCount) {
+                runTask()
             }
         }
 
-        // 初始化并发任务
         for (let i = 0; i < parallelCount && i < tasks.length; i++) {
-            runTask();
+            runTask()
         }
-    });
+    })
 }
-
 
 
 // 模拟任务函数，返回一个 Promise，模拟异步操作

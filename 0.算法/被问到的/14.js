@@ -22,22 +22,41 @@
 // 示例 4：
 // 输入：path = "/a/./b/../../c/"
 // 输出："/c"
-path = "/home//foo/"
 
-function output (str) {
-    let arr = str.split('/').filter(item => item !== '')
-    console.log(arr);
-    const res = []
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === '.') {
-            continue
-        } else if (arr[i] === '..') {
-            res.pop()
-        } else {
-            res.push(arr[i])
+
+/**
+ * 将给定的 Unix 风格绝对路径转换为简洁的规范路径。
+ * @param {string} path - 表示指向某一文件或目录的 Unix 风格绝对路径。
+ * @return {string} - 返回简化后的规范路径。
+ */
+function simplifyPath(path) {
+    // 使用栈来处理路径中的目录和操作
+    const stack = [];
+    // 将路径按斜杠分割成数组
+    const components = path.split('/');
+
+    // 遍历路径的每个部分
+    for (let i = 0; i < components.length; i++) {
+        const component = components[i];
+        // 如果遇到 ".." 则返回上一级目录
+        if (component === '..') {
+            if (stack.length > 0) {
+                stack.pop();
+            }
+        // 如果遇到 "." 或空字符串则跳过
+        } else if (component !== '' && component !== '.') {
+            // 将有效的目录名压入栈中
+            stack.push(component);
         }
-    } 
-    console.log(res);  
-    console.log('/'+res.join('/'));
+    }
+
+    // 将栈中的目录名用斜杠连接成规范路径
+    return '/' + stack.join('/');
 }
-output(path)
+
+// 示例用法
+console.log(simplifyPath("/home/")); // 输出："/home"
+console.log(simplifyPath("/../")); // 输出："/"
+console.log(simplifyPath("/home//foo/")); // 输出："/home/foo"
+console.log(simplifyPath("/a/./b/../../c/")); // 输出："/c"
+

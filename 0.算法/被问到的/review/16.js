@@ -6,20 +6,19 @@
 
 // 输入： {[(abcdefg]12345)}
 
-// 输出falses
+// 输出false
 
-let str = '{[(abcdefg]12345)}'
 
-function judge (str) {
-    let len = str.length
-    let obj = {
-        '(': ')',
+function test (str) {
+    const obj = {
+        '{': '}',
         '[': ']',
-        '{': '}'
+        '(': ')'
     }
-    let stack = []
 
-    for (let i = 0; i < len; i++) {
+    const stack = []
+
+    for (let i = 0; i < str.length; i++) {
         let res = obj[str[i]]
         if (res) {
             stack.push(res)
@@ -28,7 +27,9 @@ function judge (str) {
             stack.pop()
         }
     }
+
     return stack.length === 0 ? true : false
 }
 
-console.log(judge(str));
+// 测试用例
+console.log(test('{[(abcdefg]12345)}')) // 输出 false

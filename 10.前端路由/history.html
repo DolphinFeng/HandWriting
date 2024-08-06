@@ -14,8 +14,10 @@
     </div>
 
     <script>
+        // 获取显示组件的容器
         const routeView = document.getElementById('routeView')
 
+        // 定义路由数组，每个路由包含路径和对应的组件内容
         const routes = [
             {
                 path: '/home',
@@ -27,27 +29,33 @@
             }
         ]
 
+        // 页面加载时执行的函数
         function onLoad() {
+            // 获取所有的导航链接
             const links = document.querySelectorAll('li a')
+            // 为每个链接添加点击事件监听器
             links.forEach(a => {
                 a.addEventListener('click', e => {
                     console.log(e);
                     e.preventDefault()  // 禁掉a标签的默认跳转行为
-                    history.pushState(null, '', a.getAttribute('href')) // 拿到href链接
-                    onPopstate()
+                    history.pushState(null, '', a.getAttribute('href')) // 更新浏览器历史记录
+                    onPopstate() // 手动调用路由处理函数
                 })
             })
         }
 
+        // 路由处理函数，根据当前路径更新显示的组件内容
         function onPopstate() {
             routes.forEach(item => {
                 if (item.path === location.pathname) {
-                    routeView.innerHTML = item.component
+                    routeView.innerHTML = item.component // 更新组件内容
                 }
             })
         }
 
+        // 页面加载完成后执行onLoad函数
         window.addEventListener('DOMContentLoaded', onLoad)
+        // 浏览器历史记录变化时执行onPopstate函数
         window.addEventListener('popstate', onPopstate)
     </script>
 </body>

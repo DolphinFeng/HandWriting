@@ -10,17 +10,36 @@
     <ul id="ul"></ul>
 
     <script>
+        // 获取按钮元素
         const btn = document.getElementById('btn')
+        
+        // 为按钮添加点击事件监听器
         btn.addEventListener('click', () => {
+            // 创建一个新的XMLHttpRequest对象
             let xhr = new XMLHttpRequest() 
-            xhr.open('GET', 'http://172.22.22.71:3000/top/song?type=7', true) // true表示异步请求，false表示同步
-            xhr.onreadystatechange = () => { // 接收后端响应
-                if(xhr.readyState === 4 && xhr.status === 200) { // readyState 0 表示刚创建xhr，1表示准备好了请求体，2表示已经调用了send，3表示正在接收响应体，4表示数据解析完成，status 200表示正确并返回正确结果
+            
+            // 初始化一个GET请求，目标URL为指定的API地址，true表示异步请求
+            xhr.open('GET', 'http://172.22.22.71:3000/top/song?type=7', true)
+            
+            // 设置请求状态变化的回调函数
+            xhr.onreadystatechange = () => {
+                // 检查请求是否完成并且响应状态为200（成功）
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    // 解析响应的JSON数据
                     let res = JSON.parse(xhr.responseText)
+                    
+                    // 遍历返回的数据数组
                     res.data.forEach((song) => {
+                        // 打印每首歌的名字到控制台
                         console.log(song.name);
+                        
+                        // 创建一个新的li元素
                         let li = document.createElement('li')
+                        
+                        // 设置li元素的内容为歌曲名字
                         li.innerHTML = song.name
+                        
+                        // 将li元素添加到ul列表中
                         document.getElementById('ul').appendChild(li)
                     })
                 }

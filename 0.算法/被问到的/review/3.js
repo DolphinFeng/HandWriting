@@ -3,7 +3,6 @@
 function simulate (timeout) {
     return new Promise((resolve, reject) => {
         let request = Math.random() * 2000
-
         setTimeout(() => {
             if (request <= timeout) {
                 resolve('请求成功')
@@ -15,9 +14,9 @@ function simulate (timeout) {
 }
 
 simulate(1000)
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+.then(res => {
+    console.log(res);
+})
+.catch(err => {
+    console.log(err);
+})

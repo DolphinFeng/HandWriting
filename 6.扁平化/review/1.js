@@ -3,7 +3,7 @@ var arr = [1, [2, [3, [4, 5]]]]
 function flatten (arr) {
     let res = []
     for (let i = 0; i < arr.length; i++) {
-        if (Array.isArray(arr[i])) {
+        if (arr[i] instanceof Array) {
             let nextArr = flatten(arr[i])
             res = res.concat(nextArr)
         } else {

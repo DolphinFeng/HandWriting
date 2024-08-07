@@ -1,19 +1,4 @@
-const BFS = (tree) => {
-    let queue = []
-    queue.push(tree)
-    while (queue.length) {
-        let top = queue[0]
-        console.log(top.val);
-        if (top.left) {
-            queue.push(top.left)
-        }
-        if (top.right) {
-            queue.push(top.right)
-        }
-        queue.shift()
-    }
-}
-
+// 定义一个二叉树
 let tree = {
     val: 1, 
     left: {
@@ -33,4 +18,19 @@ let tree = {
     }
 }
 
-BFS(tree)
+function BFS (node) {
+    if (!node) return
+    let queue = [node]
+    let res = []
+    while (queue.length) {
+        const currentNode = queue.shift()
+        res.push(currentNode.val)
+        if (currentNode.left) queue.push(currentNode.left)
+        if (currentNode.right) queue.push(currentNode.right)
+    }
+    return res
+}
+
+// 调用BFS函数遍历二叉树并返回结果数组
+const bfsResult = BFS(tree);
+console.log(bfsResult); // 输出: [1, 2, 5, 3, 4, 6]

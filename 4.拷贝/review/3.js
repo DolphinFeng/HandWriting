@@ -7,12 +7,11 @@ let obj = {
 }
 
 function deepCopy (obj) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         const { port1, port2 } = new MessageChannel()
-
         port1.postMessage(obj)
 
-        port2.onmessage = function (msg) {
+        port2.onmessage = (msg) => {
             resolve(msg.data)
         }
     })
@@ -20,6 +19,8 @@ function deepCopy (obj) {
 
 async function fn () {
     let objCopy = await deepCopy(obj)
+    obj.a.b = 2
+
     console.log(objCopy);   
 }
 

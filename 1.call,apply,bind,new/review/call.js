@@ -6,14 +6,13 @@ let obj = {
     a: 1
 }
 
-Function.prototype.myCall = function (ctx) {
+Function.prototype.myCall = function (ctx, args) {
     if (typeof this !== 'function') {
-        throw new TypeError('this is not a function')
+        throw new TypeError('myCall in not a function') 
     }
 
-    let args = [...arguments].slice(1)
     ctx.fn = this
-    let res = ctx.fn(...args)
+    let res = ctx.fn(args)
     delete ctx.fn
     return res
 }

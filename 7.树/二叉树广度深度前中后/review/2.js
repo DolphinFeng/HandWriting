@@ -1,10 +1,3 @@
-const DFS = (tree) => {
-    if (tree === null) return
-    console.log(tree.val);
-    DFS(tree.left)
-    DFS(tree.right)
-}
-
 let tree = {
     val: 1, 
     left: {
@@ -31,4 +24,15 @@ let tree = {
     }
 }
 
-DFS(tree)
+function DFS (node, res = []) {
+    if (node === null) return res
+    res.push(node.val)
+    DFS(node.left, res)
+    DFS(node.right, res)
+    return res
+}
+
+
+// 调用DFS函数，从根节点开始遍历，并返回结果数组
+let result = DFS(tree);
+console.log(result); // 输出: [1, 2, 3, 4, 5, 6]

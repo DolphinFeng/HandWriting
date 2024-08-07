@@ -180,5 +180,22 @@
     - 算法
         - 被问到的：16，17, 18, 19, 20, 21, 22, 22
     - promise
-    
+- 8.7
+    今日投递秋招：蔚来重投
+    - 算法
+        - 被问到的：2, 3
+    - promise
+    - instanceof
+    - debounce，throttle
+    - call, apply, bind, new
+    - curry, memoize, once
+    - 深浅拷贝： 1, 2, 3, 4, 5
+    - 排序： 冒泡、快排、选择、插入、归并合并有序数组
+    - 扁平化：1, 2, 3
+    - 树：BFS,DFS,前中后序
+    - 经典题：红绿灯
+    - 去重：1
+    - 手搓路由：hash，history
+    - ajax：xhr,jquery,fetch
+    - 发布订阅
 ```

@@ -17,29 +17,35 @@ let tree = {
     }
 }
 
-function preOrder (tree) {
-    if (!tree) return 
-    console.log(tree.val);
-    preOrder(tree.left)
-    preOrder(tree.right)
-}
-
-function minOrder (tree) {
+function preOrder (tree, res = []) {
     if (!tree) return
-    minOrder(tree.left)
-    console.log(tree.val);
-    minOrder(tree.right) 
+    res.push(tree.val)
+    preOrder(tree.left, res)
+    preOrder(tree.right, res)
+    return res
 }
 
-function backOrder (tree) {
+function inOrder (tree, res = []) {
     if (!tree) return
-    backOrder(tree.left)
-    backOrder(tree.right)
-    console.log(tree.val); 
+    preOrder(tree.left, res)
+    res.push(tree.val)
+    preOrder(tree.right, res)
+    return res
 }
 
-// preOrder(tree) // 123456
+function postOrder (tree, res = []) {
+    if (!tree) return
+    preOrder(tree.left, res)
+    preOrder(tree.right, res)
+    res.push(tree.val)
+    return res
+}
 
-// minOrder(tree) // 324156
+// 示例调用
+let preOrderResult = preOrder(tree);
+let inOrderResult = inOrder(tree);
+let postOrderResult = postOrder(tree);
 
-// backOrder(tree) // 342651
+console.log('先序遍历结果:', preOrderResult);
+console.log('中序遍历结果:', inOrderResult);
+console.log('后序遍历结果:', postOrderResult);

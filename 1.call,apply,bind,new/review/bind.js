@@ -14,7 +14,6 @@ Function.prototype.myBind = function (ctx) {
     Fn.prototype = Object.create(fn.prototype)
     return Fn
 }
-
 function person (name, age) {
     console.log(name);
     console.log(age);

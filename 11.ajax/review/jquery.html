@@ -15,10 +15,10 @@
         btn.addEventListener('click', () => {
             $.ajax({
                 url: 'url',
-                method: 'get',
+                method: 'GET',
                 dataType: 'json',
-                success: (res) => {
-                    
+                success: function (res) {
+                    console.log(res.data);
                 }
             })
         })

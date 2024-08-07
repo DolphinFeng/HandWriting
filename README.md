@@ -130,6 +130,14 @@ fixes issue #12
 - Tabnine: AI Chat & Autocomplete for JavaScript, Python, Typescript, Java, PHP, Go, an
   
   ～
+# 浏览器插件
+- JSONVue
+- Grow in 掘金
+- ModHeader
+- Charset
+- Vue.js devtools
+- 沉浸式翻译
+- Octotree - GitHub code tree
 
 # 辅助网站
 - markdown 语法大全：https://markdown.com.cn/basic-syntax/

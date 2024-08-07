@@ -9,7 +9,7 @@ const sortFn = (...args) => {
 const currying = (fn) => {
     const args = []
     const result = (...rest) => {
-        if (rest.length === 0) {
+        if (rest.length) {
             return fn(...args)
         } else {
             args.push(...rest)

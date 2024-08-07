@@ -1,12 +1,14 @@
-function once (fn) {
+function once (cb) {
     let ran = false, res
     return function () {
-        if (ran) return res 
+        if (ran) return res
+        res = cb.apply(this, arguments)
         ran = true
-        res = fn.apply(this, arguments)
-        return res        
+        return res
     }
 }
+
+
 let i = 0
 
 const foo = once(() => {

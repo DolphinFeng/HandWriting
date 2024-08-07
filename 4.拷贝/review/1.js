@@ -1,14 +1,11 @@
 function shallowCopy (obj) {
-    if (typeof obj !== 'object' || obj === null) return
-
-    let objCopy = obj instanceof Array ? [] : {}
-    
+    if (typeof obj !== 'object' ||  obj === null) return
+    let objCopy = Array.isArray(obj) ? [] : {}
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
             objCopy[key] = obj[key]
         }
     }
-
     return objCopy
 }
 

@@ -3,13 +3,12 @@ Function.prototype.myApply = function (ctx, args) {
         throw new TypeError('myApply is not a function')
     }
 
-    ctx = ctx || globalThis
-    const fn = Symbol()
+    let fn = Symbol()
     ctx[fn] = this
-    const res = args ? ctx[fn](...args) : ctx[fn]()
-    delete ctx[fn]
+    let res = args ? ctx[fn](...args) : ctx[fn]()
+    delete ctx[fn] 
     return res
-}
+} 
 
 function foo (a, b) {
     console.log(a, b);

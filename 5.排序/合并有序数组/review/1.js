@@ -3,9 +3,8 @@ let arr1 = [1, 2, 4, 7]
 let arr2 = [3, 6, 9]
 
 const merge = (arr1, arr2) => {
-    let i = 0; j = 0
+    let i = 0, j = 0
     let res = []
-    
     while (i < arr1.length && j < arr2.length) {
         if (arr1[i] < arr2[j]) {
             res.push(arr1[i])
@@ -25,7 +24,7 @@ const merge = (arr1, arr2) => {
         res.push(arr2[j])
         j++
     }
-
+    
     return res
 }
 

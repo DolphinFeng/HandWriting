@@ -8,16 +8,16 @@ class MyPromise {
 
         const resolve = (value) => {
             if (this.state === 'pending') {
-                this.state = 'fulfilled'
                 this.value = value
+                this.state = 'fulfilled'
                 this.onFulfilledCallbacks.forEach(cb => cb(value))
             }
         }
 
         const reject = (reason) => {
             if (this.state === 'pending') {
-                this.state = 'rejected'
                 this.reason = reason
+                this.state = 'rejected'
                 this.onRejectedCallbacks.forEach(cb => cb(reason))
             }
         }
@@ -28,11 +28,10 @@ class MyPromise {
     then (onFulfilled, onRejected) {
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
         onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
-
-        const newPromise = new MyPromise((resolve, reject) => {
+        const newPromise = new MyPromise(() => {
             if (this.state === 'fulfilled') {
                 setTimeout(() => {
-                    try {   
+                    try {
                         const res = onFulfilled(this.value)
                         resolve(res)
                     } catch (err) {
@@ -43,7 +42,7 @@ class MyPromise {
             if (this.state === 'rejected') {
                 setTimeout(() => {
                     try {
-                        const res = onFulfilled(this.reason)
+                        const res = onRejected(this.reason)
                         resolve(res)
                     } catch (err) {
                         reject(err)
@@ -64,16 +63,15 @@ class MyPromise {
                 this.onRejectedCallbacks.push((reason) => {
                     setTimeout(() => {
                         try {
-                            const res = onFulfilled(reason)
+                            const res = onRejected(reason)
                             resolve(res)
                         } catch (err) {
                             reject(err)
                         }
                     })
                 })
-            }   
+            }
         })
-
         return newPromise
     }
 
@@ -84,10 +82,10 @@ class MyPromise {
     finally (cb) {
         return this.then(
             (value) => {
-                return new MyPromise.resolve(cb()).then(() => value)
+                return MyPromise.resolve(cb()).then(() => value)
             },
             (reason) => {
-                return new MyPromise.resolve(cb()).then(() => {
+                return MyPromise.resolve(cb()).then(() => {
                     throw reason
                 })
             }
@@ -111,7 +109,7 @@ class MyPromise {
 
     static all (promises) {
         return new MyPromise((resolve, reject) => {
-            let res = [], count = 0
+            let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i].then(
                     (value) => {
@@ -131,7 +129,7 @@ class MyPromise {
 
     static any (promises) {
         return new MyPromise((resolve, reject) => {
-            let res = [], count = 0
+            let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i].then(
                     (value) => {
@@ -151,7 +149,7 @@ class MyPromise {
 
     static allSettled (promises) {
         return new MyPromise((resolve, reject) => {
-            let count = 0, arr = []
+            let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i]
                 .then((value) => {
@@ -169,7 +167,7 @@ class MyPromise {
                 .finally(() => {
                     count++
                     if (count === promises.length) {
-                        resolve(res)
+                        resolve(arr)
                     }
                 })
             }

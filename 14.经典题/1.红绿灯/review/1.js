@@ -4,14 +4,16 @@ function red () {
 
 function green () {
     console.log('green');
+    
 }
 
 function yellow () {
     console.log('yellow');
+    
 }
 
 function light (fn, wait) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             fn()
             resolve()

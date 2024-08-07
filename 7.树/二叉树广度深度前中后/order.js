@@ -1,32 +1,66 @@
+let tree = {
+    val: 1, 
+    left: {
+        val: 2,
+        left: {
+            val: 3
+        },
+        right: {
+            val: 4
+        }
+    },
+    right: {
+        val: 5,
+        right: {
+            val: 6
+        }
+    }
+}
+
 /**
  * 先序遍历二叉树（根-左-右）
  * @param {Object} tree - 二叉树的根节点
+ * @param {Array} result - 存储遍历结果的数组
  */
-function preOrder(tree) { // 根左右
+function preOrder(tree, result = []) { // 根左右
     if (!tree) return // 如果节点为空，直接返回
-    console.log(tree.value); // 打印当前节点的值
-    preOrder(tree.left) // 递归遍历左子树
-    preOrder(tree.right) // 递归遍历右子树
+    result.push(tree.val); // 将当前节点的值存入数组
+    preOrder(tree.left, result) // 递归遍历左子树
+    preOrder(tree.right, result) // 递归遍历右子树
+    return result; // 返回结果数组
 }
 
 /**
  * 中序遍历二叉树（左-根-右）
  * @param {Object} tree - 二叉树的根节点
+ * @param {Array} result - 存储遍历结果的数组
  */
-function minOrder(tree) { // 左根右
+function inOrder(tree, result = []) { // 左根右
     if (!tree) return // 如果节点为空，直接返回
-    minOrder(tree.left) // 递归遍历左子树
-    console.log(tree.value); // 打印当前节点的值
-    minOrder(tree.right) // 递归遍历右子树
+    inOrder(tree.left, result) // 递归遍历左子树
+    result.push(tree.val); // 将当前节点的值存入数组
+    inOrder(tree.right, result) // 递归遍历右子树
+    return result; // 返回结果数组
 }
 
 /**
  * 后序遍历二叉树（左-右-根）
  * @param {Object} tree - 二叉树的根节点
+ * @param {Array} result - 存储遍历结果的数组
  */
-function backOrder(tree) { // 左右根
+function postOrder(tree, result = []) { // 左右根
     if (!tree) return // 如果节点为空，直接返回
-    backOrder(tree.left) // 递归遍历左子树
-    backOrder(tree.right) // 递归遍历右子树
-    console.log(tree.value); // 打印当前节点的值
+    postOrder(tree.left, result) // 递归遍历左子树
+    postOrder(tree.right, result) // 递归遍历右子树
+    result.push(tree.val); // 将当前节点的值存入数组
+    return result; // 返回结果数组
 }
+
+// 示例调用
+let preOrderResult = preOrder(tree);
+let inOrderResult = inOrder(tree);
+let postOrderResult = postOrder(tree);
+
+console.log('先序遍历结果:', preOrderResult);
+console.log('中序遍历结果:', inOrderResult);
+console.log('后序遍历结果:', postOrderResult);

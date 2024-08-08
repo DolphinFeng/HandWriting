@@ -198,4 +198,7 @@
     - 手搓路由：hash，history
     - ajax：xhr,jquery,fetch
     - 发布订阅
+- 8.8
+    今日投递秋招：大疆、去哪儿旅行、快手
+    - promise
 ```

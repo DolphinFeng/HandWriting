@@ -8,17 +8,19 @@ class MyPromise {
 
         const resolve = (value) => {
             if (this.state === 'pending') {
-                this.value = value
                 this.state = 'fulfilled'
+                this.value = value
                 this.onFulfilledCallbacks.forEach(cb => cb(value))
             }
         }
 
         const reject = (reason) => {
             if (this.state === 'pending') {
-                this.reason = reason
-                this.state = 'rejected'
-                this.onRejectedCallbacks.forEach(cb => cb(reason))
+                if (this.state === 'pending') {
+                    this.state = 'rejected'
+                    this.reason = reason
+                    this.onRejectedCallbacks.forEach(cb => cb(reason))
+                }
             }
         }
 
@@ -27,8 +29,8 @@ class MyPromise {
 
     then (onFulfilled, onRejected) {
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
-        onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
-        const newPromise = new MyPromise(() => {
+        onRejected = typeof onRejected === 'function' ? onRejected :reason => { throw reason }
+        const newPromise = new MyPromise((resolve, reject) => {
             if (this.state === 'fulfilled') {
                 setTimeout(() => {
                     try {
@@ -50,7 +52,7 @@ class MyPromise {
                 })
             }
             if (this.state === 'pending') {
-                this.onFulfilledCallbacks.push((value) => {
+                this.onFulfilledCallbacks.push(value => {
                     setTimeout(() => {
                         try {
                             const res = onFulfilled(value)
@@ -60,7 +62,7 @@ class MyPromise {
                         }
                     })
                 })
-                this.onRejectedCallbacks.push((reason) => {
+                this.onRejectedCallbacks.push(reason => {
                     setTimeout(() => {
                         try {
                             const res = onRejected(reason)
@@ -152,13 +154,13 @@ class MyPromise {
             let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i]
-                .then((value) => {
+                .then(value => {
                     arr[i] = {
                         state: 'fulfilled',
                         value
                     }
                 })
-                .catch((reason) => {
+                .catch(reason => {
                     arr[i] = {
                         state: 'rejected',
                         reason

@@ -198,4 +198,13 @@
     - 手搓路由：hash，history
     - ajax：xhr,jquery,fetch
     - 发布订阅
+- 8.8
+    今日投递秋招：大疆、去哪儿旅行、快手
+    - promise
+- 8.9
+    - promise
+- 8.12
+    - promise
+    - 看代码说输出
+        - 闭包、词法作用域、回流重绘、拷贝、类型转换、声明提升、原型、event-loop: 2、parseInt、promise: 1、this
 ```

@@ -15,7 +15,7 @@ Hi，这里是 Dolphin 的手写仓库
 ## 分支类型
 
 ### master 主干分支
-> 用于记录线上发布历史的分支。永远是可用，稳定，可直接发布的分支，**禁止在此分支开发**
+> 用于记录线上发布历史的分支。永远是可用，稳定，可直接发布的分支，有问题方便随时回滚，**禁止在此分支开发**
 
 ### feature 新需求开发分支
 > 用于开发新功能或线下缺陷修复的分支。当开发一个新功能时或线下缺陷修复时，从 master 分支迁出 feature 分支，上线完后删除此分支
@@ -111,6 +111,9 @@ fixes issue #12
 ## reset
 场景：已经把当前 commit 推入到远程，其实 commit 信息写错了，现在希望撤回。拿到那个 commit 的 hash 值 然后 `git reset <commit hash>`，这个效果就是将指定 commit 从远程撤回，然后重新 commit 即可
 
+## git branch -m new-branch-name
+场景：当前分支因为命名问题无法推送到远程，需要重新命名。当当前分支上使用此指令，再 push 即可
+
 # vscode 插件
 - Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code
 - Live Server
@@ -146,7 +149,10 @@ fixes issue #12
 - react 事件顺序：https://www.cnblogs.com/echolun/p/15518631.html
 - js 异步问题：https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/async%20%26%20performance/ch2.md#%E4%BF%A1%E4%BB%BB%E9%97%AE%E9%A2%98
 - 工程化：https://mp.weixin.qq.com/s/NuH-sga13okeMVGDFZWFtQ
--  vue3编译原理解密：https://vue-compiler.iamouyang.cn/guide/vue-to-js.html
+- vue3编译原理解密：https://vue-compiler.iamouyang.cn/guide/vue-to-js.html
+- es5：https://es5.github.io/#x11.9.3
+- es6新特性: https://es6.ruanyifeng.com/
+- ESLint：https://eslint.org/docs/latest/extend/custom-rule-tutorial
   
   ## 算法
 1. 入门指南：

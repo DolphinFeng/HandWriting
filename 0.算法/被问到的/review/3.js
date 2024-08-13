@@ -1,22 +1,25 @@
 // 模拟一个请求，没超时就是resolve，超时则reject
 
+
 function simulate (timeout) {
     return new Promise((resolve, reject) => {
-        let request = Math.random() * 2000
+        let requestTime = Math.random() * 2000
         setTimeout(() => {
-            if (request <= timeout) {
-                resolve('请求成功')
+            if (requestTime <= timeout) {
+                resolve('success')
             } else {
-                reject('请求超时')
+                reject('fail')
             }
-        }, request)
+        }, requestTime)
     })
 }
 
 simulate(1000)
 .then(res => {
     console.log(res);
+    
 })
 .catch(err => {
     console.log(err);
+    
 })

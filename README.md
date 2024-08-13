@@ -111,6 +111,9 @@ fixes issue #12
 ## reset
 场景：已经把当前 commit 推入到远程，其实 commit 信息写错了，现在希望撤回。拿到那个 commit 的 hash 值 然后 `git reset <commit hash>`，这个效果就是将指定 commit 从远程撤回，然后重新 commit 即可
 
+## rebase
+场景：git rebase master 将当前分支的更改应用到另一个分支上面
+
 ## git branch -m new-branch-name
 场景：当前分支因为命名问题无法推送到远程，需要重新命名。当当前分支上使用此指令，再 push 即可
 
@@ -153,7 +156,13 @@ fixes issue #12
 - es5：https://es5.github.io/#x11.9.3
 - es6新特性: https://es6.ruanyifeng.com/
 - ESLint：https://eslint.org/docs/latest/extend/custom-rule-tutorial
-  
+- boxshadow：https://dgerrells.com/blog/how-not-to-use-box-shadows
+- 别人的手写：https://github.com/Sunny-117/js-challenges
+- 别人的面试题：https://sunny-117.github.io/blog/
+- 小林 coding(计网+操作系统最好)：https://xiaolincoding.com/
+- web前端面试：https://vue3js.cn/interview/vue/vue.html#%E4%B8%80%E3%80%81%E4%BB%8E%E5%8E%86%E5%8F%B2%E8%AF%B4%E8%B5%B7
+- web体系：https://senior-frontend.pages.dev/
+
   ## 算法
 1. 入门指南：
    灵茶山艾府 - 分享｜如何科学刷题？

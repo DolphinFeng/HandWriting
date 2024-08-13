@@ -17,18 +17,21 @@ var person = {
 
 function print (obj, parentKey = '', res = {}) {
     for (let key in obj) {
-        let fulPath = parentKey ? `${parentKey}·${key}` : key
-        if (obj[key] instanceof Object && !Array.isArray(obj[key])) {
-            print(obj[key], fulPath, res)
-        } else {
-            res[fulPath] = obj[key]
+        let fullPath = parentKey ? `${parentKey}.${key}`: key
+        if (obj.hasOwnProperty(key)) {
+            if (obj[key] instanceof Object && !Array.isArray(obj[key])) {
+                print(obj[key], fullPath, res)
+            } else {
+                res[fullPath] = obj[key]
+            }
         }
     }
     return res
 }
 
-const result = print(person);
+let newObj = print(person)
 
-for (let key in result) {
-    console.log(`${key} = ${result[key]}`);
+for (let key in newObj) {
+    console.log(`${key} = ${newObj[key]}`);
+    
 }

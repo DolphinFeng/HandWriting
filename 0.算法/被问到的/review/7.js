@@ -1,6 +1,5 @@
 let i = 0
 
-
 function once (cb) {
     let ran = false, res
     return function () {

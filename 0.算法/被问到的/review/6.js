@@ -43,17 +43,19 @@ const tree = {
 
 // 求树的最大深度
 
-function maxLevel (tree) {
-    let level = 0;
+
+function getDeep (tree) {
+    let level = 0
+    
     function dfs (node, l) {
         level = Math.max(level, l)
         for (let child of node.children) {
-            dfs (child, l + 1)
+            dfs(child, l + 1)
         }
     }
-    dfs (tree, 1)
-    return level 
+
+    dfs(tree, 1)
+    return level
 }
 
-
-console.log(maxLevel(tree));
+console.log(getDeep(tree));

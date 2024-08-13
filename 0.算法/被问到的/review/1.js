@@ -10,9 +10,9 @@
 let arr = ["a","a","b","b","c","c","c","d"];
 
 function getLength (arr) {
-    let res = 0, i = 0
+    let res = 0, i = 0;
     while (i < arr.length) {
-        let j = i
+        let j = i;
         while (j < arr.length && arr[i] === arr[j]) {
             j++
         }

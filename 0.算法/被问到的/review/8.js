@@ -19,7 +19,7 @@ let arr = [
 function arrToTree (arr, parentId = -1) {
     const filterArr = arr.filter(item => item.parent === parentId)
 
-    filterArr.forEach((item) => {
+    filterArr.forEach(item => {
         item.childNode = arrToTree(arr, item.id)
     })
 

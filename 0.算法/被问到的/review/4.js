@@ -49,4 +49,4 @@ function getAllIdsByLevel (tree, level) {
     return id
 }
 
-console.log(getAllIdsByLevel(tree, 3));
+console.log(getAllIdsByLevel(tree, 2));

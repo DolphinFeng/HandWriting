@@ -5,6 +5,7 @@ function TreeNode(val, left, right) {
     this.right = (right === undefined ? null : right)
 }
 
+// 示例二叉树
 let tree = {
     val: 1, 
     left: {
@@ -24,9 +25,16 @@ let tree = {
     }
 }
 
+/**
+ * 将二叉树转化为链表
+ * @param {TreeNode} tree - 二叉树的根节点
+ */
 function flatten(tree) {
+    // 如果树为空，直接返回
     if (!tree) return 
+    // 递归处理左子树
     flatten(tree.left)
+    // 递归处理右子树
     flatten(tree.right)
 
     // 保存左右子树
@@ -42,5 +50,7 @@ function flatten(tree) {
     tree.right = right
 }
 
+// 调用函数将二叉树转化为链表
 flatten(tree)
+// 打印转换后的链表
 console.log(tree);

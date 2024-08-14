@@ -5,29 +5,28 @@ class MyPromise {
         this.state = 'pending'
         this.onFulfilledCallbacks = []
         this.onRejectedCallbacks = []
-
+        
         const resolve = (value) => {
             if (this.state === 'pending') {
-                this.value = value
                 this.state = 'fulfilled'
+                this.value = value
                 this.onFulfilledCallbacks.forEach(cb => cb(value))
             }
         }
         const reject = (reason) => {
             if (this.state === 'pending') {
-                this.reason = reason
                 this.state = 'rejected'
+                this.reason = reason
                 this.onRejectedCallbacks.forEach(cb => cb(reason))
             }
         }
-        
+
         executor(resolve, reject)
     }
 
     then (onFulfilled, onRejected) {
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
         onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
-
         const newPromise = new MyPromise((resolve, reject) => {
             if (this.state === 'fulfilled') {
                 setTimeout(() => {
@@ -49,6 +48,7 @@ class MyPromise {
                     }
                 })
             }
+
             if (this.state === 'pending') {
                 this.onFulfilledCallbacks.push(value => {
                     setTimeout(() => {
@@ -60,7 +60,6 @@ class MyPromise {
                         }
                     })
                 })
-
                 this.onRejectedCallbacks.push(reason => {
                     setTimeout(() => {
                         try {
@@ -130,7 +129,7 @@ class MyPromise {
 
     static any (promises) {
         return new MyPromise((resolve, reject) => {
-            let arr = [], count = 0 
+            let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i].then(
                     (value) => {

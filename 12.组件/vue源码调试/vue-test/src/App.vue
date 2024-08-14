@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p ref="refP">消息: {{msg}}</p>
+    <p ref="refP" class="msg">消息: {{msg}}</p>
   </div>
 </template>
 
@@ -18,5 +18,7 @@ nextTick(() =>{
 </script>
 
 <style lang="css" scoped>
-
+.msg {
+  color: red;
+}
 </style>

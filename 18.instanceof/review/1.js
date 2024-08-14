@@ -3,14 +3,15 @@ function instance (L, R) {
     let right = R.prototype
     while (left !== null) {
         if (left === right) return true
-        left = left.__proto__
+        left = left.__proto__ 
     }
     return false
 }
 
 let arr = []
+
 console.log(arr instanceof Array);
-console.log(arr instanceof Object)
+console.log(arr instanceof Object);
 
 console.log(instance(arr, Array));
 console.log(instance(arr, Object));

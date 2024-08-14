@@ -1,4 +1,5 @@
 // 动归方法
+
 function fb (n) {
     let list = [1, 1]
     for (let i = 2; i < n; i++) {

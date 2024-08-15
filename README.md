@@ -149,10 +149,13 @@ fixes issue #12
 - markdown 语法大全：https://markdown.com.cn/basic-syntax/
 - json 格式转换： json.cn
 - git 指令：https://www.atlassian.com/zh/git/tutorials/merging-vs-rebasing
+- git 官方详解：https://git-scm.com/book/zh/v2
+- git 练习：https://learngitbranching.js.org/?locale=zh_CN
 - react 事件顺序：https://www.cnblogs.com/echolun/p/15518631.html
 - js 异步问题：https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/async%20%26%20performance/ch2.md#%E4%BF%A1%E4%BB%BB%E9%97%AE%E9%A2%98
 - 工程化：https://mp.weixin.qq.com/s/NuH-sga13okeMVGDFZWFtQ
 - vue3编译原理解密：https://vue-compiler.iamouyang.cn/guide/vue-to-js.html
+- vue演示：https://play.vuejs.org/ 
 - es5：https://es5.github.io/#x11.9.3
 - es6新特性: https://es6.ruanyifeng.com/
 - ESLint：https://eslint.org/docs/latest/extend/custom-rule-tutorial

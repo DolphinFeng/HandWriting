@@ -1,22 +1,24 @@
-let num = [2, 7, 11, 15]
+let num = [2, 7, 9, 15]
 
 // 暴力
-function twoSum (num, target) {
-    let len = num.length
-    for (let i = 0; i < len; i++) {
-        for (let j = i + 1; j < len; j++) {
-            if (num[i] + num[j] === target) {
-                return [i, j]
-            }
-        }
-    }
-}
+// function getIndex (num, target) {
+//     for (let i = 0; i < num.length; i++) {
+//         for (let j = i + 1; j < num.length; j++) {
+//             if (num[i] + num[j] === target) {
+//                 return [i, j]
+//             }
+//         }
+//     }
+// }
 
-// function twoSum (num, target) {
-//     let len = num.length
+// console.log(getIndex(num, 16));
+
+
+// map
+// function getIndex (num, target) {
 //     let obj = {}
-//     for (let i = 0; i < len; i++) {
-//         if (obj[target - num[i]] !== undefined) {
+//     for (let i = 0; i < num.length; i++) {
+//         if (num[target - num[i]] !== undefined) {
 //             return [obj[target - num[i]], i]
 //         } else {
 //             obj[num[i]] = i
@@ -24,4 +26,4 @@ function twoSum (num, target) {
 //     }
 // }
 
-console.log(twoSum(num, 9));
+// console.log(getIndex(num, 9));

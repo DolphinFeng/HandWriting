@@ -79,5 +79,5 @@ class LazyMan {
 
 // 示例用法
 // new LazyMan('煎饼狗子').drink('水')
-new LazyMan('煎饼狗子').drink('水').sleep(3000).eat('憨包')
-// new LazyMan('煎饼狗子').drink('可乐').sleepFirst(1000)
+// new LazyMan('煎饼狗子').drink('水').sleep(3000).eat('憨包')
+new LazyMan('煎饼狗子').drink('可乐').sleepFirst(1000)

@@ -5,74 +5,108 @@ class MyPromise {
         this.state = 'pending'
         this.onFulfilledCallbacks = []
         this.onRejectedCallbacks = []
-        
+
         const resolve = (value) => {
             if (this.state === 'pending') {
-                this.state = 'fulfilled'
                 this.value = value
+                this.state = 'fulfilled'
                 this.onFulfilledCallbacks.forEach(cb => cb(value))
             }
         }
         const reject = (reason) => {
             if (this.state === 'pending') {
-                this.state = 'rejected'
                 this.reason = reason
+                this.state = 'rejected'
                 this.onRejectedCallbacks.forEach(cb => cb(reason))
             }
         }
 
         executor(resolve, reject)
+        // try {
+        //     executor(resolve, reject)
+        // } catch (err) {
+        //     reject(err)
+        // }
     }
 
     then (onFulfilled, onRejected) {
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
         onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
-        const newPromise = new MyPromise((resolve, reject) => {
-            if (this.state === 'fulfilled') {
-                setTimeout(() => {
-                    try {
-                        const res = onFulfilled(this.value)
-                        resolve(res)
-                    } catch (err) {
-                        reject(err)
-                    }
-                })
-            }
-            if (this.state === 'rejected') {
-                setTimeout(() => {
-                    try {
-                        const res = onRejected(this.reason)
-                        resolve(res)
-                    } catch (err) {
-                        reject(err)
-                    }
-                })
-            }
 
-            if (this.state === 'pending') {
-                this.onFulfilledCallbacks.push(value => {
-                    setTimeout(() => {
-                        try {
-                            const res = onFulfilled(value)
-                            resolve(res)
-                        } catch (err) {
-                            reject(err)
+        // // 这个版本没有对 res 进行判断是否还是 MyPromise 类型，以及 用的 宏任务代替了微任务
+        // const newPromise = new MyPromise((resolve, reject) => {
+        //     if (this.state === 'fulfilled') {
+        //         setTimeout(() => {
+        //             try {
+        //                 const res = onFulfilled(this.value)
+        //                 resolve(res)
+        //             } catch (err) {
+        //                 reject(err)
+        //             }
+        //         })
+        //     }
+        //     if (this.state === 'rejected') {
+        //         setTimeout(() => {
+        //             try {
+        //                 const res = onRejected(this.reason)
+        //                 resolve(res)
+        //             } catch (err) {
+        //                 reject(err)
+        //             }
+        //         })
+        //     }
+
+        //     if (this.state === 'pending') {
+        //         this.onFulfilledCallbacks.push(value => {
+        //             setTimeout(() => {
+        //                 try {
+        //                     const res = onFulfilled(value)
+        //                     resolve(res)
+        //                 } catch (err) {
+        //                     reject(err)
+        //                 }
+        //             })
+        //         })
+        //         this.onRejectedCallbacks.push(reason => {
+        //             setTimeout(() => {
+        //                 try {
+        //                     const res = onRejected(reason)
+        //                     resolve(res)
+        //                 } catch (err) {
+        //                     reject(err)
+        //                 }
+        //             })
+        //         })
+        //     }
+        // })
+        // return newPromise
+        const newPromise = new MyPromise((resolve, reject) => {
+            const resolvePromise = (cb) => {
+                Promise.resolve().then(() => {
+                    try {
+                        const res = cb(this.value || this.reason);
+                        if (res instanceof MyPromise) {
+                            res.then(resolve, reject);
+                        } else {
+                            resolve(res);
                         }
-                    })
-                })
-                this.onRejectedCallbacks.push(reason => {
-                    setTimeout(() => {
-                        try {
-                            const res = onRejected(reason)
-                            resolve(res)
-                        } catch (err) {
-                            reject(err)
-                        }
-                    })
-                })
+                    } catch (err) {
+                        reject(err);
+                    }
+                });
+            };
+
+            if (this.state === 'fulfilled') {
+                resolvePromise(onFulfilled);
+            } else if (this.state === 'rejected') {
+                resolvePromise(onRejected);
+            } else if (this.state === 'pending') {
+                this.onFulfilledCallbacks.push(() => resolvePromise(onFulfilled));
+                this.onRejectedCallbacks.push(() => resolvePromise(onRejected));
             }
-        })
-        return newPromise
+        });
+
+        return newPromise;
     }
 
     catch (onRejected) {
@@ -82,14 +116,25 @@ class MyPromise {
     finally (cb) {
         return this.then(
             (value) => {
-                return MyPromise.resolve(cb()).then(() => value)
+                return new MyPromise.resolve(cb()).then(() => value)
             },
             (reason) => {
-                return MyPromise.resolve(cb()).then(() => {
+                return new MyPromise.resolve(cb()).then(() => {
                     throw reason
                 })
             }
         )
+    }
+
+    static resolve(value) {
+        if (value instanceof MyPromise) {
+            return value;
+        }
+        return new MyPromise((resolve) => resolve(value));
+    }
+
+    static reject(reason) {
+        return new MyPromise((_, reject) => reject(reason));
     }
 
     static race (promises) {
@@ -111,7 +156,8 @@ class MyPromise {
         return new MyPromise((resolve, reject) => {
             let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
-                promises[i].then(
+                promises[i]
+                .then(
                     (value) => {
                         count++
                         arr[i] = value
@@ -139,7 +185,7 @@ class MyPromise {
                         count++
                         arr[i] = reason
                         if (count === promises.length) {
-                            reject(new AggregatedError(arr))
+                            reject(new AggregateError(arr))
                         }
                     }
                 )
@@ -175,39 +221,114 @@ class MyPromise {
     }
 }
 
-function xq () {
+function child () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
-            resolve('相亲成功')
-            console.log('我要相亲了');
+            resolve('after child')
+            // reject('after child')
+        }, 3000)
+    })
+}
+
+function teen () {
+    return new MyPromise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('after teen')
+            // reject('after teen')
         }, 2000)
     })
 }
 
-function marry () {
+function adult () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
-            resolve('结婚成功')
-            console.log('我要结婚了');
+            // resolve('after adult')
+            reject('after adult')
         }, 1000)
     })
 }
 
-function baby () {
-    return new MyPromise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('有孩子了')
-            console.log('我要有孩子了');
-        }, 500)
-    })
-}
+// // 测试 then，catch，finally
+// child()
+// .then(res => {
+//     console.log(res);
+//     return teen()
+// })
+// .then(res => {
+//     console.log(res);
+//     return adult()
+// })
+// .then(res => {
+//     console.log(res);
+    
+// })
+// .catch(err => {
+//     console.log(err);
+    
+// })
+// .finally(() => {
+//     console.log('All MyPromise are settled (resolved / rejected)');
+    
+// })
 
-xq()
+// // 测试 resolve
+// MyPromise.resolve('success')
+// .then(res => {
+//     console.log(res);
+//     return child()
+// })
+// .then(res => {
+//     console.log(res);
+    
+// })
+
+// // 测试 reject
+// MyPromise.reject('error')
+// .catch(err => {
+//     console.log(err);
+//     return adult()
+// }) 
+// .catch(err => {
+//     console.log(err);
+    
+// })
+
+// // 测试 race
+// MyPromise.race([child(), teen(), adult()])
+// .then(res => {
+//     console.log(res);
+    
+// })
+// .catch(err => {
+//     console.log(err);
+    
+// })
+
+// // 测试 all
+// MyPromise.all([child(), teen(), adult()])
+// .then(res => {
+//     console.log(res);
+    
+// })
+// .catch(err => {
+//     console.log(err);
+    
+// })
+
+// // 测试 any
+// MyPromise.any([child(), teen(), adult()])
+// .then(res => {
+//     console.log(res);
+    
+// })
+// .catch(err => {
+//     console.log(err);
+    
+// })
+
+// // 测试 allSettled
+MyPromise.allSettled([child(), teen(), adult()])
 .then(res => {
     console.log(res);
-    return marry()
-})
-.then(res => {
-    console.log(res);
-    baby()
+    
 })

@@ -1,17 +1,16 @@
-s = "abcabcbb"
+let str = 'abcdabdcdddd'
 
-function maxLength (str)  { 
-    if (str.length <= 1) {
-        return str.length
-    }
-    let left = 0, right = 1, max = 0, temp
+function getMaxLength (str) {
+    if (str.length <= 1) return str.length
+    let max = 0
+    let left = 0, right = 1
     while (right < str.length) {
-        temp = str.slice(left, right)
+        let temp = str.slice(left, right)
         if (temp.indexOf(str[right]) > -1) {
-            left ++
+            left++
             continue
         } else {
-            right ++
+            right++
         }
         if (right - left > max) {
             max = right - left
@@ -20,4 +19,4 @@ function maxLength (str)  {
     return max
 }
 
-console.log(maxLength(s));
+console.log(getMaxLength(str));

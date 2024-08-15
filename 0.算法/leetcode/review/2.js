@@ -3,6 +3,7 @@ function ListNode(val, next) {
     this.next = (next === undefined ? null : next)
 }
 
+// 定义两个链表 l1 和 l2
 let l1 = {
     val: 2,
     next: {
@@ -29,12 +30,12 @@ function add (l1, l2) {
     let sum = new ListNode(0)
     let head = sum
     let addOne = 0
-    while (addOne || l1 ||l2) {
-        let val1 = l1 !== undefined ? l1.val : 0
-        let val2 = l2 !== undefined ? l2.val : 0
-        let r = val1 + val2 + addOne
-        addOne = r >= 10 ? 1 : 0
-        sum.next = new ListNode(r % 10)
+    while (addOne || l1 || l2) {
+        let val1 = l1 ? l1.val : 0
+        let val2 = l2 ? l2.val : 0
+        let res = val1 + val2 + addOne
+        addOne = res >= 10 ? 1 : 0
+        sum.next = new ListNode(res % 10)
         sum = sum.next
         if (l1) {
             l1 = l1.next

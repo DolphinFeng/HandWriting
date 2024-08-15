@@ -4,18 +4,19 @@
 let height = [1,8,6,2,5,4,8,3,7]
 
 function getMax (height) {
-    let left = 0, right = height.length - 1
-    let res = 0
+    let area = 0, max = 0
+    let len = height.length
+    let left = 0, right = len - 1
     while (left < right) {
-        let cur = (right - left) * Math.min(height[right], height[left])
-        res = Math.max(res, cur)
+        area = Math.min(height[left], height[right]) * (right - left)
+        max = Math.max(max, area)
         if (height[left] < height[right]) {
             left++
         } else {
             right--
         }
-    }   
-    return res
+    }
+    return max
 }
 
 console.log(getMax(height));

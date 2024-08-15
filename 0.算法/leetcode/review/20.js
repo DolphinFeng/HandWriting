@@ -5,12 +5,11 @@ s = "()[]{}"
 function isValid (str) {
     let obj = {
         '(': ')',
-        '{': '}',
-        '[': ']'
+        '[': ']',
+        '{': '}'
     }
-    let len = str.length
     let stack = []
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < str.length; i++) {
         let res = obj[str[i]]
         if (res) {
             stack.push(res)

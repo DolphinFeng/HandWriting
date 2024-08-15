@@ -1,9 +1,8 @@
 class LazyMan {
     queue = []
-
     constructor (name) {
         this.push(() => {
-            console.log(`我叫${name}`);
+            console.log(`我叫 ${name}`);
         })
         setTimeout(() => {
             this.next()
@@ -13,10 +12,12 @@ class LazyMan {
     sleepFirst (delay) {
         this.unshift(() => {
             return new Promise((resolve) => {
-                setTimeout(() => {
-                    console.log(`等待${delay}ms`);
-                    resolve()
-                }, delay)
+                return new Promise(() => {
+                    setTimeout(() => {
+                        console.log(`等待 ${delay} ms`);
+                        resolve()
+                    }, delay)
+                })
             })
         })
         return this
@@ -26,7 +27,7 @@ class LazyMan {
         this.push(() => {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    console.log(`等待${delay}ms`);
+                    console.log(`睡觉 ${delay} ms`);
                     resolve()
                 }, delay)
             })
@@ -67,4 +68,4 @@ class LazyMan {
     }
 }
 
-new LazyMan('Dolphin').drink('可乐').sleepFirst(1000)
+new LazyMan('man').drink('可乐').sleep(2000).eat('包子').sleepFirst(1000)

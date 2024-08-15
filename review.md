@@ -228,4 +228,5 @@
     - lazyMan
     - promise(至尊版)
     - leetCode: 1, 2, 3, 11, 20, 28, 205, 1556
+    - 写了一篇文章：关于 options 请求
 ```

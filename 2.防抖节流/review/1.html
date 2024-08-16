@@ -6,24 +6,25 @@
     <title>Document</title>
 </head>
 <body>
+    
     <button id="btn">按钮</button>
 
     <script>
         let btn = document.getElementById('btn')
 
-        const send = () => {
-            console.log('发送');
+        function send () {
+            console.log('send');
+            
         }
 
         btn.addEventListener('click', debounce(send, 1000))
 
-        function debounce (cb, wait) {
+        function debounce (fn, wait) {
             let timer
             return function () {
-                let args = arguments
                 if (timer) clearTimeout(timer)
                 timer = setTimeout(() => {
-                    cb.call(this, ...args)
+                    fn.apply(this, arguments)
                 }, wait)
             }
         }

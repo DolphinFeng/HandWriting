@@ -1,11 +1,15 @@
-function Car () {
-    this.name = 'NIO'
+Car.prototype.age = '18'
+
+function Car (name, ...args) {
+    this.name = name
+    this.color = 'white'
+    this.param = [...args]
     // return []
 }
 
-// let car = new Car()
+// let car = new Car('Volve')
 
-// console.log(car);
+// console.log(car.age);
 
 function myNew (...args) {
     let obj = {}
@@ -14,5 +18,5 @@ function myNew (...args) {
     return res instanceof Object ? res : obj
 }
 
-let car = myNew(Car)
+let car = myNew(Car, 'Volve', 1, 2, 3)
 console.log(car);

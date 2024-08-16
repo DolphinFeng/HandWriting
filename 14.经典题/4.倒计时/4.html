@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <div id="countdown"></div>
+    <script>
+        function useCountDown({ leftTime, ms = 1000, onEnd }) {
+            let countdownTimer = null;
+            let startTime = performance.now();
+            let nextTime = leftTime % ms;
+            let totalTime = 0;
+            let count = leftTime;
+
+            function clearTimer() {
+                if (countdownTimer) {
+                    clearTimeout(countdownTimer);
+                    countdownTimer = null;
+                }
+            }
+
+            function startCountDown(nt = 0) {
+                clearTimer();
+
+                const executionTime = performance.now() - startTime;
+                totalTime += executionTime;
+
+                count -= (Math.floor(executionTime / ms) || 1) * ms + nt;
+                count = count <= 0 ? 0 : count;
+
+                document.getElementById('countdown').innerText = parseMillisecond(count);
+
+                nextTime = ms - (totalTime % ms);
+                startTime = performance.now();
+
+                if (count > 0) {
+                    countdownTimer = setTimeout(() => {
+                        requestAnimationFrame(() => startCountDown(0));
+                    }, nextTime);
+                } else {
+                    clearTimer();
+                    if (onEnd) onEnd();
+                }
+            }
+
+            function parseMillisecond(ms) {
+                const seconds = Math.floor(ms / 1000);
+                const minutes = Math.floor(seconds / 60);
+                const hours = Math.floor(minutes / 60);
+                return `${hours}:${minutes % 60}:${seconds % 60}`;
+            }
+
+            countdownTimer = setTimeout(() => startCountDown(nextTime), nextTime);
+
+            return {
+                start: () => startCountDown(nextTime),
+                stop: clearTimer
+            };
+        }
+
+        const countdown = useCountDown({
+            leftTime: 10000, // 10 seconds
+            ms: 1000,
+            onEnd: () => alert('Countdown finished!')
+        });
+
+        countdown.start();
+    </script>
+</body>
+</html>

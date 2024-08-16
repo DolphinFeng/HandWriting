@@ -1,10 +1,9 @@
-function debounce (fn, wait) {
+function debounce (cb, wait) {
     let timer
     return function () {
-        let args = arguments
         if (timer) clearTimeout(timer)
         timer = setTimeout(() => {
-            fn.call(this, ...args)
+            cb.apply(this, arguments)
         }, wait)
     }
 }

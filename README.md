@@ -165,6 +165,7 @@ fixes issue #12
 - 小林 coding(计网+操作系统最好)：https://xiaolincoding.com/
 - web前端面试：https://vue3js.cn/interview/vue/vue.html#%E4%B8%80%E3%80%81%E4%BB%8E%E5%8E%86%E5%8F%B2%E8%AF%B4%E8%B5%B7
 - web体系：https://senior-frontend.pages.dev/
+- 公众号文章格式转化：https://editor.mdnice.com/
 
   ## 算法
 1. 入门指南：

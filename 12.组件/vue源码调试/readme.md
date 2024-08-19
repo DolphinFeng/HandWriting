@@ -562,3 +562,278 @@ export function render(_ctx, _cache, $props, $setup, $data, $options) {
 这里目的就是塞入解析到的 vue 指令，给到 core 的 baseCompile ，这个函数又分为四部，第一部获取 templateAst，第二步获取转换函数，比如 for 指令有对应的 transformFor 函数，第三部进行 transform ，最终得到 解析完 vue 指令的 ast 给到 generate 函数去生成 render，其实就是字符串拼接
 
 
+# 深入理解 transform 函数
+上面的 baseCompile 函数主要是靠 第三部的 transform 函数去解析这些 vue 指令，我们现在对着这个函数打一个断点，深入理解如何作用
+![alt text](image-23.png)
+```js
+function transform(root, options) {
+  const context = createTransformContext(root, options);
+  traverseNode(root, context);
+  if (options.hoistStatic) {
+    hoistStatic(root, context);
+  }
+  if (!options.ssr) {
+    createRootCodegen(root, context);
+  }
+  root.helpers = /* @__PURE__ */ new Set([...context.helpers.keys()]);
+  root.components = [...context.components];
+  root.directives = [...context.directives];
+  root.imports = context.imports;
+  root.hoists = context.hoists;
+  root.temps = context.temps;
+  root.cached = context.cached;
+  root.transformed = true;
+  {
+    root.filters = [...context.filters];
+  }
+}
+```
+我们看看这个 root
+![alt text](image-24.png)
+可以看到层级关系，最外层一个 div，然后两个 children，一个 input,一个 p，input 中有三个 props，分别是v-for，:key,v-model
+p 标签也有两个 children，title 单独成立一个
+此时 的 root 还是 template 的 ast ，并且 vue 指令还没被处理，其实 transform 函数主要就是 两步骤，第一步执行 createTransformContext 拿到上下文，第二步遍历节点，对 node 进行转换
+这个函数里面有个 context对象，里面会有 很多种信息，正在装换的 currentNode,replaceNode,removeNode,childIndex，等等
+```js
+function createTransformContext(root, {
+  filename = "",
+  prefixIdentifiers = false,
+  hoistStatic: hoistStatic2 = false,
+  hmr = false,
+  cacheHandlers = false,
+  nodeTransforms = [],
+  directiveTransforms = {},
+  transformHoist = null,
+  isBuiltInComponent = shared.NOOP,
+  isCustomElement = shared.NOOP,
+  expressionPlugins = [],
+  scopeId = null,
+  slotted = true,
+  ssr = false,
+  inSSR = false,
+  ssrCssVars = ``,
+  bindingMetadata = shared.EMPTY_OBJ,
+  inline = false,
+  isTS = false,
+  onError = defaultOnError,
+  onWarn = defaultOnWarn,
+  compatConfig
+}) {
+  const nameMatch = filename.replace(/\?.*$/, "").match(/([^/\\]+)\.\w+$/);
+  const context = {
+    // options
+    filename,
+    selfName: nameMatch && shared.capitalize(shared.camelize(nameMatch[1])),
+    prefixIdentifiers,
+    hoistStatic: hoistStatic2,
+    hmr,
+    cacheHandlers,
+    nodeTransforms,
+    directiveTransforms,
+    transformHoist,
+    isBuiltInComponent,
+    isCustomElement,
+    expressionPlugins,
+    scopeId,
+    slotted,
+    ssr,
+    inSSR,
+    ssrCssVars,
+    bindingMetadata,
+    inline,
+    isTS,
+    onError,
+    onWarn,
+    compatConfig,
+    // state
+    root,
+    helpers: /* @__PURE__ */ new Map(),
+    components: /* @__PURE__ */ new Set(),
+    directives: /* @__PURE__ */ new Set(),
+    hoists: [],
+    imports: [],
+    constantCache: /* @__PURE__ */ new WeakMap(),
+    temps: 0,
+    cached: 0,
+    identifiers: /* @__PURE__ */ Object.create(null),
+    scopes: {
+      vFor: 0,
+      vSlot: 0,
+      vPre: 0,
+      vOnce: 0
+    },
+    parent: null,
+    grandParent: null,
+    currentNode: root,
+    childIndex: 0,
+    inVOnce: false,
+    // methods
+    helper(name) {
+      const count = context.helpers.get(name) || 0;
+      context.helpers.set(name, count + 1);
+      return name;
+    },
+    removeHelper(name) {
+      const count = context.helpers.get(name);
+      if (count) {
+        const currentCount = count - 1;
+        if (!currentCount) {
+          context.helpers.delete(name);
+        } else {
+          context.helpers.set(name, currentCount);
+        }
+      }
+    },
+    helperString(name) {
+      return `_${helperNameMap[context.helper(name)]}`;
+    },
+    replaceNode(node) {
+      {
+        if (!context.currentNode) {
+          throw new Error(`Node being replaced is already removed.`);
+        }
+        if (!context.parent) {
+          throw new Error(`Cannot replace root node.`);
+        }
+      }
+      context.parent.children[context.childIndex] = context.currentNode = node;
+    },
+    removeNode(node) {
+      if (!context.parent) {
+        throw new Error(`Cannot remove root node.`);
+      }
+      const list = context.parent.children;
+      const removalIndex = node ? list.indexOf(node) : context.currentNode ? context.childIndex : -1;
+      if (removalIndex < 0) {
+        throw new Error(`node being removed is not a child of current parent`);
+      }
+      if (!node || node === context.currentNode) {
+        context.currentNode = null;
+        context.onNodeRemoved();
+      } else {
+        if (context.childIndex > removalIndex) {
+          context.childIndex--;
+          context.onNodeRemoved();
+        }
+      }
+      context.parent.children.splice(removalIndex, 1);
+    },
+    onNodeRemoved: shared.NOOP,
+    addIdentifiers(exp) {
+      {
+        if (shared.isString(exp)) {
+          addId(exp);
+        } else if (exp.identifiers) {
+          exp.identifiers.forEach(addId);
+        } else if (exp.type === 4) {
+          addId(exp.content);
+        }
+      }
+    },
+    removeIdentifiers(exp) {
+      {
+        if (shared.isString(exp)) {
+          removeId(exp);
+        } else if (exp.identifiers) {
+          exp.identifiers.forEach(removeId);
+        } else if (exp.type === 4) {
+          removeId(exp.content);
+        }
+      }
+    },
+    hoist(exp) {
+      if (shared.isString(exp)) exp = createSimpleExpression(exp);
+      context.hoists.push(exp);
+      const identifier = createSimpleExpression(
+        `_hoisted_${context.hoists.length}`,
+        false,
+        exp.loc,
+        2
+      );
+      identifier.hoisted = exp;
+      return identifier;
+    },
+    cache(exp, isVNode = false) {
+      return createCacheExpression(context.cached++, exp, isVNode);
+    }
+  };
+  {
+    context.filters = /* @__PURE__ */ new Set();
+  }
+  function addId(id) {
+    const { identifiers } = context;
+    if (identifiers[id] === void 0) {
+      identifiers[id] = 0;
+    }
+    identifiers[id]++;
+  }
+  function removeId(id) {
+    context.identifiers[id]--;
+  }
+  return context;
+}
+```
+现在看到 traverseNode
+```js
+function traverseNode(node, context) {
+  context.currentNode = node;
+  const { nodeTransforms } = context;
+  const exitFns = [];
+  for (let i2 = 0; i2 < nodeTransforms.length; i2++) {
+    const onExit = nodeTransforms[i2](node, context);
+    if (onExit) {
+      if (shared.isArray(onExit)) {
+        exitFns.push(...onExit);
+      } else {
+        exitFns.push(onExit);
+      }
+    }
+    if (!context.currentNode) {
+      return;
+    } else {
+      node = context.currentNode;
+    }
+  }
+  switch (node.type) {
+    case 3:
+      if (!context.ssr) {
+        context.helper(CREATE_COMMENT);
+      }
+      break;
+    case 5:
+      if (!context.ssr) {
+        context.helper(TO_DISPLAY_STRING);
+      }
+      break;
+    case 9:
+      for (let i2 = 0; i2 < node.branches.length; i2++) {
+        traverseNode(node.branches[i2], context);
+      }
+      break;
+    case 10:
+    case 11:
+    case 1:
+    case 0:
+      traverseChildren(node, context);
+      break;
+  }
+  context.currentNode = node;
+  let i = exitFns.length;
+  while (i--) {
+    exitFns[i]();
+  }
+}
+```
+这个函数就是拿到上下文中的 当前转换的节点 currentNode，交给 nodeTransforms 去执行，执行结果 push 到 exitFn 中，最后遍历子节点 traverseChildren
+![alt text](image-25.png)
+这个函数会递归遍历，过程中会将 父节点 更新为当前节点，并且将 childIndex 更新为当前的 index
+转换完后的节点最终在 traverseNode 又会被逆序执行一遍，这种顺序是 洋葱模型 ，刚开始时将 nodeTransforms 数组执行一遍，若结果是 函数，就 push 到 exitsFn 数组中，再去处理当前节点的子节点，就是 traverseChildren， traverseChildren 也会执行 traverseNode，因此第二层开始重复这样，继续第三层，最后会发现没有子节点，然后就从里面出去，最终拿到处理好 vue 指令的 ast 给到 render
+这里看看 v-for，v-model 转变时 ast 的 变化
+转前：
+![alt text](image-26.png)
+转中：
+![alt text](image-27.png)
+此时 v-for 消失
+转后：
+![alt text](image-28.png)
+同样想看 v-model 就是看 transformModel 对 dom 的 transformModel 这里打一个断点，看 call stack 可以知道，buildProps 调用的 transformModel，buildProps 又是由 postTransformElement 调用的，这个函数又是 从 transformElement 返回的回调，transformElement 在数组 nodeTransforms 中，因此 directiveTransform 就是由 nodeTransforms 数组的转换函数 transformElement 函数

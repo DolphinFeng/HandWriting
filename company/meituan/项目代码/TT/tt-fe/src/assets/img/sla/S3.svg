@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59 (86127) - https://sketch.com -->
+    <title>切片</title>
+    <desc>Created with Sketch.</desc>
+    <g id="确定方案" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-35备份-6">
+            <rect id="矩形" fill-opacity="0" fill="#FF5F57" x="0" y="0" width="16" height="16"></rect>
+            <path d="M4.6,2 C4.8209139,2 5,2.1790861 5,2.4 L5,13.6 C5,13.8209139 4.8209139,14 4.6,14 L3.4,14 C3.1790861,14 3,13.8209139 3,13.6 L3,2.4 C3,2.1790861 3.1790861,2 3.4,2 L4.6,2 Z M8.6,2 C8.8209139,2 9,2.1790861 9,2.4 L9,13.6 C9,13.8209139 8.8209139,14 8.6,14 L7.4,14 C7.1790861,14 7,13.8209139 7,13.6 L7,2.4 C7,2.1790861 7.1790861,2 7.4,2 L8.6,2 Z" id="形状结合" fill="#F5483B"></path>
+            <rect id="矩形复制-2" fill="#BDBDBD" x="11" y="2" width="2" height="12" rx="0.4"></rect>
+        </g>
+    </g>
+</svg>

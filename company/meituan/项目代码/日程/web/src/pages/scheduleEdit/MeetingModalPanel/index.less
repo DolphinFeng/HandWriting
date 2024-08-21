@@ -1,0 +1,168 @@
+@import '../../../asserts/styles/variable';
+.container {
+  width: 800px;
+  height: 560px;
+  .filterForm {
+    background: #f7f7f7;
+    border-radius: 10px;
+    padding: 2px 16px;
+    .line {
+      display: flex;
+      align-items: flex-start;
+      margin: 10px 0;
+      :global {
+        .mtd-select {
+          background-color: transparent;
+        }
+      }
+      .label {
+        width: 60px;
+        line-height: 32px;
+        flex-shrink: 0;
+        color: rgba(0, 0, 0, 0.6);
+        &.rightLabel {
+          margin-left: 32px;
+        }
+      }
+      .select {
+        flex: 1;
+        &.disabled {
+          height: 32px;
+        }
+        :global {
+          .mtd-select-filter {
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+  .list {
+    margin-top: 12px;
+    cursor: default;
+    .listLoading {
+      padding-top: 100px;
+      text-align: center;
+      .text {
+        font-size: 14px;
+        color: #464646;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 20px;
+      }
+    }
+    .listEmpty {
+      padding-top: 100px;
+      .title {
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.84);
+        text-align: center;
+        line-height: 24px;
+      }
+      .text {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.36);
+        text-align: center;
+        line-height: 20px;
+        margin-top: 8px;
+      }
+    }
+    .listName {
+      width: 100px;
+      flex: 1;
+    }
+    .listEquip {
+      width: 100px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transform: translateX(-20px);
+      .equipName {
+        font-size: 14px;
+        position: absolute;
+        top: 50%;
+        left: 22px;
+        transform: translateY(-50%);
+      }
+    }
+    .zoomEquip {
+      background: url('../../../asserts/images/icon_zoom_colour_16_3@1x.svg') no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 18px;
+      height: 18px;
+      background-size: contain;
+      border-radius: 2px;
+    }
+    .tencentEquip {
+      background: url('../../../asserts/images/tencentlogo_small_gray.svg') no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 14px;
+      height: 14px;
+      background-size: contain;
+      border-radius: 2px;
+      transform: translateX(2px);
+    }
+    .listCapacity {
+      width: 100px;
+    }
+    .listBuilding {
+      width: 168px;
+    }
+    .listFloor {
+      width: 100px;
+    }
+    .btnMore {
+      display: block;
+      margin: auto;
+    }
+    :global {
+      .mtd-list {
+        border: none;
+        .mtd-list-item {
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+          }
+          display: flex;
+          cursor: pointer;
+          & > span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
+
+//级联多选组件自定义样式
+:global {
+  .rs-picker-default .rs-picker-toggle {
+    padding: 5px 11px;
+    border-color: rgba(0, 0, 0, 0.16);
+    &.rs-btn {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+  .rs-picker-toggle-caret {
+    color: rgba(0, 0, 0, 0.3);
+  }
+  .rs-picker-toggle.rs-btn .rs-picker-toggle-caret {
+    right: 10px;
+  }
+  .rs-picker-toggle .rs-picker-toggle-placeholder {
+    color: rgba(0, 0, 0, 0.24);
+  }
+
+  .rs-picker-block {
+    width: 100%;
+  }
+  .rs-picker-menu {
+    z-index: 1001;
+  }
+}

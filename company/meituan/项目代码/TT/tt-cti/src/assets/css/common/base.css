@@ -1,0 +1,135 @@
+body {
+    font-family: PingFangSC-Regular, PingFangSC, "Helvetica Neue", "Hiragino Sans GB", "Arial", "Microsoft YaHei", "sans-serif";
+}
+html,
+body {
+    min-width: 1300px;
+    width: 100%;
+    position: relative;
+}
+.pagination-container {
+    margin: 24px 0;
+    text-align: right;
+}
+.table-link {
+    color: #FF8800;
+    cursor: pointer;
+}
+[class*=" mtdicon-"],
+[class^=mtdicon-] {
+    line-height: inherit;
+}
+/* NOTE: 上面设置了 line-height: inherit 后
+   checkbox 里面对勾的定位会出现下移的问题，改成默认 initial 即可 */
+.mtdicon-check-thick {
+    /* line-height: initial; */
+}
+.form-dialog {
+    .mtd-input-wrapper,
+    .mtd-select {
+        width: 100%;
+    }
+    .mtd-textarea {
+        width: 100%;
+        line-height: 18px;
+    }
+}
+.mtd-radio-inner {
+    background: #FFFFFF;
+}
+.tt-pure-btn {
+    &.mtd-btn {
+        border-radius: 6px;
+        border: none;
+        font-weight: 600;
+        &:not(.mtd-btn-primary, .mtd-btn-danger, .mtd-btn-warning, .mtd-btn-success) {
+            background: rgba(0, 0, 0, 0.06);
+        }
+    }
+}
+.oncall-shift-tag {
+    &.COLOR_1 {
+        background: #AFCFFE;
+    }
+    &.COLOR_2 {
+        background: #A0E1E3;
+    }
+    &.COLOR_3 {
+        background: #D3BAFB;
+    }
+    &.COLOR_4 {
+        background: #FFD799;
+    }
+    &.COLOR_5 {
+        background: #F8B7CF;
+    }
+    &.ALL {
+        background: #7F7F7F;
+    }
+    &.offline {
+        color: rgba(0, 0, 0, 0.5);
+        background-image:
+            repeating-linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.4),
+                rgba(255, 255, 255, 0.4) 1px,
+                transparent 0,
+                transparent 3px
+            );
+    }
+}
+.common-modal {
+    .mtd-modal-header,
+    .mtd-confirm-title {
+        font-weight: 600;
+    }
+    .mtd-modal-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    .mtd-modal-footer {
+        .mtd-btn {
+            width: 80px;
+        }
+    }
+}
+.pm-select {
+    .mtd-picker {
+        &:hover {
+            border-color: #F9D272;
+        }
+        .mtd-picker-icon {
+            .mtdicon {
+                line-height: 22px;
+            }
+        }
+    }
+    .mtd-picker-disabled {
+        &:hover {
+            border: 1px solid rgba(0, 0, 0, 0.13);
+        }
+    }
+}
+.common-table-list {
+    padding-bottom: 50px;
+    position: relative;
+    .header {
+        font-weight: 600;
+        font-size: 16px;
+        margin: 21px 0;
+    }
+    .add-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-weight: 600;
+    }
+}
+.title-with-border {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 16px;
+    border-left: 3px solid #999999;
+    padding-left: 8px;
+    border-left-color: #FFC300;
+}

@@ -1,0 +1,102 @@
+@import '../../asserts/styles/variable';
+.container {
+  display: flex;
+  align-items: center;
+  .date {
+    flex: 1;
+    :global {
+      .mtd-input-affix-wrapper .mtd-input-suffix {
+        display: none;
+      }
+      .mtd-input-affix-wrapper input {
+        padding-right: 8px;
+      }
+    }
+    &.warn {
+      :global {
+        .mtd-input input {
+          border-color: @color-warn;
+        }
+      }
+    }
+  }
+  .time {
+    width: 66px;
+    margin-left: 8px;
+    :global {
+      .mtd-input-affix-wrapper input {
+        padding-right: 8px;
+      }
+      .mtd-input-affix-wrapper .mtd-input-suffix {
+        display: none;
+      }
+      .mtd-select-filter-label {
+        padding-right: 0;
+      }
+      i {
+        display: none;
+      }
+    }
+    &.warn {
+      :global {
+        .mtd-select-filter {
+          border-color: @color-warn;
+        }
+      }
+    }
+    &:focus-visible {
+      outline-color: #0a70f5;
+    }
+  }
+  .separator {
+    margin: 0 8px;
+  }
+}
+
+.checkContainer {
+  .check {
+    margin-top: 12px;
+  }
+  :global {
+    .mtd-checkbox .mtd-checkbox-input:focus-visible+.mtd-checkbox-inner  {
+      box-shadow:0 0 0 1px #fff, 0 0 0 2px #0a70f5;
+    }
+  }
+}
+
+// 时间组件滚动条隐藏
+:global {
+  .mtd-time-panel-option-list > ul {
+    &::-webkit-scrollbar {
+      display: none;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+  }
+  .panelPopParent {
+    .mtd-time-panel {
+      width: 88px;
+    }
+    .mtd-time-panel-option-list > ul {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.timeCascaderPop {
+  :global {
+    .mtd-cascader-menu {
+      min-width: 44px;
+      i {
+        display: none;
+      }
+    }
+    .mtd-cascader-menu-item {
+      text-overflow: inherit;
+    }
+  }
+}
+
+.hiddenDatePicker {
+  display: none;
+}

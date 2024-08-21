@@ -1,0 +1,92 @@
+.columns {
+  position: absolute;
+  top: 24px;
+  left: 63px;
+  right: 0;
+  height: 1152px;
+  z-index: 18;
+}
+
+.draggleItem {
+  left: 1px;
+  right: 5px;
+  position: absolute;
+}
+
+.scheduleTime {
+  background: rgba(0, 179, 101, 0.12);
+  border: 1px solid #00b365;
+  color: #00b365;
+  border-radius: 4px;
+  cursor: move;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 17px;
+  font-weight: 500;
+  padding: 4px;
+
+  animation-name: breathKx;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.2, 0, 0.38, 0.72);
+  animation-direction: alternate;
+  &.draggingScheduleTime,
+  &:hover {
+    animation-name: none !important;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
+.busyScheduleTime {
+  background: rgba(255, 136, 0, 0.2);
+  border: 1px solid #f80;
+  color: #f80;
+  border-radius: 4px;
+  animation-name: breathCt;
+}
+
+@keyframes breathKx {
+  0% {
+    background: rgba(0, 179, 101, 0.12);
+    border: 1px solid #00b365;
+  }
+
+  to {
+    background: rgba(0, 179, 101, 0.08);
+    border: 1px solid rgba(0, 179, 101, 0);
+  }
+}
+
+@keyframes breathCt {
+  0% {
+    background: rgba(255, 136, 0, 0.2);
+    border: 1px solid #f80;
+  }
+
+  to {
+    background: rgba(255, 136, 0, 0.12);
+    border: 1px solid rgba(255, 136, 0, 0);
+  }
+}
+
+.bottom {
+  cursor: s-resize;
+  z-index: 3;
+}
+
+.top {
+  cursor: n-resize;
+  z-index: 3;
+}
+
+.shadowItemBlankDrag {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  .scheduleTime {
+    min-height: 9;
+    cursor: pointer;
+    pointer-events: none;
+  }
+}

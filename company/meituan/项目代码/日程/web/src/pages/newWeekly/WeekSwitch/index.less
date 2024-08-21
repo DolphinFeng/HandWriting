@@ -1,0 +1,93 @@
+.timeSwitch {
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  .today {
+    background: #f5f5f5;
+    border-radius: 6px;
+    width: 52px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.84);
+    letter-spacing: 0;
+    line-height: 20px;
+    font-weight: 500;
+    &:hover {
+      background: rgba(0, 0, 0, 0.08);
+    }
+  }
+  .iconLeft,
+  .iconRight {
+    font-size: 12px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.84);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    &:hover {
+      background: #f5f5f5;
+    }
+    &.iconDisabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      &:hover {
+        background-color: #fff;
+      }
+    }
+  }
+  .iconLeft {
+    margin-left: 8px;
+  }
+  .iconRight {
+    margin-right: 8px;
+  }
+  .timeLabel {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.84);
+    letter-spacing: 0;
+    line-height: 32px;
+    font-weight: 500;
+  }
+  .selectDate {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    pointer-events: none;
+    top: 0;
+  }
+  .down {
+    margin-left: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.84);
+    &.rotateStyle {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.currentDatePicker {
+  opacity: 0;
+  position: absolute;
+}
+
+.timePickerParent {
+  position: relative;
+  input {
+    border: 0;
+    cursor: pointer;
+  }
+  .pickerBro {
+    position: absolute;
+    left: 0;
+    right: -10px;
+    bottom: 0;
+    top: 0;
+    z-index: 2;
+    pointer-events: 'none';
+  }
+}

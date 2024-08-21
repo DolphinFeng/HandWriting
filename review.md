@@ -234,5 +234,12 @@
     - promise(至尊版)
     - new， call, apply, bind(加深版)
     - 防抖节流
+    - vue源码
+- 8.20
+    - promise 时序题
+    -  经典题：每隔 1 s 输出 1,2,3
+- 8.21
+    - promise至尊版
+    - 经典题：红绿灯、URLSeachParams、lazyMan、HardMan、定时器、并发控制
     - 
 ```

@@ -1,0 +1,166 @@
+@import '../../../asserts/styles/variable';
+.container {
+  margin: 12px 16px 16px 16px;
+  padding-bottom: 12px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.54);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(15, 12, 12, 0.05);
+  .title {
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .box {
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 4px 0;
+    .user {
+      display: flex;
+      align-items: center;
+      :global {
+        span {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100px;
+          display: inline-block;
+        }
+      }
+    }
+    .headicon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      margin-right: 4px;
+    }
+    &.blue {
+      :global {
+        .mtd-checkbox:not(.mtd-checkbox-disabled)
+          .mtd-checkbox-input:focus
+          + .mtd-checkbox-inner,
+        .mtd-checkbox:not(.mtd-checkbox-disabled):hover .mtd-checkbox-inner {
+          border-color: @blue;
+        }
+        .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-checked
+          .mtd-checkbox-inner,
+        .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-indeterminate
+          .mtd-checkbox-inner {
+          background-color: @blue;
+        }
+      }
+    }
+    &.green {
+      :global {
+        .mtd-checkbox:not(.mtd-checkbox-disabled)
+          .mtd-checkbox-input:focus
+          + .mtd-checkbox-inner,
+        .mtd-checkbox:not(.mtd-checkbox-disabled):hover .mtd-checkbox-inner {
+          border-color: @green;
+        }
+        .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-checked
+          .mtd-checkbox-inner,
+        .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-indeterminate
+          .mtd-checkbox-inner {
+          background-color: @green;
+        }
+      }
+    }
+    &.yellow {
+      :global {
+        .mtd-checkbox:not(.mtd-checkbox-disabled)
+          .mtd-checkbox-input:focus
+          + .mtd-checkbox-inner,
+        .mtd-checkbox:not(.mtd-checkbox-disabled):hover .mtd-checkbox-inner {
+          border-color: @yellow;
+        }
+        .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-checked
+          .mtd-checkbox-inner,
+        .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-indeterminate
+          .mtd-checkbox-inner {
+          background-color: @yellow;
+        }
+      }
+    }
+    &.red {
+      :global {
+        .mtd-checkbox:not(.mtd-checkbox-disabled)
+          .mtd-checkbox-input:focus
+          + .mtd-checkbox-inner,
+        .mtd-checkbox:not(.mtd-checkbox-disabled):hover .mtd-checkbox-inner {
+          border-color: @red;
+        }
+        .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-checked
+          .mtd-checkbox-inner,
+        .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-indeterminate
+          .mtd-checkbox-inner {
+          background-color: @red;
+        }
+      }
+    }
+    :global {
+      .mtd-checkbox-inner.mtdicon {
+        border-width: 2px;
+      }
+      .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-checked
+        .mtd-checkbox-inner,
+      .mtd-checkbox:not(.mtd-checkbox-disabled).mtd-checkbox-indeterminate
+        .mtd-checkbox-inner {
+        border-color: transparent;
+      }
+      .mtd-checkbox-inner.mtdicon:before {
+        font-weight: 600;
+        left: -1px;
+        top: -1px;
+      }
+    }
+  }
+}
+
+// 共享配置弹窗
+.sharemodal {
+  width: 800px;
+  background: #F4F5F7;
+  :global {
+    .mtd-modal-close {
+      background: transparent
+    }
+  }
+  .sharemodalbody {
+    padding: 0 12px;
+  }
+  .tab-wrapper {
+    display: flex;
+    .tab-list {
+      width: 152px;
+      flex: 0 0 152px;
+    }
+    .list {
+      padding: 0 12px;
+      margin-bottom: 4px;
+      height: 40px;
+      line-height: 40px;
+      cursor: pointer;
+      display: flex;
+      color: rgba(17, 25, 37, 0.65);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .icon {
+      font-size: 18px;
+      justify-content: center;
+      align-items: center;
+      margin-right: 8px;
+      border-radius: 4px;
+    }
+    .active {
+      border-radius: 8px;
+      background: #E5F0FF;
+      color: #166FF7;
+    }
+  }
+}
+

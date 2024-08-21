@@ -1,0 +1,4 @@
+/* 如果只有两个按钮 就设置二者间距为 4px */
+.mtd-btn:first-child:nth-last-child(2) {
+    margin-right: 4px;
+}

@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 8px 4px;
+  width: 184px;
+  // font-family: SF Pro, PingFang SC;
+  position: relative;
+
+
+  .week {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    letter-spacing: -0.2px;
+    color: rgba(17, 25, 37, 0.65);
+  }
+
+  .day {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0;
+    margin-top: 8px;
+  }
+
+  button {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    :global {
+      .mtdicon {
+        font-size: 20px;
+      }
+    }
+  }
+
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .eventsContainer {
+    max-height: 225px;
+    overflow: auto;
+    font-size: 12px;
+    padding-top: 4px;
+
+    .eventContainer {
+      height: 20px;
+      padding: 2px 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      flex-direction: row;
+      color: rgba(17, 25, 37, 0.85);
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 2px;
+
+      &:hover {
+        background-color: 'rgba(0, 0, 0, 0.04)'
+      }
+
+      .miniBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 6px;
+
+        .box {
+          width: 4px;
+          height: 4px;
+          border-radius: 1px;
+          background-color: #00B460;
+        }
+      }
+
+      .time {
+        // font-family: SF Pro;
+        margin-right: 4px;
+        width: 37px;
+        height: 14px;
+
+        letter-spacing: -0.2px;
+      }
+
+      .title {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 132px;
+      }
+    }
+  }
+
+  .eventContainer:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+
+.scrollable-list {
+  max-height: 40px;
+  overflow-y: auto;
+
+  /* 其他样式 */
+}
+
+:global {
+  .mtd-popover .mtd-popover-inner-content {
+    line-height: 14px;
+    font-weight: 500;
+  }
+
+  .mtd-popover-arrow {
+    display: none;
+  }
+}

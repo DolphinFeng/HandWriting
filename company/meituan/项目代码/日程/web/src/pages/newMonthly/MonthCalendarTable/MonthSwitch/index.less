@@ -1,0 +1,68 @@
+.monthSwitch {
+  flex: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 12px;
+  // min-width: 800px;
+  background-color: white;
+
+  .todayButton {
+    height: 32px;
+    border-radius: 6px;
+    margin-right: 16px;
+    font-size: 14px;
+    margin-left: 16px;
+    border: 1px solid #EAECF0;
+
+    &:hover {
+      background-color: rgba(17, 25, 37, 0.05);
+      color: #111925;
+      border-color: transparent;
+    }
+  }
+
+  .switchContainer {
+    border-radius: 6px;
+    width: 54px;
+    height: 32px;
+    border: 1px solid #EAECF0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 16px;
+    position: relative;
+
+    .line {
+      width: 1px;
+      height: 16px;
+      background-color: #EAECF0;
+      position: absolute;
+      left: 25.5px;
+    }
+
+    .icon {
+      width: 27px;
+      height: 100%;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        background: rgba(17, 25, 37, 0.05);
+        z-index: 2;
+      }
+    }
+
+    .iconLeft {
+      position: absolute;
+      left: 0;
+    }
+
+    .iconRight {
+      position: absolute;
+      right: 0;
+    }
+  }
+}

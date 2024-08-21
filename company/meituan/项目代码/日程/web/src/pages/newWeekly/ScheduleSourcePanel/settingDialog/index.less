@@ -1,0 +1,311 @@
+.settingDlg {
+  background-color: #f4f5f7;
+  min-height: 600px;
+  :global {
+    .mtd-modal-header {
+      margin-right: 0;
+    }
+
+    .mtd-modal-body {
+      width: 500px;
+    }
+
+    .mtd-popover-arrow {
+      display: none;
+    }
+  }
+
+  .titleLabel {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: rgba(0, 0, 0, 0.9);
+    margin-bottom: 12px;
+  }
+
+  .infoArea {
+    border-radius: 8px;
+    background: #FFF;
+    padding: 0 12px;
+    margin-bottom: 32px;
+    & :disabled{
+      background:#FFF;
+    }
+    .title {
+      margin-bottom: 12px;
+    }
+
+    .calendarName,
+    .calendarDescription, 
+    .calendarColor
+     {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 0.5px solid #EAECF0;
+      :global {
+        .mtd-input-affix-wrapper {
+          input {
+            padding-right: 0;
+            text-align: right;
+          }
+        }
+        .mtd-input textarea{
+          min-height: 28px;
+        }
+        // .mtd-input {
+        //   height: 28px;
+        // }
+      }
+      .inputLabel {
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 24px;
+        letter-spacing: 0;
+        color: rgba(0, 0, 0, 0.72);
+        flex: none;      
+      }
+      .input {
+        width: calc(100% - 52px);
+        border: none;
+        text-align: right;
+        & :disabled{
+          background:#FFF;
+        }
+      }
+
+      :global {
+        input {
+          border: none;
+        }
+
+        .mtd-input-suffix-wrapper {
+          display: none;
+        }
+      }
+    }
+    .calendarColor{
+      border: none;
+      padding: 8px 0;
+      .colorWrap {
+        display: flex;
+        align-items: flex-end;
+        padding: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        
+        // &:hover{
+        //   background-color: rgba(0, 0, 0, 0.054);
+        // }
+        .colorBox {
+          display: inline-block;
+          margin-right: 8px;
+          width: 18px;
+          height: 18px;
+          border-radius: 4px;
+        }
+      
+        .colorDown {
+          display: inline-block;
+          position: relative;
+          width: 12px;
+          height: 18px;
+          border-radius: 3px;
+          cursor: pointer;
+          
+          .downIcon{
+            position: absolute;
+            top: 3px;
+            font-size: 12px;
+            // transition: transform 0.1s;
+          }
+        }
+      
+      }
+    }
+
+
+    .calendarDescription {
+      position: relative;
+      .inputLabel {
+        position: absolute;
+        top: 8px;
+      }
+      :global {
+        .mtd-input {
+          &.mtd-input-textarea {
+            width: calc(100% - 75px);
+          }
+        }
+      }
+      .input {
+        position: relative;
+        left: 75px;
+        width: 100%;
+      }
+      :global {
+        textarea {
+          text-align: right;
+          resize: none !important;
+          padding: unset;
+          ::-webkit-input-placeholder,
+          :-moz-placeholder,
+          ::-moz-placeholder,
+          :-ms-input-placeholder {
+            color: rgba(0, 0, 0, 0.35);
+            cursor: text;
+            position: absolute;
+            pointer-events: none;
+            right: 0;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .permission {
+    margin-bottom: 32px;
+
+    .addButton {
+      background-color: #FFF;
+      border-radius: 8px;
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .placeholder {
+        color: rgba(0, 0, 0, 0.35);
+        font-size: 14px;
+        cursor: pointer;
+        width: 300px;
+      }
+
+      .fakeAdd {
+        display: flex;
+        align-items: center;
+
+        .addIcon {
+          font-size: 16px;
+          margin-right: 2px;
+          color: #166FF7;
+        }
+
+        .addLabel {
+          font-family: PingFangSC-Medium;
+          font-size: 14px;
+          cursor: pointer;
+          color: #166FF7,
+        }
+      }
+    }
+
+    .permissionTab {
+      display: flex;
+      margin-top: 16px;
+      align-items: center;
+      margin-bottom: 8px;
+
+      .label {
+        margin-right: 10px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        line-height: 20px;
+      }
+
+      .tabItem {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  .delete {
+    background-color: #FFF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    cursor: pointer;
+
+    .deleteLeft {
+      .label {
+        color: rgba(0, 0, 0, 0.9);
+        font-size: 14px;
+        font-family: SFPro-Regular;
+        max-width: 318px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+        margin-right: 16px;
+        display: block;
+      }
+    }
+
+    .deleteRight {
+      display: flex;
+      align-items: center;
+      flex: none;
+
+      .split {
+        border-left: 1px solid #EAECF0;
+        height: 16px;
+        margin-right: 16px;
+      }
+
+      .icon {
+        font-size: 16px;
+        color: #FF4A47;
+        margin-right: 8px;
+      }
+
+      .label {
+        color: #FF4A47;
+        font-size: 14px;
+        font-family: SFPro-Regular;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.btn {
+
+  &.cancel,
+  &.maskCancel {
+    color: rgba(0, 0, 0, 84%);
+    background-color: rgba(0, 0, 0, 0.04);
+    border: none;
+
+    &:hover {
+      color: rgba(0, 0, 0, 84%);
+      background-color: rgba(0, 0, 0, 8%);
+    }
+  }
+
+  &.cancel {
+    margin-right: 12px;
+  }
+
+  width: 80px;
+  font-weight: 500;
+}
+
+
+
+:global {
+  .colorPop {
+    .mtd-popover-arrow {
+      display: none;
+    }
+  }
+}

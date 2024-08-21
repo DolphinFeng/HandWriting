@@ -1,0 +1,120 @@
+.wk-col-header {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+}
+.wk-col-column {
+  width: 100%;
+  flex: none;
+  display: flex;
+}
+.wk-col-header-left {
+  width: 65px;
+  flex: none;
+  border-right: 1px solid hsl(0, 0%, 94%);
+  border-bottom: 1px solid #f0f0f0;
+  padding: 4px 8px 0 0;
+  p {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.36);
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 17px;
+  }
+}
+.wk-col-header-right {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.wk-col-header-cells {
+  display: flex;
+  flex: none;
+  overflow-x: hidden;
+  min-height: 24px;
+  overflow-y: auto;
+  border-bottom: 1px solid #f0f0f0;
+  max-height: 104px;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+.wk-col-header-cell {
+  position: relative;
+  outline: none;
+  box-sizing: border-box;
+  flex: 1 0 auto;
+  width: 90px;
+  min-width: 90px;
+  border-right: 1px solid #f0f0f0;
+  // border-bottom: 1px solid #f0f0f0;
+  .wk-col-header-date-cell {
+    height: 59px;
+    padding: 5px 0 0 12px;
+    .wk-col-header-date-contanier {
+      display: flex;
+      align-items: baseline;
+    }
+    .wk-col-header-attendance {
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin-left: 4px;
+      width: 23px;
+      height: 16px;
+      background-attachment: center;
+      &.salary-zh {
+        background-image: url('../../../../../asserts/images/zh/Salary.png');
+      }
+      &.rest-zh {
+        background-image: url('../../../../../asserts/images/zh/Rest.png');
+      }
+      &.work-zh {
+        background-image: url('../../../../../asserts/images/zh/Work.png');
+      }
+      &.salary-zh-HK {
+        background-image: url('../../../../../asserts/images/zh-HK/Salary.png');
+      }
+      &.rest-zh-HK {
+        background-image: url('../../../../../asserts/images/zh-HK/Rest.png');
+      }
+      &.work-zh-HK {
+        background-image: url('../../../../../asserts/images/zh-HK/Work.png');
+      }
+      &.salary-en {
+        background-image: url('../../../../../asserts/images/en/Salary.png');
+      }
+      &.rest-en {
+        background-image: url('../../../../../asserts/images/en/Rest.png');
+      }
+      &.work-en {
+        background-image: url('../../../../../asserts/images/en/Work.png');
+      }
+    }
+    .wk-col-header-date,
+    .wk-col-header-week {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.84);
+      line-height: 17px;
+      &.before {
+        color: rgba(0, 0, 0, 0.36);
+      }
+      &.current {
+        color: #0a70f5;
+      }
+    }
+    .wk-col-header-date {
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 500;
+      margin-top: 4px;
+      font-family: Avenir;
+    }
+  }
+  .wk-col-header-allDay-cell {
+    min-height: 24px;
+    position: relative;
+  }
+}

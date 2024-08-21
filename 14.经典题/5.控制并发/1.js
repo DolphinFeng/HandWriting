@@ -3,40 +3,40 @@
 /**
  * 并发执行任务函数
  * @param {Function[]} tasks - 任务数组，每个任务是一个返回 Promise 的函数
- * @param {Number} parallelCount - 并发数，表示同时运行的最大任务数
+ * @param {Number} max - 并发数，表示同时运行的最大任务数
  * @returns {Promise} - 返回一个 Promise，当所有任务完成后执行 resolve
  */
-function parallelTask (task, parallelCount) {
+function parallelTask (tasks, max) {
     return new Promise((resolve, reject) => {
-        let activeTasks = 0;
-        let taskIndex = 0;
+        let aTasks = 0;
+        let index = 0;
         const results = []
         function runTask () {
-            if (taskIndex >= tasks.length) {
-                if (activeTasks === 0) {
+            if (index >= tasks.length) {
+                if (aTasks === 0) {
                     resolve(results)
                 }
                 return
             }
 
-            const currentTaskIndex = taskIndex++;
-            activeTasks++;
-            tasks[currentTaskIndex]()
+            const curIndex = index++;
+            aTasks++;
+            tasks[curIndex]()
             .then(result => {
-                results[currentTaskIndex] = result;
-                activeTasks--;
+                results[curIndex] = result;
+                aTasks--;
                 runTask();
             })
             .catch(error => {
                 reject(error)
             })
 
-            if (activeTasks < parallelCount) {
+            if (aTasks < max) {
                 runTask()
             }
         }
 
-        for (let i = 0; i < parallelCount && i < tasks.length; i++) {
+        for (let i = 0; i < max && i < tasks.length; i++) {
             runTask()
         }
     })

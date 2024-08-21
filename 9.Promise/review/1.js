@@ -134,7 +134,7 @@ class MyPromise {
     }
 
     static reject(reason) {
-        return new MyPromise((_, reject) => reject(reason));
+        return new MyPromise((_, reject) => reject(reason)); // resolve 参数被忽略（用 _ 表示）
     }
 
     static race (promises) {
@@ -224,8 +224,8 @@ class MyPromise {
 function child () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
-            resolve('after child')
-            // reject('after child')
+            // resolve('after child')
+            reject('after child')
         }, 3000)
     })
 }
@@ -233,8 +233,8 @@ function child () {
 function teen () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
-            resolve('after teen')
-            // reject('after teen')
+            // resolve('after teen')
+            reject('after teen')
         }, 2000)
     })
 }
@@ -316,19 +316,19 @@ function adult () {
 // })
 
 // // 测试 any
-// MyPromise.any([child(), teen(), adult()])
-// .then(res => {
-//     console.log(res);
-    
-// })
-// .catch(err => {
-//     console.log(err);
-    
-// })
-
-// // 测试 allSettled
-MyPromise.allSettled([child(), teen(), adult()])
+MyPromise.any([child(), teen(), adult()])
 .then(res => {
     console.log(res);
     
 })
+.catch(err => {
+    console.log(err);
+    
+})
+
+// // 测试 allSettled
+// MyPromise.allSettled([child(), teen(), adult()])
+// .then(res => {
+//     console.log(res);
+    
+// })

@@ -1,0 +1,84 @@
+@import '../../asserts/styles/variable';
+.container {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  height: 64px;
+  &.warn {
+    border-color: @color-warn;
+  }
+  .address {
+    margin: 0 8px;
+    margin-top: 5px;
+    :global {
+      input {
+        border: none;
+        font-family: PingFangSC-Regular;
+        color: @color-darker;
+        line-height: 22px;
+        height: 22px;
+        padding: 0;
+      }
+    }
+  }
+  .meetingRoom {
+    margin: 7px 4px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &.noMeeting {
+      background-color: transparent;
+      width: auto;
+      padding-right: 12px;
+    }
+    &:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+    &:focus-visible {
+      outline-color: #0a70f5;
+    }
+    .meetingIcon,
+    .text {
+      color: @color-darker;
+      margin-left: 4px;
+    }
+    .meetingIcon {
+      font-size: @font-size-large;
+    }
+    .text {
+      flex: 1;
+    }
+    .rightIcon {
+      color: @color-medium;
+      margin-right: 6px;
+    }
+    .rightDelBtn {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+      cursor: pointer;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+      .rightIcon {
+        color: rgba(0, 0, 0, 0.84);
+        margin-right: 0;
+      }
+    }
+  }
+}
+.warnLabel {
+  color: @color-warn;
+}
+.changeWranLabel {
+  font-size: 12px;
+  color: #f80;
+  line-height: 16px;
+  padding-top: 4px;
+}

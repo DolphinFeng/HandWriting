@@ -1,0 +1,42 @@
+@import '../../variable';
+.wk-timelinebar-content {
+  flex: none;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  width: 65px;
+}
+.wk-timeline-container {
+  position: relative;
+  background-color: #fff;
+  border-right: 1px solid #f0f0f0;
+  box-sizing: border-box;
+  margin-left: auto;
+  width: 65px;
+}
+.wk-timeline-item {
+  position: relative;
+  height: @hour-height;
+  text-align: right;
+  padding-right: 8px;
+  span {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.36);
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 14px;
+    display: block;
+    position: relative;
+    top: -7px;
+  }
+}
+.wk-timeline-currentlabel {
+  position: absolute;
+  color: #f5483b;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-align: right;
+  line-height: 14px;
+  padding-right: 8px;
+  width: 100%;
+}

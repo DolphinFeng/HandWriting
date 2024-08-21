@@ -1,0 +1,66 @@
+.dropDownItem{
+    width: 200px;
+    height: 56px;
+    padding: 9px 8px;
+    border-radius: 4px;
+    display: flex;
+    width: 200px;
+    height: 56px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+
+    .dropDownLabel{
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+
+        .label{
+            cursor: pointer;
+
+            color: rgba(0, 0, 0, 0.87);
+            font-size: 14px;
+        }
+        .description{
+            cursor: pointer;
+
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 12px;
+        }
+
+    }
+    .icon{
+        color: #166FF7;
+        font-weight: 600;
+    }
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+}
+.dropDownDeleteItem{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    .split{
+        width: 184px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        margin: 4px 0;
+    }
+    .deleteLabel{
+        cursor: pointer;
+        padding: 0 8px;
+        height: 36px;
+        width: 100%;
+        color: #FF4A47 ;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+
+        &:hover{
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+    }
+
+}

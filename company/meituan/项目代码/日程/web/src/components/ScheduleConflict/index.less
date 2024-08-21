@@ -1,0 +1,82 @@
+@import '../../asserts/styles/variable';
+
+.container {
+  overflow: overlay;
+  position: relative;
+  &::-webkit-scrollbar {
+    display: block;
+  }
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar:hover {
+    width: 10px;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(187, 191, 196, 0.5);
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar:vertical {
+    display: none;
+  }
+
+  .table {
+    padding: 24px 0 24px 52px;
+    height: calc(100vh - 190px);
+    min-width: 100%;
+    position: relative;
+    display: flex;
+
+    .column {
+      flex: 1;
+      position: relative;
+      .cell {
+        height: 48px;
+        border-right: 1px solid @color-light;
+        border-bottom: 1px solid @color-light;
+        flex: 1;
+        &:first-child {
+          border-top: 1px solid @color-light;
+        }
+      }
+      .busy {
+        background: rgb(235, 245, 255);
+        border-radius: 4px;
+        font-size: @font-size-small;
+        position: absolute;
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: rgb(2, 39, 141);
+        font-weight: 500;
+        padding: 4px 4px 0;
+        p {
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+.current {
+  position: absolute;
+  width: 100%;
+  z-index: 19;
+  left: 0;
+  padding-left: 47px;
+  .circle {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #f5483b;
+    margin-top: -11px;
+  }
+  .line {
+    min-width: calc(100% - 9px);
+    margin-left: 6px;
+    height: 1px;
+    background-color: #f5483b;
+    margin-top: -4px;
+  }
+}

@@ -1,0 +1,68 @@
+@import '../../../asserts/styles/variable';
+.container {
+  position: relative;
+  .line {
+    margin: 16px 0;
+    margin-left: 32px;
+    &.lineTitle {
+      margin-left: 0;
+    }
+    .title {
+      line-height: 30px;
+      :global {
+        input {
+          font-weight: 500;
+          font-size: 20px;
+          color: @color-darker;
+          height: 42px;
+          border: 1px solid rgba(0, 0, 0, 0.12);
+        }
+      }
+    }
+    .icon {
+      font-size: 20px;
+      color: @color-darker;
+      position: absolute;
+      margin-left: -32px;
+      margin-top: 6px;
+    }
+  }
+}
+.selectContanier {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  padding-bottom: 4px;
+  :global {
+    .mtd-select .mtd-select-filter {
+      border: none !important;
+      border-radius: 6px;
+    }
+    .mtd-select.mtd-select-multiple {
+      border-radius: 6px;
+    }
+  }
+}
+.subIconsGroup {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  border-radius: 4px;
+  width: auto;
+  padding-right: 12px;
+  margin: 4px 1px 0 0;
+  cursor: pointer;
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+  &:focus-visible {
+    outline-color: #0a70f5;
+  }
+  i {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.84);
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.84);
+}

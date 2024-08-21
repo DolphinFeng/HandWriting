@@ -1,0 +1,47 @@
+:global{
+  .mtd-modal{
+    min-width: 270px;
+  }
+}
+.opts {
+  position: absolute;
+  width: 100%;
+  // left: 0;
+  // right: 24px;
+  bottom: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  .btn:first-child{
+    margin-left: 0;
+  }
+  .btn {
+    width: 80px;
+    height: 32px;
+    border-radius: 6px;
+    margin-left: 12px;
+    padding-right: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &.btnSelected {
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+    p {
+      padding-left: 4px;
+      font-weight: 500;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    &:active {
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+  }
+}
+.over{
+  border-top: 1px solid rgba(0, 0, 0, 0.06) 
+}

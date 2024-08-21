@@ -1,0 +1,78 @@
+.userList {
+  padding-right: 4px;
+}
+.userItem {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 16px 0 60px;
+  cursor: pointer;
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+    .releaseBtn {
+      color: #f5483b;
+    }
+  }
+  &.orgItem {
+    &:hover {
+      background: transparent;
+    }
+  }
+  border-radius: 8px;
+  img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex: none;
+    background-color: rgb(174, 219, 255);
+    background-image: url(../../../../asserts/images/default.png);
+  }
+  p {
+    width: 100%;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.84);
+    letter-spacing: 0;
+    line-height: 22px;
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .radioItem {
+    margin-left: 8px;
+    flex: none;
+    display: flex;
+    align-items: center;
+  }
+}
+.removeBtn {
+  color: rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.usersContainer {
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-right: 4px;
+  &::-webkit-scrollbar {
+    display: block;
+  }
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar:hover {
+    width: 6px;
+    height: 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.24);
+    border-radius: 3px;
+  }
+}
+.scrollItem {
+  width: 100%;
+  height: 2px;
+}

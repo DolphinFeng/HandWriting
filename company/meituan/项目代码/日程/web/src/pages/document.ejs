@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charSet="utf-8" />
+  <title>日程</title>
+  <style>
+    #error {
+      position: absolute;
+      top: 20%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: none;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .ebundaryErrorContanier {
+      position: absolute;
+      top: 20%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .ebundaryError {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #error .icon img,
+    .ebundaryError .icon img {
+      width: 80px;
+      margin-bottom: 30px;
+    }
+
+    #error .title,
+    .ebundaryError .title {
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.87);
+      line-height: 24px;
+      margin-bottom: 8px;
+    }
+
+    #error .desc,
+    .ebundaryError .desc {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.36);
+      text-align: center;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+
+    #error .reload-btn,
+    .ebundaryError .reload-btn {
+      transition: all .1s;
+      background: #FFFFFF;
+      border: 1px solid #0A70F5;
+      width: 80px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #0A70F5;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #error .reload-btn:active,
+    .ebundaryError .reload-btn:active {
+      opacity: 0.6;
+    }
+
+    .waterpoint {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url(/api-wm/image/visible);
+      background-size: 320px auto;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .jimu-empty {
+      position: absolute;
+      width: 100%;
+      top: 20%;
+    }
+
+    .jimu-empty .no-data-content-icon img {
+      width: 80px !important;
+      height: 80px !important;
+    }
+  </style>
+</head>
+
+<body style="background-color: #fff;">
+  <script>
+    window.Owl && window.Owl.addPoint({
+      position: 0,
+      timeStamp: Date.now()
+    });
+    // 静态资源加载失败防止白屏逻辑
+    function checkIsWhite(url) {
+      var checkArray = [/scheduleweb\/umi(\..*)?\.(js|css)$/, /scheduleweb\/vendor(.*)?\.js$/, /pike_message.*\.js$/, /scheduleweb\/p__.*\.(js|css)$/, /layout.*\.(js|css)$/, /react.*?\.js$/, /scheduleweb\/external_*/, /scheduleweb\/common.*\.(js|css)$/];
+      for (var i = 0; i < checkArray.length; i++) {
+        var item = checkArray[i];
+        if (item.test(url)) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function handleShowErrorDIV() {
+      var errorDIV = document.getElementById('error');
+      var imgDIV = document.createElement('img');
+      imgDIV.src =
+        'https://s3plus.sankuai.com/common-asserts/sad.png?AWSAccessKeyId=tzwrzkgkf2f5ndgg000000000063c81e&Expires=1869033954&Signature=MgE%2FL6%2Ft0L17auBuTMmMoS0uREs%3D';
+      errorDIV.getElementsByClassName('icon')[0] && errorDIV.getElementsByClassName('icon')[0].childElementCount === 0 && errorDIV.getElementsByClassName('icon')[0].appendChild(imgDIV);
+      document.getElementById('error').style.display = 'flex';
+    }
+
+    window.addEventListener('error', function (e) {
+      var typeName = e.target.localName;
+      var sourceUrl = "";
+      var href = "";
+      if (typeName === "script" || typeName === "link") {
+        sourceUrl = e.target.src;
+        href = e.target.href;
+        if (checkIsWhite(sourceUrl || href) && document.getElementById('root')) {
+          document.getElementById('root').style.display = 'none';
+          handleShowErrorDIV();
+          if (window.Owl) {
+            var pageData = JSON.parse(window['__PageData__'] || '{}');
+            // eslint-disable-next-line
+            Owl.addError(
+              {
+                name: 'page-basesource-failed',
+                msg: '资源请求失败'
+              },
+              {
+                combo: false,
+                level: 'info',
+                category: 'resourceError',
+                realUrl: window.location.href,
+                tags: {
+                  userMis: pageData && pageData.userInfo && pageData.userInfo.mis,
+                  sourceUrl
+                }
+              }
+            );
+          }
+        }
+      }
+    }, true);
+    // 
+
+    var locales = navigator.userAgent.match(/dx_la\/([^ ]+)/)?.[1] || localStorage.getItem("locales") || 'zh';
+
+    function reload() {
+      window.location.reload();
+    }
+
+    var failTitle = {
+      zh: '加载失败，请点击刷新',
+      'zh-HK': '加載失敗，請點擊刷新',
+      en: 'Loading failed, please click refresh'
+    }
+
+    var failDesc = {
+      zh: '资源加载失败，请点击刷新重试。',
+      'zh-HK': '資源加載失敗，請點擊刷新重試。',
+      en: 'Resource loading failed, please click Refresh to try again.'
+    }
+
+    var reloadText = {
+      zh: '刷新',
+      'zh-HK': '刷新',
+      en: 'Refresh'
+    }
+
+    var docTitle = {
+      zh: '日程',
+      'zh-HK': '日程',
+      en: 'Calendar'
+    }
+
+    var showTitle = failTitle[locales];
+    var showDesc = failDesc[locales];
+    var showReload = reloadText[locales]
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var title = document.getElementById('title');
+      title.innerHTML = showTitle;
+
+      var desc = document.getElementById('desc');
+      desc.innerHTML = showDesc;
+
+      var reload = document.getElementById('reload');
+      reload.innerHTML = showReload;
+
+      document.title = docTitle[locales];
+    });
+
+
+  </script>
+  <div class="waterpoint"></div>
+  <div id="error">
+    <div class="icon"></div>
+    <div class="title" id="title"></div>
+    <div class="desc" id="desc"></div>
+    <div onclick="reload()" id="reload" class="reload-btn"></div>
+  </div>
+  <div id="root">
+  </div>
+  <script>
+    window.Owl && window.Owl.addPoint({
+      position: 1,
+      timeStamp: Date.now()
+    });
+  </script>
+</body>
+
+</html>

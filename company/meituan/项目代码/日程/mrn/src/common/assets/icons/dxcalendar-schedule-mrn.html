@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>IconFont</title>
+    <link rel="stylesheet"
+        href="https://s3plus.sankuai.com/v1/mss_28a77f134e5b4abf876b4ff035f4107f/iconfont/prism.css" />
+    <script src="https://s3plus.sankuai.com/v1/mss_28a77f134e5b4abf876b4ff035f4107f/iconfont/prism.js"></script>
+    <script
+        src="https://s3plus.sankuai.com/v1/mss_28a77f134e5b4abf876b4ff035f4107f/iconfont/jquery-3.3.1.min.js"></script>
+    <script src="./dxcalendar-schedule-mrn.js"></script>
+    <style>
+        *{margin:0;padding:0;list-style:none;}
+        body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,form,button,input,textarea,th,td{margin:0;padding:0;}
+        body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;}
+        h1,h2,h3,h4,h5,h6{font-size:100%;}
+        address,cite,dfn,em,var{font-style:normal;}
+        ul,ol{list-style:none;}
+        a{text-decoration:none;}
+        a:hover{text-decoration:underline;}
+        button,input,select,textarea{font-size:100%;}
+        table{border-collapse:collapse;border-spacing:0;}
+        .clear:after{content:'\20';display:block;height:0;clear:both;}
+        .clear{*zoom:1;}
+        .main{padding:30px 100px;width:960px;margin:0 auto;}
+        .main .title{font-size:24px;color:#333;text-align:left;margin-bottom:20px;}
+        .tabs{border-bottom:1px solid #eee;font-size:16px;position:relative;}
+        .tabs .tab{display:inline-block;cursor:pointer;width:100px;height:40px;line-height:40px;text-align:center;border-bottom:2px solid transparent;position:relative;z-index:1;margin-bottom:-1px;color:#666;}
+        .tabs .active{color:#222;border-bottom-color:#f00;}
+        .tabs .project-link{position:absolute;right:0;bottom:0;height:42px;line-height:42px;color:#666;font-size:14px;}
+        .tab-container .content{display:none;}
+        .tab-container .step{font-size:14px;}.tab-container .step .subuse{font-size:12px;color:#333;}
+        .tab-container .step code{font-size:12px;}.tab-container .step pre{max-height:210px;}
+        .icon_lists{margin-top:20px;}
+        .icon_lists li{float:left;width:150px;height:150px;text-align:center;}
+        .icon_lists .icon{font-size:50px;margin:10px 0;color:#333;}
+        .multi-color .icon_lists .icon{width:1em;height:1em;vertical-align:-0.15em;fill:currentColor;overflow:hidden;}
+        .icon_lists li .name{font-size:14px;margin:10px 0;word-break:break-all;}
+        .icon_lists li .code{font-size:12px;line-height:16px;padding:0 15px;word-break:break-all;}
+        .intro_title{margin-top:10px;font-size:20px;border-bottom:1px solid #eee;padding-bottom:10px;font-weight:600;}
+        .intro_detail{font-size:13px;line-height:22px;margin:10px 0;padding:0 0 10px 0;}
+    </style>
+    <link href="./dxcalendar-schedule-mrn.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="main">
+        <h1 class="title">图标字体 dxcalendar-schedule-mrn</h1>
+        <ul class="tabs" id="tabs">
+            <li class="tab active">单色图标</li>
+            <li class="tab">彩色图标</li>
+        </ul>
+        <div class="tab-container">
+            <div class="content single-color">
+                <ul class="icon_lists clear">
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calaccept"></i>
+                            <div class="name">accept</div>
+                            <div class="code">.dx-calaccept</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calcycle"></i>
+                            <div class="name">cycle</div>
+                            <div class="code">.dx-calcycle</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-caltemporarily"></i>
+                            <div class="name">temporarily</div>
+                            <div class="code">.dx-caltemporarily</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calwait"></i>
+                            <div class="name">wait</div>
+                            <div class="code">.dx-calwait</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calrefues"></i>
+                            <div class="name">refues</div>
+                            <div class="code">.dx-calrefues</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calmeeting-room"></i>
+                            <div class="name">meeting-room</div>
+                            <div class="code">.dx-calmeeting-room</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calmeeting-room-fill"></i>
+                            <div class="name">meeting-room-fill</div>
+                            <div class="code">.dx-calmeeting-room-fill</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calturn"></i>
+                            <div class="name">turn</div>
+                            <div class="code">.dx-calturn</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calindependence"></i>
+                            <div class="name">independence</div>
+                            <div class="code">.dx-calindependence</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calarrow-left"></i>
+                            <div class="name">arrow-left</div>
+                            <div class="code">.dx-calarrow-left</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calarrow-right"></i>
+                            <div class="name">arrow-right</div>
+                            <div class="code">.dx-calarrow-right</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-caladd_circle"></i>
+                            <div class="name">add_circle</div>
+                            <div class="code">.dx-caladd_circle</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calavatar-group"></i>
+                            <div class="name">avatar-group</div>
+                            <div class="code">.dx-calavatar-group</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calavatar"></i>
+                            <div class="name">avatar_add</div>
+                            <div class="code">.dx-calavatar</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calbell"></i>
+                            <div class="name">bell</div>
+                            <div class="code">.dx-calbell</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calclose_nav"></i>
+                            <div class="name">close_nav</div>
+                            <div class="code">.dx-calclose_nav</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calleft_day_nav"></i>
+                            <div class="name">left_day_nav</div>
+                            <div class="code">.dx-calleft_day_nav</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-callocation"></i>
+                            <div class="name">location</div>
+                            <div class="code">.dx-callocation</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calreduce_circle"></i>
+                            <div class="name">reduce_circle</div>
+                            <div class="code">.dx-calreduce_circle</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calremarks"></i>
+                            <div class="name">remarks</div>
+                            <div class="code">.dx-calremarks</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calright_day_nav"></i>
+                            <div class="name">right_day_nav</div>
+                            <div class="code">.dx-calright_day_nav</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-caltime"></i>
+                            <div class="name">time</div>
+                            <div class="code">.dx-caltime</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-caltoday"></i>
+                            <div class="name">today</div>
+                            <div class="code">.dx-caltoday</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calwarning_calendar"></i>
+                            <div class="name">warning_calendar</div>
+                            <div class="code">.dx-calwarning_calendar</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-callock"></i>
+                            <div class="name">lock</div>
+                            <div class="code">.dx-callock</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calcancelcalendar"></i>
+                            <div class="name">cancelcalendar</div>
+                            <div class="code">.dx-calcancelcalendar</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-caltime_arrow"></i>
+                            <div class="name">time_arrow</div>
+                            <div class="code">.dx-caltime_arrow</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calcheckmini"></i>
+                            <div class="name">checkmini</div>
+                            <div class="code">.dx-calcheckmini</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calchecked"></i>
+                            <div class="name">checked</div>
+                            <div class="code">.dx-calchecked</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calavatarseq"></i>
+                            <div class="name">avatarseq</div>
+                            <div class="code">.dx-calavatarseq</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calcheckbox"></i>
+                            <div class="name">unchecked</div>
+                            <div class="code">.dx-calcheckbox</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calsearch"></i>
+                            <div class="name">search</div>
+                            <div class="code">.dx-calsearch</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calcancelinvite"></i>
+                            <div class="name">cancelinvite</div>
+                            <div class="code">.dx-calcancelinvite</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calplaceonleft"></i>
+                            <div class="name">placeonleft</div>
+                            <div class="code">.dx-calplaceonleft</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-caldown"></i>
+                            <div class="name">down</div>
+                            <div class="code">.dx-caldown</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calclose_mini"></i>
+                            <div class="name">close_mini</div>
+                            <div class="code">.dx-calclose_mini</div>
+                        </li>
+                        <li>
+                            <i class="icon dxcalendar-schedule-mrn dx-calumeet"></i>
+                            <div class="name">umeet</div>
+                            <div class="code">.dx-calumeet</div>
+                        </li>
+                </ul>
+                <div class="intro_title">单色图标：font-class 引用</div>
+                <div class="intro_detail">
+                    <p>
+                        font-class 是比较推荐的使用方法，取代了直接使用图标编码
+                        Unicode，解决 Unicode 书写不直观，语意不明确的问题。
+                    </p>
+                    <p>· 兼容性良好，支持 IE8+，及所有现代浏览器。</p>
+                    <p>
+                        · 相比于 Unicode 语意明确，书写更直观。可以很容易分辨这个 icon
+                        是什么。
+                    </p>
+                    <p>
+                        · 因为使用 class 来定义图标，所以当要替换图标时，只需要修改 class
+                        里面的 Unicode 引用。
+                    </p>
+                    <p>· 不过因为本质上还是使用的字体，所以多色图标还是不支持的。</p>
+                </div>
+                <div class="intro_title">关于基线</div>
+                <div class="intro_detail">
+                    <p>
+                        默认生成的图标字体，会显示在区域的正中间，不高也不低。但大多数中英文字符是衬线对齐的，并不是显示在正中间。
+                    </p>
+                    <p>
+                        ·
+                        单色图标，为了方便对齐，我们提供了默认字体和调整基线之后的字体。使用时，引用不不同的字体链接即可。
+                    </p>
+                </div>
+                <div class="intro_title">使用方法</div>
+                <div class="intro_detail">
+                    <div class="helps">
+                        <div class="step">
+                            <p>第一步：使用font-face声明字体，并定义使用iconfont的样式</p>
+                            <p class="subuse">可直接引用 ./dxcalendar-schedule-mrn.css</p>
+                            <pre><code class="language-css">@font-face {font-family: 'dxcalendar-schedule-mrn';
+  src: url('./dxcalendar-schedule-mrn.eot'); /* IE9*/
+  src: url('./dxcalendar-schedule-mrn.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./dxcalendar-schedule-mrn.woff') format('woff'), /* chrome、firefox */
+  url('./dxcalendar-schedule-mrn.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('./dxcalendar-schedule-mrn.svg#dxcalendar-schedule-mrn') format('svg'); /* iOS 4.1- */
+}
+.dxcalendar-schedule-mrn {
+  font-family:"dxcalendar-schedule-mrn" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;}
+
+.dx-calaccept:before { content: "\e000"; }
+.dx-calcycle:before { content: "\e001"; }
+.dx-caltemporarily:before { content: "\e002"; }
+.dx-calwait:before { content: "\e003"; }
+.dx-calrefues:before { content: "\e004"; }
+.dx-calmeeting-room:before { content: "\e005"; }
+.dx-calmeeting-room-fill:before { content: "\e006"; }
+.dx-calturn:before { content: "\e007"; }
+.dx-calindependence:before { content: "\e008"; }
+.dx-calarrow-left:before { content: "\e009"; }
+.dx-calarrow-right:before { content: "\e00a"; }
+.dx-caladd_circle:before { content: "\e00b"; }
+.dx-calavatar-group:before { content: "\e00c"; }
+.dx-calavatar:before { content: "\e00d"; }
+.dx-calbell:before { content: "\e00e"; }
+.dx-calclose_nav:before { content: "\e00f"; }
+.dx-calleft_day_nav:before { content: "\e010"; }
+.dx-callocation:before { content: "\e011"; }
+.dx-calreduce_circle:before { content: "\e012"; }
+.dx-calremarks:before { content: "\e013"; }
+.dx-calright_day_nav:before { content: "\e014"; }
+.dx-caltime:before { content: "\e015"; }
+.dx-caltoday:before { content: "\e016"; }
+.dx-calwarning_calendar:before { content: "\e017"; }
+.dx-callock:before { content: "\e018"; }
+.dx-calcancelcalendar:before { content: "\e019"; }
+.dx-caltime_arrow:before { content: "\e01a"; }
+.dx-calcheckmini:before { content: "\e01b"; }
+.dx-calchecked:before { content: "\e01c"; }
+.dx-calavatarseq:before { content: "\e01d"; }
+.dx-calcheckbox:before { content: "\e01e"; }
+.dx-calsearch:before { content: "\e01f"; }
+.dx-calcancelinvite:before { content: "\e020"; }
+.dx-calplaceonleft:before { content: "\e021"; }
+.dx-caldown:before { content: "\e022"; }
+.dx-calclose_mini:before { content: "\e023"; }
+.dx-calumeet:before { content: "\e024"; }
+</code></pre>
+                            <p>调整基线的版本：</p>
+                            <p class="subuse">可直接引用 ./dxcalendar-schedule-mrn.baseline.css</p>
+                            <pre><code class="language-css">@font-face {font-family: 'dxcalendar-schedule-mrn';
+  src: url('./dxcalendar-schedule-mrn.baseline.eot'); /* IE9*/
+  src: url('./dxcalendar-schedule-mrn.baseline.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./dxcalendar-schedule-mrn.baseline.woff') format('woff'), /* chrome、firefox */
+  url('./dxcalendar-schedule-mrn.baseline.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('./dxcalendar-schedule-mrn.baseline.svg#dxcalendar-schedule-mrn') format('svg'); /* iOS 4.1- */
+}
+.dxcalendar-schedule-mrn {
+  font-family:"dxcalendar-schedule-mrn" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;}
+
+.dx-calaccept:before { content: "\e000"; }
+.dx-calcycle:before { content: "\e001"; }
+.dx-caltemporarily:before { content: "\e002"; }
+.dx-calwait:before { content: "\e003"; }
+.dx-calrefues:before { content: "\e004"; }
+.dx-calmeeting-room:before { content: "\e005"; }
+.dx-calmeeting-room-fill:before { content: "\e006"; }
+.dx-calturn:before { content: "\e007"; }
+.dx-calindependence:before { content: "\e008"; }
+.dx-calarrow-left:before { content: "\e009"; }
+.dx-calarrow-right:before { content: "\e00a"; }
+.dx-caladd_circle:before { content: "\e00b"; }
+.dx-calavatar-group:before { content: "\e00c"; }
+.dx-calavatar:before { content: "\e00d"; }
+.dx-calbell:before { content: "\e00e"; }
+.dx-calclose_nav:before { content: "\e00f"; }
+.dx-calleft_day_nav:before { content: "\e010"; }
+.dx-callocation:before { content: "\e011"; }
+.dx-calreduce_circle:before { content: "\e012"; }
+.dx-calremarks:before { content: "\e013"; }
+.dx-calright_day_nav:before { content: "\e014"; }
+.dx-caltime:before { content: "\e015"; }
+.dx-caltoday:before { content: "\e016"; }
+.dx-calwarning_calendar:before { content: "\e017"; }
+.dx-callock:before { content: "\e018"; }
+.dx-calcancelcalendar:before { content: "\e019"; }
+.dx-caltime_arrow:before { content: "\e01a"; }
+.dx-calcheckmini:before { content: "\e01b"; }
+.dx-calchecked:before { content: "\e01c"; }
+.dx-calavatarseq:before { content: "\e01d"; }
+.dx-calcheckbox:before { content: "\e01e"; }
+.dx-calsearch:before { content: "\e01f"; }
+.dx-calcancelinvite:before { content: "\e020"; }
+.dx-calplaceonleft:before { content: "\e021"; }
+.dx-caldown:before { content: "\e022"; }
+.dx-calclose_mini:before { content: "\e023"; }
+.dx-calumeet:before { content: "\e024"; }
+</code></pre>
+                        </div>
+                        <div class="step">
+                            <p>第二步：通过 fontClass 来使用 icon</p>
+                            <pre><code class="language-html"
+>&lt;i class="dxcalendar-schedule-mrn dx-calaccept"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calcycle"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-caltemporarily"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calwait"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calrefues"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calmeeting-room"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calmeeting-room-fill"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calturn"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calindependence"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calarrow-left"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calarrow-right"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-caladd_circle"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calavatar-group"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calavatar"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calbell"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calclose_nav"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calleft_day_nav"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-callocation"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calreduce_circle"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calremarks"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calright_day_nav"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-caltime"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-caltoday"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calwarning_calendar"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-callock"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calcancelcalendar"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-caltime_arrow"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calcheckmini"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calchecked"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calavatarseq"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calcheckbox"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calsearch"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calcancelinvite"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calplaceonleft"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-caldown"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calclose_mini"&gt;&lt;/i&gt;
+&lt;i class="dxcalendar-schedule-mrn dx-calumeet"&gt;&lt;/i&gt;
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content multi-color">
+                <ul class="icon_lists clear">
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calaccept"></use>
+                            </svg>
+                            <div class="name">accept</div>
+                            <div class="code">dx-calaccept</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calcycle"></use>
+                            </svg>
+                            <div class="name">cycle</div>
+                            <div class="code">dx-calcycle</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-caltemporarily"></use>
+                            </svg>
+                            <div class="name">temporarily</div>
+                            <div class="code">dx-caltemporarily</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calwait"></use>
+                            </svg>
+                            <div class="name">wait</div>
+                            <div class="code">dx-calwait</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calrefues"></use>
+                            </svg>
+                            <div class="name">refues</div>
+                            <div class="code">dx-calrefues</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calmeeting-room"></use>
+                            </svg>
+                            <div class="name">meeting-room</div>
+                            <div class="code">dx-calmeeting-room</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calmeeting-room-fill"></use>
+                            </svg>
+                            <div class="name">meeting-room-fill</div>
+                            <div class="code">dx-calmeeting-room-fill</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calturn"></use>
+                            </svg>
+                            <div class="name">turn</div>
+                            <div class="code">dx-calturn</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calindependence"></use>
+                            </svg>
+                            <div class="name">independence</div>
+                            <div class="code">dx-calindependence</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calarrow-left"></use>
+                            </svg>
+                            <div class="name">arrow-left</div>
+                            <div class="code">dx-calarrow-left</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calarrow-right"></use>
+                            </svg>
+                            <div class="name">arrow-right</div>
+                            <div class="code">dx-calarrow-right</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-caladd_circle"></use>
+                            </svg>
+                            <div class="name">add_circle</div>
+                            <div class="code">dx-caladd_circle</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calavatar-group"></use>
+                            </svg>
+                            <div class="name">avatar-group</div>
+                            <div class="code">dx-calavatar-group</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calavatar"></use>
+                            </svg>
+                            <div class="name">avatar_add</div>
+                            <div class="code">dx-calavatar</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calbell"></use>
+                            </svg>
+                            <div class="name">bell</div>
+                            <div class="code">dx-calbell</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calclose_nav"></use>
+                            </svg>
+                            <div class="name">close_nav</div>
+                            <div class="code">dx-calclose_nav</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calleft_day_nav"></use>
+                            </svg>
+                            <div class="name">left_day_nav</div>
+                            <div class="code">dx-calleft_day_nav</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-callocation"></use>
+                            </svg>
+                            <div class="name">location</div>
+                            <div class="code">dx-callocation</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calreduce_circle"></use>
+                            </svg>
+                            <div class="name">reduce_circle</div>
+                            <div class="code">dx-calreduce_circle</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calremarks"></use>
+                            </svg>
+                            <div class="name">remarks</div>
+                            <div class="code">dx-calremarks</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calright_day_nav"></use>
+                            </svg>
+                            <div class="name">right_day_nav</div>
+                            <div class="code">dx-calright_day_nav</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-caltime"></use>
+                            </svg>
+                            <div class="name">time</div>
+                            <div class="code">dx-caltime</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-caltoday"></use>
+                            </svg>
+                            <div class="name">today</div>
+                            <div class="code">dx-caltoday</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calwarning_calendar"></use>
+                            </svg>
+                            <div class="name">warning_calendar</div>
+                            <div class="code">dx-calwarning_calendar</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-callock"></use>
+                            </svg>
+                            <div class="name">lock</div>
+                            <div class="code">dx-callock</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calcancelcalendar"></use>
+                            </svg>
+                            <div class="name">cancelcalendar</div>
+                            <div class="code">dx-calcancelcalendar</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-caltime_arrow"></use>
+                            </svg>
+                            <div class="name">time_arrow</div>
+                            <div class="code">dx-caltime_arrow</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calcheckmini"></use>
+                            </svg>
+                            <div class="name">checkmini</div>
+                            <div class="code">dx-calcheckmini</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calchecked"></use>
+                            </svg>
+                            <div class="name">checked</div>
+                            <div class="code">dx-calchecked</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calavatarseq"></use>
+                            </svg>
+                            <div class="name">avatarseq</div>
+                            <div class="code">dx-calavatarseq</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calcheckbox"></use>
+                            </svg>
+                            <div class="name">unchecked</div>
+                            <div class="code">dx-calcheckbox</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calsearch"></use>
+                            </svg>
+                            <div class="name">search</div>
+                            <div class="code">dx-calsearch</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calcancelinvite"></use>
+                            </svg>
+                            <div class="name">cancelinvite</div>
+                            <div class="code">dx-calcancelinvite</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calplaceonleft"></use>
+                            </svg>
+                            <div class="name">placeonleft</div>
+                            <div class="code">dx-calplaceonleft</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-caldown"></use>
+                            </svg>
+                            <div class="name">down</div>
+                            <div class="code">dx-caldown</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calclose_mini"></use>
+                            </svg>
+                            <div class="name">close_mini</div>
+                            <div class="code">dx-calclose_mini</div>
+                        </li>
+                        <li>
+                            <svg class="icon dxcalendar-schedule-mrn" aria-hidden="true">
+                                <use xlink:href="#dx-calumeet"></use>
+                            </svg>
+                            <div class="name">umeet</div>
+                            <div class="code">dx-calumeet</div>
+                        </li>
+                </ul>
+                <div class="intro_title">彩色图标：Symbol 引用</div>
+                <div class="intro_detail">
+                    <p>
+                        这是一种全新的使用方式，应该说这才是未来的主流，也是平台目前推荐的用法。相关介绍可以参考<a href="https://www.zhangxinxu.com/wordpress/2014/07/introduce-svg-sprite-technology/" target="_blank">这篇文章</a>
+                        这种用法其实是做了一个 SVG 的集合，与另外两种相比具有如下特点：
+                    </p>
+                    <p>· 支持多色图标了，不再受单色限制。</p>
+                    <p>· 支持像字体那样，通过 font-size, color 来调整样式。</p>
+                    <p>· 兼容性较差，支持 IE9+，及现代浏览器。</p>
+                    <p>· 浏览器渲染 SVG 的性能一般，还不如 png。</p>
+                </div>
+                <div class="intro_title">关于基线</div>
+                <div class="intro_detail">
+                    <p>
+                        默认生成的图标字体，会显示在区域的正中间，不高也不低。但大多数中英文字符是衬线对齐的，并不是显示在正中间。
+                    </p>
+                    <p>
+                        · 彩色图标，通过调整样式中的 vertical-align
+                        值即可调整图标的纵轴位置。
+                    </p>
+                </div>
+                <div class="intro_title">使用方法</div>
+                <div class="intro_detail">
+                    <div class="helps">
+                        <div class="step">
+                            <p>第一步：引入项目下面生成的 symbol 代码：</p>
+                            <pre><code class="language-html"
+>&lt;script src="./dxcalendar-schedule-mrn.js"&gt;&lt;/script&gt;
+</code></pre>
+                        </div>
+                        <div class="step">
+                            <p>第二步：加入通用 CSS 代码（引入一次就行）：</p>
+                            <pre><code class="language-html"
+>&lt;style&gt;
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em; /* 调整纵轴位置，方便对齐 */
+  fill: currentColor;
+  overflow: hidden;
+}
+&lt;/style&gt;
+</code></pre>
+                        </div>
+                        <div class="step">
+                            <p>第三步：挑选相应图标并获取类名，应用于页面：</p>
+                            <pre><code class="language-html"
+>&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calaccept">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calcycle">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-caltemporarily">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calwait">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calrefues">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calmeeting-room">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calmeeting-room-fill">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calturn">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calindependence">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calarrow-left">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calarrow-right">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-caladd_circle">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calavatar-group">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calavatar">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calbell">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calclose_nav">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calleft_day_nav">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-callocation">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calreduce_circle">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calremarks">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calright_day_nav">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-caltime">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-caltoday">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calwarning_calendar">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-callock">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calcancelcalendar">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-caltime_arrow">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calcheckmini">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calchecked">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calavatarseq">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calcheckbox">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calsearch">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calcancelinvite">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calplaceonleft">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-caldown">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calclose_mini">&lt;/use&gt;
+&lt;/svg&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#dx-calumeet">&lt;/use&gt;
+&lt;/svg&gt;
+</code></pre>
+                        </div>
+                        <div class="step">
+                            <p>注意：可以通过修改 width、height、font-size 来调整图标的展示大小。当 svg 的父节点是 flex 的时候，有可能会出现影响 svg 的显示，推荐此时在 svg 外层包裹一层。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.tab-container .content:first').show();
+
+            $('#tabs .tab').click(function (e) {
+                var tabContent = $('.tab-container .content');
+                var index = $(this).index();
+
+                if ($(this).hasClass('active')) {
+                    return;
+                } else {
+                    $('#tabs .tab').removeClass('active');
+                    $(this).addClass('active');
+
+                    tabContent
+                        .hide()
+                        .eq(index)
+                        .fadeIn();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

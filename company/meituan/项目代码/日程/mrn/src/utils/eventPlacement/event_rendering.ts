@@ -1,0 +1,22 @@
+// 构造用来比较的结构体
+export function buildSegCompareObj(seg) {
+  //   let { eventRange } = seg;
+  //   let eventDef = eventRange.def;
+  //   let range = eventRange.instance
+  //     ? eventRange.instance.range
+  //     : eventRange.range;
+  //   let start = range.start ? range.start.valueOf() : 0; // TODO: better support for open-range events
+  //   let end = range.end ? range.end.valueOf() : 0; // "
+  const { start, end, title } = seg
+  return {
+    // ...eventDef.extendedProps,
+    // ...eventDef,
+    // id: eventDef.publicId,
+    start,
+    end,
+    title,
+    duration: end - start,
+    // allDay: Number(eventDef.allDay),
+    _seg: seg // for later retrieval
+  }
+}

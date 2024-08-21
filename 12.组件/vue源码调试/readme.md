@@ -91,7 +91,7 @@ const descriptor = {
 
 parse 函数将 App.vue 代码的 template 部分单独抽离出来并整合成了一个 ast 抽象语法树
 
-```json
+```js
 filename: '/Users/dolphin/Desktop/Codespace/mySpace/八股/HandWriting/12.组件/vue源码调试/vue-test/src/App.vue'
 script: null
 scriptSetup: {type: 'script', content: "\nimport { ref, nextTick } from 'vue';\n\nconst…  \n  console.log(refP.value, 'nextTick')\n})\n", loc: {…}, attrs: {…}, setup: true, …}
@@ -371,3 +371,469 @@ code 里面应该就是最终需要的产物
 
 ## 总得来看
  vue 文件被解析的全流程：vite 有个钩子 transform，只要有导入就会触发这个钩子的执行，因此断点到 import vue 就可以看到 transform 的执行，这个函数内部有个 transformMain ，里面有四个函数 createDescriptor，genScriptCode，genTemplateCode 和 genStyleCode，createDescriptor 将 App.vue 拆分三部分汇入到 对象 descriptor 中，于是后面三个函数分别将其解析成 浏览器读懂的 代码，分别是 genScriptCode 有个 compiler.compileScript 将 descriptor 的 scriptSetup 部分拿到得到 ast，genTemplateCode 有个 compiler.compileTemplate 转换成 可渲染的函数，genStyleCode 有个 compileStyleAsync 转换成 import 语句，最后三部分 join('/n')起来，得到上面的代码
+
+ # template 部分
+ ## baseCompile
+ template 核心解析部分就是 compiler 身上的 compileTemplate 函数，来到这个函数身上 `/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js`
+ 打一个断点，这个函数主要是靠 doCompileTemplate 实现的，cmd + click 来到这个函数身上，打上一个断点，进入此处
+ ![alt text](image-11.png)
+对 doCompileTemplate 的入参进行简化，就是三个参数 compiler，source 和 inAST ，打印出来看看
+![alt text](image-12.png)
+这里埋入一个问题，ast 通常是 parse 函数得到的，这里没有 经过 parse 函数是如何得到 ast
+compiler 这里是 undefined，会被 defaultCompiler 赋值，defaultCompiler 就是 compilerDOM，而 compilerDOM 是从 底层库 @vue/compiler-dom 引入的
+![alt text](image-13.png)
+因此 doCompileTemplate 后面执行 compiler.compile 就是 从 @vue/compiler-dom 拿到的 compile 方法
+![alt text](image-14.png)
+现在来到 compile 函数中，看看核心函数是怎么去转换 template 的
+```js
+function compile(src, options = {}) {
+  return compilerCore.baseCompile(
+    src,
+    shared.extend({}, parserOptions, options, {
+      nodeTransforms: [
+        // ignore <script> and <tag>
+        // this is not put inside DOMNodeTransforms because that list is used
+        // by compiler-ssr to generate vnode fallback branches
+        ignoreSideEffectTags,
+        ...DOMNodeTransforms,
+        ...options.nodeTransforms || []
+      ],
+      directiveTransforms: shared.extend(
+        {},
+        DOMDirectiveTransforms,
+        options.directiveTransforms || {}
+      ),
+      transformHoist: stringifyStatic
+    })
+  );
+}
+```
+这个函数很简洁，主要是调用 compilerCore.baseCompile，看看 他是哪里来的 ，原来是 `var compilerCore = require('@vue/compiler-core');`
+`@vue/compiler-core` 的 api 是可以运行在各个平台的，需要通过 dom 库拿到的 options 判断平台，于是里面又有 DOMNodeTransforms 和 DOMDirectiveTransforms 对 options 进行改造
+![alt text](image-15.png)
+DOMNodeTransforms 处理 template 的 样式 得到 transformStyle ，而 DOMDirectiveTransforms 如下
+```js
+const DOMDirectiveTransforms = {
+  cloak: compilerCore.noopDirectiveTransform,
+  html: transformVHtml,
+  text: transformVText,
+  model: transformModel,
+  // override compiler-core
+  on: transformOn,
+  // override compiler-core
+  show: transformShow
+};
+```
+这个函数的参数 就是去处理 v-model 这样类似的指令
+```js
+{cloak: ƒ, html: ƒ, text: ƒ, model: ƒ, on: ƒ, …}
+cloak =
+() => ({ props: [] })
+html =
+(dir, node, context) => {\n  const { exp, loc } = dir;\n  if (!exp) {\n    context.onError(\n      createDOMCompilerError(53, loc)\n    );\n  }\n  if (node.children.length) {\n    context.onError(\n      createDOMCompilerError(54, loc)\n    );\n    node.children.length = 0;\n  }\n  return {\n    props: [\n      compilerCore.createObjectProperty(\n        compilerCore.createSimpleExpression(`innerHTML`, true, loc),\n        exp || compilerCore.createSimpleExpression("", true)\n      )\n    ]\n  };\n}
+model =
+(dir, node, context) => {…}
+on =
+(dir, node, context) => {…}
+show =
+(dir, node, context) => {\n  const { exp, loc } = dir;\n  if (!exp) {\n    context.onError(\n      createDOMCompilerError(61, loc)\n    );\n  }\n  return {\n    props: [],\n    needRuntime: context.helper(V_SHOW)\n  };\n}
+text =
+(dir, node, context) => {\n  const { exp, loc } = dir;\n  if (!exp) {\n    context.onError(\n      createDOMCompilerError(55, loc)\n    );\n  }\n  if (node.children.length) {\n    context.onError(\n      createDOMCompilerError(56, loc)\n    );\n    node.children.length = 0;\n  }\n  return {\n    props: [\n      compilerCore.createObjectProperty(\n        compilerCore.createSimpleExpression(`textContent`, true),\n        exp ? compilerCore.getConstantType(exp, context) > 0 ? exp : compilerCore.createCallExpression(\n          context.helperString(compilerCore.TO_DISPLAY_STRING),\n          [exp],\n          loc\n        ) : compilerCore.createSimpleExpression("", true)\n      )\n    ]\n  };\n}
+[[Prototype]] =
+Object
+```
+这两个函数都将里面的 一些指令 进行 transform 转换方便待会儿 baseCompile 执行
+```js
+function baseCompile(source, options = {}) {
+  const onError = options.onError || defaultOnError;
+  const isModuleMode = options.mode === "module";
+  const prefixIdentifiers = options.prefixIdentifiers === true || isModuleMode;
+  if (!prefixIdentifiers && options.cacheHandlers) {
+    onError(createCompilerError(49));
+  }
+  if (options.scopeId && !isModuleMode) {
+    onError(createCompilerError(50));
+  }
+  const resolvedOptions = shared.extend({}, options, {
+    prefixIdentifiers
+  });
+  const ast = shared.isString(source) ? baseParse(source, resolvedOptions) : source;
+  const [nodeTransforms, directiveTransforms] = getBaseTransformPreset(prefixIdentifiers);
+  if (options.isTS) {
+    const { expressionPlugins } = options;
+    if (!expressionPlugins || !expressionPlugins.includes("typescript")) {
+      options.expressionPlugins = [...expressionPlugins || [], "typescript"];
+    }
+  }
+  transform(
+    ast,
+    shared.extend({}, resolvedOptions, {
+      nodeTransforms: [
+        ...nodeTransforms,
+        ...options.nodeTransforms || []
+        // user transforms
+      ],
+      directiveTransforms: shared.extend(
+        {},
+        directiveTransforms,
+        options.directiveTransforms || {}
+        // user transforms
+      )
+    })
+  );
+  return generate(ast, resolvedOptions);
+}
+```
+这个函数可以总体划分四部分：
+一是获取 ast 语法树
+    `const ast = shared.isString(source) ? baseParse(source, resolvedOptions) : source;` 这句是说，如果 source 本身就是 ast 就不管，不是就调用 baseParse 转成 ast，其实在之前 createDescriptor 时就已经转成了 ast
+二是获取转换函数
+    `const [nodeTransforms, directiveTransforms] = getBaseTransformPreset(prefixIdentifiers);` 这就是获取两个转换函数，通过调用 getBaseTransformPreset ，我们来到这个函数看
+  ```js
+  function getBaseTransformPreset(prefixIdentifiers) {
+    return [
+      [
+        transformOnce,
+        transformIf,
+        transformMemo,
+        transformFor,
+        ...[transformFilter] ,
+        ...prefixIdentifiers ? [
+          // order is important
+          trackVForSlotScopes,
+          transformExpression
+        ] : [],
+        transformSlotOutlet,
+        transformElement,
+        trackSlotScopes,
+        transformText
+      ],
+      {
+        on: transformOn,
+        bind: transformBind,
+        model: transformModel
+      }
+    ];
+  }
+  ```
+  可以看出 nodeTransforms 是个数组，directiveTransforms 是个对象，其中 有常见的 v-for，v-if，v-memo，v-text，还有 v-on，v-bind，v-model，也就是说，每个指令都会有单独的 transform 函数去进行转换
+三是 transform 
+  ![alt text](image-16.png)
+  transform 函数就是拿到 ast，以及两个 转换指令的 对象进行作为参数，可以看看 ast 长什么样子
+  ![alt text](image-17.png)
+  里面 有个 tag 就是 input 标签，然后有三个 特殊指令，v-for，:key，v-model
+  ![alt text](image-18.png)
+  这里就可以看出 ，生成 ast 时并没有的对特殊指令进行处理，这些指令是在 transform 时处理的
+  直接将断点放到 generate 那里，跳过去，发现最后的 nodeTransforms 如下这样
+  ![alt text](image-19.png)
+  node 节点变多了，v-for 这类指令都被解析了
+  着重看到 directTransforms 这个对象，这种对象主要是给 node 节点生成 props，里面的 v-model 是由 compiler-dom 的 transformModel 函数作用的，directTransforms 之所以是对象而不是数组是因为 像 on model，bind 这种指令是有才会执行，而不像 for 那样，全部都执行。 nodeTransforms 数组是不会给 node 生成 props 的
+  现在看 model 是如何被转化的，看 transformModel ，对这打个断点，让逻辑执行到这里来
+  ![alt text](image-20.png)
+  不难看出，这个函数最终又是靠 core 中的 transformModel
+  从左边的 Call stack 中可以看出 dom 的 transformModel 是由 buildProps 调用的
+  此时跳出当前函数来到 buildProps 
+  ![alt text](image-21.png)
+  可以看到 buildProps 如何调用的 transformModel，也可以看出 transformModel 就是 context.directiveTransforms[name]
+  所以说 directiveTransforms 函数的本质就是 transformModel，以后 vue 出了什么新指令，想看源码直接看函数 transformXXX 即可
+四是 generate
+  最后拿到的 ast 才是 可以 render 的，之前的 ast 仅仅是 简单的 template 的 ast，顶级的 ast 称之为 js ast
+  ![alt text](image-22.png)
+  js ast 相比较之前简单的 ast 区别在于多了 codegenNode 以及 方便 v-for 这样的指令多了一层 node
+  最终的 render 函数字符串就是如下所示
+```js
+'import { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, vModelText as _vModelText, withDirectives as _withDirectives } from "vue"
+
+const _hoisted_1 = ["onUpdate:modelValue"]
+
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (_openBlock(true), _createElementBlock(_Fragment, null, _renderList($setup.msgList, (item) => {
+    return _withDirectives((_openBlock(), _createElementBlock("input", {
+      key: item.id,
+      "onUpdate:modelValue": $event => ((item.value) = $event)
+    }, null, 8 /* PROPS */, _hoisted_1)), [
+      [_vModelText, item.value]
+    ])
+  }), 128 /* KEYED_FRAGMENT */))
+}'
+```
+总结下：
+其实 template 最终编译为 render 是层层调用的 从 库 sfc 开始的 compileTemplate，这个函数是靠 sfc 的 doCompileTemplate 实现的，这个函数又是靠 dom 库的 compile 实现的
+这里目的就是塞入解析到的 vue 指令，给到 core 的 baseCompile ，这个函数又分为四部，第一部获取 templateAst，第二步获取转换函数，比如 for 指令有对应的 transformFor 函数，第三部进行 transform ，最终得到 解析完 vue 指令的 ast 给到 generate 函数去生成 render，其实就是字符串拼接
+
+
+# 深入理解 transform 函数
+上面的 baseCompile 函数主要是靠 第三部的 transform 函数去解析这些 vue 指令，我们现在对着这个函数打一个断点，深入理解如何作用
+![alt text](image-23.png)
+```js
+function transform(root, options) {
+  const context = createTransformContext(root, options);
+  traverseNode(root, context);
+  if (options.hoistStatic) {
+    hoistStatic(root, context);
+  }
+  if (!options.ssr) {
+    createRootCodegen(root, context);
+  }
+  root.helpers = /* @__PURE__ */ new Set([...context.helpers.keys()]);
+  root.components = [...context.components];
+  root.directives = [...context.directives];
+  root.imports = context.imports;
+  root.hoists = context.hoists;
+  root.temps = context.temps;
+  root.cached = context.cached;
+  root.transformed = true;
+  {
+    root.filters = [...context.filters];
+  }
+}
+```
+我们看看这个 root
+![alt text](image-24.png)
+可以看到层级关系，最外层一个 div，然后两个 children，一个 input,一个 p，input 中有三个 props，分别是v-for，:key,v-model
+p 标签也有两个 children，title 单独成立一个
+此时 的 root 还是 template 的 ast ，并且 vue 指令还没被处理，其实 transform 函数主要就是 两步骤，第一步执行 createTransformContext 拿到上下文，第二步遍历节点，对 node 进行转换
+这个函数里面有个 context对象，里面会有 很多种信息，正在装换的 currentNode,replaceNode,removeNode,childIndex，等等
+```js
+function createTransformContext(root, {
+  filename = "",
+  prefixIdentifiers = false,
+  hoistStatic: hoistStatic2 = false,
+  hmr = false,
+  cacheHandlers = false,
+  nodeTransforms = [],
+  directiveTransforms = {},
+  transformHoist = null,
+  isBuiltInComponent = shared.NOOP,
+  isCustomElement = shared.NOOP,
+  expressionPlugins = [],
+  scopeId = null,
+  slotted = true,
+  ssr = false,
+  inSSR = false,
+  ssrCssVars = ``,
+  bindingMetadata = shared.EMPTY_OBJ,
+  inline = false,
+  isTS = false,
+  onError = defaultOnError,
+  onWarn = defaultOnWarn,
+  compatConfig
+}) {
+  const nameMatch = filename.replace(/\?.*$/, "").match(/([^/\\]+)\.\w+$/);
+  const context = {
+    // options
+    filename,
+    selfName: nameMatch && shared.capitalize(shared.camelize(nameMatch[1])),
+    prefixIdentifiers,
+    hoistStatic: hoistStatic2,
+    hmr,
+    cacheHandlers,
+    nodeTransforms,
+    directiveTransforms,
+    transformHoist,
+    isBuiltInComponent,
+    isCustomElement,
+    expressionPlugins,
+    scopeId,
+    slotted,
+    ssr,
+    inSSR,
+    ssrCssVars,
+    bindingMetadata,
+    inline,
+    isTS,
+    onError,
+    onWarn,
+    compatConfig,
+    // state
+    root,
+    helpers: /* @__PURE__ */ new Map(),
+    components: /* @__PURE__ */ new Set(),
+    directives: /* @__PURE__ */ new Set(),
+    hoists: [],
+    imports: [],
+    constantCache: /* @__PURE__ */ new WeakMap(),
+    temps: 0,
+    cached: 0,
+    identifiers: /* @__PURE__ */ Object.create(null),
+    scopes: {
+      vFor: 0,
+      vSlot: 0,
+      vPre: 0,
+      vOnce: 0
+    },
+    parent: null,
+    grandParent: null,
+    currentNode: root,
+    childIndex: 0,
+    inVOnce: false,
+    // methods
+    helper(name) {
+      const count = context.helpers.get(name) || 0;
+      context.helpers.set(name, count + 1);
+      return name;
+    },
+    removeHelper(name) {
+      const count = context.helpers.get(name);
+      if (count) {
+        const currentCount = count - 1;
+        if (!currentCount) {
+          context.helpers.delete(name);
+        } else {
+          context.helpers.set(name, currentCount);
+        }
+      }
+    },
+    helperString(name) {
+      return `_${helperNameMap[context.helper(name)]}`;
+    },
+    replaceNode(node) {
+      {
+        if (!context.currentNode) {
+          throw new Error(`Node being replaced is already removed.`);
+        }
+        if (!context.parent) {
+          throw new Error(`Cannot replace root node.`);
+        }
+      }
+      context.parent.children[context.childIndex] = context.currentNode = node;
+    },
+    removeNode(node) {
+      if (!context.parent) {
+        throw new Error(`Cannot remove root node.`);
+      }
+      const list = context.parent.children;
+      const removalIndex = node ? list.indexOf(node) : context.currentNode ? context.childIndex : -1;
+      if (removalIndex < 0) {
+        throw new Error(`node being removed is not a child of current parent`);
+      }
+      if (!node || node === context.currentNode) {
+        context.currentNode = null;
+        context.onNodeRemoved();
+      } else {
+        if (context.childIndex > removalIndex) {
+          context.childIndex--;
+          context.onNodeRemoved();
+        }
+      }
+      context.parent.children.splice(removalIndex, 1);
+    },
+    onNodeRemoved: shared.NOOP,
+    addIdentifiers(exp) {
+      {
+        if (shared.isString(exp)) {
+          addId(exp);
+        } else if (exp.identifiers) {
+          exp.identifiers.forEach(addId);
+        } else if (exp.type === 4) {
+          addId(exp.content);
+        }
+      }
+    },
+    removeIdentifiers(exp) {
+      {
+        if (shared.isString(exp)) {
+          removeId(exp);
+        } else if (exp.identifiers) {
+          exp.identifiers.forEach(removeId);
+        } else if (exp.type === 4) {
+          removeId(exp.content);
+        }
+      }
+    },
+    hoist(exp) {
+      if (shared.isString(exp)) exp = createSimpleExpression(exp);
+      context.hoists.push(exp);
+      const identifier = createSimpleExpression(
+        `_hoisted_${context.hoists.length}`,
+        false,
+        exp.loc,
+        2
+      );
+      identifier.hoisted = exp;
+      return identifier;
+    },
+    cache(exp, isVNode = false) {
+      return createCacheExpression(context.cached++, exp, isVNode);
+    }
+  };
+  {
+    context.filters = /* @__PURE__ */ new Set();
+  }
+  function addId(id) {
+    const { identifiers } = context;
+    if (identifiers[id] === void 0) {
+      identifiers[id] = 0;
+    }
+    identifiers[id]++;
+  }
+  function removeId(id) {
+    context.identifiers[id]--;
+  }
+  return context;
+}
+```
+现在看到 traverseNode
+```js
+function traverseNode(node, context) {
+  context.currentNode = node;
+  const { nodeTransforms } = context;
+  const exitFns = [];
+  for (let i2 = 0; i2 < nodeTransforms.length; i2++) {
+    const onExit = nodeTransforms[i2](node, context);
+    if (onExit) {
+      if (shared.isArray(onExit)) {
+        exitFns.push(...onExit);
+      } else {
+        exitFns.push(onExit);
+      }
+    }
+    if (!context.currentNode) {
+      return;
+    } else {
+      node = context.currentNode;
+    }
+  }
+  switch (node.type) {
+    case 3:
+      if (!context.ssr) {
+        context.helper(CREATE_COMMENT);
+      }
+      break;
+    case 5:
+      if (!context.ssr) {
+        context.helper(TO_DISPLAY_STRING);
+      }
+      break;
+    case 9:
+      for (let i2 = 0; i2 < node.branches.length; i2++) {
+        traverseNode(node.branches[i2], context);
+      }
+      break;
+    case 10:
+    case 11:
+    case 1:
+    case 0:
+      traverseChildren(node, context);
+      break;
+  }
+  context.currentNode = node;
+  let i = exitFns.length;
+  while (i--) {
+    exitFns[i]();
+  }
+}
+```
+这个函数就是拿到上下文中的 当前转换的节点 currentNode，交给 nodeTransforms 去执行，执行结果 push 到 exitFn 中，最后遍历子节点 traverseChildren
+![alt text](image-25.png)
+这个函数会递归遍历，过程中会将 父节点 更新为当前节点，并且将 childIndex 更新为当前的 index
+转换完后的节点最终在 traverseNode 又会被逆序执行一遍，这种顺序是 洋葱模型 ，刚开始时将 nodeTransforms 数组执行一遍，若结果是 函数，就 push 到 exitsFn 数组中，再去处理当前节点的子节点，就是 traverseChildren， traverseChildren 也会执行 traverseNode，因此第二层开始重复这样，继续第三层，最后会发现没有子节点，然后就从里面出去，最终拿到处理好 vue 指令的 ast 给到 render
+这里看看 v-for，v-model 转变时 ast 的 变化
+转前：
+![alt text](image-26.png)
+转中：
+![alt text](image-27.png)
+此时 v-for 消失
+转后：
+![alt text](image-28.png)
+同样想看 v-model 就是看 transformModel 对 dom 的 transformModel 这里打一个断点，看 call stack 可以知道，buildProps 调用的 transformModel，buildProps 又是由 postTransformElement 调用的，这个函数又是 从 transformElement 返回的回调，transformElement 在数组 nodeTransforms 中，因此 directiveTransform 就是由 nodeTransforms 数组的转换函数 transformElement 函数

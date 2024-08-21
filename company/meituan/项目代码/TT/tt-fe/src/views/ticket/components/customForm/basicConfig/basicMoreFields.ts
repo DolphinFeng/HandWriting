@@ -1,0 +1,85 @@
+export const basicMoreFields = [{
+    identify: 'sla',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_issue_level',
+    defaultValue: 'S4',
+    type: 1
+}, {
+    identify: 'ticketType',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_issue_type',
+    defaultValue: '事件',
+    type: 1
+}, {
+    identify: 'cc',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_cc',
+    type: 1,
+    defaultValue: []
+}, {
+    identify: 'permission',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_is_secret',
+    type: 1,
+    defaultValue: 'public'
+}, {
+    identify: 'labels',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_tags',
+    type: 1
+}, {
+    identify: 'reporter',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_initiator',
+    defaultValue: '',
+    type: 1
+}];
+export const outsideMoreFields = [{
+    identify: 'sla',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_issue_level',
+    defaultValue: 'S4',
+    type: 1
+}, {
+    identify: 'ticketType',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_issue_type',
+    defaultValue: '事件',
+    type: 1
+}, {
+    identify: 'labels',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_tags',
+    type: 1
+}];
+export const NameDescConfig = [{
+    identify: 'name',
+    isHidden: false,
+    isRequired: false,
+    name: 'create_ticket_item_title',
+    defaultValue: '',
+    type: 1
+}, {
+    identify: 'desc',
+    isHidden: false,
+    isRequired: true,
+    name: 'create_ticket_item_description',
+    defaultValue: '',
+    type: 1
+}, {
+    identify: 'file',
+    isHidden: false,
+    isRequired: false,
+    name: '',
+    defaultValue: [],
+    type: 1
+}];

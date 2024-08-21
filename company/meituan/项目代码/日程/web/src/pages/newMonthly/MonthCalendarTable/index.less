@@ -1,0 +1,39 @@
+.monthCalendarTable {
+  // min-width: 800px;
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  position: relative;
+
+  .monthCalendarHeader {
+    background-color: white;
+    opacity: 1;
+    width: 100%;
+    display: flex;
+    padding-bottom: 8px;
+    margin-top: 18px;
+    border-bottom: 1px solid #EAECF0;
+    flex: none;
+
+    .weekText {
+      width: calc(100%/7);
+      color: rgba(17, 25, 37, 0.65);
+      font-size: 12px;
+      margin-left: 16px;
+      line-height: 14px;
+    }
+  }
+
+  .monthCalendarBody {
+    flex: auto;
+    display: flex;
+    width: 100%;
+    flex: 1;
+    flex-wrap: wrap;
+    
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    // min-height: 468px;
+  }
+}

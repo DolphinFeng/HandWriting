@@ -155,18 +155,20 @@ fixes issue #12
 - js 异步问题：https://github.com/getify/You-Dont-Know-JS/blob/1ed-zh-CN/async%20%26%20performance/ch2.md#%E4%BF%A1%E4%BB%BB%E9%97%AE%E9%A2%98
 - 工程化：https://mp.weixin.qq.com/s/NuH-sga13okeMVGDFZWFtQ
 - vue3编译原理解密：https://vue-compiler.iamouyang.cn/guide/vue-to-js.html
+- Watch with @vue/reactivity: https://antfu.me/posts/watch-with-reactivity
 - vue演示：https://play.vuejs.org/ 
 - 三把斧演示：https://codepen.io/quentinhsu/pen/rNEpJdN
 - es5：https://es5.github.io/#x11.9.3
 - es6新特性: https://es6.ruanyifeng.com/
 - ESLint：https://eslint.org/docs/latest/extend/custom-rule-tutorial
-- boxshadow：https://dgerrells.com/blog/how-not-to-use-box-shadows
+- boxShadow：https://dgerrells.com/blog/how-not-to-use-box-shadows
 - 别人的手写：https://github.com/Sunny-117/js-challenges
 - 别人的面试题：https://sunny-117.github.io/blog/
 - 小林 coding(计网+操作系统最好)：https://xiaolincoding.com/
 - web前端面试：https://vue3js.cn/interview/vue/vue.html#%E4%B8%80%E3%80%81%E4%BB%8E%E5%8E%86%E5%8F%B2%E8%AF%B4%E8%B5%B7
 - web体系：https://senior-frontend.pages.dev/
 - 公众号文章格式转化：https://editor.mdnice.com/
+- github如何提 issue：https://docs.github.com/zh/issues/tracking-your-work-with-issues/quickstart
 
   ## 算法
 1. 入门指南：

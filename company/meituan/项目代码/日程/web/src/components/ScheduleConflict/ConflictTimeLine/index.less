@@ -1,0 +1,67 @@
+@import '../../../asserts/styles/variable';
+
+.timeColumn {
+  position: sticky;
+  left: 0;
+  width: 63px;
+  z-index: 19;
+  background: #fff;
+  margin-left: -52px;
+  height: 1184px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  border-right: 1px solid @color-light;
+  border-left: 1px solid @color-light;
+  user-select: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 1px;
+    height: 24px;
+    top: -24px;
+    content: ' ';
+    background-color: @color-light;
+  }
+  &::before {
+    left: -1px;
+  }
+  &::after {
+    right: -1px;
+  }
+  .time {
+    width: 53px;
+    font-family: HelveticaNeue;
+    font-size: @font-size-small;
+    color: @color-medium;
+    text-align: right;
+    line-height: 20px;
+    height: 23px;
+    margin-top: -11px;
+    &.lTime {
+      visibility: hidden;
+    }
+  }
+}
+
+.current {
+  position: absolute;
+  width: 100%;
+  z-index: 19;
+  left: 0;
+  padding-left: 57px;
+  .circle {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #f5483b;
+    margin-top: -11px;
+  }
+  .line {
+    min-width: calc(100% - 9px);
+    margin-left: 6px;
+    height: 1px;
+    background-color: #f5483b;
+    margin-top: -4px;
+  }
+}

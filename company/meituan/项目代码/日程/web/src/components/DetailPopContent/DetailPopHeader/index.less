@@ -1,0 +1,130 @@
+.popHeaderContent {
+  padding: 16px 24px 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-image: linear-gradient(135deg, #2a8efe 0%, #0a70f5 100%);
+  color: #fff !important;
+  &.public {
+    border-radius: 10px;
+  }
+  .typeAndOpt {
+    height: 20px;
+    width: 100%;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .type {
+      padding: 0 8px;
+      line-height: 20px;
+      font-size: 12px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 42px;
+    }
+    :global {
+      .mtdicon-arrow-right:before {
+        border: 1px solid #fff;
+        border-radius: 50%;
+        font-size: 14px;
+        // font-weight: bold;
+      }
+    }
+  }
+  .title {
+    font-size: 20px;
+    line-height: 28px;
+    color: #fff;
+    font-weight: 500;
+    overflow: hidden;
+    max-height: 84px;
+    margin-bottom: 4px;
+    word-break: break-all;
+    width: 100%;
+  }
+  .topButton {
+    flex: none;
+    margin-left: 16px;
+    button {
+      margin-left: 8px;
+      background-color: transparent;
+      i {
+        color: #fff !important;
+      }
+    }
+    button:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+  .time {
+    font-size: 14px;
+    color: #fff;
+    line-height: 22px;
+  }
+  .distance {
+    height: 4px;
+  }
+  .colorBlackTheme {
+    color: rgba(0, 0, 0, 0.84) !important;
+  }
+  .colorBlack {
+    color: #000 !important;
+  }
+
+  // 邮箱
+  .exchangeTxtWrap {
+    line-height: 30px;
+    color: rgba(255, 255, 255, 0.72);
+    display: inline-block;
+    font-size: 12px;
+  }
+  .exchangeTxt {
+    .txt {
+      text-decoration: none;
+      border-bottom: 1px solid #d1e9ff;
+      &:hover {
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+}
+.lastMoreBtn {
+  position: relative;
+  display: inline-block;
+  .hiddenForPopover {
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+  }
+}
+.meetingBtnsPop {
+  width: auto;
+  :global {
+    .mtd-popover-inner {
+      padding: 0;
+    }
+  }
+}
+.meetingBtn {
+  padding: 0 20px;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.84);
+  line-height: 22px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}

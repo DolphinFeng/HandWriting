@@ -1,0 +1,47 @@
+@lightBlue: rgba(61, 154, 242, 0.15);
+
+.wk-event-item {
+  position: absolute;
+  border-radius: 4px;
+  padding: 0 4px;
+  cursor: pointer;
+  min-height: 11px;
+  background-color: @lightBlue;
+  overflow: hidden;
+  p {
+    font-size: 12px;
+    color: #02278d;
+    letter-spacing: 0;
+    line-height: 17px;
+    font-weight: 500;
+    word-break: break-all;
+  }
+  .wk-event-time {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+.wk-event-item-inset {
+  box-shadow: 0 0 0 2px #fff;
+}
+.wk-allday-event-item {
+  height: 19px;
+  left: 0;
+  position: absolute;
+  border-radius: 4px;
+  padding: 0 4px;
+  cursor: pointer;
+  background-color: @lightBlue;
+  z-index: 3;
+  p {
+    font-size: 12px;
+    color: #02278d;
+    letter-spacing: 0;
+    line-height: 19px;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 3;
+  }
+}

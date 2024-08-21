@@ -1,0 +1,114 @@
+{
+  "name": "cti-fe",
+  "version": "0.0.1",
+  "private": true,
+  "description": "cti-fe是TT的服务目录管理平台 https://cti.sankuai.com",
+  "author": {
+    "name": "xiaokunyu"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build --mode ${NODE_ENV}",
+    "lint": "npm run lint:vue && npm run lint:css",
+    "build-report": "vue-cli-service build --report && open dist/report.html",
+    "commit": "git cz",
+    "init": "npm install --production=false --registry=http://r.npm.sankuai.com",
+    "lint-fix:css": "stylelint src/**/*.{html,vue,css,scss} --fix",
+    "lint-fix:vue": "vue-cli-service lint --fix",
+    "lint:css": "stylelint src/**/*.{html,vue,css,scss}",
+    "lint:vue": "vue-cli-service lint --no-fix",
+    "sync": "i18n sync -c i18n.config.json",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "@bfe/air-lx": "0.0.3",
+    "@bfe/air-request": "^2.1.6",
+    "@bfe/mtd-theme-220": "0.0.11",
+    "@era/edc-vue": "^0.1.40",
+    "@mt-material/pm-components": "^0.1.6-beta.35",
+    "@mtfe/sso-web": "^2.1.2",
+    "@ss/mtd-vue": "^0.4.11-alpha.4",
+    "autoprefixer": "^8.3.0",
+    "axios": "^0.18.0",
+    "core-js": "^3.6.5",
+    "dayjs": "^1.8.16",
+    "element-ui": "^2.13.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.29.1",
+    "postcss-loader": "^2.1.4",
+    "postcss-nested": "^3.0.0",
+    "precss": "^3.1.2",
+    "qs": "^6.5.1",
+    "quill-image-resize-module": "^3.0.0",
+    "scriptjs": "^2.5.8",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-clipboards": "^1.2.4",
+    "vue-property-decorator": "^9.1.2",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.2.0",
+    "vue-smooth-dnd": "^0.7.0",
+    "vuex": "^3.4.0",
+    "vuex-class": "^0.3.2",
+    "i18next-chained-backend": "^2.1.0",
+    "i18next-resources-to-backend": "^1.2.1",
+    "@sailor/i18n-resource-sync": "^0.2.2",
+    "@sailor/i18n-vue": "^0.2.1",
+    "@sailor/i18n-web-openapi-backend": "^0.2.1"
+  },
+  "devDependencies": {
+    "@bfe/vue-cli-plugin-axios": "latest",
+    "@bfe/vue-cli-plugin-flow": "~1.0.28",
+    "@bfe/vue-cli-plugin-lx": "0.0.7",
+    "@bfe/vue-cli-plugin-mtd": "latest",
+    "@bfe/vue-cli-plugin-owl": "0.0.13",
+    "@bfe/vue-cli-plugin-template-basic": "latest",
+    "@mosfe/beam-plugin-s3plus": "^0.1.15",
+    "@mosfe/portal-proxy": "0.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "^4.5.11",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-plugin-component": "^1.1.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vue": "^7.1.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.8.0",
+    "typescript": "^4.1.5",
+    "vue-cli-plugin-element": "~1.0.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "_id": "cti-fe@0.0.1",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e $GIT_PARAMS"
+  },
+  "homepage": "http://dev.sankuai.com/code/repo-detail/mos/cti-fe",
+  "lint-staged": {
+    "src/**/*.{js,ts,vue}": [
+      "npm run lint-fix:vue"
+    ],
+    "src/**/*.{css,scss,vue}": [
+      "npm run lint-fix:css"
+    ]
+  },
+  "readme": "http://dev.sankuai.com/code/repo-detail/mos/cti-fe"
+}

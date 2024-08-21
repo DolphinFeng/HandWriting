@@ -1,0 +1,50 @@
+.monthRow {
+  width: 100%;
+  border-bottom: 1px solid #EAECF0;
+  flex: auto;
+
+  .monthRowDates {
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+    // padding-top: 6px;
+    flex: none;
+
+    .day {
+      width: 16.67%;
+      margin-top: 6px;
+      padding-left: 16px;
+    }
+
+    .today {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      transform: translateY(-3px);
+      border-radius: 6px;
+      background: #166FF7;
+      color: white;
+      text-align: center;
+      line-height: 24px;
+    }
+  }
+
+  .monthRowEvents {
+    position: relative;
+    flex: auto;
+  }
+
+  .rest {
+    position: absolute;
+    margin-left: 6px;
+    color: rgba(17, 25, 37, 0.65);
+    cursor: pointer;
+    top: 23px;
+    font-size: 12px;
+    line-height: 17px;
+
+    &:hover {
+      color: #166FF7;
+    }
+  }
+}

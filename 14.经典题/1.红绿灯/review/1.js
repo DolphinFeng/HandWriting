@@ -1,5 +1,6 @@
 function red () {
     console.log('red');
+    
 }
 
 function green () {
@@ -12,10 +13,10 @@ function yellow () {
     
 }
 
-function light (fn, wait) {
+function light (cb, wait) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            fn()
+            cb()
             resolve()
         }, wait)
     })

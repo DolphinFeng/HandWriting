@@ -1,0 +1,79 @@
+.container{
+  padding: 0 24px;
+}
+
+.labelFontStyle{
+  font-size: 16px;
+  color: #000;
+  line-height: '20px';
+}
+.itemFontStyle{
+  font-size: 16px;
+  line-height: 23px;
+  vertical-align: top;
+  color: rgba(0,0,0,0.84);
+}
+.modify{
+  // border-bottom: 1px solid #dfe3e6;
+  margin-top: 12px;
+}
+.modify:last-child{
+  border: none;
+}
+
+
+.detailShowFormItem {
+  i {
+    line-height: 20px;
+  }
+  display: flex;
+  width: 100%;
+  margin-bottom: 12px;
+  &.detailSmallInfoDistant {
+    margin-bottom: 4px;
+  }
+  .detailShowFormLabel {
+    margin-right: 12px;
+    line-height: 20px;
+    i{
+      color: rgba(0, 0, 0, 0.84);
+    }
+  }
+  .detailShowFormInfo {
+    color: rgba(0, 0, 0, 0.84);
+    line-height: 22px;
+    font-size: 12px;
+    &.detailShowFormInfoWithIcon {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .roomName {
+    display: flex;
+    cursor: pointer;
+    justify-self: start;
+    text-decoration: none;
+    border-radius: 4px;
+    line-height: 20px;
+    z-index: 1000;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+  .modifyTime{
+    display: flex;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+  .memolink{
+    a{
+      color: #0a70f5;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+  } 
+  .iconsize {
+    font-size: 16px;
+  }
+}

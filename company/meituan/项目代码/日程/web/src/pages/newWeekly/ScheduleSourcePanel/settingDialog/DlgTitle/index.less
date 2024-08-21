@@ -1,0 +1,39 @@
+.dlgTitle {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .title {
+        font-family: PingFangSC-Medium;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 26px;
+        letter-spacing: 0;
+        color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        :global{
+            .mtdicon-warning-circle{
+                color:#FF9D00;
+                font-size: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .close {
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.8);
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.04);
+        }
+    }
+}

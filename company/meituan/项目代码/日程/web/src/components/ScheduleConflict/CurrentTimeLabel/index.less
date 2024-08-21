@@ -1,0 +1,19 @@
+@import '../../../asserts/styles/variable';
+.time {
+  width: 53px;
+  font-family: HelveticaNeue;
+  font-size: @font-size-small;
+  color: @color-medium;
+  text-align: right;
+  line-height: 20px;
+  height: 23px;
+  margin-top: -11px;
+  &.lTime {
+    visibility: hidden;
+  }
+}
+.currentTimeLabel {
+  position: absolute;
+  margin-top: -11px;
+  z-index: 2;
+}

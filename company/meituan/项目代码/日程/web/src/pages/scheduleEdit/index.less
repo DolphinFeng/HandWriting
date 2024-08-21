@@ -1,0 +1,60 @@
+/*
+ * @Description: 新建日程、编辑日程样式
+ * @Author: zhaojingchao <zhaojingchao@meituan.com>
+ * @Date: 2020-05-29 10:16:01
+ * @LastEditors: zhaojingchao
+ * @LastEditTime: 2021-03-26 14:34:16
+ * @FilePath: /scheduleweb/src/pages/scheduleEdit/index.less
+ */
+@import '../../asserts/styles/variable';
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    .left {
+      width: 532px;
+      padding: 0 24px;
+      flex: none;
+      overflow-y: auto;
+      user-select: none;
+      &::-webkit-scrollbar {
+        display: block;
+      }
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar:hover {
+        width: 6px;
+        height: 12px;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      &::-webkit-scrollbar-thumb {
+        width: 6px;
+        height: 12px;
+        background-color: rgba(0, 0, 0, 0.24);
+        border-radius: 3px;
+      }
+    }
+    .right {
+      flex: 1;
+      width: calc(100% - 532px);
+    }
+  }
+}
+:global {
+  .cancleModal-wrapper {
+    z-index: 3001;
+  }
+}
+
+.popWhiteDiv {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 50;
+}

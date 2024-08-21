@@ -1,0 +1,156 @@
+html,
+body {
+  overflow: hidden;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.mtd-message {
+  z-index: 2031 !important;
+}
+
+.mtd-input input,
+.mtd-input textarea {
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.mtd-select .mtd-select-filter {
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mtd-button {
+  border-radius: 6px;
+}
+
+.mtd-button-primary {
+  background-color: #0a70f5;
+  border-color: #0a70f5;
+}
+
+.mtd-button-circle,
+.mtd-button-circle-hover {
+  border-radius: 50%;
+}
+
+/* ? */
+.mtd-button-circle .mtdicon,
+.mtd-button-circle-hover .mtdicon {
+  left: 0;
+}
+
+.dxcalendar {
+  -webkit-text-stroke-width: 0 !important;
+}
+.mtd-tag {
+  border-radius: 4px;
+}
+
+.mtd-input textarea {
+  padding: 8px;
+}
+
+.mtd-select .mtd-select-filter-multiple {
+  padding-right: 8px;
+}
+
+// 快速创建会议室，禁用的时间选择器
+.mtd-input input[disabled],
+.mtd-input textarea[disabled],
+fieldset[disabled] .mtd-input input,
+fieldset[disabled] .mtd-input textarea {
+  background-color: #f7f7f7;
+}
+
+.schedule-container {
+  .schedule {
+    &-wrapper-left {
+      width: 180px;
+      box-sizing: border-box;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      flex: none;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    &-wrapper-right {
+      position: relative;
+      min-width: 700px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border-right: 1px solid #f3f3f3;
+      background-color: #fff;
+    }
+  }
+}
+
+.detailPop {
+  width: 380px;
+  border-radius: 10px;
+  .mtd-popover-inner {
+    padding: 0;
+    border-radius: 10px;
+    max-width: 400px;
+  }
+  .mtd-popover-arrow {
+    display: none;
+  }
+  .popTopBtns {
+    &.popTopBlackBtns {
+      .mtd-button {
+        color: rgba(0, 0, 0, 0.84);
+      }
+    }
+    .mtd-button {
+      background-color: transparent;
+      color: #fff;
+      margin-left: 8px;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+      &:active {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+    }
+  }
+}
+
+.detailQuickPop {
+  width: 400px;
+  opacity: 0;
+  &.fadeInPop {
+    opacity: 1;
+  }
+}
+
+.btn {
+  &.cancel {
+    background-color: #f5f5f5;
+    border-color: #f5f5f5;
+    color: rgba(0, 0, 0, 0.84);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+      border-color: #f5f5f5;
+      color: rgba(0, 0, 0, 0.84);
+    }
+  }
+  &.topSchedule {
+    font-size: 14px;
+    height: 32px;
+    width: auto;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 0 12px;
+    span {
+      font-weight: 500;
+    }
+  }
+  width: 80px;
+  margin-left: 12px;
+  font-weight: 500;
+}

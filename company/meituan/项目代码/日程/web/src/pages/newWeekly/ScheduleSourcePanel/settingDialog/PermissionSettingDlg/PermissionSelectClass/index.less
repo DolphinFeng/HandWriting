@@ -1,0 +1,105 @@
+.search{
+  display: flex;
+  align-items: center;
+  border:1px solid #EAECF0;
+  border-radius: 6px;
+  :global{
+    .mtd-dropdown-menu{
+      background-color: #FFF;
+      border-radius: 6px;
+      padding: 4px;
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08),0 6px 12px 12px rgba(0, 0, 0, 0.04),0 0 8px 0 rgba(0, 0, 0, 0.04);
+    }
+    .mtd-select{
+      &.mtd-select-multiple{
+        min-width: calc(100% - 130px);
+        border-radius: inherit;
+        .mtd-select-filter{
+          border: none;
+          // border-radius: unset;
+          border-top-right-radius: unset;
+          border-bottom-right-radius: unset;
+          border-right:1px solid #EAECF0;
+        }
+      }
+    }
+    .searchListDrop{
+      flex: none;
+    
+    }
+  }
+  .searchPerm{
+    display: flex;
+    width: 130px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 8px;
+    .label{
+      color: rgba(0, 0, 0, 0.9);
+      font-size: 14px;
+      font-family: PingFangSC-Regular;
+      margin-right: 8px;
+    }
+    .icon{
+      color: #A9AFB8;
+      transition: transform .3s
+    }
+  }
+}
+
+.option{
+  border-radius: 4px;
+  margin-right: 4px;
+  margin-left: 4px;
+  :global{
+    .mtd-checkbox{
+      &.mtd-select-item-checkbox{
+        display: none;
+      }
+    }
+    .mtd-select-item-content{
+      width: 100%;
+    }
+  }
+  .optionItem{
+    display: flex;
+    align-items: center;
+    width: calc(100% - 20px);
+    .checkbox{
+      flex: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      &.selected{
+        background-color: #166FF7;
+        border-color: #166FF7;
+        .icon{
+          color: #FFF;
+        }
+        
+      }
+      .icon{
+        font-size: 10px;
+        font-weight: 600;
+      }
+  
+    }
+    .info{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-left: 8px;
+      .label{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 172px;
+      }
+    }
+  }
+}

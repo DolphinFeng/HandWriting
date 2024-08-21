@@ -13,3 +13,7 @@ console.log('2', promise2);
 // promise1 resolve
 
 // 打印promise2时，状态为pending
+
+
+
+// 掘金：https://juejin.cn/post/6844904077537574919?searchId=20230927095310F49DA960ABBD93AB11AB#heading-1

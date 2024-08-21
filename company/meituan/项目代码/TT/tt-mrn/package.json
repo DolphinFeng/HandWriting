@@ -1,0 +1,77 @@
+{
+  "name": "tt-mrn",
+  "version": "0.0.1",
+  "private": true,
+  "description": "TT MRN.",
+  "author": "ruanshanshan",
+  "scripts": {
+    "build": "mrn build",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx ./",
+    "dev": "mrn start",
+    "fix": "yarn lint --fix",
+    "start": "mrn start",
+    "test": "exit 0",
+    "replace": "node ./replace-script.js -c ./src/pages/tt/components/comment",
+    "pull": "i18n pull",
+    "collect": "i18n collect",
+    "push": "i18n push",
+    "revert": "i18n revert"
+  },
+  "dependencies": {
+    "@babel/preset-typescript": "^7.7.4",
+    "@harbour/meishi-mrn-components": "^1.0.86-beta.1",
+    "@mfe/react-native-cookies": "^0.0.4",
+    "@mfe/waimai-mfe-bee-common": "^1.0.11",
+    "@mrn/mrn-base": "^3",
+    "@mrn/mrn-components": "latest",
+    "@mrn/mrn-knb": "^0.2.5",
+    "@mrn/mrn-owl": "^1.0.24",
+    "@mrn/mrn-utils": "^1.0.0",
+    "@mrn/react-navigation": "^2.9.23",
+    "@nibfe/merchant-mc-utils": "^0.0.50",
+    "@sailor/i18n-mrn": "^1.0.2",
+    "@sailor/i18n-resource-sync": "^0.2.2",
+    "@ss/mtd-react-native": "0.4.9-beta.0",
+    "@types/linkifyjs": "^2.1.3",
+    "@types/memoize-one": "^5.1.2",
+    "@wmfe/i18n-cli": "^0.0.29",
+    "deepmerge": "^4.0.0",
+    "diff": "^4.0.1",
+    "linkifyjs": "^2.1.9",
+    "memoize-one": "^5.1.1",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45",
+    "query-string": "6.12.1",
+    "react-native-expandable-text": "^1.1.0",
+    "react-native-fs": "^2.16.6",
+    "react-native-material-buttons": "^0.5.0",
+    "react-native-modal": "^11.5.6",
+    "react-native-webview": "^10.9.0",
+    "redux-thunk": "^2.3.0",
+    "typescript": "3.7"
+  },
+  "devDependencies": {
+    "@mrn/mrn-cli": "^3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
+  },
+  "main": "index.tsx",
+  "jest": {
+    "transformIgnorePatterns": [],
+    "preset": "@mrn/react-native",
+    "moduleNameMapper": {
+      "^react-native$": "@mrn/react-native"
+    }
+  },
+  "eslintIgnore": [
+    "dist",
+    "test"
+  ],
+  "husky": {
+    "hooks": {
+      "post-merge": "yarn"
+    }
+  }
+}

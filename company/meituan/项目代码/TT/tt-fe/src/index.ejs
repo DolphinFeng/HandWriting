@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TT系统</title>
+    <script>
+        "use strict";!function(u,d){var t="owl",e="_Owl_",n="Owl",r="start",c="error",p="on"+c,f=u[p],h="addEventListener",l="attachEvent",v="isReady",b="dataSet";u[t]=u[t]||function(){try{u[t].q=u[t].q||[];var e=[].slice.call(arguments);e[0]===r?u[n]&&u[n][r]?u[n][r](e[1]):u[t].q.unshift(e):u[t].q.push(e)}catch(e){}},u[e]=u[e]||{preTasks:[],pageData:[],use:function(e,t){this[v]?u[n][e](t):this.preTasks.push({api:e,data:[t]})},run:function(t){if(!(t=this).runned){t.runned=!0,t[b]=[],u[p]=function(){t[v]||t[b].push({type:"jsError",data:arguments}),f&&f.apply(u,arguments)},u[h]&&u[h]("unhandledrejection",function(e){t[v]||t[b].push({type:"jsError",data:[e]})});var e=function(e){!t[v]&&e&&t[b].push({type:"resError",data:[e]})};u[h]?u[h](c,e,!0):u[l]&&u[l](p,e);var n="MutationObserver",r=u[n]||u["WebKit"+n]||u["Moz"+n],a=u.performance||u.WebKitPerformance,s="disableMutaObserver";if(r&&a&&a.now)try{var i=-1,o=u.navigator.userAgent;-1<o.indexOf("compatible")&&-1<o.indexOf("MSIE")?(new RegExp("MSIE (\\d+\\.\\d+);").test(o),i=parseFloat(RegExp.$1)):-1<o.indexOf("Trident")&&-1<o.indexOf("rv:11.0")&&(i=11),-1!==i&&i<=11?t[s]=!0:(t.observer=new r(function(e){t.pageData.push({mutations:e,startTime:a.now()})})).observe(d,{childList:!0,subtree:!0})}catch(e){}else t[s]=!0}}},u[e].runned||u[e].run()}(window,document);
+    </script>
+    <link rel="shortcut icon" type="images/x-icon" href="//s3plus.sankuai.com/v1/mss_4a5c70e8b289484393a22a82f4c3ed40/static-source/favicon_logo.ico" />
+    <link rel="icon" type="image/x-icon" href="//s3plus.sankuai.com/v1/mss_4a5c70e8b289484393a22a82f4c3ed40/static-source/favicon_logo.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <!-- 禁止google自动翻译 -->
+    <meta name="google" content="notranslate" />
+    <!-- 在meta中的content属性中填入您的上报通道标识 -->
+    <meta name="lx:category" content="techportal">
+    <!-- 在meta中的content属性中填入您的应用标识 -->
+    <meta name="lx:appnm" content="tt">
+    <meta name="lx:autopv" content="off" />
+    <link rel="dns-prefetch" href="//lx.meituan.net" />
+    <link rel="dns-prefetch" href="//wreport.meituan.net" />
+    <link rel="dns-prefetch" href="//report.meituan.net" />
+    <!--统计分析-图标库-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_3337405_v7iscglzhe.css">
+    <!-- 统计分析-自定义报表-图表库 -->
+    <link rel="stylesheet" href="//s3plus.meituan.net/v1/mss_28a77f134e5b4abf876b4ff035f4107f/iconfont/project/819/0.0.1/质效报表.css">
+    <!--iconfont图标库-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_1010913_dy31f1t408.css">
+    <style>
+        .container {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #app {
+            height: 100%;
+        }
+    </style>
+    <!--era-template-state-->
+    <% if (noThunder) { %>
+        <!--era-template-styles-->
+    <% } else { %>
+        <!--disable-era-template-styles-->
+    <% } %>
+    <%- include('skeleton/css') %>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="app">
+            <div class="base-loading-context">
+                <%- include('skeleton/base') %>
+            </div>
+        </div>
+    </div>
+    <% if(env_dev) { %>
+        <script crossorigin="anonymous" src="<%= cat.urlDev %>"></script>
+    <% } else { %>
+        <script crossorigin="anonymous" src="<%= cat.urlProd %>"></script>
+    <% } %>
+    <!-- <script crossorigin="anonymous" src="//awp-assets.meituan.net/sjst/fe.hotdog-sdk/recorder-2.1.8.js"></script> -->
+    <script>
+        const isFromDxmp = window.location.href.includes('dxmp');
+        if (isFromDxmp) {
+            const dom = document.getElementsByClassName('skeleton-base-header')[0]
+            if (dom) {
+                dom.style.visibility = 'hidden';
+            }
+        }
+        window.appName = '<%= cat.appName %>';
+        owl('start', {
+            devMode: <%= env_dev %>,
+            project: window.appName,
+            resource: {
+                sampleApi: 1
+            },
+            enableLogTrace: true, // 开启串联后端链路能力
+            page: {
+                sample: 1,
+                fstPerfAnalysis: true,
+                logSlowView: true
+            },
+            autoCatch: {
+                ajax: false, // ajax已经在request里面上报过了
+                pv: false // 在路由守卫中已经上报了首次进入的pv
+            },
+            SPA: {
+                autoPV: false,
+                getFST: true
+            },
+            error: {
+                sample: 1,
+                formatUnhandledRejection: true
+            },
+            metric: {
+                sample: 1
+            },
+            ignoreList: {
+                ajax: ['wreport.meituan.net', 'wreport1.meituan.net', 'wreport2.meituan.net', 'dreport.meituan.net'],
+                js: ["Cannot read property 'getBoundingClientRect' of undefined",
+                    "Cannot read properties of undefined (reading 'getBoundingClientRect')",
+                    "Cannot read property 'tagName' of null",
+                    "ResizeObserver loop limit exceeded",
+                    "undefined is not an object (evaluating 'r.getBoundingClientRect')"
+                ]
+            },
+            disableCache: true,
+            onErrorPush: function(instance) {
+                if (instance.sec_category.includes('Failed to fetch')) {
+                    instance.category = 'ajaxError'
+                }
+                return instance
+            },
+            logan: {
+                enable: true, // 开启Logan，允许前端日志采集以及异常发生时的前置上报
+                version: '2.1.4', // 指定Logan版本，Logan Web 2.0版本起支持js异常的前置上报，2.1.0版本起支持ajax异常的前置上报
+                config: {
+                    devMode: true // 如果是测试环境，需要设置为true，默认为false
+                }
+            }
+        });
+        // hotdog && hotdog.start({
+        //     appkey: "<%= hotdog_appkey %>", // hotdog appkey,
+        //     devMode: <%= env_dev %>,
+        //     isRecordCanvas: true // 是否需要开启canvas录制， 默认为false
+        // });
+    </script>
+    <% if (noThunder) { %>
+        <!--era-template-scripts-->
+    <% } else { %>
+        <!--disable-era-template-scripts-->
+    <% } %>
+
+    <!-- SDK JS 代码-->
+    <% if(env_dev) { %>
+    <!-- 灵犀WebSDK ST环境，灵犀websdk会在每次正式发版前，在ST环境发版并保持至少1天，以便留出足够的时间发现问题
+        灵犀测试环境sdk与正式环境sdk对于不同环境上报的数据不作区分 在业务中通过上报自定义env字段进行区分 -->
+        <script src="//analytics.fetc.st.sankuai.com/analytics.js" type="text/javascript" charset="utf-8" async></script>
+    <% } else { %>
+    <!-- <script src="//analytics.meituan.net/analytics.js" type="text/javascript" charset="utf-8" async></script> -->
+        <script src="//lx.meituan.net/lx.js" type="text/javascript" charset="utf-8" async></script>
+    <% } %>
+
+    <!-- Begin: 灵犀统计代码引用代码 -->
+    <script type="text/javascript">
+        /**
+         * 在灵犀js加载完成之前，缓存参数，在全局作用域下挂载'LXAnalytics'
+         * 灵犀js加载完成之后再应用参数，避免因灵犀js未加载完成而造成上报数据丢失、直接调用window.LXAnalytics报错
+         */
+        !(function (win, doc, ns) {
+            var cacheFunName = '_MeiTuanALogObject';
+            win[cacheFunName] = ns;
+            if (!win[ns]) {
+                var _LX = function () {
+                    _LX.q.push(arguments);
+                    return _LX;
+                };
+                _LX.q = _LX.q || [];
+                _LX.l = +new Date();
+                win[ns] = _LX;
+            }
+        })(window, document, 'LXAnalytics');
+    </script>
+    <!-- End: 灵犀统计代码引用代码 -->
+</body>
+
+</html>

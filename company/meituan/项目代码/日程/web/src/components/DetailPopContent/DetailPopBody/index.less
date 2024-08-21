@@ -1,0 +1,99 @@
+.detailPopPublicBody {
+  overflow-y: auto;
+  border-bottom: 12px solid #fff;
+  padding: 23px 24px 0;
+  border-radius: 0 0 10px 10px;
+}
+
+.detailPopBody {
+  overflow-y: auto;
+  border-bottom: 64px solid #fff;
+  padding: 23px 24px 0;
+  border-radius: 0 0 10px 10px;
+  min-height: 168px;
+
+  .scrollLine {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 63px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.07);
+  }
+  .opts {
+    position: absolute;
+    left: 0;
+    right: 24px;
+    bottom: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .btn {
+      height: 32px;
+      border-radius: 6px;
+      margin-left: 12px;
+      padding-right: 18px;
+      padding-left: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &.btnSelected {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+      p {
+        padding-left: 4px;
+        font-weight: 500;
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+      &:active {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+    }
+  }
+  .detailShowFormItem {
+    i {
+      line-height: 20px;
+    }
+    display: flex;
+    width: 100%;
+    margin-bottom: 12px;
+    &.detailSmallInfoDistant {
+      margin-bottom: 4px;
+    }
+    .detailShowFormLabel {
+      margin-right: 12px;
+      line-height: 20px;
+    }
+    .detailShowFormInfo {
+      color: rgba(0, 0, 0, 0.84);
+      line-height: 20px;
+      font-size: 12px;
+      &.detailShowFormInfoWithIcon {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .roomName {
+      display: flex;
+      justify-self: start;
+      cursor: 'pointer';
+      text-decoration: none;
+      border-radius: 4px;
+      padding-left: 4px;
+      line-height: 23px;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+    }
+    .iconsize {
+      font-size: 16px;
+    }
+  }
+}
+.umeetContanier {
+  margin-bottom: 13px;
+}

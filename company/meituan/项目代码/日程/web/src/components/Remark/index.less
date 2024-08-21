@@ -1,0 +1,26 @@
+@import '../../asserts/styles/variable';
+.container {
+  .num {
+    color: @color-medium;
+    line-height: 16px;
+    text-align: right;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &.warn {
+    .num {
+      color: @color-warn;
+    }
+    :global {
+      .mtd-input textarea {
+        border-color: @color-warn;
+      }
+    }
+  }
+  .remarks {
+    min-width: 446px;
+    max-width: 446px;
+    resize: none;
+  }
+}

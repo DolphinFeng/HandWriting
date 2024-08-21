@@ -29,9 +29,9 @@ class HardWorker {
 
     rest (seconds) {
         this.queue.push(() => {
-            console.log(`等待${seconds}秒`);
+            console.log(`resting ${seconds} s`);
             setTimeout(() => {
-                console.log(`Start learning after ${seconds} seconds`);
+                console.log(`Start learning after ${seconds} s`);
                 this.next()
             }, seconds * 1000)
         })
@@ -40,9 +40,9 @@ class HardWorker {
 
     restFirst (seconds) {
         this.queue.unshift(() => {
-            console.log(`等待${seconds}秒`);
+            console.log(`waiting for ${seconds} s`);
             setTimeout(() => {
-                console.log(`Start learning after ${seconds} seconds`);
+                console.log(`Start learning after ${seconds} s`);
                 this.next()
             }, seconds * 1000)
         })
@@ -53,6 +53,7 @@ class HardWorker {
         this.queue.push(() => {
             console.log(`Learning ${subject}`);
             this.next()
+            
         })
         return this
     }
@@ -61,6 +62,7 @@ class HardWorker {
         this.queue.push(() => {
             console.log(`I am ${this.name}`);
             this.next()
+            
         })
         return this
     }
@@ -71,6 +73,4 @@ function HardMan (name) {
     return worker.sayName()
 }
 
-// HardMan('jack')
-// HardMan('jack').rest(10).learn('computer')
-HardMan('jack').restFirst(5).learn('Chinese')
+HardMan('jack').restFirst(5).learn('chinese')

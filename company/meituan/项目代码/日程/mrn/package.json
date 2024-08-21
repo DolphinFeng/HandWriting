@@ -1,0 +1,66 @@
+{
+  "name": "schedule-mrn",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Onejs MRN Standard Project",
+  "author": "shidongdong02 <shidongdong02@meituan.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "mrn start",
+    "dev": "mrn start",
+    "build": "mrn build",
+    "lint": "eslint --ext .js,.ts,.jsx,.tsx ./src",
+    "fix": "eslint --fix --ext .js,.ts,.jsx,.tsx ./src",
+    "prettier": "prettier -w ./src",
+    "clean": "mrn cache --clean"
+  },
+  "engines": {
+    "node": "~12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "eslint"
+  },
+  "dependencies": {
+    "@mrn/mrn-base": "^2.0.28",
+    "@mrn/mrn-knb": "^0.3.0",
+    "@mrn/mrn-utils": "^1.4.4",
+    "@mrn/react-navigation": "^2.9.21",
+    "@onejs/mrn": "latest",
+    "@onejs/mrn-components": "latest",
+    "@onejs/mrn-stores": "latest",
+    "@onejs/mrn-utils": "latest",
+    "@ss/mtd-react-native": "^0.4.3",
+    "@xm/mrn-components": "^0.0.13",
+    "eslint": "7.17.0",
+    "html-entities": "^2.3.2",
+    "lodash.merge": "^4.6.2",
+    "mobx": "^4.0.0",
+    "mobx-react": "5",
+    "react-native-keyboard-aware-scroll-view": "^0.9.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.12.12",
+    "@mfe/precommit-eslint": "^2.1.1",
+    "@mrn/mrn-cli": "^2.2.4",
+    "@types/node": "^14.14.31",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "@wmfe/eslint-config-mt": "^0.5.9",
+    "@wmfe/eslint-init": "^0.5.8",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-native": "^3.10.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
+  }
+}

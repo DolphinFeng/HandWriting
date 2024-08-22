@@ -169,6 +169,10 @@ fixes issue #12
 - web体系：https://senior-frontend.pages.dev/
 - 公众号文章格式转化：https://editor.mdnice.com/
 - github如何提 issue：https://docs.github.com/zh/issues/tracking-your-work-with-issues/quickstart
+- react Fiber: https://fe.azhubaby.com/React/Fiber.html
+- mdn上v8垃圾回收机制：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_management
+- ts 文档： https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html
+- ts体验：https://www.typescriptlang.org/play
 
   ## 算法
 1. 入门指南：

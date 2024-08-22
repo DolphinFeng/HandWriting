@@ -1,4 +1,4 @@
-// 二叉树转链表
+// 二叉树转链表，美团秋招一面
 function TreeNode(val, left, right) {
     this.val = (val === undefined ? 0 : val)
     this.left = (left === undefined ? null : left)

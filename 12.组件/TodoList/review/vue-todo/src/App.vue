@@ -1,42 +1,46 @@
 <template>
   <div>
-    <div class="header">
+    <div class="head">
       <input type="text" v-model="msg">
-      <button @click="handleUpload">提交</button>
+      <button @click="submit">确定</button>
     </div>
-    <div class="footer">
+
+    <div class="body">
       <ul>
-        <li v-for="(item, index) in list" :key="index">
-          <span :class="{ completed: item.completed }" @click="tag(item)">{{ item.text }}</span>
+        <li v-for="(item, index) in lists" :key="index">
+          <span :class="{ completed: item.completed }" @click="tag(item)">{{item.context}}</span>
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-const list = ref([])
-
-const msg = ref('')
-const handleUpload = () => {
-  if (msg.value) {
-    list.value.push({
-      text: msg.value,
-      completed: false
-    })
-  }
-  msg.value = ''
+interface TodoItem {
+  context: string;
+  completed: boolean;
 }
 
-const tag = (item) => {
+let lists = ref<TodoItem[]>([]);
+let msg = ref<string>('')
+
+const submit = (): void => {
+  if (msg.value) {
+    lists.value.push({
+      context: msg.value,
+      completed: false
+    });
+    msg.value = ''
+  }
+}
+
+const tag = (item: TodoItem): void => {
   item.completed = !item.completed
 }
-
 </script>
-
-<style lang="css" scoped>
+<style scoped>
 .completed {
   text-decoration: line-through;
   cursor: pointer;

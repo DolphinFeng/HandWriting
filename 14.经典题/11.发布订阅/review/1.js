@@ -1,71 +1,60 @@
 class EventEmitter {
-    constructor() {
-        this.event = {} // 存储事件及其对应的回调函数
+    constructor () {
+        this.event = {}
     }
-    
-    /**
-     * 订阅事件
-     * @param {string} type - 事件类型
-     * @param {function} cb - 回调函数
-     */
-    on(type, cb) {
-        if (!this.event[type]) { // 如果事件不存在，则创建一个数组来存储回调函数
+
+    on (type, cb) {
+        if (!this.event[type]) {
             this.event[type] = [cb]
-        } else { // 如果事件已存在，则将回调函数添加到数组中
+        } else {
             this.event[type].push(cb)
         }
     }
 
-    /**
-     * 触发事件
-     * @param {string} type - 事件类型
-     * @param {...any} args - 传递给回调函数的参数
-     */
-    emit(type, ...args) {
-        if (!this.event[type]) { // 如果事件不存在，则直接返回
-            return 
-        } else { // 如果事件存在，则依次执行所有回调函数
-            this.event[type].forEach(cb => {
-                cb(...args)
-            })
-        }
+    emit (type, ...args) {
+        if (!this.event[type]) return
+        this.event[type].forEach(cb => {
+            cb(...args)
+        })
     }
 
-    /**
-     * 取消订阅事件
-     * @param {string} type - 事件类型
-     * @param {function} cb - 回调函数
-     */
-    off(type, cb) {
-        if (!this.event[type]) { // 如果事件不存在，则直接返回
-            return 
-        } else { // 如果事件存在，则移除指定的回调函数
-            this.event[type] = this.event[type].filter(item => item !== cb)
-        }
-    }  
+    off (type, cb) {
+        if (!this.event[type]) return
+        this.event[type] = this.event[type].filter(item => item !== cb)
+    }
 
-    /**
-     * 订阅一次性事件
-     * @param {string} type - 事件类型
-     * @param {function} cb - 回调函数
-     */
-    once(type, cb) {
+    once (type, cb) {
         const fn = (...args) => {
-            cb(...args) // 执行回调函数
-            this.off(type, fn) // 执行一次后取消订阅
+            cb(...args)
+            this.off(type, fn)
         }
-        this.on(type, fn) // 订阅事件
-    } 
+
+        this.on(type, fn)
+    }
 }
 
 let ev = new EventEmitter()
 
 const fn = (...args) => {
     console.log(...args);
+    
 }
 
-ev.on('run', fn) // 订阅 'run' 事件
-ev.emit('run', 123) // 触发 'run' 事件，输出 123
+// ev.on('run', fn) 
+// ev.emit('run', 123)
 
-ev.on('say', fn) // 订阅 'say' 事件
-ev.emit('say', 'hello') // 触发 'say' 事件，输出 hello
+// ev.on('say', fn)
+// ev.emit('say', 'hello')
+
+// 使用 once 方法订阅 'jump' 事件
+ev.once('jump', fn)
+ev.emit('jump', 'first jump') // 触发 'jump' 事件，输出 'first jump'
+ev.emit('jump', 'second jump') // 不会输出，因为 once 只触发一次
+
+// 使用 on 方法订阅 'walk' 事件
+ev.on('walk', fn)
+ev.emit('walk', 'first walk') // 触发 'walk' 事件，输出 'first walk'
+
+// 使用 off 方法取消 'walk' 事件的订阅
+ev.off('walk', fn)
+ev.emit('walk', 'second walk') // 不会输出，因为 'walk' 事件已被取消订阅

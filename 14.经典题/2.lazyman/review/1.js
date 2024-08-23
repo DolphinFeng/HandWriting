@@ -2,7 +2,7 @@ class LazyMan {
     queue = []
     constructor (name) {
         this.push(() => {
-            console.log(`我叫${name}`);
+            console.log(`I am ${name}`);
             
         })
         setTimeout(() => {
@@ -10,64 +10,17 @@ class LazyMan {
         })
     }
 
-    sleepFirst (delay) {
-        this.unshift(() => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    console.log(`等待${delay}ms`);
-                    resolve()
-                }, delay)
-            })
-        })
-        return this
-    }
+    sleepFirst (seconds) {}
 
-    sleep (delay) {
-        this.push(() => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    console.log(`等待${delay}ms`);
-                    resolve()
-                }, delay)
-            })
-        })
-        return this
-    }
+    sleep (seconds) {}
 
-    drink (thing) {
-        this.push(() => {
-            console.log(`喝${thing}`);
-            
-        })
-        return this
-    }
+    drink () {}
 
-    eat (thing) {
-        this.push(() => {
-            console.log(`吃${thing}`);
-            
-        })
-        return this
-    }
+    eat () {}
 
-    push (task) {
-        this.queue.push(async () => {
-            await task()
-            this.next()
-            
-        })
-    }
+    push () {}
 
-    unshift (task) {
-        this.queue.unshift(async () => {
-            await task()
-            this.next()
-        })
-    }
+    unshift () {}
 
-    next () {
-        this.queue.shift()?.()
-    }
+    next () {}
 }
-
-new LazyMan('man').drink('colo').sleepFirst(1000)

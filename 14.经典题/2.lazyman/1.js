@@ -73,7 +73,7 @@ class LazyMan {
 
     // 执行队列中的下一个任务
     next() {
-        this.queue.shift()?.();
+        this.queue.shift()?.(); // ?.(): 可选链操作符，确保在 shift 返回的元素存在且是函数时才调用它。如果 shift 返回 undefined 或非函数值，则不会调用
     }
 }
 

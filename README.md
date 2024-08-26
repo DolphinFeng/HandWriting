@@ -173,6 +173,7 @@ fixes issue #12
 - mdn上v8垃圾回收机制：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_management
 - ts 文档： https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html
 - ts体验：https://www.typescriptlang.org/play
+- 存储更新：https://www.webkit.org/blog/14403/updates-to-storage-policy/
 
   ## 算法
 1. 入门指南：

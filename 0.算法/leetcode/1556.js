@@ -35,3 +35,7 @@ console.log(getThousandSign(10000))
 //     }
 //     return res.join(',') + '.' + num.toString().split('.')[1]
 // }
+
+// function formatNumberWithRegex(number) {
+//     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// }

@@ -1,22 +1,18 @@
 <template>
-  <input v-for="item in msgList" :key="item.id" v-model="item.value" />
+  <div>
+    <p>{{state.count}}</p>
+    <button @click="() => state.count++">add</button>
+  </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
+<script setup>
+import { reactive } from 'vue'
 
-const msgList = ref([
-  {
-    id: 1,
-    value: "",
-  },
-  {
-    id: 2,
-    value: "",
-  },
-  {
-    id: 3,
-    value: "",
-  },
-]);
+const state = reactive({ 
+  count: 1
+})
 </script>
+
+<style lang="css" scoped>
+
+</style>

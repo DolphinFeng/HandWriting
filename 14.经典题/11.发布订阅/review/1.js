@@ -20,7 +20,7 @@ class EventEmitter {
 
     off (type, cb) {
         if (!this.event[type]) return
-        this.event[type] = this.event[type].filter(item => item !== cb)
+        this.event[type] = this.event[type].filter(item => item !== cb) 
     }
 
     once (type, cb) {
@@ -28,7 +28,6 @@ class EventEmitter {
             cb(...args)
             this.off(type, fn)
         }
-
         this.on(type, fn)
     }
 }
@@ -40,21 +39,17 @@ const fn = (...args) => {
     
 }
 
-// ev.on('run', fn) 
+const fn1 = (...args) => {
+    console.log(...args, '----');
+    
+}
+
+// ev.on('run', fn)
+// ev.on('run', fn1)
+// ev.off('run', fn)
 // ev.emit('run', 123)
+// ev.emit('run', 456)
 
-// ev.on('say', fn)
-// ev.emit('say', 'hello')
-
-// 使用 once 方法订阅 'jump' 事件
 ev.once('jump', fn)
-ev.emit('jump', 'first jump') // 触发 'jump' 事件，输出 'first jump'
-ev.emit('jump', 'second jump') // 不会输出，因为 once 只触发一次
-
-// 使用 on 方法订阅 'walk' 事件
-ev.on('walk', fn)
-ev.emit('walk', 'first walk') // 触发 'walk' 事件，输出 'first walk'
-
-// 使用 off 方法取消 'walk' 事件的订阅
-ev.off('walk', fn)
-ev.emit('walk', 'second walk') // 不会输出，因为 'walk' 事件已被取消订阅
+ev.emit('jump', 1111)
+ev.emit('jump', 2222)

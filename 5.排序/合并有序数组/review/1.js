@@ -14,7 +14,6 @@ function merge (arr1, arr2) {
             j++
         }
     }
-
     while (i < arr1.length) {
         res.push(arr1[i])
         i++

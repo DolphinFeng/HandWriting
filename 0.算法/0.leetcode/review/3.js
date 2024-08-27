@@ -1,10 +1,10 @@
-let str = 'abcdabdcdddd'
+let str = 'abcdeabdcdddd'
 
 function getMaxLength (str) {
-    if (str.length <= 1) return str.length
-    let max = 0
+    let len = str.length
     let left = 0, right = 1
-    while (right < str.length) {
+    let max = 0
+    while (right < len) {
         let temp = str.slice(left, right)
         if (temp.indexOf(str[right]) > -1) {
             left++

@@ -33,7 +33,7 @@ function add (l1, l2) {
     while (addOne || l1 || l2) {
         let val1 = l1 ? l1.val : 0
         let val2 = l2 ? l2.val : 0
-        let res = val1 + val2 + addOne
+        let res = addOne + val1 + val2
         addOne = res >= 10 ? 1 : 0
         sum.next = new ListNode(res % 10)
         sum = sum.next

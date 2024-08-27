@@ -837,3 +837,18 @@ function traverseNode(node, context) {
 转后：
 ![alt text](image-28.png)
 同样想看 v-model 就是看 transformModel 对 dom 的 transformModel 这里打一个断点，看 call stack 可以知道，buildProps 调用的 transformModel，buildProps 又是由 postTransformElement 调用的，这个函数又是 从 transformElement 返回的回调，transformElement 在数组 nodeTransforms 中，因此 directiveTransform 就是由 nodeTransforms 数组的转换函数 transformElement 函数
+
+# template 如何实现“靶向更新”
+所谓靶向更新就是 比较 不同 ，有点像是 diff，template 中有的地方是挖坑写法，运行时触发某个逻辑会更改变量，若是直接对 虚拟 dom 全部递归遍历消耗会很大，因此这里采用靶向更新，谁变了才去更新谁
+template 依靠的是 transformElement，对着 @vue/compiler-core/dist/compiler-core.cjs.js 的 transformElement 函数打上一个断点，这个函数直接返回了 postTransformElement
+这个函数里面的参数有个 patchFlag，用来标记是否为动态节点，比如 我这里的 App.vue 有个 p 标签，里面挖了个坑写了个响应式变量，p 就会有个 子节点是动态的，patchFlag 是二进制 ，用了按位或操作符赋值，并且这个函数会对 template 的 所有的节点进行遍历，到 p 标签时，走完函数后的 node 如下
+![alt text](image-29.png)
+patchFlag 的 1 就是说明有个 动态节点，若为 11 表明还有个 动态类名，111 表明还有个 动态 style
+
+现在想要看看新旧虚拟 dom 是如何比较的，我们需要来到运行时，source 面板来到 node_modules/.vite/deps/vue.js?v=ae0f2b36
+搜索 const patchElement，然后对着函数里面的代码打上一个断点，点击按钮切换成 world，可以看到重新 render 后又出发了这个函数，此时看 n1, n2 两个入参长啥样
+![alt text](image-30.png)
+![alt text](image-31.png)
+![alt text](image-32.png)
+其实 dynamicChildren 这个属性就是来收集动态子节点的函数，可以看到 p 标签的 动态 children 由原来的 hello 变成了 world
+最终就可以明白如何实现靶向更新的，编译时 patchFlag 标记动态子节点，运行时 dynamicChildren 属性从动态节点数组 block 中进行靶向更新

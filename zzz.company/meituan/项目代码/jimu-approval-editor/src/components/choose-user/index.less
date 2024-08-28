@@ -1,0 +1,71 @@
+.candidate-choose{
+    min-width: 750px;
+    .btnSave{
+        margin-left: 10px;
+    }
+}
+.candidate-selector{
+    .selector {
+        overflow: scroll;
+        display: flex;
+        border: 1px solid #ededf0;
+        height: 400px;
+        min-width: 550px;
+    }
+    .part{
+        border-right: .5px solid #ededf0;
+        width: 50%;
+        .search{
+            height: 48px;
+            padding: 16px 16px 0;
+        }
+        .list{
+            height: calc(100% - 48px);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding:16px 0px;
+            
+            :hover{
+                background: #f6f6f7;
+            }
+
+            .item{
+                height: 36px;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding: 6px 16px;
+                align-items: center;
+                
+                cursor: pointer;
+                .avatar{
+                    width: auto;
+                }
+
+                .name{
+                    padding-left: 8px;
+                    width: 100%;
+                    display: flex;    
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+
+    .candidate-selector-checked-part{
+        width: 50%;
+        .candidate-selector-checked-total{
+            padding: 16px 16px 0;
+            font-size: 16px;
+            line-height: 36px;
+            height: 48px;
+            color: #212121;
+        }
+        .candidate-selector-checked-list{
+            height: calc(100% - 48px);
+            overflow-y: auto;
+        }
+    }
+}

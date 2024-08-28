@@ -14,10 +14,10 @@ function yellow () {
 }
 
 function light (cb, wait) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            cb()
             resolve()
+            cb()
         }, wait)
     })
 }

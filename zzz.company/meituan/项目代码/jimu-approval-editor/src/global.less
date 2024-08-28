@@ -1,0 +1,98 @@
+@import './styles/variables.css';
+
+@font-color:var(--font-color);
+@primary-color:var(--primary-color);
+
+body{
+  font-family: "SF Pro","Helvetica Neue",Helvetica,Arial,"PingFang SC","Heiti SC","Hiragino Sans GB","Microsoft YaHei","sans-serif";
+}
+
+#root {
+  height: 100%;
+}
+
+.mtd-ws-wrapper-right{
+  z-index: 899;
+}
+
+.mtd-ws-content{
+  // padding: 0 24px;
+  padding-top: 65px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: -50px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.onejs-app {
+  height: 100%;
+
+  .workspace-demo .mtd-ws-side {
+    padding-bottom: 60px;
+  }
+
+  .avatar-img {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+  }
+
+  .mtd-ws-vertical.mtd-ws-dark .mtd-ws-side {
+    min-height: 100vh;
+  }
+  .mtd-button-text{
+    padding: 0px;
+  }
+  .mtd-ws-header-logo{
+    color: '#2E81F0';
+    line-height: 48px;
+    text-align: left;
+    padding-left: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    &.collapse {
+      padding-left: 14px;
+    }
+    span{
+      position: relative;
+      color: #fff;
+      font-size: 16px;
+      margin-left: 5px;
+    }
+  }
+  .nav-bottom {
+    display: block;
+      line-height: 40px;
+      color: white;
+      font-size: 20px;
+      margin-left: 15px;
+      i {
+        opacity: 0.7;
+        &:hover {
+          cursor: pointer;
+          opacity: 1;
+        }
+      }
+  }
+}
+
+// RadioButton
+.radio-button .checked-true{
+  color: #1C6CDC;
+  border-color: #1C6CDC;
+  background: #ffffff;
+}
+
+.mtd-ws-header{
+  // position: fixed;
+  // right: 0;
+  // left: 200px;
+}
+

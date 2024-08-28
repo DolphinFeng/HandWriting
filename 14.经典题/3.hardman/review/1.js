@@ -19,39 +19,40 @@ class HardWorker {
         this.queue = []
         setTimeout(() => {
             this.next()
-        }, 0)
+        })
     }
 
     next () {
-        const fn = this.queue.shift()
-        fn && fn()
+        this.queue.shift()?.()
     }
 
-    rest (seconds) {
+    rest (delay) {
         this.queue.push(() => {
-            console.log(`resting ${seconds} s`);
+            console.log(`waiting for ${delay}`);
             setTimeout(() => {
-                console.log(`Start learning after ${seconds} s`);
+                console.log(`resting ${delay}`);
                 this.next()
-            }, seconds * 1000)
+                
+            }, delay)
         })
         return this
     }
 
-    restFirst (seconds) {
+    restFirst (delay) {
         this.queue.unshift(() => {
-            console.log(`waiting for ${seconds} s`);
+            console.log(`waiting for ${delay}`);
             setTimeout(() => {
-                console.log(`Start learning after ${seconds} s`);
+                console.log(`restingFirst ${delay}`);
                 this.next()
-            }, seconds * 1000)
+            }, delay)
+            
         })
         return this
     }
 
     learn (subject) {
         this.queue.push(() => {
-            console.log(`Learning ${subject}`);
+            console.log(`learning ${subject}`);
             this.next()
             
         })
@@ -60,17 +61,15 @@ class HardWorker {
 
     sayName () {
         this.queue.push(() => {
-            console.log(`I am ${this.name}`);
+            console.log(`${this.name}`);
             this.next()
-            
         })
         return this
     }
 }
 
 function HardMan (name) {
-    const worker = new HardWorker(name)
-    return worker.sayName()
+    return new HardWorker(name).sayName()
 }
 
-HardMan('jack').restFirst(5).learn('chinese')
+HardMan('Dolphin').learn('Chinese').restFirst(3000)

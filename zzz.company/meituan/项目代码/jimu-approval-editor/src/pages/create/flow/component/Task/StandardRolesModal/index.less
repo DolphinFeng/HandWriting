@@ -1,0 +1,120 @@
+.kd-select-option {
+  display: flex;
+  justify-content: space-between;
+
+  .system-label {
+    color: #999;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+}
+
+.kd-rolesetting-modal {
+
+
+  .mtd-modal-header {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .kd-rolesetting-header {
+    .kd-rolesetting-header-subtitle {
+      font-size: 12px;
+      font-weight: normal;
+    }
+  }
+
+  .mtd-modal-footer {
+    border-top: 1px solid #ddd;
+  }
+
+  .rolesetting-body {
+    padding: 10px 0;
+    height: 350px;
+    width: 680px;
+    overflow-y: scroll;
+  }
+
+  .sel-role-box {
+
+    padding: 0 0 14px;
+    border-bottom: 1px dashed #ddd;
+
+    .sel-role {
+      display: flex;
+      align-items: center;
+
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+
+    .lab {
+      margin-right: 10px;
+      font-weight: bold;
+
+    }
+
+    .selrole {
+      width: 200px;
+      margin-right: 8px;
+    }
+  }
+
+  .config-property-box {
+    border-bottom: 1px dashed #ddd;
+    padding: 0 0 12px;
+
+    .config-property-list {}
+
+    .config-property-fields {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .config-property-sel {
+        width: 240px;
+        flex-shrink: 0;
+        margin-right: 10px;
+      }
+
+      .config-property-label {
+        flex-shrink: 0;
+        width: 'fit-content';
+        margin-right: 10px;
+      }
+    }
+
+    .config-property-add {
+      cursor: pointer;
+      color: #5a8efa;
+    }
+  }
+
+  .sel-error {
+    .mtd-select-filter {
+      border-color: #f00 !important;
+    }
+  }
+
+  .role-error-tips {
+    color: #f00;
+    padding: 4px 0;
+    font-size: 12px;
+  }
+
+  .rolesetting-lab {
+    padding: 10px 0;
+    font-weight: bold;
+  }
+
+  .rolesetting-grouptype-sel {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .mtd-radio-group-item {
+      padding: 4px 0;
+    }
+  }
+
+
+}

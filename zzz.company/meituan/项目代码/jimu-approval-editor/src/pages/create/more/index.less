@@ -1,0 +1,222 @@
+
+
+.base-info {
+  margin: 0 auto;
+  padding: 24px 0;
+  height: 100%;
+  text-align: center;
+  overflow-y: auto;
+  background-color: #eff0f1;
+
+  .base-info-more{
+    display: inline-block;
+    width: 1128px;
+    padding: 24px 288px;
+    background-color: #fff;
+    text-align: left;
+  }
+}
+
+.card-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  i{
+      font-size: 16px;
+      color: #646a73;
+      cursor: pointer;
+  }
+}
+
+.setting-panel{
+  padding-bottom: 32px;
+  &:last-child {
+    padding-bottom: 0;
+  }
+  .setting-bar{
+    width: 100%;
+    margin-bottom: 10px;
+
+    :global .mtd-radio-group-button{
+      justify-content: center;
+      display: flex;
+      flex: 1;
+      border-radius: 0;
+      &:first-child {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+      &:last-child {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+
+    :global .mtd-radio-group-button-selected{
+      background:#37f;
+      color:#fff;
+    }
+  }
+
+  .setting-item{
+    &:not(:first-child){
+      margin-top: 24px;
+    }
+
+    .validate-msg{
+      color: #FF5F57;
+    }
+
+    padding: 0px 16px 0px 0px;
+
+    .message-card{
+      font-size: 14px;
+      width: 282px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 8px;
+      padding: 0 12px;
+
+      .message-card-title{
+        padding: 12px 0;
+        background: #FFFFFF;
+        border-radius: 8px 8px 0 0;
+
+        color: rgba(0,0,0,0.36);
+        letter-spacing: 0;
+        line-height: 20px;
+        font-weight: 400;
+      }
+
+      .message-card-detail{
+        font-weight: 400;
+        line-height: 20px;
+        a{
+          cursor: pointer;
+          position: relative;
+        }
+        a:after{
+          content: "";
+          width: 6px;
+          height: 6px;
+          border: solid #0a70f5;
+          border-width: 0 1px 1px 0;
+          transform: translate(-50%,-50%) rotate(-45deg);
+          position: absolute;
+          left: 110%;
+          top:50%;
+        }
+      }
+
+      .message-card-content{
+        font-weight: 400;
+        line-height: 20px;
+        color: rgba(0,0,0,0.84);
+        min-height: 40px;
+        white-space: pre-line;
+      }
+
+      .message-card-action{
+        border-top: 0.5px solid rgba(0,0,0,0.06);
+        display: flex;
+        padding: 12px;
+        justify-content: center;
+        margin-top: 6px;
+
+        div{
+          cursor: pointer;
+          display: flex;
+          flex:1;
+          justify-content: center;
+          font-weight: 400;
+          line-height: 20px
+        }
+
+        .action-approve{
+          color: #0A70F5;
+        }
+        .action-normal{
+          color:rgba(0, 0, 0, 0.36);
+        }
+        
+        .action-reject{
+          color: #FF5F57;
+          border-right: 1px solid rgba(0, 0, 0, 0.07);
+        }
+        
+        
+      }
+    }
+
+    .test-button{
+      margin-top: 10px;
+    }
+
+    .setting-item-title{
+      color: #1f2329;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 550;
+      margin-bottom: 8px;
+      margin-right: 5px;
+    }
+
+    .setting-item-desc{
+      color: #1f2329;
+      font-weight: 550;
+      &:not(:first-child){
+        margin-top: 10px;
+      }
+      .setting-item-tip {
+        margin-left: 6px;
+        font-size: 14px;
+      }
+    }
+
+    .setting-item-desc-detail{
+      font-weight: 400;
+      color: rgba(0,0,0,0.36);
+    }
+
+    .setting-item-content{
+      //更多设置的回调，隐藏必选的梅花
+      :global .mtd-form-item-label-required:before{
+        content: none !important;
+      }
+      line-height: 26px;
+    }
+  }  
+}
+
+.add-item{
+  display: flex;
+  width: 100%;
+  align-content: center;
+  padding: 5px 10px;
+  line-height: 24px;
+  background-color: #fff;
+  border:1px solid rgba(0,0,0,.12);
+
+  .list-item-ok{
+    margin: 0 5px;
+  }
+
+  .add-item-content{
+    flex: 1;
+  }
+
+}
+
+.add-item-action{
+  margin-top: 10px;
+}
+
+.no-margin-top{
+  margin-top: 0;
+}
+
+.no-border-top{
+  border-top: none;
+}
+

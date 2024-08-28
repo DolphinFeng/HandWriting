@@ -22,7 +22,7 @@ function getThousandSign(n) {
 }
 
 // 测试函数，输出带千分位逗号的字符串
-console.log(getThousandSign(10000))
+// console.log(getThousandSign(10000))
 
 // 考虑小数
 // function getThousandSign(num) {
@@ -39,3 +39,33 @@ console.log(getThousandSign(10000))
 // function formatNumberWithRegex(number) {
 //     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 // }
+
+function formatNumberWithCommas(number) {
+    // 将数字转换为字符串
+    let [integerPart, decimalPart] = Math.abs(number).toString().split('.');
+
+    // 处理整数部分，添加千分位分隔符
+    let formattedIntegerPart = '';
+    for (let i = integerPart.length - 1, count = 1; i >= 0; i--, count++) {
+        formattedIntegerPart = integerPart[i] + formattedIntegerPart;
+        if (count % 3 === 0 && i !== 0) {
+            formattedIntegerPart = ',' + formattedIntegerPart;
+        }
+    }
+
+    // 处理小数部分
+    if (decimalPart) {
+        return (number < 0 ? '-' : '') + formattedIntegerPart + '.' + decimalPart;
+    } else {
+        return (number < 0 ? '-' : '') + formattedIntegerPart;
+    }
+}
+
+console.log(formatNumberWithCommas(1234567.89));  // 输出: "1,234,567.89"
+console.log(formatNumberWithCommas(-1234567.89)); // 输出: "-1,234,567.89"
+console.log(formatNumberWithCommas(1234567));     // 输出: "1,234,567"
+console.log(formatNumberWithCommas(-1234567));    // 输出: "-1,234,567"
+console.log(formatNumberWithCommas(1234.567));    // 输出: "1,234.567"
+console.log(formatNumberWithCommas(-1234.567));   // 输出: "-1,234.567"
+console.log(formatNumberWithCommas(0));           // 输出: "0"
+console.log(formatNumberWithCommas(-0));          // 输出: "0"

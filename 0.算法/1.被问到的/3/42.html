@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocNode Example</title>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        // 假设 renderToHTML 函数和 nodes 数组已经定义
+        function renderToHTML(nodes) {
+            const map = {
+                link: 'a',
+                text: 'span',
+                image: 'img',
+                break: 'br',
+                division: 'div'
+            };
+            let res = '';
+            for (const node of nodes) {
+                if (node.type === 'break') {
+                    res += '<br />';
+                    continue;
+                }
+                let str = '';
+                str += '<';
+                str += map[node.type];
+                if (node.properties) {
+                    let tempStr = Object.entries(node.properties).map(([key, val]) => ` ${key}="${val}"`).join('');
+                    str += tempStr;
+                }
+                str += '>';
+                if (typeof node.children === 'string') str += node.children;
+                else str += renderToHTML(node.children);
+                str += `</${map[node.type]}>`;
+                res += str;
+            }
+            return res;
+        }
+
+        const nodes = [
+            {
+                type: 'text',
+                children: 'Hello, ',
+                properties: {}
+            },
+            {
+                type: 'link',
+                children: 'click here',
+                properties: { href: 'https://example.com' }
+            },
+            {
+                type: 'division',
+                children: [
+                    {
+                        type: 'image',
+                        children: '',
+                        properties: { src: 'image.png', alt: 'An image' }
+                    },
+                    {
+                        type: 'break',
+                        children: '',
+                        properties: {}
+                    },
+                    {
+                        type: 'text',
+                        children: 'More text',
+                        properties: {}
+                    }
+                ],
+                properties: {}
+            }
+        ];
+
+        const htmlString = renderToHTML(nodes);
+        document.getElementById('content').innerHTML = htmlString;
+    </script>
+</body>
+</html>

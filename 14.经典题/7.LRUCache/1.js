@@ -49,7 +49,7 @@ class LRUCache {
         if (this.cache.has(key)) {
             this.cache.delete(key);
         } else if (this.cache.size >= this.capacity) {
-            const firstKey = this.cache.keys().next().value;
+            const firstKey = this.cache.keys().next().value; // this.cache.keys(): 返回一个包含 Map 中所有 key 的迭代器。next 就是迭代起的下一个结果对象，有 value 和 done 属性
             this.cache.delete(firstKey);
         }
         this.cache.set(key, value);

@@ -7,8 +7,10 @@
 </head>
 <body>
     <div>1</div>
+    <div>3</div>
     <script>
-        let div1 = document.getElementsByTagName('div')[0];
+        // 代码从上往下执行，script 默认会阻塞 dom 渲染，因此拿不到下面的 div
+        let div1 = document.getElementsByTagName('div')[0]; // 获取 HTML 文档中第一个 div 元素
         div1.innerText = '111'
         let div2 = document.getElementsByTagName('div')[1];
         div2.innerText = '222'

@@ -1,0 +1,5631 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`流程画布 UI 测试 test condition 渲染 复杂条件组 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="bpm-condition-box"
+        style="display: flex;"
+      >
+        <div
+          class="bpm-condition-calc"
+        >
+          <div
+            class="mtd-select"
+            style="width: 54px;"
+          >
+            <div
+              class="mtd-select-filter"
+            >
+              <div
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="mtd-select-filter-input mtd-input"
+                >
+                  <input
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <span
+                  class="mtd-select-filter-label"
+                  title="或"
+                >
+                  或
+                </span>
+                <div
+                  class="mtd-select-filter-icon"
+                >
+                  <i
+                    class="mtdicon mtdicon-down-thick"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bpm-condition-detail"
+        >
+          <div
+            class="condition-items"
+          >
+            <div
+              class="bpm-condition-box"
+              style="display: flex;"
+            >
+              <div
+                class="bpm-condition-calc"
+              >
+                <div
+                  class="mtd-select"
+                  style="width: 54px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="或"
+                      >
+                        或
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bpm-condition-detail"
+              >
+                <div
+                  class="condition-items"
+                >
+                  <div
+                    class="mtd-treeselect"
+                    style="margin-right: 8px; width: 180px;"
+                  >
+                    <div
+                      class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="mtd-treeselect-filter-label"
+                          title="数字输入框"
+                        >
+                          数字输入框
+                        </span>
+                        <div
+                          class="mtd-treeselect-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-treeselect-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 100px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="等于"
+                        >
+                          等于
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-input mtd-input-clearable"
+                    style="margin-right: 8px; width: 350px;"
+                  >
+                    <span
+                      class="mtd-input-affix-wrapper"
+                    >
+                      <input
+                        type="text"
+                        value="2222"
+                      />
+                      <div
+                        class="mtd-input-suffix-wrapper"
+                      >
+                        <i
+                          class="mtd-input-clear mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </span>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; height: 32px;"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add-square-o"
+                      style="font-size: 20px; cursor: pointer;"
+                    />
+                    <i
+                      class="mtdicon mtdicon-checkbox-indetermina-o"
+                      style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="condition-items"
+                >
+                  <div
+                    class="mtd-treeselect"
+                    style="margin-right: 8px; width: 180px;"
+                  >
+                    <div
+                      class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="mtd-treeselect-filter-label"
+                          title="单选框"
+                        >
+                          单选框
+                        </span>
+                        <div
+                          class="mtd-treeselect-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-treeselect-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 100px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="等于"
+                        >
+                          等于
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 350px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="选项1"
+                        >
+                          选项1
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; height: 32px;"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add-square-o"
+                      style="font-size: 20px; cursor: pointer;"
+                    />
+                    <i
+                      class="mtdicon mtdicon-checkbox-indetermina-o"
+                      style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="condition-items"
+                >
+                  <div
+                    class="mtd-treeselect"
+                    style="margin-right: 8px; width: 180px;"
+                  >
+                    <div
+                      class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="mtd-treeselect-filter-label"
+                          title="制单人部门"
+                        >
+                          制单人部门
+                        </span>
+                        <div
+                          class="mtd-treeselect-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-treeselect-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 100px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="不等于"
+                        >
+                          不等于
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 350px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="美团/到店事业群/充电宝业务部/线上合作商根结点/fengqiyi个人企业认证"
+                        >
+                          美团/到店事业群/充电宝业务部/线上合作商根结点/fengqiyi个人企业认证
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; height: 32px;"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add-square-o"
+                      style="font-size: 20px; cursor: pointer;"
+                    />
+                    <i
+                      class="mtdicon mtdicon-checkbox-indetermina-o"
+                      style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="condition-items"
+                >
+                  <div
+                    class="mtd-treeselect"
+                    style="margin-right: 8px; width: 180px;"
+                  >
+                    <div
+                      class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="mtd-treeselect-filter-label"
+                          title="制单人"
+                        >
+                          制单人
+                        </span>
+                        <div
+                          class="mtd-treeselect-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-treeselect-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 100px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="等于"
+                        >
+                          等于
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 350px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="管秉昌"
+                        >
+                          管秉昌
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; height: 32px;"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add-square-o"
+                      style="font-size: 20px; cursor: pointer;"
+                    />
+                    <i
+                      class="mtdicon mtdicon-checkbox-indetermina-o"
+                      style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="condition-items"
+          >
+            <div
+              class="bpm-condition-box"
+              style="display: flex;"
+            >
+              <div
+                class="bpm-condition-calc"
+              >
+                <div
+                  class="mtd-select"
+                  style="width: 54px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="或"
+                      >
+                        或
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bpm-condition-detail"
+              >
+                <div
+                  class="condition-items"
+                >
+                  <div
+                    class="mtd-treeselect"
+                    style="margin-right: 8px; width: 180px;"
+                  >
+                    <div
+                      class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="mtd-treeselect-filter-label"
+                          title="多选框"
+                        >
+                          多选框
+                        </span>
+                        <div
+                          class="mtd-treeselect-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-treeselect-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 100px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="包含"
+                        >
+                          包含
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select mtd-select-multiple"
+                    style="margin-right: 8px; width: 350px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <ul
+                        class="mtd-select-filter-multiple"
+                      >
+                        <li
+                          class="mtd-select-multiple-item"
+                        >
+                          <span
+                            class="mtd-tag mtd-tag-gray mtd-tag-pure"
+                          >
+                            <span
+                              class="mtd-tag-content"
+                            >
+                              选项1
+                            </span>
+                            <i
+                              class="mtd-tag-close mtdicon mtdicon-close"
+                            />
+                          </span>
+                        </li>
+                        <li
+                          class="mtd-select-multiple-input"
+                        >
+                          <div
+                            class="mtd-select-filter-input mtd-input"
+                            style="width: 5px;"
+                          >
+                            <input
+                              type="text"
+                              value=""
+                            />
+                          </div>
+                        </li>
+                      </ul>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; height: 32px;"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add-square-o"
+                      style="font-size: 20px; cursor: pointer;"
+                    />
+                    <i
+                      class="mtdicon mtdicon-checkbox-indetermina-o"
+                      style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="condition-items"
+                >
+                  <div
+                    class="mtd-treeselect"
+                    style="margin-right: 8px; width: 180px;"
+                  >
+                    <div
+                      class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="mtd-treeselect-filter-label"
+                          title="制单人"
+                        >
+                          制单人
+                        </span>
+                        <div
+                          class="mtd-treeselect-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-treeselect-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 100px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="不等于"
+                        >
+                          不等于
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mtd-select"
+                    style="margin-right: 8px; width: 350px;"
+                  >
+                    <div
+                      class="mtd-select-filter"
+                    >
+                      <div
+                        role="button"
+                        tabindex="0"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <span
+                          class="mtd-select-filter-label"
+                          title="管晓霄"
+                        >
+                          管晓霄
+                        </span>
+                        <div
+                          class="mtd-select-filter-icon"
+                        >
+                          <i
+                            class="mtdicon mtdicon-down-thick"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="mtd-select-filter-delete"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <i
+                          class="mtdicon mtdicon-error-circle"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style="display: flex; align-items: center; height: 32px;"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add-square-o"
+                      style="font-size: 20px; cursor: pointer;"
+                    />
+                    <i
+                      class="mtdicon mtdicon-checkbox-indetermina-o"
+                      style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mtd-dropdown"
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <ul
+        class="mtd-menu mtd-dropdown-menu mtd-menu-root mtd-menu-light mtd-menu-inline"
+        level="1"
+        mode="inline"
+        role="menu"
+        style="position: absolute; display: none;"
+        tabindex="0"
+      >
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加条件
+        </li>
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加父条件
+        </li>
+      </ul>
+    </div>
+    <div
+      class="mtd-dropdown"
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <ul
+        class="mtd-menu mtd-dropdown-menu mtd-menu-root mtd-menu-light mtd-menu-inline"
+        level="1"
+        mode="inline"
+        role="menu"
+        style="position: absolute; display: none;"
+        tabindex="0"
+      >
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加条件
+        </li>
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加父条件
+        </li>
+      </ul>
+    </div>
+    <div
+      class="mtd-dropdown"
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <ul
+        class="mtd-menu mtd-dropdown-menu mtd-menu-root mtd-menu-light mtd-menu-inline"
+        level="1"
+        mode="inline"
+        role="menu"
+        style="position: absolute; display: none;"
+        tabindex="0"
+      >
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加条件
+        </li>
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加父条件
+        </li>
+      </ul>
+    </div>
+    <div
+      class="mtd-dropdown"
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <ul
+        class="mtd-menu mtd-dropdown-menu mtd-menu-root mtd-menu-light mtd-menu-inline"
+        level="1"
+        mode="inline"
+        role="menu"
+        style="position: absolute; display: none;"
+        tabindex="0"
+      >
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加条件
+        </li>
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加父条件
+        </li>
+      </ul>
+    </div>
+    <div
+      class="mtd-dropdown"
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <ul
+        class="mtd-menu mtd-dropdown-menu mtd-menu-root mtd-menu-light mtd-menu-inline"
+        level="1"
+        mode="inline"
+        role="menu"
+        style="position: absolute; display: none;"
+        tabindex="0"
+      >
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加条件
+        </li>
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加父条件
+        </li>
+      </ul>
+    </div>
+    <div
+      class="mtd-dropdown"
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <ul
+        class="mtd-menu mtd-dropdown-menu mtd-menu-root mtd-menu-light mtd-menu-inline"
+        level="1"
+        mode="inline"
+        role="menu"
+        style="position: absolute; display: none;"
+        tabindex="0"
+      >
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加条件
+        </li>
+        <li
+          class="mtd-menu-item"
+          style="padding-left: 16px;"
+        >
+          添加父条件
+        </li>
+      </ul>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="bpm-condition-box"
+      style="display: flex;"
+    >
+      <div
+        class="bpm-condition-calc"
+      >
+        <div
+          class="mtd-select"
+          style="width: 54px;"
+        >
+          <div
+            class="mtd-select-filter"
+          >
+            <div
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="mtd-select-filter-input mtd-input"
+              >
+                <input
+                  type="text"
+                  value=""
+                />
+              </div>
+              <span
+                class="mtd-select-filter-label"
+                title="或"
+              >
+                或
+              </span>
+              <div
+                class="mtd-select-filter-icon"
+              >
+                <i
+                  class="mtdicon mtdicon-down-thick"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bpm-condition-detail"
+      >
+        <div
+          class="condition-items"
+        >
+          <div
+            class="bpm-condition-box"
+            style="display: flex;"
+          >
+            <div
+              class="bpm-condition-calc"
+            >
+              <div
+                class="mtd-select"
+                style="width: 54px;"
+              >
+                <div
+                  class="mtd-select-filter"
+                >
+                  <div
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="mtd-select-filter-input mtd-input"
+                    >
+                      <input
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                    <span
+                      class="mtd-select-filter-label"
+                      title="或"
+                    >
+                      或
+                    </span>
+                    <div
+                      class="mtd-select-filter-icon"
+                    >
+                      <i
+                        class="mtdicon mtdicon-down-thick"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bpm-condition-detail"
+            >
+              <div
+                class="condition-items"
+              >
+                <div
+                  class="mtd-treeselect"
+                  style="margin-right: 8px; width: 180px;"
+                >
+                  <div
+                    class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="mtd-treeselect-filter-label"
+                        title="数字输入框"
+                      >
+                        数字输入框
+                      </span>
+                      <div
+                        class="mtd-treeselect-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-treeselect-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 100px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="等于"
+                      >
+                        等于
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-input mtd-input-clearable"
+                  style="margin-right: 8px; width: 350px;"
+                >
+                  <span
+                    class="mtd-input-affix-wrapper"
+                  >
+                    <input
+                      type="text"
+                      value="2222"
+                    />
+                    <div
+                      class="mtd-input-suffix-wrapper"
+                    >
+                      <i
+                        class="mtd-input-clear mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </span>
+                </div>
+                <div
+                  style="display: flex; align-items: center; height: 32px;"
+                >
+                  <i
+                    class="mtdicon mtdicon-add-square-o"
+                    style="font-size: 20px; cursor: pointer;"
+                  />
+                  <i
+                    class="mtdicon mtdicon-checkbox-indetermina-o"
+                    style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                  />
+                </div>
+              </div>
+              <div
+                class="condition-items"
+              >
+                <div
+                  class="mtd-treeselect"
+                  style="margin-right: 8px; width: 180px;"
+                >
+                  <div
+                    class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="mtd-treeselect-filter-label"
+                        title="单选框"
+                      >
+                        单选框
+                      </span>
+                      <div
+                        class="mtd-treeselect-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-treeselect-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 100px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="等于"
+                      >
+                        等于
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 350px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="选项1"
+                      >
+                        选项1
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="display: flex; align-items: center; height: 32px;"
+                >
+                  <i
+                    class="mtdicon mtdicon-add-square-o"
+                    style="font-size: 20px; cursor: pointer;"
+                  />
+                  <i
+                    class="mtdicon mtdicon-checkbox-indetermina-o"
+                    style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                  />
+                </div>
+              </div>
+              <div
+                class="condition-items"
+              >
+                <div
+                  class="mtd-treeselect"
+                  style="margin-right: 8px; width: 180px;"
+                >
+                  <div
+                    class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="mtd-treeselect-filter-label"
+                        title="制单人部门"
+                      >
+                        制单人部门
+                      </span>
+                      <div
+                        class="mtd-treeselect-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-treeselect-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 100px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="不等于"
+                      >
+                        不等于
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 350px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="美团/到店事业群/充电宝业务部/线上合作商根结点/fengqiyi个人企业认证"
+                      >
+                        美团/到店事业群/充电宝业务部/线上合作商根结点/fengqiyi个人企业认证
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="display: flex; align-items: center; height: 32px;"
+                >
+                  <i
+                    class="mtdicon mtdicon-add-square-o"
+                    style="font-size: 20px; cursor: pointer;"
+                  />
+                  <i
+                    class="mtdicon mtdicon-checkbox-indetermina-o"
+                    style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                  />
+                </div>
+              </div>
+              <div
+                class="condition-items"
+              >
+                <div
+                  class="mtd-treeselect"
+                  style="margin-right: 8px; width: 180px;"
+                >
+                  <div
+                    class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="mtd-treeselect-filter-label"
+                        title="制单人"
+                      >
+                        制单人
+                      </span>
+                      <div
+                        class="mtd-treeselect-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-treeselect-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 100px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="等于"
+                      >
+                        等于
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 350px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="管秉昌"
+                      >
+                        管秉昌
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="display: flex; align-items: center; height: 32px;"
+                >
+                  <i
+                    class="mtdicon mtdicon-add-square-o"
+                    style="font-size: 20px; cursor: pointer;"
+                  />
+                  <i
+                    class="mtdicon mtdicon-checkbox-indetermina-o"
+                    style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="condition-items"
+        >
+          <div
+            class="bpm-condition-box"
+            style="display: flex;"
+          >
+            <div
+              class="bpm-condition-calc"
+            >
+              <div
+                class="mtd-select"
+                style="width: 54px;"
+              >
+                <div
+                  class="mtd-select-filter"
+                >
+                  <div
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="mtd-select-filter-input mtd-input"
+                    >
+                      <input
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                    <span
+                      class="mtd-select-filter-label"
+                      title="或"
+                    >
+                      或
+                    </span>
+                    <div
+                      class="mtd-select-filter-icon"
+                    >
+                      <i
+                        class="mtdicon mtdicon-down-thick"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bpm-condition-detail"
+            >
+              <div
+                class="condition-items"
+              >
+                <div
+                  class="mtd-treeselect"
+                  style="margin-right: 8px; width: 180px;"
+                >
+                  <div
+                    class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="mtd-treeselect-filter-label"
+                        title="多选框"
+                      >
+                        多选框
+                      </span>
+                      <div
+                        class="mtd-treeselect-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-treeselect-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 100px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="包含"
+                      >
+                        包含
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select mtd-select-multiple"
+                  style="margin-right: 8px; width: 350px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <ul
+                      class="mtd-select-filter-multiple"
+                    >
+                      <li
+                        class="mtd-select-multiple-item"
+                      >
+                        <span
+                          class="mtd-tag mtd-tag-gray mtd-tag-pure"
+                        >
+                          <span
+                            class="mtd-tag-content"
+                          >
+                            选项1
+                          </span>
+                          <i
+                            class="mtd-tag-close mtdicon mtdicon-close"
+                          />
+                        </span>
+                      </li>
+                      <li
+                        class="mtd-select-multiple-input"
+                      >
+                        <div
+                          class="mtd-select-filter-input mtd-input"
+                          style="width: 5px;"
+                        >
+                          <input
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                      </li>
+                    </ul>
+                    <div
+                      class="mtd-select-filter-icon"
+                    >
+                      <i
+                        class="mtdicon mtdicon-down-thick"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="display: flex; align-items: center; height: 32px;"
+                >
+                  <i
+                    class="mtdicon mtdicon-add-square-o"
+                    style="font-size: 20px; cursor: pointer;"
+                  />
+                  <i
+                    class="mtdicon mtdicon-checkbox-indetermina-o"
+                    style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                  />
+                </div>
+              </div>
+              <div
+                class="condition-items"
+              >
+                <div
+                  class="mtd-treeselect"
+                  style="margin-right: 8px; width: 180px;"
+                >
+                  <div
+                    class="mtd-treeselect-filter mtd-treeselect-filter-dropdown"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="mtd-treeselect-filter-label"
+                        title="制单人"
+                      >
+                        制单人
+                      </span>
+                      <div
+                        class="mtd-treeselect-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-treeselect-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 100px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="不等于"
+                      >
+                        不等于
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mtd-select"
+                  style="margin-right: 8px; width: 350px;"
+                >
+                  <div
+                    class="mtd-select-filter"
+                  >
+                    <div
+                      role="button"
+                      tabindex="0"
+                    >
+                      <div
+                        class="mtd-select-filter-input mtd-input"
+                      >
+                        <input
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <span
+                        class="mtd-select-filter-label"
+                        title="管晓霄"
+                      >
+                        管晓霄
+                      </span>
+                      <div
+                        class="mtd-select-filter-icon"
+                      >
+                        <i
+                          class="mtdicon mtdicon-down-thick"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="mtd-select-filter-delete"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <i
+                        class="mtdicon mtdicon-error-circle"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="display: flex; align-items: center; height: 32px;"
+                >
+                  <i
+                    class="mtdicon mtdicon-add-square-o"
+                    style="font-size: 20px; cursor: pointer;"
+                  />
+                  <i
+                    class="mtdicon mtdicon-checkbox-indetermina-o"
+                    style="font-size: 20px; margin-left: 16px; cursor: pointer;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`流程画布 UI 测试 test flow  snapshot 渲染测试 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flow-editor"
+      >
+        <div
+          class="ps"
+          id="flow-ps"
+          style="position: relative; height: 100%;"
+        >
+          <div
+            class="flow-root-wrap"
+          >
+            <div
+              class="flow-editor-root flow-editor-node branch"
+            >
+              <div
+                class="flow-node start"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(169, 180, 205);"
+                    >
+                      <span>
+                        发起
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail-origin"
+                      >
+                        添加
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail"
+                      >
+                        <span>
+                          请选择审批人
+                        </span>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node end"
+              >
+                <div
+                  class="flow-node-box disabled"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(169, 180, 205);"
+                  >
+                    <span>
+                      结束
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail-origin"
+                    >
+                      添加
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class=""
+                style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+              >
+                <div
+                  class="mtd-popover mtd-popover-light"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="mtd-popover-arrow"
+                  />
+                  <div
+                    class="mtd-popover-inner"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="mtd-popover-inner-content"
+                      >
+                        <div
+                          class="add-node-types"
+                        >
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-avatar-o"
+                              style="color: rgb(91, 145, 254);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              审批人
+                            </div>
+                          </div>
+                          <div
+                            class="node-type"
+                          >
+                            <i
+                              class="node-type-icon mtdicon mtdicon-hierarchy-fill"
+                              style="color: rgb(46, 183, 149);"
+                            />
+                            <div
+                              class="node-type-name"
+                            >
+                              分支
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ps__rail-x"
+            style="left: 0px; top: 0px;"
+          >
+            <div
+              class="ps__thumb-x"
+              style="left: 0px; width: 0px;"
+              tabindex="0"
+            />
+          </div>
+          <div
+            class="ps__rail-y"
+            style="top: 0px; left: 0px;"
+          >
+            <div
+              class="ps__thumb-y"
+              style="top: 0px; height: 0px;"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              请选择审批人
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div />
+    <div />
+    <div>
+      <div
+        class="flow-editor"
+      >
+        <div
+          class="ps"
+          id="flow-ps"
+          style="position: relative; height: 100%;"
+        >
+          <div
+            class="flow-root-wrap"
+          >
+            <div
+              class="flow-editor-root flow-editor-node branch"
+            >
+              <div
+                class="flow-node start"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(169, 180, 205);"
+                    >
+                      <span>
+                        发起
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail-origin"
+                      >
+                        添加
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node route"
+              >
+                <div
+                  class="top-h-line"
+                />
+                <div
+                  class="add-branch"
+                >
+                  <div
+                    class="add-branch-inner"
+                  >
+                    添加条件
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="branches"
+                >
+                  <div
+                    class="flow-node branch"
+                  >
+                    <div
+                      class="top-line-mask"
+                    />
+                    <div
+                      class="top-v-line"
+                    />
+                    <div
+                      class="nodes"
+                    >
+                      <div
+                        class="flow-node condition"
+                      >
+                        <div>
+                          <div
+                            class="flow-node-box"
+                          >
+                            <div
+                              class="node-title"
+                              style="background: rgb(255, 255, 255);"
+                            >
+                              <span>
+                                条件1
+                              </span>
+                              <span>
+                                优先级 
+                                1
+                              </span>
+                            </div>
+                            <div
+                              class="node-context"
+                            >
+                              <div
+                                class="node-detail"
+                              >
+                                <span>
+                                  制单人部门属于美团失效部门/到店事业群无效部门/收单渠道组/美团,美团/到店事业群/充电宝业务部/线上合作商根结点/吕蓝莹/美团人,美团/到家事业群/外卖事业部/外卖渠道部/锦屏县/锦屏县一组/锦屏美团
+                                </span>
+                              </div>
+                              <i
+                                class="mtdicon mtdicon-right"
+                              />
+                            </div>
+                            <i
+                              class="delete-btn mtdicon mtdicon-close"
+                              style="display: none;"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="bottom-v-line"
+                        />
+                        <div
+                          class="add-node-btn"
+                        >
+                          <div
+                            class="add-btn"
+                          >
+                            <i
+                              class="mtdicon mtdicon-add"
+                              style="font-size: 13px; color: rgb(0, 136, 204);"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flow-node approval"
+                      >
+                        <div>
+                          <div
+                            class="flow-node-box"
+                          >
+                            <div
+                              class="node-title"
+                              style="background: rgb(91, 145, 254);"
+                            >
+                              <span>
+                                审批任务
+                              </span>
+                            </div>
+                            <div
+                              class="node-context"
+                            >
+                              <div
+                                class="node-detail"
+                              >
+                                <span>
+                                  发起人的第 CEO3
+                                </span>
+                              </div>
+                              <i
+                                class="mtdicon mtdicon-right"
+                              />
+                            </div>
+                            <i
+                              class="delete-btn mtdicon mtdicon-close"
+                              style="display: none;"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="bottom-v-line"
+                        />
+                        <div
+                          class="add-node-btn"
+                        >
+                          <div
+                            class="add-btn"
+                          >
+                            <i
+                              class="mtdicon mtdicon-add"
+                              style="font-size: 13px; color: rgb(0, 136, 204);"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="bottom-v-line"
+                    />
+                    <div
+                      class="bottom-line-mask"
+                    />
+                  </div>
+                  <div
+                    class="flow-node branch"
+                  >
+                    <div
+                      class="top-line-mask"
+                    />
+                    <div
+                      class="top-v-line"
+                    />
+                    <div
+                      class="nodes"
+                    >
+                      <div
+                        class="flow-node condition"
+                      >
+                        <div>
+                          <div
+                            class="flow-node-box"
+                          >
+                            <div
+                              class="node-title"
+                              style="background: rgb(255, 255, 255);"
+                            >
+                              <span>
+                                条件2
+                              </span>
+                              <span>
+                                优先级 
+                                2
+                              </span>
+                            </div>
+                            <div
+                              class="node-context"
+                            >
+                              <div
+                                class="node-detail"
+                              >
+                                <span>
+                                  制单人等于管秉昌 或 数字输入框属于123 或 金额大于等于10000 或 多选框包含选项1 或 单选框属于选项1
+                                </span>
+                              </div>
+                              <i
+                                class="mtdicon mtdicon-right"
+                              />
+                            </div>
+                            <i
+                              class="delete-btn mtdicon mtdicon-close"
+                              style="display: none;"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="bottom-v-line"
+                        />
+                        <div
+                          class="add-node-btn"
+                        >
+                          <div
+                            class="add-btn"
+                          >
+                            <i
+                              class="mtdicon mtdicon-add"
+                              style="font-size: 13px; color: rgb(0, 136, 204);"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flow-node approval"
+                      >
+                        <div>
+                          <div
+                            class="flow-node-box"
+                          >
+                            <div
+                              class="node-title"
+                              style="background: rgb(91, 145, 254);"
+                            >
+                              <span>
+                                审批任务
+                              </span>
+                            </div>
+                            <div
+                              class="node-context"
+                            >
+                              <div
+                                class="node-detail"
+                              >
+                                <span>
+                                  发起人的第 5 级主管
+                                </span>
+                              </div>
+                              <i
+                                class="mtdicon mtdicon-right"
+                              />
+                            </div>
+                            <i
+                              class="delete-btn mtdicon mtdicon-close"
+                              style="display: none;"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="bottom-v-line"
+                        />
+                        <div
+                          class="add-node-btn"
+                        >
+                          <div
+                            class="add-btn"
+                          >
+                            <i
+                              class="mtdicon mtdicon-add"
+                              style="font-size: 13px; color: rgb(0, 136, 204);"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="bottom-v-line"
+                    />
+                    <div
+                      class="bottom-line-mask"
+                    />
+                  </div>
+                  <div
+                    class="flow-node branch"
+                  >
+                    <div
+                      class="top-line-mask"
+                    />
+                    <div
+                      class="top-v-line"
+                    />
+                    <div
+                      class="nodes"
+                    >
+                      <div
+                        class="flow-node condition"
+                      >
+                        <div>
+                          <div
+                            class="flow-node-box disabled"
+                          >
+                            <div
+                              class="node-title"
+                              style="background: rgb(255, 255, 255);"
+                            >
+                              <span>
+                                默认
+                              </span>
+                              <span>
+                                优先级 
+                                3
+                              </span>
+                            </div>
+                            <div
+                              class="node-context"
+                            >
+                              <div
+                                class="node-detail-origin"
+                              >
+                                其他情况
+                              </div>
+                              <i
+                                class="mtdicon mtdicon-right"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="bottom-v-line"
+                        />
+                        <div
+                          class="add-node-btn"
+                        >
+                          <div
+                            class="add-btn"
+                          >
+                            <i
+                              class="mtdicon mtdicon-add"
+                              style="font-size: 13px; color: rgb(0, 136, 204);"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="flow-node approval"
+                      >
+                        <div>
+                          <div
+                            class="flow-node-box"
+                          >
+                            <div
+                              class="node-title"
+                              style="background: rgb(91, 145, 254);"
+                            >
+                              <span>
+                                审批任务
+                              </span>
+                            </div>
+                            <div
+                              class="node-context"
+                            >
+                              <div
+                                class="node-detail"
+                              >
+                                <span>
+                                  发起人所在的 3 级部门负责人
+                                </span>
+                              </div>
+                              <i
+                                class="mtdicon mtdicon-right"
+                              />
+                            </div>
+                            <i
+                              class="delete-btn mtdicon mtdicon-close"
+                              style="display: none;"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="bottom-v-line"
+                        />
+                        <div
+                          class="add-node-btn"
+                        >
+                          <div
+                            class="add-btn"
+                          >
+                            <i
+                              class="mtdicon mtdicon-add"
+                              style="font-size: 13px; color: rgb(0, 136, 204);"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="bottom-v-line"
+                    />
+                    <div
+                      class="bottom-line-mask"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-h-line"
+                />
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail"
+                      >
+                        <span>
+                          发起人所在的 X3A 级部门负责人
+                        </span>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail"
+                      >
+                        <span>
+                          指定成员
+                        </span>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail"
+                      >
+                        <span>
+                          逐级审批到发起人的第 4 级主管
+                        </span>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail"
+                      >
+                        <span>
+                          逐级审批到发起人所在的 X3B 级部门负责人
+                        </span>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail"
+                      >
+                        <span>
+                          发起人的 HRBP
+                        </span>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail"
+                      >
+                        <span>
+                          表单内控件 对应的 HRBP
+                        </span>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail"
+                      >
+                        <span>
+                          表单内控件 对应的 招聘Leader
+                        </span>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node approval"
+              >
+                <div>
+                  <div
+                    class="flow-node-box"
+                  >
+                    <div
+                      class="node-title"
+                      style="background: rgb(91, 145, 254);"
+                    >
+                      <span>
+                        审批任务
+                      </span>
+                    </div>
+                    <div
+                      class="node-context"
+                    >
+                      <div
+                        class="node-detail two-line"
+                      >
+                        <div
+                          class="line"
+                        >
+                          审批人:
+                          发起人的第 1 级主管
+                        </div>
+                        <div
+                          class="line"
+                        >
+                          抄送人:
+                          指定成员
+                        </div>
+                      </div>
+                      <i
+                        class="mtdicon mtdicon-right"
+                      />
+                    </div>
+                    <i
+                      class="delete-btn mtdicon mtdicon-close"
+                      style="display: none;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="bottom-v-line"
+                />
+                <div
+                  class="add-node-btn"
+                >
+                  <div
+                    class="add-btn"
+                  >
+                    <i
+                      class="mtdicon mtdicon-add"
+                      style="font-size: 13px; color: rgb(0, 136, 204);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flow-node end"
+              >
+                <div
+                  class="flow-node-box disabled"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(169, 180, 205);"
+                  >
+                    <span>
+                      结束
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail-origin"
+                    >
+                      添加
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ps__rail-x"
+            style="left: 0px; top: 0px;"
+          >
+            <div
+              class="ps__thumb-x"
+              style="left: 0px; width: 0px;"
+              tabindex="0"
+            />
+          </div>
+          <div
+            class="ps__rail-y"
+            style="top: 0px; left: 0px;"
+          >
+            <div
+              class="ps__thumb-y"
+              style="top: 0px; height: 0px;"
+              tabindex="0"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              制单人部门属于美团失效部门/到店事业群无效部门/收单渠道组/美团,美团/到店事业群/充电宝业务部/线上合作商根结点/吕蓝莹/美团人,美团/到家事业群/外卖事业部/外卖渠道部/锦屏县/锦屏县一组/锦屏美团
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              发起人的第 CEO3
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              制单人等于管秉昌 或 数字输入框属于123 或 金额大于等于10000 或 多选框包含选项1 或 单选框属于选项1
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              发起人的第 5 级主管
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              发起人所在的 3 级部门负责人
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              发起人所在的 X3A 级部门负责人
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              指定成员
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              逐级审批到发起人的第 4 级主管
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              逐级审批到发起人所在的 X3B 级部门负责人
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              发起人的 HRBP
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              表单内控件 对应的 HRBP
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail"
+          >
+            <span>
+              表单内控件 对应的 招聘Leader
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; z-index: 1030;"
+    >
+      <div
+        class="mtd-tooltip mtd-tooltip-dark"
+        style="position: absolute; display: none;"
+      >
+        <div
+          class="mtd-tooltip-arrow"
+        />
+        <div
+          class="mtd-tooltip-inner"
+        >
+          <div
+            class="node-detail two-line"
+          >
+            <div
+              class="line"
+            >
+              审批人:
+              发起人的第 1 级主管
+            </div>
+            <div
+              class="line"
+            >
+              抄送人:
+              指定成员
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+  </body>,
+  "container": <div>
+    <div
+      class="flow-editor"
+    >
+      <div
+        class="ps"
+        id="flow-ps"
+        style="position: relative; height: 100%;"
+      >
+        <div
+          class="flow-root-wrap"
+        >
+          <div
+            class="flow-editor-root flow-editor-node branch"
+          >
+            <div
+              class="flow-node start"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(169, 180, 205);"
+                  >
+                    <span>
+                      发起
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail-origin"
+                    >
+                      添加
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node route"
+            >
+              <div
+                class="top-h-line"
+              />
+              <div
+                class="add-branch"
+              >
+                <div
+                  class="add-branch-inner"
+                >
+                  添加条件
+                  <i
+                    class="mtdicon mtdicon-right"
+                  />
+                </div>
+              </div>
+              <div
+                class="branches"
+              >
+                <div
+                  class="flow-node branch"
+                >
+                  <div
+                    class="top-line-mask"
+                  />
+                  <div
+                    class="top-v-line"
+                  />
+                  <div
+                    class="nodes"
+                  >
+                    <div
+                      class="flow-node condition"
+                    >
+                      <div>
+                        <div
+                          class="flow-node-box"
+                        >
+                          <div
+                            class="node-title"
+                            style="background: rgb(255, 255, 255);"
+                          >
+                            <span>
+                              条件1
+                            </span>
+                            <span>
+                              优先级 
+                              1
+                            </span>
+                          </div>
+                          <div
+                            class="node-context"
+                          >
+                            <div
+                              class="node-detail"
+                            >
+                              <span>
+                                制单人部门属于美团失效部门/到店事业群无效部门/收单渠道组/美团,美团/到店事业群/充电宝业务部/线上合作商根结点/吕蓝莹/美团人,美团/到家事业群/外卖事业部/外卖渠道部/锦屏县/锦屏县一组/锦屏美团
+                              </span>
+                            </div>
+                            <i
+                              class="mtdicon mtdicon-right"
+                            />
+                          </div>
+                          <i
+                            class="delete-btn mtdicon mtdicon-close"
+                            style="display: none;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="bottom-v-line"
+                      />
+                      <div
+                        class="add-node-btn"
+                      >
+                        <div
+                          class="add-btn"
+                        >
+                          <i
+                            class="mtdicon mtdicon-add"
+                            style="font-size: 13px; color: rgb(0, 136, 204);"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flow-node approval"
+                    >
+                      <div>
+                        <div
+                          class="flow-node-box"
+                        >
+                          <div
+                            class="node-title"
+                            style="background: rgb(91, 145, 254);"
+                          >
+                            <span>
+                              审批任务
+                            </span>
+                          </div>
+                          <div
+                            class="node-context"
+                          >
+                            <div
+                              class="node-detail"
+                            >
+                              <span>
+                                发起人的第 CEO3
+                              </span>
+                            </div>
+                            <i
+                              class="mtdicon mtdicon-right"
+                            />
+                          </div>
+                          <i
+                            class="delete-btn mtdicon mtdicon-close"
+                            style="display: none;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="bottom-v-line"
+                      />
+                      <div
+                        class="add-node-btn"
+                      >
+                        <div
+                          class="add-btn"
+                        >
+                          <i
+                            class="mtdicon mtdicon-add"
+                            style="font-size: 13px; color: rgb(0, 136, 204);"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bottom-v-line"
+                  />
+                  <div
+                    class="bottom-line-mask"
+                  />
+                </div>
+                <div
+                  class="flow-node branch"
+                >
+                  <div
+                    class="top-line-mask"
+                  />
+                  <div
+                    class="top-v-line"
+                  />
+                  <div
+                    class="nodes"
+                  >
+                    <div
+                      class="flow-node condition"
+                    >
+                      <div>
+                        <div
+                          class="flow-node-box"
+                        >
+                          <div
+                            class="node-title"
+                            style="background: rgb(255, 255, 255);"
+                          >
+                            <span>
+                              条件2
+                            </span>
+                            <span>
+                              优先级 
+                              2
+                            </span>
+                          </div>
+                          <div
+                            class="node-context"
+                          >
+                            <div
+                              class="node-detail"
+                            >
+                              <span>
+                                制单人等于管秉昌 或 数字输入框属于123 或 金额大于等于10000 或 多选框包含选项1 或 单选框属于选项1
+                              </span>
+                            </div>
+                            <i
+                              class="mtdicon mtdicon-right"
+                            />
+                          </div>
+                          <i
+                            class="delete-btn mtdicon mtdicon-close"
+                            style="display: none;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="bottom-v-line"
+                      />
+                      <div
+                        class="add-node-btn"
+                      >
+                        <div
+                          class="add-btn"
+                        >
+                          <i
+                            class="mtdicon mtdicon-add"
+                            style="font-size: 13px; color: rgb(0, 136, 204);"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flow-node approval"
+                    >
+                      <div>
+                        <div
+                          class="flow-node-box"
+                        >
+                          <div
+                            class="node-title"
+                            style="background: rgb(91, 145, 254);"
+                          >
+                            <span>
+                              审批任务
+                            </span>
+                          </div>
+                          <div
+                            class="node-context"
+                          >
+                            <div
+                              class="node-detail"
+                            >
+                              <span>
+                                发起人的第 5 级主管
+                              </span>
+                            </div>
+                            <i
+                              class="mtdicon mtdicon-right"
+                            />
+                          </div>
+                          <i
+                            class="delete-btn mtdicon mtdicon-close"
+                            style="display: none;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="bottom-v-line"
+                      />
+                      <div
+                        class="add-node-btn"
+                      >
+                        <div
+                          class="add-btn"
+                        >
+                          <i
+                            class="mtdicon mtdicon-add"
+                            style="font-size: 13px; color: rgb(0, 136, 204);"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bottom-v-line"
+                  />
+                  <div
+                    class="bottom-line-mask"
+                  />
+                </div>
+                <div
+                  class="flow-node branch"
+                >
+                  <div
+                    class="top-line-mask"
+                  />
+                  <div
+                    class="top-v-line"
+                  />
+                  <div
+                    class="nodes"
+                  >
+                    <div
+                      class="flow-node condition"
+                    >
+                      <div>
+                        <div
+                          class="flow-node-box disabled"
+                        >
+                          <div
+                            class="node-title"
+                            style="background: rgb(255, 255, 255);"
+                          >
+                            <span>
+                              默认
+                            </span>
+                            <span>
+                              优先级 
+                              3
+                            </span>
+                          </div>
+                          <div
+                            class="node-context"
+                          >
+                            <div
+                              class="node-detail-origin"
+                            >
+                              其他情况
+                            </div>
+                            <i
+                              class="mtdicon mtdicon-right"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="bottom-v-line"
+                      />
+                      <div
+                        class="add-node-btn"
+                      >
+                        <div
+                          class="add-btn"
+                        >
+                          <i
+                            class="mtdicon mtdicon-add"
+                            style="font-size: 13px; color: rgb(0, 136, 204);"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flow-node approval"
+                    >
+                      <div>
+                        <div
+                          class="flow-node-box"
+                        >
+                          <div
+                            class="node-title"
+                            style="background: rgb(91, 145, 254);"
+                          >
+                            <span>
+                              审批任务
+                            </span>
+                          </div>
+                          <div
+                            class="node-context"
+                          >
+                            <div
+                              class="node-detail"
+                            >
+                              <span>
+                                发起人所在的 3 级部门负责人
+                              </span>
+                            </div>
+                            <i
+                              class="mtdicon mtdicon-right"
+                            />
+                          </div>
+                          <i
+                            class="delete-btn mtdicon mtdicon-close"
+                            style="display: none;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="bottom-v-line"
+                      />
+                      <div
+                        class="add-node-btn"
+                      >
+                        <div
+                          class="add-btn"
+                        >
+                          <i
+                            class="mtdicon mtdicon-add"
+                            style="font-size: 13px; color: rgb(0, 136, 204);"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bottom-v-line"
+                  />
+                  <div
+                    class="bottom-line-mask"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-h-line"
+              />
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node approval"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(91, 145, 254);"
+                  >
+                    <span>
+                      审批任务
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail"
+                    >
+                      <span>
+                        发起人所在的 X3A 级部门负责人
+                      </span>
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                  <i
+                    class="delete-btn mtdicon mtdicon-close"
+                    style="display: none;"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node approval"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(91, 145, 254);"
+                  >
+                    <span>
+                      审批任务
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail"
+                    >
+                      <span>
+                        指定成员
+                      </span>
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                  <i
+                    class="delete-btn mtdicon mtdicon-close"
+                    style="display: none;"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node approval"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(91, 145, 254);"
+                  >
+                    <span>
+                      审批任务
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail"
+                    >
+                      <span>
+                        逐级审批到发起人的第 4 级主管
+                      </span>
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                  <i
+                    class="delete-btn mtdicon mtdicon-close"
+                    style="display: none;"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node approval"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(91, 145, 254);"
+                  >
+                    <span>
+                      审批任务
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail"
+                    >
+                      <span>
+                        逐级审批到发起人所在的 X3B 级部门负责人
+                      </span>
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                  <i
+                    class="delete-btn mtdicon mtdicon-close"
+                    style="display: none;"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node approval"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(91, 145, 254);"
+                  >
+                    <span>
+                      审批任务
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail"
+                    >
+                      <span>
+                        发起人的 HRBP
+                      </span>
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                  <i
+                    class="delete-btn mtdicon mtdicon-close"
+                    style="display: none;"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node approval"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(91, 145, 254);"
+                  >
+                    <span>
+                      审批任务
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail"
+                    >
+                      <span>
+                        表单内控件 对应的 HRBP
+                      </span>
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                  <i
+                    class="delete-btn mtdicon mtdicon-close"
+                    style="display: none;"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node approval"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(91, 145, 254);"
+                  >
+                    <span>
+                      审批任务
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail"
+                    >
+                      <span>
+                        表单内控件 对应的 招聘Leader
+                      </span>
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                  <i
+                    class="delete-btn mtdicon mtdicon-close"
+                    style="display: none;"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node approval"
+            >
+              <div>
+                <div
+                  class="flow-node-box"
+                >
+                  <div
+                    class="node-title"
+                    style="background: rgb(91, 145, 254);"
+                  >
+                    <span>
+                      审批任务
+                    </span>
+                  </div>
+                  <div
+                    class="node-context"
+                  >
+                    <div
+                      class="node-detail two-line"
+                    >
+                      <div
+                        class="line"
+                      >
+                        审批人:
+                        发起人的第 1 级主管
+                      </div>
+                      <div
+                        class="line"
+                      >
+                        抄送人:
+                        指定成员
+                      </div>
+                    </div>
+                    <i
+                      class="mtdicon mtdicon-right"
+                    />
+                  </div>
+                  <i
+                    class="delete-btn mtdicon mtdicon-close"
+                    style="display: none;"
+                  />
+                </div>
+              </div>
+              <div
+                class="bottom-v-line"
+              />
+              <div
+                class="add-node-btn"
+              >
+                <div
+                  class="add-btn"
+                >
+                  <i
+                    class="mtdicon mtdicon-add"
+                    style="font-size: 13px; color: rgb(0, 136, 204);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="flow-node end"
+            >
+              <div
+                class="flow-node-box disabled"
+              >
+                <div
+                  class="node-title"
+                  style="background: rgb(169, 180, 205);"
+                >
+                  <span>
+                    结束
+                  </span>
+                </div>
+                <div
+                  class="node-context"
+                >
+                  <div
+                    class="node-detail-origin"
+                  >
+                    添加
+                  </div>
+                  <i
+                    class="mtdicon mtdicon-right"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ps__rail-x"
+          style="left: 0px; top: 0px;"
+        >
+          <div
+            class="ps__thumb-x"
+            style="left: 0px; width: 0px;"
+            tabindex="0"
+          />
+        </div>
+        <div
+          class="ps__rail-y"
+          style="top: 0px; left: 0px;"
+        >
+          <div
+            class="ps__thumb-y"
+            style="top: 0px; height: 0px;"
+            tabindex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

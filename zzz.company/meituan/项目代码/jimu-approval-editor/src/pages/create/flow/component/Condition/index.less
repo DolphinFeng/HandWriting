@@ -1,0 +1,119 @@
+@import '../../../../../global.less';
+
+.drawer-box{
+  overflow: visible;
+  .mtd-drawer-content{
+    height: 100%;
+    overflow-y: scroll;
+
+    .mtd-form-right{
+      margin-bottom: 90px;
+    }
+  }
+}
+
+.condition-tips {
+  padding: 0 0 10px 10px; 
+  font-weight: bold;
+}
+
+// 自定义组件特殊表单校验控制
+.condition-header{
+  display: flex;
+  align-items: center;
+  padding-right: 26px;
+  justify-content: space-between;
+
+  
+  i{
+    cursor: pointer;
+  }
+  .title {
+    span{
+      color:@font-color;
+      margin-right: 4px;
+      font-weight: 600;
+    }
+  }
+
+}
+
+.condition-footer{
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding-left: 24px;
+  width: 950px;
+  height: 64px;
+  border-top: 1px solid #ededf0;
+}
+
+.has-error {
+    .bpm-condition-box {
+      .mtd-treeselect-filter,
+      .mtd-select-filter,
+      .mtd-autoComplete-filter,
+      .mtd-input-affix-wrapper input {
+        border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      }
+
+      .is-bpm-form-error {
+        .mtd-treeselect-filter,
+        .mtd-select-filter,
+        .mtd-autoComplete-filter,
+        .mtd-input-affix-wrapper input {
+          border: 1px solid #f5483b !important;
+        }
+      }
+    }
+  }
+  .bpm-condition-box {
+    display: flex;
+    align-items: center;
+  
+    .bpm-condition-calc {
+      // padding: 0 0 8px 0;
+      margin-right: 8px;
+    }
+    .condition-items{
+      margin-top: 16px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .condition-items-all-children{
+      margin-top: 16px;
+    }
+    .condition-items-all{
+      margin-top: 30px;
+      .condition-items{
+        margin-top: 30px;
+      }
+    }
+    .condition-items:first-child , .condition-items-all:first-child, .condition-items-all-children:first-child{
+      margin-top: 0;
+    }
+    .bpm-condition-detail {
+      border-left: solid 1px rgba(0, 0, 0, 0.2);;
+      padding-left: 8px;
+      position: relative;
+      &:before {
+        content: '';
+        border-left: solid 1px rgba(0, 0, 0, 0.2);;
+        border-top: solid 1px rgba(0, 0, 0, 0.2);;
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        left: -4px;
+        background-color: #fff;
+        top: calc(50% - 3px);
+        transform: rotate(-45deg);
+      }
+    }
+    .bpm-condition-detail-single {
+      overflow: hidden;
+    }
+  }

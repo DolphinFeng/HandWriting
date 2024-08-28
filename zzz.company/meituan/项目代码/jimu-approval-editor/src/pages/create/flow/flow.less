@@ -1,0 +1,435 @@
+.flow-editor{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  background-color: #f0f0f2;
+}
+
+
+.flow-root-wrap{
+  display: flex;
+  padding: 50px 0 0;
+}
+
+.flow-editor-root{
+  display: flex;
+}
+
+.flow-editor-node{
+  margin: auto;
+}
+
+.flow-editor-node.branch{
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 50px;
+  min-height: 100%;
+}
+
+.flow-node-start{
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 50px;
+  min-height: 100%;
+  margin: 0 auto;
+}
+
+.flow-node{
+    position: relative;
+    // width: 200px;
+    // height: 150px;
+}
+.flow-node.approval, .flow-node.condition, .flow-node.end, .flow-node.start {
+  position: relative;
+  width: 200px;
+  height: 150px;
+}
+
+.flow-node.route {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.flow-node-box{
+
+    &.has-error {
+      border: 1px solid #f5483b !important;
+    }
+
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    width: 200px;
+    max-height: 92px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    // cursor: pointer;
+    overflow: hidden;
+    &::after{
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
+    }
+}
+
+.flow-node-box.active:after, 
+.flow-node-box:active:after, 
+.flow-node-box:hover:after {
+  border: 1px solid #3296FA;
+  box-shadow: 0 0 6px 0 rgba(50,150,250, 0.3);
+}
+
+.flow-node.end .node-title, .flow-node.start .node-title {
+  color: #fff;
+}
+
+.flow-node.approval .node-title {
+  color: #fff;
+}
+
+
+.flow-node .flow-node-box .node-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 4px 13px;
+}
+
+.flow-node.condition .flow-node-box .node-title {
+  color: #2eb795;
+  padding-right: 20px;
+  border-bottom: 1px solid #f6f6f7;
+}
+
+.flow-node-box .delete-btn{
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  padding: 2px;
+}
+.flow-node.condition .flow-node-box .delete-btn{
+  color: #a1a5ad;
+}
+
+
+.flow-node-box .confirm-delete{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .bt-cancel{
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    width: 60px;
+    margin-right: 20px;
+  }
+  .bt-confirm{
+    width: 60px;
+  }
+}
+
+
+// .node-title{
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   padding-left: 16px;
+//   padding-right: 30px;
+//   width: 100%;
+//   height: 24px;
+//   line-height: 24px;
+//   font-size: 12px;
+//   color: #FFFFFF;
+//   text-align: left;
+//   background: #576A95;
+//   border-radius: 4px 4px 0px 0px;
+// }
+.node-context{
+  overflow: hidden;
+  position: relative;
+  font-size: 14px;
+  
+  padding: 8px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  cursor: pointer;
+  
+  .node-detail-origin{
+    height: 54px;
+    line-height: 54px;
+  }
+
+  .node-detail{
+    -webkit-box-orient:vertical;
+    display: -webkit-box;
+    height: 54px;
+    -webkit-line-clamp: 2;
+    white-space:normal;
+    text-overflow: ellipsis;
+    line-height: 27px;
+  }
+
+  .node-detail.two-line{
+    text-overflow: initial;
+    display: block;
+
+    div.line{
+      -webkit-box-orient:vertical;
+      overflow: hidden;
+      height: 27px;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 1;
+    }
+  }
+  
+}
+.flow-node.approval .add-node-btn, 
+.flow-node.condition .add-node-btn, 
+.flow-node.end .add-node-btn, 
+.flow-node.start .add-node-btn{
+  position: absolute;
+  bottom: 25px;
+  left: 88px;
+}
+
+.add-node-btn{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  position: relative;
+}
+.add-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #c1d6ff;
+  background-color: #fff;
+  color: #37f;
+  outline: none;
+  cursor: pointer;
+}
+
+.add-node-types {
+  display: flex;
+  top: -4px;
+  left: 38px;
+  min-width: 180px;
+  background-color: #fff;
+  padding: 2px 18px;
+  z-index: 5;
+  border-radius: 8px;
+  
+  .node-type{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 35px;
+    cursor: pointer;
+  }
+  .node-type-name {
+    // margin-top: -8px;
+    white-space: nowrap;
+  }
+}
+
+.node-type-icon{
+  font-size: 46px;
+}
+
+.add-node-types .node-type:last-child {
+  margin-right: 0;
+}
+
+.add-node-btn.add-node-btn-active, .add-node-btn:hover {
+  // border: 1px solid #37f;
+  // box-shadow: 0 0 3px 0 #37f;
+  border: 1px solid #3296FA;
+  box-shadow: 0 0 6px 0 rgba(50, 150, 250, 0.3);;
+}
+
+.flow-node.route>.top-h-line {
+  height: 2px;
+  background-color: #c2c5cc;
+  margin-top: 13px;
+  margin-bottom: -15px;
+}
+
+.flow-node.route>.add-branch {
+  position: relative;
+  height: 28px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  // border: 1px solid transparent;
+  align-self: center;
+  color: #37f;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.flow-node.route>.branches {
+  display: flex;
+  justify-content: center;
+}
+
+.flow-node.route>.bottom-h-line {
+  height: 2px;
+  background-color: #c2c5cc;
+}
+.flow-node.route>.bottom-v-line {
+  height: 100px;
+  width: 2px;
+  background-color: #c2c5cc;
+  align-self: center;
+}
+.flow-node.route>.add-node-btn {
+  margin-top: -61.5px;
+  margin-bottom: 38.5px;
+  align-self: center;
+}
+
+.flow-node.route>.add-branch .add-branch-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  border: 4px solid #c1d6ff;
+  border-radius: 14px;
+  background-color: #fff;
+  // color:#2eb795;
+}
+.flow-node div {
+  box-sizing: border-box;
+}
+.flow-node.branch {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 50px;
+  min-height: 100%;
+}
+.flow-node.branch>.nodes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.add-branch.add-branch-active, .flow-node.route>.add-branch:hover {
+  // border: 1px solid #37f;
+  // box-shadow: 0 0 3px 0 #37f;
+  border: 1px solid #3296FA;
+  box-shadow: 0 0 6px 0 rgb(50,150,250,0.3);
+}
+
+.flow-node.route .flow-node.branch:first-child>.top-line-mask {
+  top: -31px;
+  left: 0;
+}
+.flow-node.route .flow-node.branch:last-child>.top-line-mask {
+  top: -31px;
+  right: 0;
+}
+
+
+
+.flow-node.route .flow-node.branch>.top-v-line {
+  display: block;
+  position: absolute;
+  top: -31px;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 31px;
+  background-color: #c2c5cc;
+}
+.flow-node.route .flow-node.branch>.bottom-v-line {
+  display: block;
+  width: 2px;
+  background-color: #c2c5cc;
+  flex-grow: 1;
+}
+.flow-node.route .flow-node.branch:first-child>.bottom-line-mask {
+  bottom: -2px;
+  left: 0;
+}
+.flow-node.route .flow-node.branch:last-child>.bottom-line-mask {
+  bottom: -2px;
+  right: 0;
+}
+
+.flow-node.route .flow-node.branch:first-child>.bottom-line-mask, 
+.flow-node.route .flow-node.branch:first-child>.top-line-mask,
+ .flow-node.route .flow-node.branch:last-child>.bottom-line-mask, 
+ .flow-node.route .flow-node.branch:last-child>.top-line-mask {
+  display: block;
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: #f0f0f2;
+}
+
+.flow-node.approval .bottom-v-line,
+.flow-node.condition .bottom-v-line,
+.flow-node.end .bottom-v-line,
+.flow-node.start .bottom-v-line {
+  position: absolute;
+  bottom: 0;
+  left: 99px;
+  height: 150px;
+  width: 2px;
+  background-color: #c2c5cc;
+  z-index: -1;
+}
+
+.flow-node-box.disabled:hover:after{
+  border: none;
+}
+
+.flow-node-box.disabled{
+  .node-context{
+    cursor: not-allowed;
+  }
+}

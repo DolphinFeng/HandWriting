@@ -1,96 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Custom getElementById Example</title>
 </head>
-
 <body>
-
-    <div id="app">
-        <button></button>
-    </div>
-
+    <div id="testDiv">This is a test div.</div>
+    <div id="anotherDiv">This is another div.</div>
     <script>
-        // 定义一个树结构对象
-        const tree = {
-            id: 1,
-            children: [
-                {
-                    id: 2,
-                    children: [
-                        {
-                            id: 3,
-                            children: [
-                                {
-                                    id: 4,
-                                    children: [],
-                                },
-                            ],
-                        },
-                        {
-                            id: 5,
-                            children: [],
-                        },
-                    ],
-                },
-                {
-                    id: 6,
-                    children: [],
-                },
-            ],
-        };
-
-        /**
-         * 深度优先搜索（DFS）方法在树结构中查找指定id的节点
-         * @param {number} id - 要查找的节点id
-         * @returns {object|null} - 返回找到的节点对象或null
-         */
-        Object.prototype.findIdDfs = function (id) {
-            if (!this) return null; // 如果当前节点不存在，返回null
-            if (this.id === id) {
-                return this; // 如果当前节点的id匹配，返回当前节点
-            }
-
-            if (this.children) {
-                for (let i = 0; i < this.children.length; i++) {
-                    const findtree = this.children[i].findIdDfs(id); // 递归查找子节点
-                    if (findtree) {
-                        return findtree; // 如果找到匹配的节点，返回该节点
-                    }
+        function getElementById(id) {
+            // 获取所有的元素
+            const elements = document.getElementsByTagName('*');
+            
+            // 遍历所有元素，找到匹配的id
+            for (let i = 0; i < elements.length; i++) {
+                if (elements[i].id === id) {
+                    return elements[i];
                 }
             }
-            return null; // 如果没有找到匹配的节点，返回null
-        };
+            
+            // 如果没有找到匹配的元素，返回null
+            return null;
+        }
 
-        console.log(tree.findIdDfs(5)); // 测试DFS方法，查找id为5的节点
-
-        /**
-         * 广度优先搜索（BFS）方法在树结构中查找指定id的节点
-         * @param {number} id - 要查找的节点id
-         * @returns {object|null} - 返回找到的节点对象或null
-         */
-        Object.prototype.findIdBfs = function (id) {
-            const queue = [this]; // 初始化队列，包含根节点
-            while (queue.length > 0) {
-                const node = queue.shift(); // 取出队列的第一个节点
-                if (node.id === id) {
-                    return node; // 如果当前节点的id匹配，返回当前节点
-                }
-
-                if (node.children && node.children.length > 0) {
-                    for (let i = 0; i < node.children.length; i++) {
-                        queue.push(node.children[i]); // 将子节点加入队列
-                    }
-                }
+        // 用例
+        document.addEventListener('DOMContentLoaded', () => {
+            const element = getElementById('testDiv');
+            if (element) {
+                console.log('Element found:', element);
+                element.style.color = 'red'; // 修改找到的元素的样式
+            } else {
+                console.log('Element not found');
             }
-            return null; // 如果没有找到匹配的节点，返回null
-        };
-
-        console.log(tree.findIdBfs(5)); // 测试BFS方法，查找id为5的节点
+        });
     </script>
 </body>
-
 </html>

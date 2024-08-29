@@ -24,11 +24,17 @@ let tree = {
     }
 }
 
-function DFS (node, res = []) {
-    if (node === null) return res
-    res.push(node.val)
-    DFS(node.left, res)
-    DFS(node.right, res)
+//       1
+//      / \
+//     2   5
+//    / \   \
+//   3   4   6
+
+function DFS (tree, res = []) {
+    if (!tree) return 
+    res.push(tree.val)
+    DFS(tree.left, res)
+    DFS(tree.right, res)
     return res
 }
 

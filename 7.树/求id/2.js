@@ -25,42 +25,73 @@ const tree = [
     }
 ]
 
+// 1
+// ├── 2
+// │   ├── 3
+// │   │   └── 4
+// │   ├── 5
+// │   └── 6
+// │       └── 7
+// └── 8
+//     └── 9
+
+
+
 // 示例：fn(tree, '1', 'id') // [2，3，4，5，6，7，8，9]
 // 示例：fn(tree, '2', 'id') // [3，4，5，6，7]
 // 示例：fn(tree, '8', 'id') // [9]
 // 示例：fn(tree, '7', 'id') // '当前节点下无子节点'
 
-// 拿到节点对应的树
-function getTree (tree, target) {
-    for (let node of tree) {
-        if (node.id === target) {
-            return node
-        } else if (node.children) {
-            const res = getTree(node.children, target)
-            if (res) {
-                return res
+/**
+ * 遍历树结构，找到目标节点的所有子节点
+ * @param {Array} tree - 树结构数据
+ * @param {string} targetId - 目标节点的ID
+ * @param {string} idField - 节点ID字段的名称
+ * @returns {Array|string} - 返回子节点ID数组或提示信息
+ */
+function fn(tree, targetId, idField) {
+    let result = [];
+
+    /**
+     * 递归遍历树节点，找到目标节点
+     * @param {Array} nodes - 当前遍历的节点数组
+     */
+    function traverse(nodes) {
+        for (let node of nodes) {
+            // 如果找到目标节点，收集其子节点
+            if (node[idField] === targetId) {
+                collectChildren(node.children);
+                return;
+            }
+            // 如果当前节点有子节点，继续递归遍历
+            if (node.children) {
+                traverse(node.children);
             }
         }
-    } 
-    return null
-}
+    }
 
-let newTree = getTree(tree, '2')
-console.log(newTree);
-// 拿到id
-function getId (tree) {
-    let id = []
-    function traverse(node) {
-        id.push(node.id)
-        if (node.children) {
-            node.children.forEach(item => {
-                traverse(item)
-            })
+    /**
+     * 递归收集子节点ID
+     * @param {Array} children - 当前节点的子节点数组
+     */
+    function collectChildren(children) {
+        // 如果没有子节点，设置结果为提示信息
+        if (!children || children.length === 0) {
+            result = '当前节点下无子节点';
+            return;
+        }
+        // 遍历子节点，收集ID并继续递归
+        for (let child of children) {
+            result.push(child[idField]);
+            if (child.children) {
+                collectChildren(child.children);
+            }
         }
     }
-    traverse(tree)
-    return id.slice(1)
+
+    // 开始遍历树结构
+    traverse(tree);
+    return result;
 }
 
-let id = getId(newTree)
-console.log(id);
+console.log(fn(tree, '5', 'id'));

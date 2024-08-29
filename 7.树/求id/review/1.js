@@ -32,6 +32,16 @@ const tree = [{
     }]
 }]
 
+// 1
+// ├── 4
+// │   ├── 9
+// │   └── 10
+// ├── 5
+// │   └── 11
+// 2
+// └── 6
+//     └── 13
+
 // 实现一个方法，getAllIdsByLevel(tree, level)获取指定小于等于level层级的所有id
 
 function getAllIdsByLevel (tree, level) {
@@ -49,4 +59,5 @@ function getAllIdsByLevel (tree, level) {
     return res
 }
 
-console.log(getAllIdsByLevel(tree, 2));
+console.log(getAllIdsByLevel(tree, 1)); // [ 1, 2 ]
+console.log(getAllIdsByLevel(tree, 2)); // [ 1, 4, 5, 2, 6 ]

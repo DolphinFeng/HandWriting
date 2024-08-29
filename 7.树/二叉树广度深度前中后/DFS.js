@@ -31,15 +31,10 @@ let tree = {
  * @returns {Array} - 返回遍历结果的数组
  */
 function DFS(node, result = []) {
-    // 如果当前节点为空，直接返回
     if (node === null) return
-    // 将当前节点的值添加到结果数组中
     result.push(node.val);
-    // 递归遍历左子树
     DFS(node.left, result);
-    // 递归遍历右子树
     DFS(node.right, result);
-    // 返回结果数组
     return result;
 }
 

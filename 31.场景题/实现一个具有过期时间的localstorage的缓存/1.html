@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage 缓存示例</title>
+</head>
+<body>
+  <h1>LocalStorage 缓存示例</h1>
+  <script>
+    // 实现一个具有过期时间的 localStorage 的缓存 
+    class ExpiringLocalStorage {
+      setItem(key, value, ttl) {
+        const now = Date.now();
+        const item = {
+          value: value,
+          expiry: now + ttl,
+        };
+        localStorage.setItem(key, JSON.stringify(item));
+      }
+
+      getItem(key) {
+        const itemStr = localStorage.getItem(key);
+        if (!itemStr) {
+          return null;
+        }
+        const item = JSON.parse(itemStr);
+        const now = Date.now();
+        if (now > item.expiry) {
+          localStorage.removeItem(key);
+          return null;
+        }
+        return item.value;
+      }
+
+      removeItem(key) {
+        localStorage.removeItem(key);
+      }
+
+      clear() {
+        localStorage.clear();
+      }
+    }
+
+    // 使用示例
+    const storage = new ExpiringLocalStorage();
+    storage.setItem('key', 'value', 5000); // 设置5秒过期
+    console.log(storage.getItem('key')); // 在5秒内获取到'value'
+    setTimeout(() => {
+      console.log(storage.getItem('key')); // 5秒后获取到null
+    }, 6000);
+  </script>
+</body>
+</html>

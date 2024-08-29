@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取 DOM 对象属性示例</title>
+    <style>
+        #myDiv {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            border: 1px solid #000;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" class="myClass" data-custom="customValue" draggable="true">这是一个 div 元素</div>
+
+    <script>
+        // 怎么设置元素可以拖拽
+        // 可以通过设置元素的 draggable 属性和添加相应的事件监听器来实现元素的拖拽功能。
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // 使用 getElementById 获取 DOM 对象
+            const myDiv = document.getElementById('myDiv');
+            console.log('获取的 DOM 对象:', myDiv);
+
+            // 获取所有属性
+            const attributes = myDiv.attributes;
+            console.log('所有属性:');
+            for (let i = 0; i < attributes.length; i++) {
+                console.log(attributes[i].name + ': ' + attributes[i].value);
+            }
+        });
+    </script>
+</body>
+</html>

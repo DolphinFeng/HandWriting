@@ -11,7 +11,7 @@
 class URLSearchParams {
     constructor (init) {
         this.params = new Map()
-        
+
         if (typeof init === 'string') {
             this._parseString(init)
         } else if (typeof init === 'object') {
@@ -20,12 +20,13 @@ class URLSearchParams {
     }
 
     _parseString (str) {
-        str = str.startsWith('?') ? str.slice(1) : str
+        str = str.startsWith('?') ? str.slice('?') : str
         const pairs = str.split('&')
         for (const pair of pairs) {
-            const [key, value] = pair.split('=').map(encodeURIComponent)
+            const [key, value] = pair.split('=').map(decodeURIComponent)
             this.append(key, value)
         }
+
     }
 
     _parseObject (obj) {
@@ -43,13 +44,13 @@ class URLSearchParams {
         this.params.get(key).push(value)
     }
 
-    set (key, value) {
-        this.params.set(key, [value])
-    }
-
     get (key) {
         const values = this.params.get(key)
         return values ? values[0] : null
+    }
+
+    set (key, value) {
+        this.params.set(key, [value])
     }
 
     getAll (key) {
@@ -60,13 +61,13 @@ class URLSearchParams {
         const pairs = []
         for (const [key, values] of this.params) {
             for (const value of values) {
-                pairs.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+                pairs.push(`${decodeURIComponent(key)}=${decodeURIComponent(value)}`)
             }
         }
         return pairs.join('&')
     }
 
-    *[Symbol.iterator]() {
+    *[Symbol.iterator] () {
         for (const [key, values] of this.params) {
             for (const value of values) {
                 yield [key, value]

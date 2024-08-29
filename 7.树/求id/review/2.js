@@ -25,40 +25,55 @@ const tree = [
     }
 ]
 
+
+// 1
+// ├── 2
+// │   ├── 3
+// │   │   └── 4
+// │   ├── 5
+// │   └── 6
+// │       └── 7
+// └── 8
+//     └── 9
+
+
 // 示例：fn(tree, '1', 'id') // [2，3，4，5，6，7，8，9]
 // 示例：fn(tree, '2', 'id') // [3，4，5，6，7]
 // 示例：fn(tree, '8', 'id') // [9]
 // 示例：fn(tree, '7', 'id') // '当前节点下无子节点'
 
-// 拿到节点对应的树
-function getTree (tree, target) {
-    for (let node of tree) {
-        if (node.id === target) {
-            return node
-        } else if (node.children) {
-            let res = getTree(node.children, target)
-            if (res) return res
+
+function fn (tree, target, isField) {
+    let res = []
+    // 找到目标节点
+    function traverse (tree) {
+        for (let node of tree) {
+            if (node[isField] === target) {
+                getId(node.children)
+                return
+            }
+            if (node.children) {
+                traverse(node.children)
+            }
         }
     }
-    return null
-}
 
-let newTree = getTree(tree, '1')
-console.log(newTree);
-
-// 拿到树的id
-function getId (tree) {
-    let res = []
-    function traverse (tree) {
-        res.push(tree.id)
-        if (tree.children) {
-            tree.children.forEach(item => {
-                traverse(item)
-            })
+    function getId (nodes) {
+        if (!nodes || nodes.length === 0) {
+            res = '当前节点下无子节点'
+            return
+        }
+        for (let node of nodes) {
+            res.push(node[isField])
+            if (node.children) {
+                getId(node.children)
+            }
         }
     }
     traverse(tree)
-    return res.slice(1)
+    return res
 }
 
-console.log(getId(newTree));
+// console.log(fn(tree, '5', 'id'));
+console.log(fn(tree, '7', 'id'));
+console.log(fn(tree, '1', 'id'));

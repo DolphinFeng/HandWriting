@@ -69,4 +69,8 @@ HTTP协议用于在客户端和服务器之间传输超文本数据（如HTML文
 # package.json 有哪些内容
 https://juejin.cn/post/7240805459288522808
 
+# Vuex 和 redux 的区别
+
+
+
 

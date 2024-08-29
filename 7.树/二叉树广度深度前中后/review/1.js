@@ -18,15 +18,20 @@ let tree = {
     }
 }
 
-function BFS (node) {
-    if (!node) return
-    let queue = [node]
-    let res = []
+//       1
+//      / \
+//     2   5
+//    / \   \
+//   3   4   6
+
+function BFS (tree) {
+    const res = []
+    const queue = [tree]
     while (queue.length) {
-        const currentNode = queue.shift()
-        res.push(currentNode.val)
-        if (currentNode.left) queue.push(currentNode.left)
-        if (currentNode.right) queue.push(currentNode.right)
+        const cur = queue.shift()
+        res.push(cur.val)
+        if (cur.left) queue.push(cur.left)
+        if (cur.right) queue.push(cur.right) 
     }
     return res
 }

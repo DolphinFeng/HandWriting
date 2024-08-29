@@ -31,16 +31,24 @@ const tree = {
     ]
 }
 
+//         1
+//        / \
+//       2   5
+//      /   / \
+//     3   6   7
+//    /
+//   4
+
 function getMax (tree) {
     let level = 0
     
-    function DFS (node, l) {
+    function DFS (tree, l) {
         level = Math.max(level, l)
-        for (let child of node.children) {
+        for (let child of tree.children) {
             DFS(child, l + 1)
         }
     }
-    
+
     DFS(tree, 1)
 
     return level

@@ -17,28 +17,34 @@ let tree = {
     }
 }
 
+//       1
+//      / \
+//     2   5
+//    / \   \
+//   3   4   6
+
 function preOrder (tree, res = []) {
     if (!tree) return
     res.push(tree.val)
     preOrder(tree.left, res)
     preOrder(tree.right, res)
-    return res
+    return res 
 }
 
 function inOrder (tree, res = []) {
     if (!tree) return
-    preOrder(tree.left, res)
-    res.push(tree.val)
-    preOrder(tree.right, res)
+    inOrder(tree.left, res)
+    res.push(tree.val, res) 
+    inOrder(tree.right, res)
     return res
 }
 
 function postOrder (tree, res = []) {
     if (!tree) return
-    preOrder(tree.left, res)
-    preOrder(tree.right, res)
+    postOrder(tree.left, res)
+    postOrder(tree.right, res)
     res.push(tree.val)
-    return res
+    return res 
 }
 
 // 示例调用

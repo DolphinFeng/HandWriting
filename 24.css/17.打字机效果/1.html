@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打字机效果</title>
+    <style>
+        .typewriter {
+            font-family: monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid black;
+            width: 24ch; /* 控制显示的字符数 */
+            animation: caret 0.75s steps(1) infinite;
+        }
+
+        @keyframes caret {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="typewriter">
+        <p id="text"></p>
+    </div>
+    <script>
+        const textElement = document.getElementById('text');
+        const text = "这是一个打字机效果的示例。";
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 100); // 控制打字速度
+            }
+        }
+
+        type();
+    </script>
+</body>
+</html>

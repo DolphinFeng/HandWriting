@@ -268,5 +268,10 @@
     - 得知快手一面寄
     - 树：各种遍历、求深度、求 id、数组转树
     - 力扣：300(不懂), 1556，LCR85（不懂）
-    - 经典题：LRUCache、URLSearchParams、每隔 1 s 打印、sleep类、发布订阅、
+    - 经典题：LRUCache、URLSearchParams、每隔 1 s 打印、sleep类、发布订阅
+- 8.30 
+    - 美团 lastDay
+    - 今日秋招投递：北京快手、
+    - 经典题：链式调用
+    - 场景题：getElementById
 ```

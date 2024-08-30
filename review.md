@@ -271,7 +271,7 @@
     - 经典题：LRUCache、URLSearchParams、每隔 1 s 打印、sleep类、发布订阅
 - 8.30 
     - 美团 lastDay
-    - 今日秋招投递：北京快手、
+    - 今日秋招投递：北京快手、中国平安产险
     - 经典题：链式调用
     - 场景题：getElementById
 ```

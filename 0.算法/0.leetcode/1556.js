@@ -42,7 +42,7 @@ function getThousandSign(n) {
 
 function formatNumberWithCommas(number) {
     // 将数字转换为字符串
-    let [integerPart, decimalPart] = Math.abs(number).toString().split('.');
+    let [integerPart, decimalPart] = Math.abs(number).toString().split('.'); // abs是将数字取绝对值
 
     // 处理整数部分，添加千分位分隔符
     let formattedIntegerPart = '';
@@ -61,7 +61,7 @@ function formatNumberWithCommas(number) {
     }
 }
 
-console.log(formatNumberWithCommas(1234567.89));  // 输出: "1,234,567.89"
+// console.log(formatNumberWithCommas(1234567.89));  // 输出: "1,234,567.89"
 console.log(formatNumberWithCommas(-1234567.89)); // 输出: "-1,234,567.89"
 console.log(formatNumberWithCommas(1234567));     // 输出: "1,234,567"
 console.log(formatNumberWithCommas(-1234567));    // 输出: "-1,234,567"

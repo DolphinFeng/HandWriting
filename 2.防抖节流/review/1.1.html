@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promised Debounce vs Regular Debounce</title>
+    <script>
+        function debouncePromise(fn, delay) {
+            let timer;
+            let resolveList = [];
+
+            return function(...args) {
+                return new Promise((resolve, reject) => {
+                    if (timer) clearTimeout(timer);
+
+                    timer = setTimeout(() => {
+                        Promise.resolve(fn.apply(this, args))
+                            .then(result => {
+                                resolveList.forEach(res => res(result));
+                                resolveList = [];
+                            })
+                            .catch(error => {
+                                resolveList.forEach((_, rej) => rej(error));
+                                resolveList = [];
+                            });
+                    }, delay);
+
+                    resolveList.push(resolve);
+                });
+            };
+        }
+
+        function debounce(fn, delay) {
+            let timer;
+
+            return function(...args) {
+                if (timer) clearTimeout(timer);
+
+                timer = setTimeout(() => {
+                    fn.apply(this, args);
+                }, delay);
+            };
+        }
+
+        function handleButtonClick() {
+            console.log('Button clicked!');
+            return 'Clicked!';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('debounceButton');
+            const resultDiv = document.getElementById('result');
+
+            const debouncedClickHandlerPromise = debouncePromise(handleButtonClick, 1000);
+            const debouncedClickHandlerRegular = debounce(handleButtonClick, 1000);
+
+            button.addEventListener('click', function() {
+                // 使用 Promise 版本的防抖
+                debouncedClickHandlerPromise().then(result => {
+                    console.log('Promise Debounce Result:', result);
+                });
+
+                // 使用普通防抖
+                debouncedClickHandlerRegular();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="debounceButton">点击我</button>
+    <div id="result"></div>
+</body>
+</html>

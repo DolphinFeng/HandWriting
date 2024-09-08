@@ -1,23 +1,22 @@
-function foo (a, b) {
-    console.log(a, b);
-    return this.name
+function foo (...args) {
+    console.log(args);
+    return this.a
 }
 
 let obj = {
-    name: '张三'
+    a: 111
 }
-
-console.log(foo.apply(obj, 1));
 
 Function.prototype.myApply = function (ctx, args) {
     if (typeof this !== 'function') {
-        throw new TypeError('this is not a function')
+        throw new TypeError('not a function')
     }
-    const fn = Symbol()
+
+    let fn = Symbol()
     ctx[fn] = this
     let res = args ? ctx[fn](...args) : ctx[fn]()
     delete ctx[fn]
     return res
 }
 
-// console.log(foo.myApply(obj, 1, 2));
+console.log(foo.myApply(obj, [1, 32]));

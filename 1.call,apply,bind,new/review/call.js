@@ -1,8 +1,10 @@
-function foo () {
+function foo (...args) {
+    console.log(args);
+    
     return this.a
 }
 
-let b = 2
+let b = 1
 
 let obj = {
     a: 1
@@ -10,16 +12,15 @@ let obj = {
 
 // console.log(b.call(obj));
 
-
-Function.prototype.myCall = function (ctx) {
+Function.prototype.myCall = function (ctx, ...args) {
     if (typeof this !== 'function') {
-        throw new TypeError('this is not a function')
+        throw new TypeError('is not a function')
     }
-    let args = [...arguments].slice(1)
+
     ctx.fn = this
     let res = ctx.fn(...args)
     delete ctx.fn
     return res
-} 
+}
 
-console.log(b.myCall(obj));
+console.log(foo.myCall(obj, 1, 1));

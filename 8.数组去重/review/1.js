@@ -10,8 +10,8 @@ function unique (arr) {
     let res = []
     for (let item of arr) {
         let isFind = false
-        for (restItem of res) {
-            if (equal(item, restItem)) {
+        for (let resItem of res) {
+            if (equal(resItem, item)) {
                 isFind = true
                 break
             }

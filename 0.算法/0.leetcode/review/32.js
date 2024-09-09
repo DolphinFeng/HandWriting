@@ -14,8 +14,7 @@ function getMaxLength (str) {
         } else {
             stack.pop()
             if (stack.length) {
-                let curMax = i - stack[stack.length - 1]
-                maxLen = Math.max(curMax, maxLen)
+                maxLen = Math.max(maxLen, i - stack[stack.length -1])
             } else {
                 stack.push(i)
             }
@@ -24,4 +23,5 @@ function getMaxLength (str) {
     return maxLen
 }
 
-console.log(getMaxLength(str)); // 输出结果
+
+console.log(getMaxLength(str));

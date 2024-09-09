@@ -20,17 +20,17 @@ class EventEmitter {
         })
     }
 
-    off (type, cb) {
-        if (!this.event[type]) return
-        this.event[type] = this.event[type].filter(item => item !== cb)
-    }
-
     once (type, cb) {
         const fn = (...args) => {
             cb(...args)
-            this.off(type, fn)
+            this.off(fn)
         }
         this.on(type, fn)
+    }
+
+    off (type, cb) {
+        if (!this.event[type]) return 
+        this.event[type].filter(item => item !== cb) 
     }
 }
 

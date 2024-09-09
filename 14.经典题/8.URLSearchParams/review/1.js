@@ -1,5 +1,5 @@
 /**
-实现一个自己的 ‘URLSearchParams 类，该类需要具备下面能力：
+实现一个自己的 URLSearchParams 类，该类需要具备下面能力：
 1，构造函数支持传入 url 字符串或者包含键值对的对象，比如 ?foo=1&bar=2 或者 {foo: "1", bar: "2"}
 2，实现 append 方法，支持插入一个指定的键值对作为新的查询参数 比如 bar，4
 3，实现 set 方法，支持改写一个查询参数的新值
@@ -11,7 +11,6 @@
 class URLSearchParams {
     constructor (init) {
         this.params = new Map()
-
         if (typeof init === 'string') {
             this._parseString(init)
         } else if (typeof init === 'object') {
@@ -20,18 +19,17 @@ class URLSearchParams {
     }
 
     _parseString (str) {
-        str = str.startsWith('?') ? str.slice('?') : str
+        str = str.startsWith('?') ? str.slice(1) : str
         const pairs = str.split('&')
         for (const pair of pairs) {
             const [key, value] = pair.split('=').map(decodeURIComponent)
             this.append(key, value)
         }
-
     }
 
     _parseObject (obj) {
         for (const key in obj) {
-            if (obj.hasOwnProperty(key)) {
+            if (Object.hasOwnProperty(key)) {
                 this.append(key, obj[key])
             }
         }
@@ -44,13 +42,13 @@ class URLSearchParams {
         this.params.get(key).push(value)
     }
 
+    set (key, value) {
+        this.params.set(key, [value])
+    }
+
     get (key) {
         const values = this.params.get(key)
         return values ? values[0] : null
-    }
-
-    set (key, value) {
-        this.params.set(key, [value])
     }
 
     getAll (key) {

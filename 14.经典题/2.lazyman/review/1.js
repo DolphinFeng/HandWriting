@@ -3,21 +3,22 @@ class LazyMan {
     constructor (name) {
         this.push(() => {
             console.log(`I am ${name}`);
-            
         })
         setTimeout(() => {
             this.next()
         })
     }
 
-    sleepFirst (delay) {
-        this.unshift(() => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve()
-                    console.log(`SleepingFirst ${delay}`);
-                }, delay)
-            })
+    eat (thing) {
+        this.push(() => {
+            console.log(`eating ${thing}`);
+        })
+        return this
+    }
+
+    drink (thing) {
+        this.push(() => {
+            console.log(`drinking ${thing}`);
         })
         return this
     }
@@ -26,29 +27,31 @@ class LazyMan {
         this.push(() => {
             return new Promise(resolve => {
                 setTimeout(() => {
+                    console.log(`sleep ${delay}`);
                     resolve()
-                    console.log(`Sleeping ${delay}`);
-                    
                 }, delay)
             })
         })
         return this
     }
 
-    eat (thing) {
-        this.push(() => {
-            console.log(`Eating ${thing}`);
-            
+    sleepFirst (delay) {
+        this.unshift(() => {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log(`sleep First ${delay}`);
+                    resolve()
+                }, delay)
+            })
         })
         return this
     }
 
-    drink (thing) {
-        this.push(() => {
-            console.log(`Drinking ${thing}`);
-            
+    push (task) {
+        this.queue.push(async () => {
+            await task()
+            this.next()
         })
-        return this
     }
 
     unshift (task) {
@@ -58,12 +61,6 @@ class LazyMan {
         })
     }
 
-    push (task) {
-        this.queue.push(async () => {
-            await task()
-            this.next()
-        })
-    }
     next () {
         this.queue.shift()?.()
     }

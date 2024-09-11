@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 100%;
+        }
+        .item {
+            position: absolute;
+            background-color: #f0f0f0;
+            margin: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="waterfall-container"></div>
+    <script>
+        const data = [
+            { id: 1, content: '内容1', height: 100 },
+            { id: 2, content: '内容2', height: 150 },
+            { id: 3, content: '内容3', height: 200 },
+            { id: 4, content: '内容4', height: 250 },
+            { id: 5, content: '内容5', height: 300 },
+            { id: 6, content: '内容6', height: 350 },
+            { id: 7, content: '内容7', height: 400 },
+            { id: 8, content: '内容8', height: 450 },
+            { id: 9, content: '内容9', height: 500 },
+        ];
+
+        const container = document.getElementById('waterfall-container')
+        
+        const columnCount = 3
+        const columnWidth = container.clientWidth / columnCount
+        const columnHeights = Array(columnCount).fill(0)
+
+        data.forEach(item => {
+            const div = document.createElement('div')
+            div.className = 'item'
+            div.textContent = item.content
+            div.style.height = item.height + 'px'
+            div.style.width = columnWidth - 20 + 'px'
+
+            const minColumnIndex = columnHeights.indexOf(Math.min(...columnHeights))
+            const x = minColumnIndex * columnWidth
+            const y = columnHeights[minColumnIndex]
+
+            div.style.transform = `translate(${x}px, ${y}px)`
+
+            columnHeights[minColumnIndex] += item.height + 20
+
+            container.appendChild(div)
+        })
+
+        container.style.height = Math.max(...columnHeigths) + 'px'
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-let arr = [5, 1, 3, 4, 2]
+let arr = [5, 4, 7, 3, 2, 1]
 
 function quickSort (arr) {
     let base = arr[0]

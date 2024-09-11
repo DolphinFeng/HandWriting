@@ -23,16 +23,16 @@ class HardWorker {
     }
 
     next () {
-        this.queue.shift()?.()
+        const fn = this.queue.shift()
+        fn && fn()
     }
 
     rest (delay) {
         this.queue.push(() => {
-            console.log(`waiting for ${delay}`);
+            console.log(`waiting ${delay}`);
             setTimeout(() => {
-                console.log(`resting ${delay}`);
+                console.log(`Start rest ${delay}`);
                 this.next()
-                
             }, delay)
         })
         return this
@@ -40,28 +40,30 @@ class HardWorker {
 
     restFirst (delay) {
         this.queue.unshift(() => {
-            console.log(`waiting for ${delay}`);
+            console.log(`waiting ${delay}`);
             setTimeout(() => {
-                console.log(`restingFirst ${delay}`);
+                console.log(`Rest First ${delay}`);
                 this.next()
             }, delay)
-            
         })
         return this
     }
 
-    learn (subject) {
+    next () {
+        this.queue.shift()?.()
+    }
+
+    learn (thing) {
         this.queue.push(() => {
-            console.log(`learning ${subject}`);
+            console.log(`Learning ${thing}`);
             this.next()
-            
         })
         return this
     }
 
     sayName () {
         this.queue.push(() => {
-            console.log(`${this.name}`);
+            console.log(`I am ${this.name}`);
             this.next()
         })
         return this

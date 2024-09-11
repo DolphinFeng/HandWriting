@@ -39,13 +39,10 @@ lists = [{
 function mergeKLists (lists) {
     return lists.reduce((p, n) => {
         while (n) {
-            p.push(n)
-            n = n.next
+            p.push(n), n = n.next
         }
         return p
-    }, []).sort((a, b) => {a.val - b.val}).reduceRight((p, n) => {n.next = p, p = n, p}, null)
-}
+    },[]).sort((a, b) => a.val - b.val).reduceRight((p, n) => (n.next = p, p = n, p), null)
+};
 
-let res = mergeKLists(lists)
-
-console.log(res);
+console.log(mergeKLists(lists));

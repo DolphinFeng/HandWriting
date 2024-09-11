@@ -1,18 +1,20 @@
 function memoize (fn) {
     const cache = new Map()
     return function (...args) {
-        const key = JSON.stringify(args)
+        let key = JSON.stringify(args)
         if (cache.has(key)) {
             return cache.get(key)
         }
-        const result = fn.apply(this, args)
-        cache.set(key, result)
-        return result
+        const res = fn.apply(this, args)
+        cache.set(key, res)
+        return res
     }
 }
 
 function fibonacci (n) {
-    if (n <= 1) return n
+    if (n <= 2) {
+        return 1
+    }
     return fibonacci(n - 1) + fibonacci(n - 2)
 }
 

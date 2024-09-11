@@ -2,21 +2,23 @@ function add (...args) {
     return args.reduce((a, b) => a + b)
 }
 
-const sortFn = (...args) => {
+function sortFn (...args) {
     return args.sort()
 }
 
-const currying = (fn) => {
+function currying (fn) {
     const args = []
-    const result = (...rest) => {
-        if (rest.length) {
+
+    const res = (...rest) => {
+        if (rest.length === 0) {
             return fn(...args)
         } else {
             args.push(...rest)
-            return result
+            return res
         }
     }
-    return result
+
+    return res
 }
 
 console.log(currying(add)(1)(2)(3)());

@@ -290,8 +290,21 @@
     - 今日秋招投递：成都中行
 - 9.9
     - new
-    - 经典题：URLCache、URLSearchParams、发布订阅
+    - 经典题：URLCache、URLSearchParams、发布订阅、lazyMan、hardMan、
     - 数组去重
     - 图片懒加载
     - 算法: 力扣32
+- 9.10
+    - 图片懒加载
+    - curry、memoize、once、
+    - 算法：力扣12， 14， 23，46
+- 9.11
+    - 明日秋招字节一面
+    - promise
+    - 洗牌算法
+    - 算法被问：35，
+    - 力扣：3
+    - 合并有序数组
+    - 排序：快排
+    - 图片懒加载
 ```

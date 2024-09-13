@@ -1,4 +1,4 @@
-Array.prototype.myReduce  = function (cb, init) {
+Array.prototype.myReduce = function (cb, init) {
     let arr = this
     let acc = init || arr[0]
     let startIndex = init ? 0 : 1
@@ -10,8 +10,7 @@ Array.prototype.myReduce  = function (cb, init) {
 }
 
 let arr = [1, 2, 3, 4, 5]
-let sum = arr.myReduce((a, b) => {
-    return a + b
-})
+
+let sum = arr.myReduce((a, b) => a + b)
 
 console.log(sum);

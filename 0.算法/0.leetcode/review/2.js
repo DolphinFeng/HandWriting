@@ -37,10 +37,10 @@ function add (l1, l2) {
         addOne = res >= 10 ? 1 : 0
         sum.next = new ListNode(res % 10)
         sum = sum.next
-        if (l1) {
+        while (l1) {
             l1 = l1.next
         }
-        if (l2) {
+        while (l2) {
             l2 = l2.next
         }
     }

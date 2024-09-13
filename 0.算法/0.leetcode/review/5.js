@@ -1,7 +1,8 @@
 // 最长回文子串
 
 function longestPalindrome (str) {
-    if (str.length < 2) return str
+    if (str.length <= 1) return str.length
+
     let start = 0, maxLength = 1
 
     for (let i = 0; i < str.length; i++) {
@@ -20,7 +21,7 @@ function longestPalindrome (str) {
             left--
             right++
         }
-        return right - left -1
+        return right - left - 1
     }
 
     return str.substring(start, start + maxLength)

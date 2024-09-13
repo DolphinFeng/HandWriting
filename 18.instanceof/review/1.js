@@ -3,7 +3,7 @@ function instance (L, R) {
     let right = R.prototype
     while (left !== null) {
         if (left === right) return true
-        left = left.__proto__ 
+        left = left.__proto__
     }
     return false
 }

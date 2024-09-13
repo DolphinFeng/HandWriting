@@ -1,25 +1,25 @@
-function formatNumberWithCommas (num) {
-    let [integerPart, decimalPart] = Math.abs(num).toString().split('.')
-    let formattedIntegerPart = ''
-    for (let i = integerPart.length - 1, count = 1; i >= 0; i--, count++) {
-        formattedIntegerPart = integerPart[i] + formattedIntegerPart
+function format (num) {
+    let [int, float] = Math.abs(num).toString().split('.')
+    let acc = ''
+    for (let i = int.length - 1, count = 1; i >= 0; i--, count++) {
+        acc = int[i] + acc
         if (count % 3 === 0 && i !== 0) {
-            formattedIntegerPart = ',' + formattedIntegerPart
+            acc = ',' + acc
         }
     }
 
-    if (decimalPart) {
-        return (num >= 0 ? '' : '-') + formattedIntegerPart + '.' + decimalPart
+    if (float) {
+        return (num >= 0 ? '' : '-') + acc + '.' + float
     } else {
-        return (num >= 0 ? '' : '-') + formattedIntegerPart
+        return (num >= 0 ? '' : '-') + acc
     }
 }
 
-console.log(formatNumberWithCommas(1234567.89));  // 输出: "1,234,567.89"
-console.log(formatNumberWithCommas(-1234567.89)); // 输出: "-1,234,567.89"
-console.log(formatNumberWithCommas(1234567));     // 输出: "1,234,567"
-console.log(formatNumberWithCommas(-1234567));    // 输出: "-1,234,567"
-console.log(formatNumberWithCommas(1234.567));    // 输出: "1,234.567"
-console.log(formatNumberWithCommas(-1234.567));   // 输出: "-1,234.567"
-console.log(formatNumberWithCommas(0));           // 输出: "0"
-console.log(formatNumberWithCommas(-0));          // 输出: "0"
+console.log(format(1234567.89));  // 输出: "1,234,567.89"
+console.log(format(-1234567.89)); // 输出: "-1,234,567.89"
+console.log(format(1234567));     // 输出: "1,234,567"
+console.log(format(-1234567));    // 输出: "-1,234,567"
+console.log(format(1234.567));    // 输出: "1,234.567"
+console.log(format(-1234.567));   // 输出: "-1,234.567"
+console.log(format(0));           // 输出: "0"
+console.log(format(-0));          // 输出: "0"

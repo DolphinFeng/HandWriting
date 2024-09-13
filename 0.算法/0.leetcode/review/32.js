@@ -5,8 +5,8 @@ let str = '(()(' // 2
 // let str = ')()())' // 4
 
 function getMaxLength (str) {
-    let maxLen = 0
-    let stack = [-1]
+    let maxLength = 0
+    const stack = [-1]
     for (let i = 0; i < str.length; i++) {
         let cur = str[i]
         if (cur === '(') {
@@ -14,13 +14,13 @@ function getMaxLength (str) {
         } else {
             stack.pop()
             if (stack.length) {
-                maxLen = Math.max(maxLen, i - stack[stack.length -1])
-            } else {
+                maxLength = Math.max(maxLength, i - stack[stack.length - 1])
+            } else {    
                 stack.push(i)
             }
         }
     }
-    return maxLen
+    return maxLength
 }
 
 

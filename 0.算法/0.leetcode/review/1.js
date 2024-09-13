@@ -14,12 +14,11 @@ function getIndex (num, target) {
     let obj = {}
     for (let i = 0; i < num.length; i++) {
         if (obj[target - num[i]] !== undefined) {
-            return [obj[target - num[i]], i];
+            return [obj[target - num[i]], i]
         } else {
             obj[num[i]] = i
         }
     }
-    return []
 }
 
 console.log(getIndex(num, 9));

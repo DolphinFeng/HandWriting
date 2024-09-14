@@ -1,6 +1,7 @@
 // 有效括号
 
-s = "()[]{}"
+// s = "([}}])"
+s = "()"
 
 function isValid (str) {
     let obj = {
@@ -8,17 +9,22 @@ function isValid (str) {
         '[': ']',
         '{': '}'
     }
-    let stack = []
-    for (let i = 0; i < str.length; i++) {
-        let res = obj[str[i]]
-        if (res) {
-            stack.push(res)
-        }
-        if (str[i] === stack[stack.length - 1]) {
-            stack.pop()
+    const stack = []
+    const len = s.length
+    if(len % 2 != 0 ){
+        return false
+    }
+    for(let i = 0; i<len; i++){
+        const item = s[i]
+        if(item === '(' || item === '{' || item === '['){
+            stack.push(item)
+        }else{
+            if(!stack.length || obj[stack.pop()] !== item){
+                return false
+            }
         }
     }
-    return stack.length === 0 ? true : false
+    return !stack.length
 }
 
 console.log(isValid(s));

@@ -10,13 +10,12 @@
 // 输入：nums = [7,7,7,7,7,7,7]
 // 输出：1
 
-function lengthOfLIS (arr) {
-    if (!arr.length) return 0
-    const dp = new Array(arr.length).fill(1)
-
-    for (let i = 1; i < arr.length; i++) {
+function lengthOfLIS (num) {
+    if (num.length === 0) return 0
+    let dp = new Array(num.length).fill(1)
+    for (let i = 1; i < num.length; i++) {
         for (let j = 0; j < i; j++) {
-            if (arr[i] > arr[j]) {
+            if (num[i] > num[j]) {
                 dp[i] = Math.max(dp[i], dp[j] + 1)
             }
         }

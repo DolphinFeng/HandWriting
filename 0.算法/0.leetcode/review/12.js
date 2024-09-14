@@ -65,9 +65,9 @@ function intToRoman (num) {
         }
     }
     return res
-}
+}   
 
 
-let num = 1994;
+let num = 10994;
 let result = intToRoman(num);
 console.log(result); // 输出: "MMMDCCXLIX"

@@ -36,16 +36,23 @@ lists = [{
     }
 }]
 
-function mergeKLists (lists) {
+function mergeKLists(lists) {
     return lists.reduce((p, n) => {
         while (n) {
-            p.push(n)
-            n = n.next
+            p.push(n);
+            n = n.next;
         }
-        return p
-    }, []).sort((a, b) => {a.val - b.val}).reduceRight((p, n) => {n.next = p, p = n, p}, null)
+        return p;
+    }, [])
+    .sort((a, b) => a.val - b.val)
+    .reduceRight((p, n) => { // 从右到左遍历排序后的数组
+        n.next = p;
+        p = n;
+        return p;
+    }, null);
 }
 
 let res = mergeKLists(lists)
 
 console.log(res);
+console.log(11);

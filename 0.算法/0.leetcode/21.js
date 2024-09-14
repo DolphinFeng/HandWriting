@@ -1,4 +1,4 @@
-// 合并两个有序链表  字节一面 lj
+// 合并两个有序链表
 
 function ListNode(val, next) {
     this.val = (val===undefined ? 0 : val)
@@ -8,17 +8,22 @@ function ListNode(val, next) {
 function remergeTwoLists (list1, list2) {
     let head = new ListNode()
     let cur = head
-    while (list1 && list2) {
-        if (list1.val <= list2.val) {
+    // list1能代表一个节点，list2也能代表一个节点
+    while(list1 && list2){
+        if(list1.val <= list2.val){
             cur.next = list1
+            // list1只能代表链表的头节点，然后就是里面那个链表了
             list1 = list1.next
-        } else {
+        }else{
             cur.next = list2
             list2 = list2.next
         }
+        // cur需要往后挪一位
         cur = cur.next
     }
-    cur.next = list1 === null ? list2 : list1
+    // 看谁的长度有剩余
+    cur.next = list1 == null ? list2 : list1
+    
     return head.next
 }
 

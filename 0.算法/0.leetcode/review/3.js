@@ -1,4 +1,6 @@
-let str = 'abaabaaa'
+// 无重复字符的最长子串
+
+let str = 'abcdefgaabaaa' // 2 因为 aba 出现了两次 a
 
 function maxLength (str) {
     if (str.length <= 1) return str.length

@@ -1,4 +1,4 @@
-// 合并两个有序链表  字节一面 lj
+// 合并两个有序链表
 
 function ListNode(val, next) {
     this.val = (val===undefined ? 0 : val)

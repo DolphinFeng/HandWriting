@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* a 标签中文字的颜色顺序是什么 */
+        a{
+            color: red;
+            /* 0-0-0-1 */
+        }
+        #box a{
+            color: green;
+            /* 0-1-0-1 */
+        }
+        [class='box'] a{
+            color: gold;
+            /* 0-0-1-1 */
+        }
+        .box a{
+            color: brown;
+            /* 0-0-1-1 */
+        }
+        p a{
+            color: yellow;
+            /* 0-0-1-1 */
+        }
+    </style>
+</head>
+<body>
+    
+    <p id="box" class="box">
+        <a>hello</a>
+    </p>
+</body>
+</html>

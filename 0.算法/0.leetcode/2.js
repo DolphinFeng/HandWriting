@@ -39,25 +39,20 @@ let l2 = {
  * @returns {ListNode} - 相加后的结果链表
  */
 function add(l1, l2) {
-    let addOne = 0 // 进位
-    let sum = new ListNode(0) // 初始化结果链表
-    let head = sum // 保存结果链表的头节点
+    let addOne = 0 
+    let sum = new ListNode(0) 
+    let head = sum 
 
-    // 当有进位或任一链表未遍历完时，继续循环
     while (addOne || l1 || l2) {
-        // 获取当前节点的值，若节点不存在则为0
         let Val1 = l1 !== undefined ? l1.val : 0
         let Val2 = l2 !== undefined ? l2.val : 0
 
-        // 计算当前位的和及进位
         let r = Val1 + Val2 + addOne
         addOne = r >= 10 ? 1 : 0
 
-        // 创建新节点保存当前位的结果
         sum.next = new ListNode(r % 10)
         sum = sum.next
 
-        // 移动到下一个节点
         if (l1) {
             l1 = l1.next
         }
@@ -65,7 +60,7 @@ function add(l1, l2) {
             l2 = l2.next
         }
     }
-    return head.next // 返回结果链表的头节点
+    return head.next
 }
 
 // 打印相加后的结果链表

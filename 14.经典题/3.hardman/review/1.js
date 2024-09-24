@@ -22,51 +22,53 @@ class HardWorker {
         })
     }
 
-    next () {
-        const fn = this.queue.shift()
-        fn && fn()
+    sayName () {
+        this.queue.push(() => {
+            console.log(`I am ${this.name}`)
+            this.next()
+        })
+        return this
+    }
+
+    learn (thing) {
+        this.queue.push(() => {
+            console.log(`Learning ${thing}`)
+            this.next()
+        })
+        return this
     }
 
     rest (delay) {
         this.queue.push(() => {
-            console.log(`waiting ${delay}`);
-            setTimeout(() => {
-                console.log(`Start rest ${delay}`);
-                this.next()
-            }, delay)
+            return new Promise((resolve) => {
+                console.log(`等待${delay}秒`);
+                setTimeout(() => {
+                    console.log(`Start learning after ${delay} seconds`);
+                    resolve()
+                    this.next();
+                }, delay)
+            })
         })
         return this
     }
 
     restFirst (delay) {
         this.queue.unshift(() => {
-            console.log(`waiting ${delay}`);
-            setTimeout(() => {
-                console.log(`Rest First ${delay}`);
-                this.next()
-            }, delay)
+            return new Promise((resolve) => {
+                console.log(`等待${delay}秒`);
+                setTimeout(() => {
+                    console.log(`Start learning after ${delay} seconds`);
+                    resolve()
+                    this.next();
+                }, delay)
+            })
         })
         return this
     }
 
     next () {
-        this.queue.shift()?.()
-    }
-
-    learn (thing) {
-        this.queue.push(() => {
-            console.log(`Learning ${thing}`);
-            this.next()
-        })
-        return this
-    }
-
-    sayName () {
-        this.queue.push(() => {
-            console.log(`I am ${this.name}`);
-            this.next()
-        })
-        return this
+        const fn = this.queue.shift()
+        fn && fn()
     }
 }
 

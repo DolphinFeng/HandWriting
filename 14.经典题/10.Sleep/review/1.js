@@ -11,8 +11,7 @@ class Sleep {
     }
 }
 
-
 (async () => {
     const sleepTime = await new Sleep(1000)
-    console.log(sleepTime);
+    console.log(sleepTime); 
 })()

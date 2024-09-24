@@ -33,9 +33,10 @@ Function.prototype.myBind = function(ctx) {
 }
 
 
-function person (name, age) {
+function person (name, age, ...args) {
     console.log(name);
     console.log(age);
+    console.log(...args);
     console.log(this);
 }
 
@@ -44,6 +45,6 @@ let obj = {
     age: 18
 }
 
-let foo = person.myBind(obj, 'cc')
+let foo = person.myBind(obj, 'cc', [1, 2, 3])
 
 foo(12)

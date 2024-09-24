@@ -1,9 +1,9 @@
-function instance (L, R) {
-    let left = L.__proto__
-    let right = R.prototype
-    while (left !== null) {
-        if (left === right) return true
-        left = left.__proto__
+function instance (left, right) {
+    let L = left.__proto__
+    let R = right.prototype
+    while (L !== null) {
+        if (L === R) return true
+        L = L.__proto__
     }
     return false
 }

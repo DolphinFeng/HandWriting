@@ -1,5 +1,4 @@
 // 江总百度校招二面
-
 // 手写：写一个并发控制函数，和生成模拟请求列表函数
 
 class SuperTask {
@@ -36,13 +35,16 @@ const timer = (delay) => {
         }, delay)
     })
 }
-const p = new SuperTask(2);
+
+const p = new SuperTask(2)
+
 const addPromise = (delay, taskName) => {
     p.run(() => timer(delay))
         .then(() => {
-            console.log(`任务${taskName}完成`);
+            console.log(`任务${taskName}完成`)
         })
 }
+
 addPromise(1000, 1)
 addPromise(500, 2)
 addPromise(1500, 3)

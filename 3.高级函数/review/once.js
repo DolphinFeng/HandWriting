@@ -1,5 +1,5 @@
 function once (fn) {
-    let ran = false, res
+    let res, ran = false
     return function () {
         if (ran) return res
         res = fn.apply(this, arguments)

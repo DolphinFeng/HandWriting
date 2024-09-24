@@ -74,3 +74,10 @@ https://juejin.cn/post/7240805459288522808
 # 富文本的实现怎么预防 xss 攻击
 
 # response 响应体有哪些字段
+
+# setState 是同步还是异步
+
+# cookie 怎么拿到
+document.cookie 
+设置一个 cookie：setCookie('username', 'Alice', 7)
+设置时间：data.setTime()  

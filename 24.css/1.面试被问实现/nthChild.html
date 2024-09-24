@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth-child Example</title>
+    <style>
+        /* 用 nthChild 实现，总共 9 个方块，每行三个，每列三个，现在要求第三列的方块变成红色，怎么用 nth-child 实现 */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 150px; /* 每个方块50px，3个方块一行 */
+        }
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: lightgray;
+            margin: 1px;
+        }
+        .box:nth-child(3n) { 
+            /* 直接 3 n 就好 */
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

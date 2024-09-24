@@ -28,32 +28,36 @@ class MyPromise {
         }
     }
 
-    then(onFulfilled, onRejected) {
+    then (onFulfilled, onRejected) {
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
         onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
+
         const newPromise = new MyPromise((resolve, reject) => {
             const resolvePromise = (cb) => {
-                try {
-                    const res = cb(this.value || this.reason)
-                    if (res instanceof MyPromise) {
-                        res.then(resolve, reject)
-                    } else {    
-                        resolve(res)
+                Promise.resolve().then(() => {
+                    try {
+                        const res = cb(this.value || this.reason)
+                        if (res instanceof MyPromise) {
+                            res.then(resolve, reject)
+                        } else {
+                            resolve(res)
+                        }
+                    } catch (err) {
+                        reject(err)
                     }
-                } catch (err) {
-                    reject(err)
-                }
+                })
             }
 
             if (this.state === 'fulfilled') {
                 resolvePromise(onFulfilled)
             } else if (this.state === 'rejected') {
                 resolvePromise(onRejected)
-            } else if (this.state === 'pending') {
+            } else {
                 this.onFulfilledCallbacks.push(() => resolvePromise(onFulfilled))
                 this.onRejectedCallbacks.push(() => resolvePromise(onRejected))
             }
         })
+
         return newPromise
     }
 
@@ -63,13 +67,11 @@ class MyPromise {
 
     finally (cb) {
         return this.then(
-            value => {
+            (value) => {
                 return MyPromise.resolve(cb()).then(() => value)
             }, 
-            reason => {
-                return MyPromise.resolve(cb()).then(() => {
-                    throw reason
-                })
+            (reason) => {
+                return MyPromise.resolve(cb()).then(() => { throw reason })
             }
         )
     }
@@ -89,8 +91,8 @@ class MyPromise {
         return new MyPromise((resolve, reject) => {
             for (let promise of promises) {
                 promise.then(
-                    value => resolve(value),
-                    reason => reject(reason)
+                    (value) => resolve(value),
+                    (reason) => reject(reason) 
                 )
             }
         })
@@ -107,7 +109,7 @@ class MyPromise {
                         if (count === promises.length) {
                             resolve(arr)
                         }
-                    },
+                    }, 
                     (reason) => {
                         reject(reason)
                     }
@@ -147,15 +149,15 @@ class MyPromise {
                         value
                     }
                 })
-                .catch((reason) => {
+                .catch(reason => {
                     arr[i] = {
-                        state: 'rejected', 
+                        state: 'rejected',
                         reason
                     }
                 })
                 .finally(() => {
                     count++
-                    if (count === promises) {
+                    if (count === promises.length) {
                         resolve(arr)
                     }
                 })
@@ -168,7 +170,8 @@ function child () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
             console.log('child');
-            resolve('after child')
+            // resolve('after child')
+            reject('after child')
         }, 3000)
     })
 }
@@ -177,8 +180,9 @@ function teen () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
             console.log('teen');
-            resolve('after teen')
-        },2000)
+            // resolve('after teen')
+            reject('after teen')
+        }, 2000)
     })
 }
 
@@ -186,7 +190,8 @@ function adult () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
             console.log('adult');
-            resolve('after adult')
+            // resolve('after adult')
+           reject('after adult') 
         }, 1000)
     })
 }
@@ -194,7 +199,6 @@ function adult () {
 // child()
 // .then(res => {
 //     console.log(res);
-    
 //     return teen()
 // })
 // .then(res => {
@@ -214,4 +218,20 @@ function adult () {
 
 // MyPromise.reject('error').catch(err => {
 //     console.log(err);
+// })
+
+// MyPromise.race([child(), teen(), adult()]).then(res => {
+//     console.log(res);
+// })
+
+// MyPromise.all([child(), teen(), adult()]).then(res => {
+//     console.log(res);
+// })
+
+// MyPromise.any([child(), teen(), adult()]).catch(err => {
+//     console.log(err);
+// })
+
+// MyPromise.allSettled([child(), teen(), adult()]).then(res => {
+//     console.log(res);
 // })

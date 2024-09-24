@@ -8,7 +8,6 @@ Array.prototype.myReduce = function (cb, init) {
     }
     return acc
 }
-
 let arr = [1, 2, 3, 4, 5]
 
 let sum = arr.myReduce((a, b) => a + b)

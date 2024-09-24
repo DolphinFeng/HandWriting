@@ -1,13 +1,10 @@
-Car.prototype.width = 18
-
 function Car (name) {
     this.name = name
-    this.age = 18
+    // return []
 }
 
-let car = new Car('Volve')
-
-// console.log(car.width);
+// let car = new Car('volve')
+// console.log(car);
 
 function myNew (...args) {
     let obj = {}
@@ -16,4 +13,5 @@ function myNew (...args) {
     return res instanceof Object ? res : obj
 }
 
-console.log(myNew());
+let car = myNew(Car, 'volve')
+console.log(car);

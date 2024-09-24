@@ -2,23 +2,17 @@
  * 启动一个倒计时定时器
  * @param {number} t - 倒计时的初始时间（毫秒）
  */
-function start (t) {
+function start (n) {
     let timer 
-    // 设置一个定时器，每隔1秒执行一次
     timer = setInterval(() => {
-        // 每次减少1000毫秒（1秒）
-        t = t - 1000
-        // 如果倒计时还未结束，打印剩余时间
-        if (t > 0) {
-            console.log(t);
-        } else {
-            // 倒计时结束，清除定时器
+        n = n - 1000
+        if (n > 0) console.log(~~(n / 1000));
+        if (n <= 0) {
             clearInterval(timer)
-        }
+        } 
     }, 1000)
 }
 
-// 启动一个10秒的倒计时
 start(10000)
 
 

@@ -5,7 +5,7 @@ function find (nums, target) {
     while (left <= right) {
         let mid = left + ((right - left) >> 1)
         if (target > nums[mid]) {
-            left = mid + 1
+            left = mid + 1 
         } else if (target < nums[mid]) {
             right = mid - 1
         } else {

@@ -8,7 +8,7 @@ function bubbleSort (arr) {
             }
         }
     }
+    return arr
 }
 
-bubbleSort(arr)
-console.log(arr);
+console.log(bubbleSort(arr));

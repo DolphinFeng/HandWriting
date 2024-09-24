@@ -1,4 +1,4 @@
-class MyPromise{
+class MyPromise {
     constructor (executor) {
         this.value = undefined
         this.reason = undefined
@@ -11,7 +11,7 @@ class MyPromise{
                 this.state = 'fulfilled'
                 this.value = value
                 this.onFulfilledCallbacks.forEach(cb => cb(value))
-            } 
+            }
         }
         const reject = (reason) => {
             if (this.state === 'pending') {
@@ -30,7 +30,8 @@ class MyPromise{
 
     then (onFulfilled, onRejected) {
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
-        onRejected = typeof onRejected === 'function' ? onRejected : err => { throw err }
+        onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
+
         const newPromise = new MyPromise((resolve, reject) => {
             const resolvePromise = (cb) => {
                 Promise.resolve().then(() => {
@@ -56,6 +57,7 @@ class MyPromise{
                 this.onRejectedCallbacks.push(() => resolvePromise(onRejected))
             }
         })
+
         return newPromise
     }
 
@@ -67,11 +69,9 @@ class MyPromise{
         return this.then(
             (value) => {
                 return MyPromise.resolve(cb()).then(() => value)
-            },
+            }, 
             (reason) => {
-                return MyPromise.resolve(cb()).then(() => {
-                    throw reason
-                })
+                return MyPromise.resolve(cb()).then(() => { throw reason })
             }
         )
     }
@@ -80,13 +80,11 @@ class MyPromise{
         if (value instanceof MyPromise) {
             return value
         }
-        return new MyPromise((resolve, reject) => resolve(value))
+        return new MyPromise(resolve => resolve(value))
     }
 
     static reject (reason) {
-        return new MyPromise((_, reject) => {
-            reject(reason)
-        })
+        return new MyPromise((_, reject) => reject(reason))
     }
 
     static race (promises) {
@@ -94,7 +92,7 @@ class MyPromise{
             for (let promise of promises) {
                 promise.then(
                     (value) => resolve(value),
-                    (reason) => reject(reason)
+                    (reason) => reject(reason) 
                 )
             }
         })
@@ -102,14 +100,14 @@ class MyPromise{
 
     static all (promises) {
         return new MyPromise((resolve, reject) => {
-            let res = [], count = 0
+            let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i].then(
                     (value) => {
-                        res[i] = value
+                        arr[i] = value
                         count++
                         if (count === promises.length) {
-                            resolve(res)
+                            resolve(arr)
                         }
                     }, 
                     (reason) => {
@@ -122,7 +120,7 @@ class MyPromise{
 
     static any (promises) {
         return new MyPromise((resolve, reject) => {
-            let arr = [], count = 0 
+            let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i].then(
                     (value) => {
@@ -173,7 +171,7 @@ function child () {
         setTimeout(() => {
             console.log('child');
             // resolve('after child')
-            reject('child error')
+            reject('after child')
         }, 3000)
     })
 }
@@ -182,8 +180,8 @@ function teen () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
             console.log('teen');
-            resolve('after teen')
-            reject('teen error')
+            // resolve('after teen')
+            reject('after teen')
         }, 2000)
     })
 }
@@ -192,8 +190,8 @@ function adult () {
     return new MyPromise((resolve, reject) => {
         setTimeout(() => {
             console.log('adult');
-            resolve('after adult')
-            // reject('adult error')
+            // resolve('after adult')
+           reject('after adult') 
         }, 1000)
     })
 }
@@ -211,17 +209,18 @@ function adult () {
 //     console.log(res);
 // })
 // .finally(() => {
-//     console.log('all Promise are settled');
+//     console.log('all promise are settled');
 // })
 
 // MyPromise.resolve('success').then(res => {
 //     console.log(res);
 // })
+
 // MyPromise.reject('error').catch(err => {
 //     console.log(err);
 // })
 
-// MyPromise.race([child(), teen(), adult()]).then((res) => {
+// MyPromise.race([child(), teen(), adult()]).then(res => {
 //     console.log(res);
 // })
 
@@ -233,9 +232,6 @@ function adult () {
 //     console.log(err);
 // })
 
-MyPromise.allSettled([child(), teen(), adult()]).then(res => {
-    console.log(res);
-})
-.catch(err => {
-    console.log(err);
-})
+// MyPromise.allSettled([child(), teen(), adult()]).then(res => {
+//     console.log(res);
+// })

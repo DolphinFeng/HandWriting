@@ -1,11 +1,13 @@
 function foo (...args) {
-    console.log(args);
-    return this.a
+    console.log(...args);
+    console.log(this.a);
 }
 
 let obj = {
     a: 111
 }
+
+// foo.apply(obj, [1, 2, 3])
 
 Function.prototype.myApply = function (ctx, args) {
     if (typeof this !== 'function') {
@@ -19,4 +21,4 @@ Function.prototype.myApply = function (ctx, args) {
     return res
 }
 
-console.log(foo.myApply(obj, [1, 32]));
+foo.myApply(obj, [1, 2, 3])

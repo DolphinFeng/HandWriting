@@ -1,15 +1,16 @@
 var arr = [1, [2, [3, [4, 5]]]]
 
-function flatten(arr, n) {
+function flatten (arr, n) {
     let res = []
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] instanceof Array && n > 0) {
-            let nextArr = flatten(arr[i], n - 1)
-            res = res.concat(nextArr)
+
+    for (let item of arr) {
+        if (item instanceof Array && n > 0) {
+            res = res.concat(flatten(item, n - 1))
         } else {
-            res.push(arr[i])
+            res.push(item)
         }
     }
+
     return res
 }
 

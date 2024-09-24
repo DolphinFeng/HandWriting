@@ -332,4 +332,22 @@
 - 9.20 
     - 今日秋招投递：领跑科技
     - 力扣：560, 1, 167, 15, 18
+- 9.23
+    - 力扣：42, 55, 45, 236, 700, 450, 222, 103
+    - promise
+- 9.24
+    - 力扣：452, 56, 4, 392, 34, 300, 322, 1143
+    - call, apply, bind, new
+    - 超级防抖节流
+    - 高级函数：curry, once, memoize, compose
+    - 拷贝
+    - 排序：合并有序, shuffleArray, bubbleSort, quickSort
+    - 树：前中后，深度，广度，z广遍历, 求深度, 求id, list转树
+    - 扁平化
+    - 数组去重
+    - promise
+    - 经典题：SuperTask, 红绿灯, lazyMan, hardMan, 倒计时, 模拟请求, LRUCache, URLSearchParams, 每秒打印数字, sleep, 发布订阅
+    - 懒加载
+    - 数组方法：reduce, map
+    - 二分查找
 ```

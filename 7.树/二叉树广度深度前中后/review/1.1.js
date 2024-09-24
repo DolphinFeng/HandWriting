@@ -23,26 +23,30 @@ let tree = {
 //    / \   \
 //   3   4   6
 
-function zBFS (tree) {
-    const res = []
-    const queue = [tree]
+function zBFS (node) {
+    let res = []
+    let queue = [node]
     let leftToRight = true
+   
     while (queue.length) {
         let levelSize = queue.length
-        const currentLevel = []
+        let cur = []
         for (let i = 0; i < levelSize; i++) {
-            const node = queue.shift()
+            let node = queue.shift()
             if (leftToRight) {
-                currentLevel.push(node.val)
+                cur.push(node.val)
             } else {
-                currentLevel.unshift(node.val)
+                cur.unshift(node.val)
             }
+
             if (node.left) queue.push(node.left)
             if (node.right) queue.push(node.right) 
         }
-        res.push(currentLevel)
+
+        res.push(cur)
         leftToRight = !leftToRight
     }
+
     return res
 }
 

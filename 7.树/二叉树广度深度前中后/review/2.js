@@ -30,11 +30,11 @@ let tree = {
 //    / \   \
 //   3   4   6
 
-function DFS (tree, res = []) {
-    if (!tree) return 
-    res.push(tree.val)
-    DFS(tree.left, res)
-    DFS(tree.right, res)
+function DFS (node, res = []) {
+    if (!node) return
+    res.push(node.val)
+    if (node.left) DFS(node.left, res)
+    if (node.right) DFS(node.right, res)  
     return res
 }
 

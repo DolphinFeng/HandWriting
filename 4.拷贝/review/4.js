@@ -2,7 +2,6 @@
 function deepCopy (obj) {
     return structuredClone(obj)
 }
-
 let obj = {
     a: 1
 }

@@ -1,29 +1,27 @@
-// 寻找两个正序数组的中位数
+// 寻找两个正序数组的中位数 要求时间复杂度为o(m + n)
 
 
-function findMedianSortedArrays(nums1, nums2) {
+var findMedianSortedArrays = function(nums1, nums2) {
+    let merge = []
     // 归并排序
-    const merged = []
-    let i = 0
-    let j = 0
+    let i = 0, j = 0
     while (i < nums1.length && j < nums2.length) {
         if (nums1[i] < nums2[j]) {
-            merged.push(nums1[i++])
+            merge.push(nums1[i++])
         } else {
-            merged.push(nums2[j++])
+            merge.push(nums2[j++])
         }
     }
     while (i < nums1.length) {
-        merged.push(nums1[i++])
+        merge.push(nums1[i++])
     }
     while (j < nums2.length) {
-        merged.push(nums2[j++])
+        merge.push(nums2[j++])
     }
-
-    const { length } = merged
-    return length % 2 === 1
-        ? merged[Math.floor(length / 2)]
-        : (merged[length / 2] + merged[length / 2 - 1]) / 2
+    const { length } = merge
+    return length % 2 === 0 ?
+    (merge[length / 2] + merge[length / 2 - 1]) / 2
+    : merge[~~(length / 2)]
 };
 
 let nums1 = [1, 2]

@@ -45,31 +45,32 @@ const tree = [
 
 function fn (tree, target, isField) {
     let res = []
-    // 找到目标节点
-    function traverse (tree) {
-        for (let node of tree) {
-            if (node[isField] === target) {
-                getId(node.children)
-                return
+    
+    function traverse (node) {
+        for (let child of node) {
+            if (child[isField] === target) {
+                getId(child.children)
+                return 
             }
-            if (node.children) {
-                traverse(node.children)
+            if (child.children) {
+                traverse(child.children)
+            }
+        }
+    } 
+
+    function getId (children) {
+        if (!children || children.length === 0) {
+            res = '当前节点下无子节点'
+            return
+        }
+        for (let child of children) {
+            res.push(child[isField])
+            if (child.children) {
+                getId(child.children)
             }
         }
     }
 
-    function getId (nodes) {
-        if (!nodes || nodes.length === 0) {
-            res = '当前节点下无子节点'
-            return
-        }
-        for (let node of nodes) {
-            res.push(node[isField])
-            if (node.children) {
-                getId(node.children)
-            }
-        }
-    }
     traverse(tree)
     return res
 }

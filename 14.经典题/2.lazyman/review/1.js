@@ -2,7 +2,7 @@ class LazyMan {
     queue = []
     constructor (name) {
         this.push(() => {
-            console.log(`I am ${name}`);
+            console.log(`Hi! This is ${name}`);
         })
         setTimeout(() => {
             this.next()
@@ -11,14 +11,14 @@ class LazyMan {
 
     eat (thing) {
         this.push(() => {
-            console.log(`eating ${thing}`);
+            console.log(`Eat ${thing}`);
         })
         return this
     }
 
     drink (thing) {
         this.push(() => {
-            console.log(`drinking ${thing}`);
+            console.log(`Drink ${thing}`);
         })
         return this
     }
@@ -27,7 +27,7 @@ class LazyMan {
         this.push(() => {
             return new Promise(resolve => {
                 setTimeout(() => {
-                    console.log(`sleep ${delay}`);
+                    console.log(`Sleep ${delay} ms`);
                     resolve()
                 }, delay)
             })
@@ -39,7 +39,7 @@ class LazyMan {
         this.unshift(() => {
             return new Promise(resolve => {
                 setTimeout(() => {
-                    console.log(`sleep First ${delay}`);
+                    console.log(`Sleep ${delay} ms first`);
                     resolve()
                 }, delay)
             })
@@ -47,15 +47,15 @@ class LazyMan {
         return this
     }
 
-    push (task) {
-        this.queue.push(async () => {
+    unshift (task) {
+        this.queue.unshift(async() => {
             await task()
             this.next()
         })
     }
 
-    unshift (task) {
-        this.queue.unshift(async () => {
+    push (task) {
+        this.queue.push(async () => {
             await task()
             this.next()
         })

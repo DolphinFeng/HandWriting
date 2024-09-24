@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-    <button id="btn">按钮</button>
+
+    <button id="id">按钮</button>
 
     <script>
-        let btn = document.getElementById('btn')
-
-        function send () {
+        let btn = document.getElementById('id');
+        function send() {
             console.log('send');
-            
         }
-
         btn.addEventListener('click', debounce(send, 1000))
 
-        function debounce (fn, wait) {
+        function debounce(fn, delay) {
+
             let timer
+            let resolveList = []
+
             return function () {
-                if (timer) clearTimeout(timer)
-                timer = setTimeout(() => {
-                    fn.apply(this, arguments)
-                }, wait)
+                return new Promise((resolve, reject) => {
+                    if (timer) clearTimeout(timer)
+
+                    timer = setTimeout(() => {
+                        Promise.resolve(fn.apply(this, arguments))
+                            .then(res => {
+                                resolveList.forEach(resolve => resolve(res))
+                                resolveList = []
+                            })
+                            .catch(err => {
+                                resolveList.forEach((_, reject) => reject(err))
+                                resolveList = []
+                            })
+                    }, delay)
+
+                    resolveList.push(resolve)
+                })
             }
+
         }
     </script>
 </body>
+
 </html>

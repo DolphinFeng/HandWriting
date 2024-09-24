@@ -7,11 +7,11 @@ function sortFn (...args) {
 }
 
 function currying (fn) {
-    const args = []
+    let args = []
 
     const res = (...rest) => {
         if (rest.length === 0) {
-            return fn(...args)
+            return fn(...args) 
         } else {
             args.push(...rest)
             return res

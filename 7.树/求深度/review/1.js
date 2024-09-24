@@ -39,18 +39,17 @@ const tree = {
 //    /
 //   4
 
-function getMax (tree) {
+function getMax (node) {
     let level = 0
-    
-    function DFS (tree, l) {
+
+    function DFS (node, l) {
         level = Math.max(level, l)
-        for (let child of tree.children) {
+        for (let child of node.children) {
             DFS(child, l + 1)
         }
     }
 
-    DFS(tree, 1)
-
+    DFS(node, 1)
     return level
 }
 

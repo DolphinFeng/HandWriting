@@ -20,10 +20,9 @@ class Chain {
 
     divide (num) {
         if (num === 0) {
-            console.error('error');
-        } else {
-            this.num /= num
+            console.error('除数不能为0')
         }
+        this.num /= num
         return this
     }
 
@@ -31,6 +30,5 @@ class Chain {
         return this.num
     }
 }
-
 const compute = new Chain(10)
-console.log(compute.add(5).subtract(3).multiply(2).divide(0).getValue());
+console.log(compute.add(5).subtract(3).multiply(2).divide(1).getValue());

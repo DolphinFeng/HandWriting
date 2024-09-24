@@ -24,18 +24,17 @@ let tree = {
 //    / \   \
 //   3   4   6
 
-function BFS (tree) {
+function BFS (node) {
     const res = []
-    const queue = [tree]
+    const queue = [node]
     while (queue.length) {
-        const cur = queue.shift()
+        let cur = queue.shift()
         res.push(cur.val)
         if (cur.left) queue.push(cur.left)
-        if (cur.right) queue.push(cur.right) 
+        if (cur.right) queue.push(cur.right)
     }
     return res
 }
 
-// 调用BFS函数遍历二叉树并返回结果数组
 const bfsResult = BFS(tree);
 console.log(bfsResult); // 输出: [1, 2, 5, 3, 4, 6]

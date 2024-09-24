@@ -1,6 +1,8 @@
 function deepCopy (obj) {
-    let objCopy = Array.isArray(obj) ? [] : {}
-    
+    if (typeof obj !== 'object' || obj === null) return
+
+    let objCopy = obj instanceof Array ? [] : {}
+
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
             if (obj[key] instanceof Object) {
@@ -11,7 +13,7 @@ function deepCopy (obj) {
         }
     }
 
-    return objCopy  
+    return objCopy
 }
 
 let obj = {

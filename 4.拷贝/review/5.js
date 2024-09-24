@@ -1,6 +1,6 @@
 function copyFn (fn) {
-    let str = fn.toString()
-    return new Function(`return ${str}`).call(fn)
+    let newFn = fn.toString(fn)
+    return new Function(`return ${newFn}`).call(fn)
 }
 
 function foo () {

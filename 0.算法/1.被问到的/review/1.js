@@ -7,12 +7,13 @@
 // ["a"]
 // "1"省略，输出结果为得到的结果长度为1
 
-let arr = ["a","a","b","b","c","c","c","d"];
+let arr = ["a","a","b","b","c","c","c"];
 
 function getLength (arr) {
-    let res = 0, i = 0;
+    let res = 0, i = 0
+    
     while (i < arr.length) {
-        let j = i;
+        let j = i
         while (j < arr.length && arr[i] === arr[j]) {
             j++
         }
@@ -25,6 +26,7 @@ function getLength (arr) {
         }
         i = j
     }
+
     return res
 }
 

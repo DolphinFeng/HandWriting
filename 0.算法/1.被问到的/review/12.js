@@ -29,12 +29,14 @@ let list = {
 
 function reverseList (node) {
     let prev = null, cur = node
+    
     while (cur) {
         const next = cur.next
         cur.next = prev
         prev = cur
         cur = next
     }
+
     return prev
 }
 

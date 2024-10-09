@@ -7,21 +7,22 @@
 // -1+1+1+1+1=3
 // 一共有5种组合方式
 
-function findTargetSumWays (nums, s) {
+function findTargetSumWays (nums, S) {
     let count = 0
-
-    function calculate (nums, i, sum, s) {
+    
+    function calculate (nums, i, sum, S) {
         if (i === nums.length) {
-            if (sum === s) {
+            if (sum === S) {
                 count++
             }
         } else {
-            calculate(nums, i + 1, sum + nums[i], s)
-            calculate(nums, i + 1, sum - nums[i], s)
+            calculate(nums, i + 1, sum + nums[i], S)
+            calculate(nums, i + 1, sum - nums[i], S)
         }
     }
 
-    calculate(nums, 0, 0, s)
+    calculate(nums, 0, 0, S)
+    
     return count
 }
 

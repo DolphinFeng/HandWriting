@@ -1,12 +1,11 @@
 Array.prototype.myMap = function (cb) {
     let arr = this
     let res = []
-    for (let item of arr) {
-        res.push(cb(item))
+    for (let i = 0; i < arr.length; i++) {
+        res.push(cb(arr[i], i, arr))
     }
     return res
 }
-
 let arr = [1, 2, 3, 4]
 
 let res = arr.myMap(item => item + 1)

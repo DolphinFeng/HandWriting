@@ -6,20 +6,16 @@
 
 let prices = [7,1,5,3,6,4] // 5
 
-function maxProfit(prices) {
-    let minPrice = Infinity; // ��始化最低价格为无穷大
-    let maxProfit = 0; // 初始化最大利润为0
-
-    for (let price of prices) {
-        if (price < minPrice) {
-            minPrice = price; // 更新最低价格
-        } else if (price - minPrice > maxProfit) {
-            maxProfit = price - minPrice; // 更新最大利润
-        }
+var maxProfit = function(prices) {
+    let n = prices.length;
+    let sell = 0;
+    let buy = -prices[0];
+    for (let i = 1; i < n; i++) {
+        sell = Math.max(sell, buy + prices[i]);
+        buy = Math.max(buy, -prices[i]);
     }
+    return sell;
 
-    return maxProfit; // 返回最大利润
-}
-
+};
 
 console.log(maxProfit(prices)); // 输出 5

@@ -1,19 +1,19 @@
 let i = 0
 
-function once (cb) {
+function once (fn) {
     let ran = false, res
     return function () {
         if (ran) return res
-        res = cb.apply(this, arguments)
+        res = fn.apply(this, arguments)
         ran = true
         return res
     }
 }
 
-const add = once(() => {
+const foo = once(() => {
     i++
     return i
 })
 
-console.log(add());
-console.log(add());
+console.log(foo());
+console.log(foo());

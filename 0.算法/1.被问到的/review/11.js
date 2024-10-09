@@ -2,23 +2,20 @@
 
 
 
-function flattenObject (obj, prefix = '') {
-    let res = {}
-
+function flattenObject (obj, parentKey = '', res = {}) {
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
-            let newKey = prefix ? `${prefix}.${key}` : key
-            if (typeof obj[key] === 'object' && obj[key] !== null) {
-                Object.assign(res, flattenObject(obj[key], newKey))
+            const fullKey = parentKey ? `${parentKey}.${key}` : key
+            if (obj[key] instanceof Object && !Array.isArray(obj[key])) {
+                flattenObject(obj[key], fullKey, res)
             } else {
-                res[newKey] = obj[key]
+                res[fullKey] = obj[key]
             }
         }
     }
-
+    
     return res
 }
-  
 
 // 示例
 const input = {a: 1, b: {c: 1}};

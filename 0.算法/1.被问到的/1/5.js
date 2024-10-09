@@ -36,50 +36,34 @@ const tree = [
  * @param {string} idField - 节点ID字段的名称
  * @returns {Array|string} - 返回子节点ID数组或提示信息
  */
-function fn(tree, targetId, idField) {
-    let result = [];
+function fn (tree, target, isField) {
+    let res = []
 
-    /**
-     * 递归遍历树节点，找到目标节点
-     * @param {Array} nodes - 当前遍历的节点数组
-     */
-    function traverse(nodes) {
-        for (let node of nodes) {
-            // 如果找到目标节点，收集其子节点
-            if (node[idField] === targetId) {
-                collectChildren(node.children);
-                return;
-            }
-            // 如果当前节点有子节点，继续递归遍历
-            if (node.children) {
-                traverse(node.children);
+    function traverse (node) {
+        for (let child of node) {
+            if (child[isField] === target) {
+                getId(child.children)
+                return 
+            } else {
+                child.children && traverse(child.children)
             }
         }
     }
 
-    /**
-     * 递归收集子节点ID
-     * @param {Array} children - 当前节点的子节点数组
-     */
-    function collectChildren(children) {
-        // 如果没有子节点，设置结果为提示信息
+    function getId (children) {
         if (!children || children.length === 0) {
-            result = '当前节点下无子节点';
-            return;
-        }
-        // 遍历子节点，收集ID并继续递归
+            res = '当前节点下无子节点'
+            return 
+        } 
         for (let child of children) {
-            result.push(child[idField]);
-            if (child.children) {
-                collectChildren(child.children);
-            }
+            res.push(child[isField])
+            child.children && getId(child.children)
         }
     }
+    
+    traverse(tree)
 
-    // 开始遍历树结构
-    traverse(tree);
-    return result;
+    return res
 }
 
-// 示例调用
 console.log(fn(tree, '5', 'id'));

@@ -1,5 +1,6 @@
 function format (num) {
     let [int, float] = Math.abs(num).toString().split('.')
+
     let acc = ''
     for (let i = int.length - 1, count = 1; i >= 0; i--, count++) {
         acc = int[i] + acc

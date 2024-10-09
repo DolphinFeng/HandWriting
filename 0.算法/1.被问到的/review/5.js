@@ -30,36 +30,34 @@ const tree = [
 ]
 
 
-function fn (tree, targetId, isField) {
+function fn (tree, target, isField) {
     let res = []
 
-    function traverse (nodes) {
-        for (let node of nodes) {
-            if (node[isField] === targetId) {
-                collectId(node.children)
-                return
-            } else if (node.children) {
-                traverse(node.children)
+    function traverse (node) {
+        for (let child of node) {
+            if (child[isField] === target) {
+                getId(child.children)
+                return 
+            } else {
+                child.children && traverse(child.children)
             }
         }
     }
 
-    function collectId (tree) {
-        if (!tree || tree.length === 0) {
+    function getId (children) {
+        if (!children || children.length === 0) {
             res = '当前节点下无子节点'
             return 
         } 
-        for (let child of tree) {
+        for (let child of children) {
             res.push(child[isField])
-            if (child.children) {
-                collectId(child.children)
-            }
+            child.children && getId(child.children)
         }
     }
-
+    
     traverse(tree)
 
     return res
 }
 
-console.log(fn(tree, '5', 'id'));
+console.log(fn(tree, '1', 'id'));

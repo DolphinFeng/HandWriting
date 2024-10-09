@@ -22,24 +22,17 @@
 // 输出：23
 
 var maxSubArray = function(nums) {
-    // 初始化两个变量，`maxSum` 和 `currentSum`
-    // `maxSum` 用于存储当前找到的最大子数组和
-    // `currentSum` 用于存储当前子数组的和
-    let maxSum = nums[0];
-    let currentSum = nums[0];
-
-    // 从数组的第二个元素开始遍历
-    for (let i = 1; i < nums.length; i++) {
-        // 更新 `currentSum`，如果 `currentSum` 加上当前元素 `nums[i]` 还不如 `nums[i]` 本身大，
-        // 那么就把 `currentSum` 更新为 `nums[i]`
-        currentSum = Math.max(nums[i], currentSum + nums[i]);
-
-        // 更新 `maxSum`，如果 `currentSum` 大于 `maxSum`，则更新 `maxSum`
-        maxSum = Math.max(maxSum, currentSum);
+    let ans = nums[0];
+    let sum = 0;
+    for(const num of nums) {
+        if(sum > 0) {
+            sum += num;
+        } else {
+            sum = num;
+        }
+        ans = Math.max(ans, sum);
     }
-
-    // 返回找到的最大子数组和
-    return maxSum;
+    return ans;
 };
 
  

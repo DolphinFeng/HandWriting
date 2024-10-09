@@ -28,6 +28,7 @@ function createRedPacket(totalAmount, totalCount) {
 
 
 // 测试用例
-console.log(createRedPacket(100, 10));
+const packets = createRedPacket(200, 10)
+console.log(packets);
 
-
+console.log('数据之和为', packets.reduce((a, b) => a + b).toFixed(2), 0); 

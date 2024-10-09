@@ -10,21 +10,22 @@
 
 
 function test (str) {
-    const obj = {
+    let stack = []
+    let obj = {
         '{': '}',
         '[': ']',
         '(': ')'
     }
 
-    const stack = []
-
     for (let i = 0; i < str.length; i++) {
-        let res = obj[str[i]]
-        if (res) {
-            stack.push(res)
-        }
-        if (str[i] === stack[stack.length - 1]) {
-            stack.pop()
+        let cur = obj[str[i]]
+        
+        if (cur) {
+            stack.push(cur)
+        } else {
+            if (str[i] === stack[stack.length - 1]) {
+                stack.pop()
+            }
         }
     }
 
@@ -32,4 +33,6 @@ function test (str) {
 }
 
 // 测试用例
+console.log(test('{[(abcdefg]12345)}')) // 输出 false
+console.log(test('[({abcdef}ghjkl)1234]')) // 输出 true
 console.log(test('{[(abcdefg]12345)}')) // 输出 false

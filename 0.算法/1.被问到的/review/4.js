@@ -35,18 +35,20 @@ const tree = [{
 // 实现一个方法，getAllIdsByLevel(tree, level)获取指定小于等于level层级的所有id
 
 function getAllIdsByLevel (tree, level) {
-    let id = []
+    let res = []
+    
     if (level === 1) {
-        for (let i = 0; i < tree.length; i++) {
-            id.push(tree[i].id)
-        }
+        tree.forEach(item => {
+            res.push(item.id)
+        })
     } else {
-        for (let i = 0; i < tree.length; i++) {
-            id.push(tree[i].id)
-            id.push(...getAllIdsByLevel(tree[i].children, level - 1))
-        }
+        tree.forEach(item => {
+            res.push(item.id)
+            res.push(...getAllIdsByLevel(item.children, level - 1))
+        })
     }
-    return id
+
+    return res
 }
 
 console.log(getAllIdsByLevel(tree, 2));

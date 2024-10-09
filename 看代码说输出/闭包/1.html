@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function createCounter() {
+            let count = 0; // 外部函数作用域中的变量
+
+            return function () {
+                count++; // 闭包引用了外部函数的变量
+                console.log(count);
+            };
+        }
+
+        const counter = createCounter();
+        counter(); // 输出: 1
+        counter(); // 输出: 2
+        counter(); // 输出: 3
+        counter = null
+    </script>
+</body>
+
+</html>

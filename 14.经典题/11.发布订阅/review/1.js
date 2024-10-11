@@ -5,14 +5,15 @@ class EventEmitter {
 
     on (type, cb) {
         if (!this.event[type]) {
-            this.event[type] = [cb]
-        } else {
-            this.event[type].push(cb)
+            this.event[type] = []
         }
+        this.event[type].push(cb)
     }
 
     emit (type, ...args) {
-        if (!this.event[type]) return
+        if (!this.event[type]) {
+            return 
+        }
         this.event[type].forEach(cb => {
             cb(...args)
         })
@@ -38,8 +39,8 @@ const fn = (...args) => {
     console.log(...args);
 }
 
-// ev.once('run', fn)
-ev.on('run', fn)
-ev.off('run', fn)
+// ev.on('run', fn)
+ev.once('run', fn)
+// ev.off('run', fn)
 ev.emit('run', 123)
 ev.emit('run', 123)

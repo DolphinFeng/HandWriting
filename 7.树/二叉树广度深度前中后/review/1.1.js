@@ -33,6 +33,7 @@ function zBFS (node) {
         let cur = []
         for (let i = 0; i < levelSize; i++) {
             let node = queue.shift()
+            if (!node) return []
             if (leftToRight) {
                 cur.push(node.val)
             } else {
@@ -50,4 +51,4 @@ function zBFS (node) {
     return res
 }
 
-console.log(zBFS(tree));
+console.log(zBFS(tree)); // [ [ 1 ], [ 5, 2 ], [ 3, 4, 6 ] ]

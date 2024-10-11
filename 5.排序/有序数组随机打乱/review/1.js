@@ -5,4 +5,5 @@ function shuffleArray (arr) {
     }
     return arr
 }
+
 console.log(shuffleArray([1, 2, 3, 4, 5, 6]));

@@ -46,32 +46,29 @@ const tree = [
 function fn (tree, target, isField) {
     let res = []
     
-    function traverse (node) {
-        for (let child of node) {
-            if (child[isField] === target) {
-                getId(child.children)
+    function traverse (tree) {
+        for (let node of tree) {
+            if (node[isField] === target) {
+                getId(node.children)
                 return 
             }
-            if (child.children) {
-                traverse(child.children)
-            }
+            node.children && traverse(node.children)
         }
-    } 
+    }
 
     function getId (children) {
         if (!children || children.length === 0) {
             res = '当前节点下无子节点'
-            return
+            return 
         }
         for (let child of children) {
             res.push(child[isField])
-            if (child.children) {
-                getId(child.children)
-            }
+            child.children && getId(child.children)
         }
     }
 
     traverse(tree)
+
     return res
 }
 

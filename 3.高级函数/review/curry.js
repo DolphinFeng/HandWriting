@@ -6,12 +6,12 @@ function sortFn (...args) {
     return args.sort()
 }
 
-function currying (fn) {
+const currying = (fn) => {
     let args = []
-
+    
     const res = (...rest) => {
         if (rest.length === 0) {
-            return fn(...args) 
+            return fn(...args)
         } else {
             args.push(...rest)
             return res

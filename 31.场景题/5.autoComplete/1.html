@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocomplete Example</title>
+    <style>
+        /* 简单的样式 */
+        .autocomplete-suggestions {
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            position: absolute;
+            background-color: white;
+            z-index: 1000;
+        }
+
+        .autocomplete-suggestion {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .autocomplete-suggestion:hover {
+            background-color: #e9e9e9;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="autocomplete-input" placeholder="Type to search...">
+    <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div>
+
+    <script>
+        const arr = ["apple", "banana", "grape", "orange", "pineapple", "strawberry", "watermelon"];
+
+        document.getElementById('autocomplete-input').addEventListener('input', function () {
+            const input = this.value.toLowerCase();
+            const suggestions = arr.filter(item => item.toLowerCase().includes(input));
+            const suggestionsContainer = document.getElementById('autocomplete-suggestions');
+
+            // 清空之前的建议
+            suggestionsContainer.innerHTML = '';
+
+            // 添加新的建议
+            suggestions.forEach(suggestion => {
+                const suggestionElement = document.createElement('div');
+                suggestionElement.classList.add('autocomplete-suggestion');
+                suggestionElement.textContent = suggestion;
+                suggestionElement.addEventListener('click', function () {
+                    document.getElementById('autocomplete-input').value = suggestion;
+                    suggestionsContainer.innerHTML = '';
+                });
+                suggestionsContainer.appendChild(suggestionElement);
+            });
+        });
+    </script>
+</body>
+
+</html>

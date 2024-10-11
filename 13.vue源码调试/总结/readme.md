@@ -852,3 +852,105 @@ patchFlag 的 1 就是说明有个 动态节点，若为 11 表明还有个 动�
 ![alt text](image-32.png)
 其实 dynamicChildren 这个属性就是来收集动态子节点的函数，可以看到 p 标签的 动态 children 由原来的 hello 变成了 world
 最终就可以明白如何实现靶向更新的，编译时 patchFlag 标记动态子节点，运行时 dynamicChildren 属性从动态节点数组 block 中进行靶向更新
+
+# template 如何实现“静态提升”
+所谓静态提升就是在 template 中有些值并不是响应式的，但是响应式值改了会带动 整个 render 重新执行，为了让这些静态值只在项目初次加载时执行一次，我们把 这些静态值 提升到 render 函数之外
+静态提升的关键字为 hoistStatic, 同样先发生在 transform 函数中
+静态提升主要依靠的函数为：
+```js
+function walk(node, context, doNotHoistNode = false) {
+  const { children } = node;
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i];
+    if (
+      child.type === NodeTypes.ELEMENT &&
+      child.tagType === ElementTypes.ELEMENT
+    ) {
+      const constantType = doNotHoistNode
+        ? ConstantTypes.NOT_CONSTANT
+        : getConstantType(child, context);
+      if (constantType > ConstantTypes.NOT_CONSTANT) {
+        if (constantType >= ConstantTypes.CAN_HOIST) {
+          child.codegenNode.patchFlag = PatchFlags.HOISTED + ` /* HOISTED */`;
+          child.codegenNode = context.hoist(child.codegenNode);
+          continue;
+        }
+      }
+    }
+
+    if (child.type === NodeTypes.ELEMENT) {
+      walk(child, context);
+    }
+  }
+}
+```
+像是这种直接写在 template 的常量 constant，就是有个标记 can_hosit，有些值虽然用了挖坑写法，但是在 js 中依旧是常量的形式，这种标记就是 can_skip_patch，响应式数据的 constantType 就是 not_constant
+这个函数会对 div 标签进行递归，最后走到叶子节点
+像是 h1 里面若写了静态值，最后的 constantType 值是 3，有另一个称呼是预字符串
+最后走进的是 hoist 函数
+```js
+function hoist(exp) {
+  context.hoists.push(exp);
+  const identifier = createSimpleExpression(
+    `_hoisted_${context.hoists.length}`,
+    false,
+    exp.loc,
+    ConstantTypes.CAN_HOIST
+  );
+  identifier.hoisted = exp;
+  return identifier;
+}
+```
+context.hoists 是个数组，会存放最后所有的需要静态提升的节点
+transform 这个函数针对 静态提升主要干了：生成 hoist_1 表达式，其实需要把静态节点给找出来，生成后 push 到 hoists 数组中
+后面就交给 generate 函数处理，render 函数直接使用 _hoisted_1 表达式即可，他会在 render 外的全局创建一个 变量 _hoisted_1
+
+# generate 函数
+这个函数在node_modules/@vue/compiler-core/dist/compiler-core.cjs.js文件中。
+```js
+function generate(ast) {
+  const context = createCodegenContext();
+  const { push, indent, deindent } = context;
+
+  const preambleContext = context;
+  genModulePreamble(ast, preambleContext);
+
+  const functionName = `render`;
+  const args = ["_ctx", "_cache"];
+  args.push("$props", "$setup", "$data", "$options");
+  const signature = args.join(", ");
+  push(`function ${functionName}(${signature}) {`);
+
+  indent();
+  push(`return `);
+  genNode(ast.codegenNode, context);
+
+  deindent();
+  push(`}`);
+  return {
+    ast,
+    code: context.code,
+  };
+}
+```
+generate 主要是干四件事：
+一、生成 context 上下文对象
+二、生成 import {} from 'vue' 这样的语句（其实就是最后 源码里的 import 语句
+三、生成 render 函数中的函数名，参数
+四、生成 render 函数中的 return
+
+context 是 createCodegenContext 函数生成的
+import 语句是由 genModulePreamble 函数生成的
+我们可以看到里面最终是通过 push 的形式，push 前后对比
+![alt text](image-33.png)
+ast.helpers 里有三个函数 toDisplayString, openBlock, createElementBlock
+ast.helpers 其实是在 transform 阶段产生的
+后面是生成 render 里面的函数名以及参数，其实还是 push 到了 context.code 中，args 数组就是 render 函数的参数
+最后就是 return 语句了 indent 方法就是给代码增加一个换行和一个缩进
+return 的内容其实就是靠 genNode 函数，这个函数里面有三个比较重要的函数：genExpression, genInterpolation, genVNodeCall
+genVNodeCall 的作用是给 context.code 生成一个 return (_openBlock())，后面还有很多细节步骤。。。
+
+# v-bind 指令
+<div :title="title"> 是如何将 title 绑定到 title 属性上的
+像是 v-bind 这个指令就是由 transformElement 转换的
+这个函数同 generate 的位置一样，在同一个文件中，对这个函数打上一个断点

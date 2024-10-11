@@ -12,6 +12,7 @@ function zigzagLevelOrder(root) {
 
         for (let i = 0; i < levelSize; i++) {
             let node = queue.shift();
+            if (!node) return []
             if (leftToRight) {
                 currentLevel.push(node.val);
             } else {

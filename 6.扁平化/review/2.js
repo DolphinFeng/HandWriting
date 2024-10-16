@@ -2,12 +2,12 @@ var arr = [1, [2, [3, [4, 5]]]]
 
 function flatten (arr, n) {
     let res = []
-
-    for (let item of arr) {
-        if (item instanceof Array && n > 0) {
-            res = res.concat(flatten(item, n - 1))
+    
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] instanceof Array && n > 0) {
+            res = res.concat(flatten(arr[i], n - 1))
         } else {
-            res.push(item)
+            res.push(arr[i])
         }
     }
 
@@ -15,3 +15,4 @@ function flatten (arr, n) {
 }
 
 console.log(flatten(arr, 1));
+console.log(2);

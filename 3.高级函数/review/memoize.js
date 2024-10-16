@@ -1,6 +1,5 @@
 function memoize (fn) {
     let cache = new Map()
-
     return function () {
         let key = JSON.stringify(arguments)
         if (cache.has(key)) return cache.get(key)
@@ -11,8 +10,8 @@ function memoize (fn) {
 }
 
 function fibonacci (n) {
-    if (n <= 2) {
-        return 1
+    if (n <= 1) {
+        return n
     }
     return fibonacci(n - 1) + fibonacci(n - 2)
 }

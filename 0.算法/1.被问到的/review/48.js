@@ -6,10 +6,10 @@ function ListNode(val, next) {
 }
 
 function remergeTwoLists (list1, list2) {
-    const head = new ListNode()
+    let head = new ListNode()
     let cur = head
     while (list1 && list2) {
-        if (list1.val <= list2.val) {
+        if (list1.val < list2.val) {
             cur.next = list1
             list1 = list1.next
         } else {
@@ -18,7 +18,9 @@ function remergeTwoLists (list1, list2) {
         }
         cur = cur.next
     }
-    cur.next = list1 === null ? list2 : list1
+
+    cur.next = list1 == null ? list2 : list1
+
     return head.next
 }
 

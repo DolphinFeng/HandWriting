@@ -1,3 +1,5 @@
+// reduce 怎么实现 filter
+
 const numbers = [1, 2, 3, 4, 5];
 
 const greaterThanThree = numbers.reduce((acc, num) => {

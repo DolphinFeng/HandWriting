@@ -17,14 +17,13 @@ var person = {
 
 function print (obj, parentKey = '', res = {}) {
     for (let key in obj) {
-        const fullPath = parentKey ? `${parentKey}.${key}` : key
+        let fullPath = parentKey ? `${parentKey}.${key}` : key
         if (obj[key] instanceof Object && !Array.isArray(obj[key])) {
             print(obj[key], fullPath, res)
         } else {
             res[fullPath] = obj[key]
         }
     }
-    
     return res
 }
 

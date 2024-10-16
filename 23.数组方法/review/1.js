@@ -1,10 +1,10 @@
-Array.prototype.myReduce = function (cb, init) {
+Array.prototype.myReduce = function (fn, init) {
     let arr = this
     let acc = init || arr[0]
     let startIndex = init ? 0 : 1
     for (let i = startIndex; i < arr.length; i++) {
         let cur = arr[i]
-        acc = cb(acc, cur, i, arr)
+        acc = fn(acc, cur, i, arr)
     }
     return acc
 }

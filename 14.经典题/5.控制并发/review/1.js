@@ -1,48 +1,48 @@
 // 江总百度校招二面
 // 手写：写一个并发控制函数，和生成模拟请求列表函数
 
-class SuperTask {
+class Supertask {
     constructor (max) {
-        this.task = []
+        this.tasks = []
         this.max = max
         this.runNum = 0
     }
 
     run (task) {
         return new Promise((resolve, reject) => {
-            this.task.push({task, resolve, reject})
+            this.tasks.push({ task, resolve, reject })
             this.runTask()
         })
     }
 
     runTask () {
-        if (this.runNum < this.max && this.task.length) {
+        if (this.runNum < this.max && this.tasks.length) {
             this.runNum++
-            let { task, resolve, reject } = this.task.shift()
+            const { task, resolve, reject } = this.tasks.shift()
             task()
                 .then(resolve, reject)
                 .finally(() => {
                     this.runNum--
                     this.runTask()
                 })
-            }
+        }
     }
 }
 
-const timer = (delay) => {
+const p = new Supertask(2)
+
+const timer = (timeout) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve()
-        }, delay)
+        }, timeout)
     })
 }
 
-let p = new SuperTask(2)
-
-const addPromise = (delay, taskName) => {
-    p.run(() => timer(delay))
+const addPromise = (timeout, taskName) => {
+    p.run(() => timer(timeout))
         .then(() => {
-            console.log('任务' + taskName + '完成');
+            console.log(`task ${taskName} done`);
         })
 }
 

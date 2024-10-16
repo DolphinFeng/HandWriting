@@ -46,17 +46,15 @@ const tree = {
 
 function getDeep (node) {
     let level = 0
-
+    
     function dfs (node, l) {
         level = Math.max(level, l)
-
         for (let child of node.children) {
             dfs(child, l + 1)
         }
     }
-
     dfs(node, 1)
-    return level
+    return level 
 }
 
 console.log(getDeep(tree));

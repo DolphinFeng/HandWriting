@@ -15,11 +15,11 @@ var person = {
 //   info.address.country = 中国
 //   info.address.province = 广东
 
-function print (obj, parentKey = '', res = {}) {
+function flattenObj (obj, parentKey = '', res = {}) {
     for (let key in obj) {
         let fullPath = parentKey ? `${parentKey}.${key}` : key
         if (obj[key] instanceof Object && !Array.isArray(obj[key])) {
-            print(obj[key], fullPath, res)
+            flattenObj(obj[key], fullPath, res)
         } else {
             res[fullPath] = obj[key]
         }
@@ -27,8 +27,8 @@ function print (obj, parentKey = '', res = {}) {
     return res
 }
 
-const newObj = print(person)
+let newObj = flattenObj(person)
 
 for (let key in newObj) {
-    console.log(`${key} = ${newObj[key]}`); 
+    console.log(`${key} = ${newObj[key]}`)
 }

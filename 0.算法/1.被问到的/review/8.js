@@ -17,12 +17,10 @@ let arr = [
 ]
 
 function arrToTree (arr, parentId = -1) {
-    const filterArr = arr.filter(item => item.parent === parentId)
-
+    let filterArr = arr.filter(item => item.parent === parentId)
     filterArr.forEach(item => {
         item.childNode = arrToTree(arr, item.id)
     })
-
     return filterArr
 }
 

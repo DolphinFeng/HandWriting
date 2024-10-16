@@ -9,7 +9,7 @@ function simulateRequest (timeout) {
             } else {
                 reject('failed')
             }
-        }, requestTime)
+        }, timeout)
     })
 }
 
@@ -18,5 +18,5 @@ simulateRequest(1000)
         console.log(res);
     })
     .catch(err => {
-        console.log(err); 
+        console.log(err);
     })

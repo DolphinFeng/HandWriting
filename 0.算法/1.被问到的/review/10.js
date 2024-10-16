@@ -20,9 +20,7 @@ function findTargetSumWays (nums, S) {
             calculate(nums, i + 1, sum - nums[i], S)
         }
     }
-
-    calculate(nums, 0, 0, S)
-    
+    calculate (nums, 0, 0, S)
     return count
 }
 

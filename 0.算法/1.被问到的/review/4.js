@@ -36,7 +36,6 @@ const tree = [{
 
 function getAllIdsByLevel (tree, level) {
     let res = []
-    
     if (level === 1) {
         tree.forEach(item => {
             res.push(item.id)
@@ -44,11 +43,10 @@ function getAllIdsByLevel (tree, level) {
     } else {
         tree.forEach(item => {
             res.push(item.id)
-            res.push(...getAllIdsByLevel(item.children, level - 1))
+            item.children && res.push(...getAllIdsByLevel(item.children, level - 1))
         })
     }
-
     return res
 }
 
-console.log(getAllIdsByLevel(tree, 2));
+console.log(getAllIdsByLevel(tree, 4));

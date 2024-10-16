@@ -4,13 +4,13 @@ let obj = { a: 1, b: 2, c: 3 }
 // console.log(Object.entries(obj));
 
 function myEntries (obj) {
-    let res = []
+    let entries = []
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
-            res.push([key, obj[key]])
+            entries.push([key, obj[key]])
         }
     }
-    return res
+    return entries
 }
 
 console.log(myEntries(obj));

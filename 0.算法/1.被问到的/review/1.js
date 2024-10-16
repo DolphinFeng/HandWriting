@@ -11,7 +11,6 @@ let arr = ["a","a","b","b","c","c","c"];
 
 function getLength (arr) {
     let res = 0, i = 0
-    
     while (i < arr.length) {
         let j = i
         while (j < arr.length && arr[i] === arr[j]) {
@@ -26,7 +25,6 @@ function getLength (arr) {
         }
         i = j
     }
-
     return res
 }
 

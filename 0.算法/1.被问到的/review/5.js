@@ -32,9 +32,9 @@ const tree = [
 
 function fn (tree, target, isField) {
     let res = []
-
-    function traverse (node) {
-        for (let child of node) {
+    
+    function traverse (tree) {
+        for (let child of tree) {
             if (child[isField] === target) {
                 getId(child.children)
                 return 
@@ -48,16 +48,15 @@ function fn (tree, target, isField) {
         if (!children || children.length === 0) {
             res = '当前节点下无子节点'
             return 
-        } 
+        }
         for (let child of children) {
             res.push(child[isField])
             child.children && getId(child.children)
         }
     }
-    
-    traverse(tree)
 
+    traverse(tree)
     return res
 }
 
-console.log(fn(tree, '1', 'id'));
+console.log(fn(tree, '5', 'id'));

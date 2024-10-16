@@ -1,27 +1,27 @@
 class EventEmitter {
     constructor () {
-        this.event = {}
+        this.events = {}
     }
 
     on (type, cb) {
-        if (!this.event[type]) {
-            this.event[type] = []
+        if (!this.events[type]) {
+            this.events[type] = []
         }
-        this.event[type].push(cb)
+        this.events[type].push(cb)
     }
 
     emit (type, ...args) {
-        if (!this.event[type]) {
-            return 
-        }
-        this.event[type].forEach(cb => {
+        if (!this.events[type]) return
+        this.events[type].forEach(cb => {
             cb(...args)
         })
     }
 
     off (type, cb) {
-        if (!this.event[type]) return
-        this.event[type] = this.event[type].filter(item => item !== cb)
+        if (!this.events[type]) {
+            return 
+        }
+        this.events[type] = this.events[type].filter(item => item !== cb)
     }
 
     once (type, cb) {
@@ -39,8 +39,10 @@ const fn = (...args) => {
     console.log(...args);
 }
 
+// ev.once('run', fn)
+// ev.emit('run', 123)
+// ev.emit('run', 123)
+
 // ev.on('run', fn)
-ev.once('run', fn)
-// ev.off('run', fn)
 ev.emit('run', 123)
 ev.emit('run', 123)

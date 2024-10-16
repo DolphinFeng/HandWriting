@@ -7,7 +7,7 @@ let arr = [1, 1, '2', 3, 1, 2,
 ]
 
 function unique (arr) {
-    let res = [] 
+    let res = []
 
     for (let item of arr) {
         let isFind = false
@@ -17,9 +17,9 @@ function unique (arr) {
                 break
             }
         }
-        if (!isFind) res.push(item) 
+        if (!isFind) res.push(item)
     }
-    
+
     return res
 }
 
@@ -42,3 +42,4 @@ function equal (v1, v2) {
 }
 
 console.log(unique(arr));
+console.log(11);

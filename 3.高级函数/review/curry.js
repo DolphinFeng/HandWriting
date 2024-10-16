@@ -17,7 +17,7 @@ const currying = (fn) => {
             return res
         }
     }
-
+    
     return res
 }
 

@@ -23,21 +23,19 @@
 // 1 <= s.length <= 105
 // s 只包含字符 "I" 或 "D"
 
-function getString(s) {
-    let res = [];
-    let left = 0;
-    let right = s.length;
-
+function getString (s) {
+    let left = 0
+    let right = s.length
+    let res = []
     for (let i = 0; i < s.length; i++) {
         if (s[i] === 'I') {
-            res.push(left++);
-        } else if (s[i] === 'D') {
-            res.push(right--);
+            res.push(left++)
+        } else {
+            res.push(right--)
         }
     }
-    res.push(left); // 最后剩下的一个数字
-
-    return res;
+    res.push(left)
+    return res
 }
 
 // 示例测试用例

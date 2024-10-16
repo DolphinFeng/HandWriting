@@ -3,11 +3,11 @@ var arr = [1, [2, [3, [4, 5]]]]
 function flatten (arr) {
     let res = []
     
-    for (let item of arr) {
-        if (item instanceof Array) {
-            res = res.concat(flatten(item))
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] instanceof Array) {
+            res = res.concat(flatten(arr[i]))
         } else {
-            res.push(item)
+            res.push(arr[i])
         }
     }
 

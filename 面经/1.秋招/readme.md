@@ -39,7 +39,6 @@
 ## 解释下面的 ts
 ```ts
 // 解释这段 ts 代码含义
-
 export interface ReactRoute extends Omit<Optional<ReactRouteBase, 'rawRoute' | 'path'>, 'children'> {
     children?: ReactRoute[]
 }
@@ -64,10 +63,12 @@ export interface ReactRoute extends Omit<Optional<ReactRouteBase, 'rawRoute' | '
 # 字节飞书一面 10.10 (全程 55min)
 ## 安卓系统为什么没有 intl 这个 api，他不是具有 chrome 的内核吗
 ## 从团队角度，接手一个需求，除了自测，如何保证功能的稳定性
-    组长的 cr；需求评审；
+    组长的 cr；需求评审；单元测试（验证单个组件或函数的正确性，用 jest 运行测试，确保测试通过）;集成测试；端到端测试；持续集成；回归测试；用户验收测试；性能测试；监控和日志
 ## 了解前端自动化测试
-## 浏览器的并发数限制为 6 ，自己如何解决这个限制的，
+## 浏览器的并发数限制为 6 ，自己如何解决这个限制的
 ## 前端自动化检测了解吗
+    lint 算吗，
+    单元测试应该算，单元测试可以理解为最小范围化测试自己写的函数，组件等，满足预期功能即可
 ## useEffect 和 useLayoutEffect 区别
 ## http 1 和 2 的区别
 ## http 2 的最大特性
@@ -164,3 +165,53 @@ console.log(solution(tree, 18)); // false
 console.log(solution(tree, 27)); // true
 console.log(solution(tree, 5));  // false
 ```
+
+# 滴滴一面 10.12 （全程 45min）
+## CommonJS EsModule 区别，不谈语法，谈原理
+    追问：模块的加载时机是否一样，是否注意过 tree-shaking，tree-shaking为什么只能对 ESModule ，而不能对 CommonJs。和编译时的依赖收集有关
+    CommonJs 可以转换为 ESM ，是 webpack 的哪个工具实现的，是 loader，不是 plugin，是哪个 loader 呢。是 babel 吧
+    loader 和 plugin 的区别，常用的 loader 和 plugin 能讲出两个吗，比如 css-loader, style-loader, scss-loader, vue-loader
+    追问：vue 最终转换的 源码，有个 render 函数，这个 render 函数是干嘛的呢, 然后编译时 script 部分是怎么跟 ts 关联起来的，babel-rules
+    transform 是 vite 钩子之一，在 require 才会执行，这其实就是 ESM 在 vite 中的 应用
+## js 闭包
+## 浏览器的同源策略
+## ref 中的 .value 是怎么来的
+    其实是 对 对象转成了 对象 用 proxy 代理，所以变成了一个对象，取名为 value
+## v-for 的 key，在前端渲染上他的优势在哪儿
+## 写一个二叉树遍历
+## 小程序 和 浏览器 的 h5 
+    运行机制、开发语法、发布
+## A, B 两个分支, A mr 到了 B，我现在想要撤回掉 commit
+    追问：git revert，回滚分支的操作，如果是 merge request B 分支怎么处理，commit id 有两个，一个 add, 一个提交的 id，分支合并也会产生一个 id
+    切到 B 分支，git log 拿到 commit id，然后 git revert <commit-id>，然后再 git commit -m 'Revert commit <commit-id>'
+## koa 的洋葱模型，有没有用过具体的插件，比如鉴权，请求前的拦截器 intercepters
+## 实现一个 class 的 intercepters
+    让 拦截器可以执行传递的函数即可
+```js
+// const myRequest = new CustomRequest()
+
+// myRequest.intercepters(async (config) => {
+//     // 统一处理 fetch config
+//     await xxx()
+//     if ((config.url.includes('didi.com')) {
+//         config.header.cityid = 1
+//         return config
+//     }, 100)
+    
+// })
+
+class myRequest {
+    intercepters (cb) {
+        this.array.push(cb)
+    }
+    
+    fetch (config) {
+        this.intercepters.forEach(() => cb())
+        fetch()
+            .then(this.response)
+    }
+}
+```
+## 最长字符串无重复子串 leetcode No.3
+## 反问
+    组内业务；如何平衡业务，技术；建议

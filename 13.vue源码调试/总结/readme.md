@@ -954,3 +954,66 @@ genVNodeCall 的作用是给 context.code 生成一个 return (_openBlock())，�
 <div :title="title"> 是如何将 title 绑定到 title 属性上的
 像是 v-bind 这个指令就是由 transformElement 转换的
 这个函数同 generate 的位置一样，在同一个文件中，对这个函数打上一个断点
+这个函数有两个部分很重要，其中第一部分主要是函数 buildProps，这个函数作用是拿到当前节点的 props 属性赋值 给 vnodeProps
+进入 buildProps 中，此时的第三个入参是 node，里面的 props 有个 name 为 bind ，可以看出此时 bind 还未进行解析
+![alt text](image-34.png)，此时的 rawName 就是 第一个 v-bind:title
+往 buildProps 函数中往下看到 context.directiveTransforms ，这个属性里面装了所有的属性，bind，cloack，html，model……  bind 就是第一个，此时的 name 就是 bind
+然后就是 createObjectExpression 这个函数帮你把 bind 进行解析，可以看到里面的 value 变成了 $setup.tile
+properties 数组中已经没有了 v-bind 指令，取而代之的是 $setup.tile，
+后面有一部分就是 交给 transformBind 函数去处理
+其实 v-bind 有种写法就是 v-bind:title 这样的，vue 如何 区分它和 :title 这种写法就是通过 parse 阶段将 html 编译成 ast 遇到这两种写法当成 v-bind 去处理 将属性名塞到 dir.arg, 将属性值塞到 dir.exp
+所以 transformbind 主要作用就是 解析出 v-bind 的属性名和属性值，最后返回一个 包含 key-value 的 props 对象，后续 render 函数只需要遍历 props ,根据 key-value 进行字符串拼接就可以生成 title 属性
+
+# v-model 指令
+vue项目最后的源码被解析成了 render 函数，这个函数就是用来生成 虚拟 dom，然后描绘出真实 dom
+v-model 指令其实是 modelValue, @update:modelValue
+render 函数中最后其实有两个模块，一个是 createVNode，还有个是 createElementVNode.
+createVNode 其实就是 vue 的 h 函数，这个函数底层就是调用的 createVNode，
+```js
+_createVNode($setup["CommonChild"], {
+        modelValue: $setup.inputValue,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.inputValue = $event)
+      }, null, 8, ["modelValue"]),
+```
+setup 后面再看，他的作用其实是让 setup 函数的返回值经过 proxy 去处理，这样template 的 ref 就不用 .value ，createVNode 函数的第一个入参就是组件，第二个就是 v-model 的两个 key，
+modelValue 和 onUpdate:modelValue，这里的 onUpdate: 本来是 @update，其实是因为 v-on 处理了，他将监听的事件首字母大写后在前面加一个 on 然后塞到了 props 对象中
+所以 现在看到 on 开头的东西就是事件监听
+modelValue 和 onUpdate:modelValue 都是作为参数传给 createVNode 函数的第一个参数组件中
+可以看到 modelValue 的 value 是 $setup.inputValue，这其实就是给 CommonChild 组件添加一个 :modelValue = 'inputVlaue' 的 属性
+第二个属性 onUpdate:modelValue 的 value 是 cache[0] || ……,，还有缓存，没有缓存的参数是事件，这就可以理解这个 缓存了，要是没有就会导致每次 render 都生成一个 事件处理函数
+这个事件处理函数的入参就是一个 event 变量，然后赋值给 setup 的 inputValue，其实就是 子组件 emit 触发事件传过来的变量，emit 函数在 组件传参中第一个参数就是事件名，这个属性的作用就是给子组件添加一个 @update:modelValue 事件绑定
+所以可以看到整个大概流程就是 template 先被 parse 给到 ast，然后 由 transform 函数去生成 codegenNode 属性，此时的 v-model 指令被转换为了 modelValue 和 onUpdate:modelValue 两个属性，然后 由 generate 函数去生成 render 函数
+generate 函数会递归遍历 ast 抽象语法树，然后生成 浏览器可以执行的 js 代码，
+
+vue 项目最终的源码其实就是两个部分一个 sfc_main，还有个 render
+```js
+const _sfc_main = /* @__PURE__ */ _defineComponent({
+  __name: "App",
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const msg = ref();
+    const __returned__ = { msg };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+```
+其实 sfc_main 就是组件，一个组件会最终变成一个 sfc_main 对象， render 函数主要靠的是 openBlock，createElementBlock 函数，
+createElementBlock 函数里面的第一个函数是 withDirective
+这里还有个 vue 的进阶 api， withDirective，他的作用是给 VNOde 添加自定义指令
+createElementVNode 这个函数就是用来创建 vnode，这个函数和 h 函数差不多，底层均是调用 createBaseVNode，
+原生 input 框 中写的 v-model ，其实会产生一个 自定义指令 vModelText 这个指令是一个 运行时的 v-model，说运行时是因为只有原生 input 在运行时还有 v-model 指令
+vModelText 自定义指令代码如下：
+```js
+const vModelText = {
+  created(el, { modifiers: { lazy, trim, number } }, vnode) {
+    // ...
+  },
+  mounted(el, { value }) {
+    // ...
+  },
+  beforeUpdate(el, { value, modifiers: { lazy, trim, number } }, vnode) {
+    // ...
+  },
+}
+```
+mounted 就是在 msg 不为空时，将 msg 同步到 input 中
+
+# template ref 无需 .value

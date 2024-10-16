@@ -1,10 +1,6 @@
 // [10.5, 10.7, 10.8, 10.3, 47.7] -> ['11%', '12%', '12%', '11%', '44%']
 
-/**
- * 将数字数组转换为百分比字符串数组
- * @param {number[]} numbers - 输入的数字数组
- * @returns {string[]} - 转换后的百分比字符串数组
- */
+
 function convertToPercentages(numbers) {
   // 计算数组中所有数字的总和
   const total = numbers.reduce((sum, num) => sum + num, 0);

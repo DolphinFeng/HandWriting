@@ -1,7 +1,7 @@
 // 江总百度校招二面
 // 手写：写一个并发控制函数，和生成模拟请求列表函数
 
-class Supertask {
+class SuperTask {
     constructor (max) {
         this.tasks = []
         this.max = max
@@ -29,20 +29,20 @@ class Supertask {
     }
 }
 
-const p = new Supertask(2)
+const p = new SuperTask(2)
 
 const timer = (timeout) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve()
+            resolve(timeout)
         }, timeout)
     })
 }
 
 const addPromise = (timeout, taskName) => {
     p.run(() => timer(timeout))
-        .then(() => {
-            console.log(`task ${taskName} done`);
+        .then(res => {
+            console.log(`task ${taskName} done`)
         })
 }
 

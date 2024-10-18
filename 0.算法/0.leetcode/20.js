@@ -14,12 +14,12 @@ function isValid (str) {
         '{': '}'
     }
     const stack = []
-    const len = s.length
+    const len = str.length
     if(len % 2 != 0 ){
         return false
     }
     for(let i = 0; i<len; i++){
-        const item = s[i]
+        const item = str[i]
         if(item === '(' || item === '{' || item === '['){
             stack.push(item)
         }else{

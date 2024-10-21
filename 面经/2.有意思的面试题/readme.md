@@ -115,3 +115,6 @@ document.cookie
   答案：两个钩子都是用于性能优化的，都是来作缓存使用。
   useMemo 是用来缓存计算结果，这个使用场景就是计算过程开销大时，用 useMemo 缓存计算结果，避免每次渲染都重新计算，就很像 memoize
   useCallback 是用来缓存函数实例，当函数作为子组件的 props 传递时，useCallback 来缓存函数实例，避免子组件不必要的重新渲染
+
+# parseFloat(undefined) 输出啥
+  NaN, parseFloat 是 JavaScript 中的一个全局函数，用于将一个字符串解析成浮点数。它会解析字符串中的数字，直到遇到一个非数字字符为止。

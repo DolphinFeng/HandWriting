@@ -118,3 +118,9 @@ document.cookie
 
 # parseFloat(undefined) 输出啥
   NaN, parseFloat 是 JavaScript 中的一个全局函数，用于将一个字符串解析成浮点数。它会解析字符串中的数字，直到遇到一个非数字字符为止。
+
+# 字符串可以通过下标修改吗
+  let str = 'hello' str[0] = 'H' 改不了，这是因为字符串这种常量存在栈中，就是写死的 
+
+# react的组件分哪几种类型
+    函数组价、类组件、高阶组件、受控组件、非受控组件

@@ -8,22 +8,20 @@
 </head>
 
 <body>
-
     <script>
-        function createCounter() {
-            let count = 0; // 外部函数作用域中的变量
+        function createObjects() {
+            let obj1 = { name: 'Object 1' };
+            let obj2 = { name: 'Object 2' };
+            let obj3 = { name: 'Object 3' };
 
-            return function () {
-                count++; // 闭包引用了外部函数的变量
-                console.log(count);
-            };
+            obj1.ref = obj2; // obj1 引用 obj2
+            obj2.ref = obj3; // obj2 引用 obj3
+
+            return obj1; // 返回 obj1
         }
 
-        const counter = createCounter();
-        counter(); // 输出: 1
-        counter(); // 输出: 2
-        counter(); // 输出: 3
-        counter = null
+        let root = createObjects(); // 根对象引用 obj1
+        console.log(root);
     </script>
 </body>
 

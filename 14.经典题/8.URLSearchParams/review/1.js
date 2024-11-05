@@ -19,16 +19,16 @@ class URLSearchParams {
     }
 
     _parseString (str) {
-        str = str.startsWith('?') ? str.slice(1) : str
-        const pairs = str.split('&')
-        for (let pair of pairs) {
-            const [key, value] = pair.split('=').map(decodeURIComponent)
+        const params = str.startsWith('?') ? str.slice(1) : str
+        const pairs = params.split('&')
+        for (const pair of pairs) {
+            const [key, value] = pair.split('=')
             this.append(key, value)
-        } 
+        }
     }
 
     _parseObject (obj) {
-        for (let key in obj) {
+        for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
                 this.append(key, obj[key])
             }
@@ -36,10 +36,11 @@ class URLSearchParams {
     }
 
     append (key, value) {
-        if (!this.params.has(key)) {
-            this.params.set(key, [])
+        if (this.params.has(key)) {
+            this.params.get(key).push(value)
+        } else {
+            this.params.set(key, [value])
         }
-        this.params.get(key).push(value)
     }
 
     set (key, value) {
@@ -58,8 +59,8 @@ class URLSearchParams {
     toString () {
         const pairs = []
         for (const [key, values] of this.params) {
-            for (let value of values) {
-                pairs.push(`${decodeURIComponent(key)}=${decodeURIComponent(value)}`)
+            for (const value of values) {
+                pairs.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
             }
         }
         return pairs.join('&')
@@ -67,12 +68,13 @@ class URLSearchParams {
 
     *[Symbol.iterator] () {
         for (const [key, values] of this.params) {
-            for (let value of values) {
+            for (const value of values) {
                 yield [key, value]
             }
         }
     }
 }
+
 const params = new URLSearchParams('?foo=1&bar=2')
 
 params.append('bar', '4')

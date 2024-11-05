@@ -418,4 +418,16 @@
     - leetcode: 55,
 - 10.25
     - leetcode: 121, 122, 165, 1556, 
+- 10.31
+    - promsie
+    - 经典题: supertask, LRUCache, largeNumberAdd, eventEmitter, 
+    - leetcode: 1556, 165
+## 2024.11
+- 11.1
+    - leetcode: 234, 
+- 11.4
+    - 经典题: LRU-pm
+- 11.5
+    - 经典题: LRU-pm, EventEmitter, addLargeNum, URLSearchParams, SuperTask, 
+    - leetcode: 387, 
 ```

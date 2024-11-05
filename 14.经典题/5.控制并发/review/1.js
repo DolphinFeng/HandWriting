@@ -4,21 +4,21 @@
 class SuperTask {
     constructor (max) {
         this.tasks = []
-        this.max = max
+        this.capacity = max
         this.runNum = 0
     }
 
     run (task) {
         return new Promise((resolve, reject) => {
-            this.tasks.push({ task, resolve, reject })
+            this.tasks.push({task , resolve, reject})
             this.runTask()
         })
     }
 
     runTask () {
-        if (this.runNum < this.max && this.tasks.length) {
+        if (this.runNum < this.capacity && this.tasks.length) {
             this.runNum++
-            const { task, resolve, reject } = this.tasks.shift()
+            const { task , resolve, reject } = this.tasks.shift()
             task()
                 .then(resolve, reject)
                 .finally(() => {
@@ -28,21 +28,20 @@ class SuperTask {
         }
     }
 }
-
 const p = new SuperTask(2)
 
 const timer = (timeout) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(timeout)
+            resolve()
         }, timeout)
     })
 }
 
 const addPromise = (timeout, taskName) => {
     p.run(() => timer(timeout))
-        .then(res => {
-            console.log(`task ${taskName} done`)
+        .then(() => {
+            console.log(`任务${taskName}完成`)
         })
 }
 

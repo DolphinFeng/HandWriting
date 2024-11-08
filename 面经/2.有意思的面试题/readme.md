@@ -124,3 +124,14 @@ document.cookie
 
 # react的组件分哪几种类型
     函数组价、类组件、高阶组件、受控组件、非受控组件
+
+# null 和 undefined 的区别
+  答案：undefined 代表未定义，一般是声明了变量但没有赋值，或者函数没有返回值时就会得到 undefined
+  而 null 代表空值，一般是人为的将变量赋值为 null，表示这个变量不应该有值
+  
+  类型上：typeof undefined === 'undefined'，而 typeof null === 'object'
+  相等性：null == undefined 为 true，但 null === undefined 为 false
+  
+  使用场景：
+  - undefined 常见于变量声明但未赋值、访问对象不存在的属性、函数无返回值
+  - null 常用于主动释放对象引用、表示对象原型链的终点、作为函数的参数表示该参数不是对象

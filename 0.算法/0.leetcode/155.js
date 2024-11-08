@@ -1,4 +1,4 @@
-
+// 最小栈
 var MinStack = function () {
     // 主栈指针
     this.head = null

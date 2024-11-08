@@ -98,9 +98,60 @@ class MyPromise {
             let arr = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i].then(
-                    value => {},
+                    value => {
+                        arr[i] = value
+                        count++
+                        if (count === promises.length) {
+                            resolve(arr)
+                        }
+                    },
                     reason => reject(reason)
                 )
+            }
+        })
+    }
+
+    static any (promises) {
+        return new MyPromise((resolve, reject) => {
+            let arr = [], count = 0
+            for (let i = 0; i < promises.length; i++) {
+                promises[i].then(
+                    value => resolve(value),
+                    reason => {
+                        arr[i] = reason
+                        count++
+                        if (count === promises.length) {
+                            reject(arr)
+                        }
+                    }
+                )
+            }
+        })
+    }
+
+    static allSettled (promises) {
+        return new MyPromise((resolve, reject) => {
+            let arr = [], count = 0
+            for (let i = 0; i < promises.length; i++) {
+                promises[i]
+                    .then(value => {
+                        arr[i] = {
+                            state: 'fulfilled',
+                            value
+                        }
+                    })
+                    .catch(reason => {
+                        arr[i] = {
+                            state: 'rejected',
+                            reason
+                        }
+                    })
+                    .finally(() => {
+                        count++
+                        if (count === promises.length) {
+                            resolve(arr)
+                        }
+                    })
             }
         })
     }

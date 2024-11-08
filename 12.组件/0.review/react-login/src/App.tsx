@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-const App: React.FC = () => {
+export default function App () {
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showModal, setShowModal] = useState(false)
@@ -27,5 +28,3 @@ const App: React.FC = () => {
     </>
   )
 }
-
-export default App

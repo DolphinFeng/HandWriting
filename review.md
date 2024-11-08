@@ -429,5 +429,15 @@
     - 经典题: LRU-pm
 - 11.5
     - 经典题: LRU-pm, EventEmitter, addLargeNum, URLSearchParams, SuperTask, 
-    - leetcode: 387, 
+    - leetcode: 387,
+- 11.6
+    - promise
+- 11.8
+    - 11.11水滴一面冲！
+    - leetcode: 387, 93, 400, 20, 32, 155, 71, 496, 2, 141, 206, 19, 21, 1556, 165, 
+    - 高级函数: debouncePromise, throttlePromise, 
+    - 经典题: LRUCache-pm, addLargeNumber, SuperTask, 
+    - 组件: react-login, 
+    - 数组去重
+    - 二分查找
 ```

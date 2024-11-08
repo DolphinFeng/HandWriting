@@ -3,14 +3,14 @@
 
 class SuperTask {
     constructor (max) {
-        this.tasks = []
         this.capacity = max
+        this.tasks = []
         this.runNum = 0
     }
 
     run (task) {
         return new Promise((resolve, reject) => {
-            this.tasks.push({task , resolve, reject})
+            this.tasks.push({ task, resolve, reject })
             this.runTask()
         })
     }
@@ -18,7 +18,7 @@ class SuperTask {
     runTask () {
         if (this.runNum < this.capacity && this.tasks.length) {
             this.runNum++
-            const { task , resolve, reject } = this.tasks.shift()
+            const { task, resolve, reject } = this.tasks.shift()
             task()
                 .then(resolve, reject)
                 .finally(() => {
@@ -28,6 +28,7 @@ class SuperTask {
         }
     }
 }
+
 const p = new SuperTask(2)
 
 const timer = (timeout) => {

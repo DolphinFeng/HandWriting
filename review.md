@@ -400,6 +400,44 @@
     - 组件: react-login, vue-login
 - 10.18 
     - 秋招投递：理想、
-    - 力扣: 516, 53, 121, 122, 123, 188, 309, 714, 752, 111, 155, 496, 503, 20, 71, 695, 100, 51
+    - 力扣: 516, 53, 121, 122, 123, 188, 309, 714, 752, 111, 155, 496, 503, 20, 71, 695, 100, 51, 46, 22, 93, 78, 
     - 组件: vue-modal
+    - 高级函数: multipleCurry
+    - 树: 数组转树
+- 10.21
+    - 算法
+        - 力扣: 234, 206, 23, 25, 141, 148, 160, 5, 
+    - 组件: vue-todo
+- 10.22
+    - 算法
+        - 力扣: 14, 3, 76, 
+- 10.23
+    - promise, 数组去重
+    - 经典题: 红绿灯, 
+- 10.24
+    - leetcode: 55,
+- 10.25
+    - leetcode: 121, 122, 165, 1556, 
+- 10.31
+    - promsie
+    - 经典题: supertask, LRUCache, largeNumberAdd, eventEmitter, 
+    - leetcode: 1556, 165
+## 2024.11
+- 11.1
+    - leetcode: 234, 
+- 11.4
+    - 经典题: LRU-pm
+- 11.5
+    - 经典题: LRU-pm, EventEmitter, addLargeNum, URLSearchParams, SuperTask, 
+    - leetcode: 387,
+- 11.6
+    - promise
+- 11.8
+    - 11.11水滴一面冲！
+    - leetcode: 387, 93, 400, 20, 32, 155, 71, 496, 2, 141, 206, 19, 21, 1556, 165, 
+    - 高级函数: debouncePromise, throttlePromise, 
+    - 经典题: LRUCache-pm, addLargeNumber, SuperTask, 
+    - 组件: react-login, 
+    - 数组去重
+    - 二分查找
 ```

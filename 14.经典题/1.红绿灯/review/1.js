@@ -10,29 +10,29 @@ function yellow () {
     console.log('yellow');
 }
 
-function light (fn, delay) {
-    return new Promise((resolve, reject) => {
+function light (fn, wait) {
+    return new Promise((resolve) => {
         setTimeout(() => {
             fn()
             resolve()
-        }, delay)
+        }, wait)
     })
 }
 
 function start () {
-    Promise.resolve()
-    .then(() => {
-        return light(red, 1000)
-    })
-    .then(() => {
-        return light(green, 1000)
-    })
-    .then(() => {
-        return light(yellow, 1000)
-    })
-    .finally(() => {
-        return start()
-    })
+    return Promise.resolve()
+        .then(() => {
+            return light(red, 1000)
+        })
+        .then(() => {
+            return light(green, 1000)
+        })
+        .then(() => {
+            return light(yellow, 1000)
+        })
+        .finally(() => {
+            return start()
+        })
 }
 
 start()

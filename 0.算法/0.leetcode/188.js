@@ -23,5 +23,5 @@ const maxProfit = function (k, prices) {
     return profit[k].sell; //返回第k次清空手中的股票之后的最大利润
 };
 
-console.slog(maxProfit(2, [2, 4, 1])); // 2
+console.log(maxProfit(2, [2, 4, 1])); // 2
 console.log(maxProfit(2, [3, 2, 6, 5, 0, 3])); // 7

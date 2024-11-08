@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sector {
+          width: 150px; /* 扇形的宽度 */
+          height: 150px; /* 扇形的高度 */
+          background-color: transparent;
+          border: 75px solid; /* 边框宽度决定了扇形的半径 */
+          border-color: transparent transparent red transparent; /* 上右下左 */
+          border-radius: 150px 0 0 0; /* 四个值分别对应上右下左 */
+          transform: rotate(-45deg); /* 旋转角度来调整扇形的角度 */
+        }
+        .container {
+          width: 200px;
+          height: 200px;
+          position: relative;
+        }
+      </style>
+</head>
+<body>
+      <div class="container">
+        <div class="sector"></div>
+      </div>
+</body>
+</html>

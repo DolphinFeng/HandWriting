@@ -11,12 +11,13 @@ function unique (arr) {
 
     for (let item of arr) {
         let isFind = false
-        for (let resItem of res) {
-            if (equal(item, resItem)) {
+
+        for (let restItem of res) {
+            if (equal(item, restItem)) {
                 isFind = true
-                break
             }
         }
+
         if (!isFind) res.push(item)
     }
 

@@ -43,4 +43,4 @@ let head = {
 }
 
 console.log(reverseKGroup(head, 2));
-console.log(1111);o
+console.log(1111);

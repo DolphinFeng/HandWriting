@@ -115,3 +115,23 @@ document.cookie
   答案：两个钩子都是用于性能优化的，都是来作缓存使用。
   useMemo 是用来缓存计算结果，这个使用场景就是计算过程开销大时，用 useMemo 缓存计算结果，避免每次渲染都重新计算，就很像 memoize
   useCallback 是用来缓存函数实例，当函数作为子组件的 props 传递时，useCallback 来缓存函数实例，避免子组件不必要的重新渲染
+
+# parseFloat(undefined) 输出啥
+  NaN, parseFloat 是 JavaScript 中的一个全局函数，用于将一个字符串解析成浮点数。它会解析字符串中的数字，直到遇到一个非数字字符为止。
+
+# 字符串可以通过下标修改吗
+  let str = 'hello' str[0] = 'H' 改不了，这是因为字符串这种常量存在栈中，就是写死的 
+
+# react的组件分哪几种类型
+    函数组价、类组件、高阶组件、受控组件、非受控组件
+
+# null 和 undefined 的区别
+  答案：undefined 代表未定义，一般是声明了变量但没有赋值，或者函数没有返回值时就会得到 undefined
+  而 null 代表空值，一般是人为的将变量赋值为 null，表示这个变量不应该有值
+  
+  类型上：typeof undefined === 'undefined'，而 typeof null === 'object'
+  相等性：null == undefined 为 true，但 null === undefined 为 false
+  
+  使用场景：
+  - undefined 常见于变量声明但未赋值、访问对象不存在的属性、函数无返回值
+  - null 常用于主动释放对象引用、表示对象原型链的终点、作为函数的参数表示该参数不是对象

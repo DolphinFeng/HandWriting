@@ -1,8 +1,9 @@
 class LazyMan {
     queue = []
+
     constructor (name) {
         this.push(() => {
-            console.log(`Hi! This is ${name}`);
+            console.log(`我叫 ${name}`)
         })
         setTimeout(() => {
             this.next()
@@ -11,51 +12,51 @@ class LazyMan {
 
     eat (thing) {
         this.push(() => {
-            console.log(`Eat ${thing}`);
+            console.log(`我喜欢吃 ${thing}`)
         })
         return this
     }
 
     drink (thing) {
         this.push(() => {
-            console.log(`Drink ${thing}`);
+            console.log(`我喝 ${thing}`)
         })
         return this
     }
 
-    sleep (delay) {
+    sleep (time) {
         this.push(() => {
-            return new Promise(resolve => {
+            return new Promise((resolve) => {
                 setTimeout(() => {
-                    console.log(`Sleep ${delay} ms`);
+                    console.log(`等待 ${time} ms`)
                     resolve()
-                }, delay)
+                }, time)
             })
         })
         return this
     }
 
-    sleepFirst (delay) {
+    sleepFirst (time) {
         this.unshift(() => {
-            return new Promise(resolve => {
+            return new Promise((resolve) => {
                 setTimeout(() => {
-                    console.log(`Sleep ${delay} ms first`);
+                    console.log(`等待 ${time} ms`)
                     resolve()
-                }, delay)
+                }, time)
             })
         })
         return this
     }
 
-    unshift (task) {
-        this.queue.unshift(async() => {
+    push (task) {
+        this.queue.push(async () => {
             await task()
             this.next()
         })
     }
 
-    push (task) {
-        this.queue.push(async () => {
+    unshift (task) {
+        this.queue.unshift(async () => {
             await task()
             this.next()
         })

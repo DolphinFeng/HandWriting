@@ -16,7 +16,7 @@ class SuperTask {
     }
 
     runTask () {
-        if (this.runNum < this.capacity && this.tasks.length) {
+        if (this.capacity > this.runNum && this.tasks.length) {
             this.runNum++
             const { task, resolve, reject } = this.tasks.shift()
             task()
@@ -29,22 +29,23 @@ class SuperTask {
     }
 }
 
-const p = new SuperTask(2)
+let p = new SuperTask(2)
 
-const timer = (timeout) => {
+const timer = (delay) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve()
-        }, timeout)
+        }, delay)
     })
 }
 
-const addPromise = (timeout, taskName) => {
-    p.run(() => timer(timeout))
+const addPromise = (delay, taskName) => {
+    p.run(() => timer(delay))
         .then(() => {
             console.log(`任务${taskName}完成`)
         })
 }
+
 
 addPromise(1000, 1)
 addPromise(500, 2)

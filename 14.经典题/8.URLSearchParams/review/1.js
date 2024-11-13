@@ -19,10 +19,10 @@ class URLSearchParams {
     }
 
     _parseString (str) {
-        const params = str.startsWith('?') ? str.slice(1) : str
-        const pairs = params.split('&')
+        str = str.startsWith('?') ? str.slice(1) : str
+        const pairs = str.split('&')
         for (const pair of pairs) {
-            const [key, value] = pair.split('=')
+            const [key, value] = pair.split('=').map(decodeURIComponent)
             this.append(key, value)
         }
     }
@@ -48,7 +48,7 @@ class URLSearchParams {
     }
 
     get (key) {
-        const values = this.params.get(key)
+        let values = this.params.get(key)
         return values ? values[0] : null
     }
 
@@ -58,6 +58,7 @@ class URLSearchParams {
 
     toString () {
         const pairs = []
+
         for (const [key, values] of this.params) {
             for (const value of values) {
                 pairs.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)

@@ -6,8 +6,11 @@ function merge (arr1, arr2) {
     let i = 0, j = 0, res = []
 
     while (i < arr1.length && j < arr2.length) {
-        if (arr1[i] < arr2[j]) res.push(arr1[i++])
-        else res.push(arr2[j++])
+        if (arr1[i] < arr2[j]) {
+            res.push(arr1[i++])
+        } else {
+            res.push(arr2[j++])
+        }
     }
 
     while (i < arr1.length) {

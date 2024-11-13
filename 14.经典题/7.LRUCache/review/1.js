@@ -16,8 +16,8 @@ class URLCache {
         if (this.cache.has(key)) {
             this.cache.delete(key)
         } else if (this.capacity <= this.cache.size) {
-            const firstKey = this.cache.keys().next().value
-            this.cache.delete(firstKey)
+            const firstkey = this.cache.keys().next().value
+            this.cache.delete(firstkey)
         }
         this.cache.set(key, value)
     }

@@ -1,3 +1,5 @@
+// 打劫房屋
+
 const rob = (root) => { // 打劫以root为根节点的子树的最大收益
     if (root == null) {
         return 0;
@@ -15,6 +17,14 @@ const rob = (root) => { // 打劫以root为根节点的子树的最大收益
     // 二者取其大
     return Math.max(robIncludeRoot, robExcludeRoot); 
 };
+
+/*
+        3
+       / \
+      2   3
+       \   \
+        3   1
+*/
 
 let root = {
     val: 3,

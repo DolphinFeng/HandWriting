@@ -1,5 +1,5 @@
 function once (fn) {
-    let res, ran = false
+    let ran = false, res
     return function () {
         if (ran) return res
         res = fn.apply(this, arguments)
@@ -16,5 +16,5 @@ const add = once(() => {
 })
 
 console.log(add());
-
 console.log(add());
+

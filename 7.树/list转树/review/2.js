@@ -6,14 +6,10 @@ function TreeNode (val) {
 
 
 function buildTree (arr) {
-    if (arr.length === 0) return null
-
     let root = new TreeNode(arr[0])
-
     let queue = [root], i = 1
-
     while (i < arr.length) {
-        let cur = queue.shift()
+        const cur = queue.shift()
 
         if (arr[i] !== null) {
             cur.left = new TreeNode(arr[i])
@@ -26,7 +22,6 @@ function buildTree (arr) {
         }
         i++
     }
-    
     return root
 }
 

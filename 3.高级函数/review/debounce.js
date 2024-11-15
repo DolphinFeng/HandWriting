@@ -4,7 +4,7 @@ function deboucePromise (fn, delay) {
     return function (...args) {
         return new Promise((resolve, reject) => {
             if (timer) clearTimeout(timer)
-
+                
             timer = setTimeout(() => {
                 Promise.resolve(fn.apply(this, args))
                     .then(result => {

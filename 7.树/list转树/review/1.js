@@ -31,19 +31,16 @@ let arr = [
 //     └── 32 (3-2)
 
 
-function arrToTree(arr, parentId = -1) {
-    // 过滤出当前父节点的子节点
-    const filterArr = arr.filter(item => item.parent === parentId);
+function arrToTree (arr, parentId = -1) {
+    let filterArr = arr.filter(item => item.parent === parentId)
 
-    // 递归调用，将子节点添加到父节点的 childNode 属性中
     filterArr.forEach(item => {
-        item.childNode = arrToTree(arr, item.id);
-    });
+        item.childNode = arrToTree(arr, item.id)
+    })
 
-    // 返回过滤后的数组，即树结构
-    return filterArr;
+    return filterArr
 }
 
 
 console.log(arrToTree(arr));
-
+console.log(JSON.stringify(arrToTree(arr)));

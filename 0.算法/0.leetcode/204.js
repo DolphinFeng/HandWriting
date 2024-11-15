@@ -1,3 +1,4 @@
+// 204. 计数质数
 var countPrimes = function(n) {
     let res = []
     for (let i = 2; i < n; i++) {

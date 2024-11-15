@@ -1,8 +1,6 @@
-// 里面的对象x秒内没有被set或者get就会自动删除
-
 class LRUCache {
     constructor (capacity, timeout) {
-        this.capactity = capacity
+        this.capacity = capacity
         this.timeout = timeout
         this.cache = new Map()
         this.timers = new Map()
@@ -10,23 +8,23 @@ class LRUCache {
 
     get (key) {
         if (!this.cache.has(key)) return -1
-        this._resetTimer(key)
         const value = this.cache.get(key)
         this.cache.delete(key)
         this.cache.set(key, value)
+        this._resetTimer(key)
         return value
     }
 
-    put (key) {
+    put (key, value) {
         if (this.cache.has(key)) {
             this.cache.delete(key)
-        } else if (this.cache.size > this.capactity) {
-            const firstKey = this.cache.keys().next().value
-            this._clearTimer(firstKey)
-            this.cache.delete(firstKey)
-        }
-        this.cache.set(key, value)
+        } else if (this.capacity <= this.cache.size) {
+            const firstkey = this.cache.keys().next().value
+            this.cache.delete(firstkey)
+            this._clearTimer(firstkey)
+        } 
         this._resetTimer(key)
+        this.cache.set(key, value)
     }
 
     _resetTimer (key) {

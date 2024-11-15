@@ -1,8 +1,8 @@
 class MyPromise {
     constructor (executor) {
+        this.state = 'pending'
         this.value = undefined
         this.reason = undefined
-        this.state = 'pending'
         this.onFulfilledCallbacks = []
         this.onRejectedCallbacks = []
 
@@ -10,7 +10,7 @@ class MyPromise {
             if (this.state === 'pending') {
                 this.state = 'fulfilled'
                 this.value = value
-                this.onFulfilledCallbacks.forEach(cb => cb(value))
+                this.onFulfilledCallbacks.forEach(cb => cb(this.value))
             }
         }
 
@@ -18,20 +18,20 @@ class MyPromise {
             if (this.state === 'pending') {
                 this.state = 'rejected'
                 this.reason = reason
-                this.onRejectedCallbacks.forEach(cb => cb(reason))
+                this.onRejectedCallbacks.forEach(cb => cb(this.reason))
             }
         }
 
         try {
             executor(resolve, reject)
-        } catch (err) {
-            reject(err)
+        } catch (error) {
+            reject(error)
         }
     }
 
     then (onFulfilled, onRejected) {
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
-        onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
+        onRejected = typeof onRejected === 'function' ? onRejected : reason => reason
         const newPromise = new MyPromise((resolve, reject) => {
             const resolvePromise = (cb) => {
                 Promise.resolve().then(() => {
@@ -46,17 +46,18 @@ class MyPromise {
                         reject(err)
                     }
                 })
-            }
 
-            if (this.state === 'fulfilled') {
-                resolvePromise(onFulfilled)
-            } else if (this.state === 'rejected') {
-                resolvePromise(onRejected)
-            } else if (this.state === 'pending') {
-                this.onFulfilledCallbacks.push(() => resolvePromise(onFulfilled))
-                this.onRejectedCallbacks.push(() => resolvePromise(onRejected))
+                if (this.state === 'fulfilled') {
+                    resolvePromise(onFulfilled)
+                } else if (this.state === 'rejected') {
+                    resolvePromise(onRejected)
+                } else if (this.state === 'pending') {
+                    this.onFulfilledCallbacks.push(() => resolvePromise(onFulfilled))
+                    this.onRejectedCallbacks.push(() => resolvePromise(onRejected))
+                }
             }
         })
+
         return newPromise
     }
 
@@ -64,18 +65,11 @@ class MyPromise {
         return this.then(undefined, onRejected)
     }
 
-    finally (cb) {
-        return this.then(
-            value => MyPromise.reoslve(cb()).then(() => value),
-            reason => MyPromise.resolve(cb()).then(() => { throw reason })
-        )
-    }
-
     static resolve (value) {
         if (value instanceof MyPromise) {
             return value
         }
-        return new MyPromise((resolve, _) => resolve(value))
+        return new MyPromies((resolve) => resolve(value))
     }
 
     static reject (reason) {
@@ -84,7 +78,7 @@ class MyPromise {
 
     static race (promises) {
         return new MyPromise((resolve, reject) => {
-            for (const promise of promises) {
+            for (let promise of promises) {
                 promise.then(
                     value => resolve(value),
                     reason => reject(reason)
@@ -95,14 +89,14 @@ class MyPromise {
 
     static all (promises) {
         return new MyPromise((resolve, reject) => {
-            let arr = [], count = 0
+            let res = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i].then(
                     value => {
-                        arr[i] = value
+                        res[i] = value
                         count++
                         if (count === promises.length) {
-                            resolve(arr)
+                            resolve(res)
                         }
                     },
                     reason => reject(reason)
@@ -113,15 +107,15 @@ class MyPromise {
 
     static any (promises) {
         return new MyPromise((resolve, reject) => {
-            let arr = [], count = 0
+            let res = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i].then(
                     value => resolve(value),
                     reason => {
-                        arr[i] = reason
+                        res[i] = reason
                         count++
                         if (count === promises.length) {
-                            reject(arr)
+                            reject(new AggregateError(res))
                         }
                     }
                 )
@@ -131,17 +125,17 @@ class MyPromise {
 
     static allSettled (promises) {
         return new MyPromise((resolve, reject) => {
-            let arr = [], count = 0
+            let res = [], count = 0
             for (let i = 0; i < promises.length; i++) {
                 promises[i]
                     .then(value => {
-                        arr[i] = {
+                        res[i] = {
                             state: 'fulfilled',
                             value
                         }
                     })
                     .catch(reason => {
-                        arr[i] = {
+                        res[i] = {
                             state: 'rejected',
                             reason
                         }
@@ -149,7 +143,7 @@ class MyPromise {
                     .finally(() => {
                         count++
                         if (count === promises.length) {
-                            resolve(arr)
+                            resolve(res)
                         }
                     })
             }

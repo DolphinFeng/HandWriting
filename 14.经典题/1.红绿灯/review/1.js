@@ -10,10 +10,10 @@ function yellow () {
     console.log('yellow');
 }
 
-function light (fn, wait) {
+function light (cb, wait) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            fn()
+            cb()
             resolve()
         }, wait)
     })

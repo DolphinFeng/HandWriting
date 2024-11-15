@@ -2,18 +2,22 @@ class EventEmitter {
     constructor () {
         this.events = {}
     }
+
     on (type, cb) {
         if (!this.events[type]) {
-            this.events[type] = []
+            this.events[type] = [cb]
+        } else {
+            this.events[type].push(cb)
         }
-        this.events[type].push(cb)
     }
+
     emit (type, ...args) {
         if (!this.events[type]) return 
         this.events[type].forEach(cb => {
             cb(...args)
-        }) 
+        })
     }
+
     once (type, cb) {
         const fn = (...args) => {
             cb(...args)
@@ -21,9 +25,10 @@ class EventEmitter {
         }
         this.on(type, fn)
     }
+
     off (type, cb) {
-        if (!this.events[type]) return 
-        this.events[type] = this.events[type].filter(item => item !== cb)
+        if (!this.events[type]) return
+        this.events[type] = this.events[type].filter(item !== cb)
     }
 }
 

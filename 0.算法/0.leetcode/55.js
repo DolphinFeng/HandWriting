@@ -13,6 +13,6 @@ var canJump = function (nums) {
     return false; //循环完成之后 还没返回true 就是不能达到终点
 };
 
-// let nums = [2, 3, 1, 1, 4];
-let nums = [3, 2, 1, 0, 4];
+let nums = [2, 3, 1, 1, 4];
+// let nums = [3, 2, 1, 0, 4];
 console.log(canJump(nums));

@@ -1,8 +1,9 @@
-function throttlePromise (fn, delay) {
+function throttle (fn, delay) {
     let lastCall = 0
     let timer
     let resolveList = []
-    return function  (...args) {
+
+    return function (...args) {
         return new Promise((resolve, reject) => {
             const now = Date.now()
 
@@ -12,7 +13,7 @@ function throttlePromise (fn, delay) {
                         resolveList.forEach(res => res(result))
                         resolveList = []
                     })
-                    .catch((error) => {
+                    .catch(error => {
                         resolveList.forEach((_, rej) => rej(error))
                         resolveList = []
                     })
@@ -26,7 +27,7 @@ function throttlePromise (fn, delay) {
                 timer = setTimeout(() => {
                     lastCall = Date.now()
                     executeFunction()
-                }, delay - (now - lastCall))
+                }, delay - (now - lastCall)) 
             }
 
             resolveList.push(resolve)

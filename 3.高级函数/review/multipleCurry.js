@@ -1,13 +1,14 @@
 const multiple = {
-    result: function (...args) {
+    result: (...args) => {
         let product = args.reduce((acc, val) => acc * val, 1)
 
-        function result (...rest) {
+        const result = (...rest) => {
             if (rest.length === 0) {
                 return product
+            } else {
+                product *= rest.reduce((acc, val) => acc * val, 1)
+                return result
             }
-            product *= rest.reduce((acc, val) => acc * val, 1)
-            return result
         }
 
         return result

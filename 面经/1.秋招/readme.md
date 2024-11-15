@@ -241,3 +241,18 @@ class myRequest {
 ## 指出我的不足
     答：对知识的掌握是有广度的，但是深度不够，但是面试官依旧认可自己
 ## 面试官指出：组内业务是水滴筹的前端，用户体量很大，年终绩效考核比较看这个
+
+# 水滴二面 11.14 （全程 60min）
+## localStorage 设置属性，删除属性的方法，以及存储的 key 是什么数据结构，若是 字符串，那是否要序列化
+## console 身上的 api 有哪些
+    答案：log, error, info, time, timeEnd, clear
+## 数组身上的方法
+## react 合成事件是怎样的
+## 做一个 ai 客服，需要怎样的细节
+    答案：设置版本，设置 tempareture，设置 stop，设置 system prompt，设置 max_tokens，设置 top_p，设置 frequency_penalty，设置 presence_penalty
+## h5 存储方案
+    答案：cookie, localStorage, sessionStorage, indexedDB
+## 锚点是怎么实现的
+    答案：通过 hashchange 事件
+## 不同域名的 cookie 能否共享
+    答案：不能，跨域了

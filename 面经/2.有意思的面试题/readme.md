@@ -144,3 +144,25 @@ document.cookie
 
 # vite 为什么比别的构建工具快
   答案：esm 静态分析
+
+# java 和 js 的区别
+  答案：
+  1. 语言类型：
+    - Java 是一种静态类型语言，需要在编译时声明变量类型
+    - JavaScript 是动态类型语言，变量类型在运行时确定
+
+  2. 运行环境：
+    - Java 需要 JVM 虚拟机运行
+    - JavaScript 主要在浏览器中运行，也可以通过 Node.js 在服务器运行
+
+  3. 面向对象：
+    - Java 是完全面向对象的语言，所有代码必须在类中
+    - JavaScript 是基于原型的面向对象，更加灵活
+
+  4. 编译过程：
+    - Java 需要先编译成字节码(.class)，再由 JVM 解释执行
+    - JavaScript 是解释型语言，边解释边执行
+
+  5. 应用场景：
+    - Java 主要用于后端开发、Android 开发等
+    - JavaScript 主要用于前端开发，Node.js 后端开发

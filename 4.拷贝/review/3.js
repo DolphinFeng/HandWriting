@@ -22,7 +22,7 @@ async function fn () {
     let objCopy = await deepCopy(obj)
     obj.a.b = 2
 
-    console.log(objCopy);   
+    console.log(objCopy);
 }
 
 fn()

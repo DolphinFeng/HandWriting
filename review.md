@@ -452,5 +452,11 @@
     - 水滴一面
     - leetcode: 13, 3, 337, 19, 141, 23, 198, 22
     - 经典题: 红绿灯, lazyman, hardman, 倒计时, SuperTask, simulateRequest, LRUCache, URLSearchParams, print123, Sleep, EventEmitter, Chain, addLargeNumber, 
-    - 高级函数: 
+- 11.14
+    - 水滴二面
+    - leetcode: 1, 25, 121, 122, 123, 200, 199, 12, 198, 14, 103, 55, 
+    - 高级函数: deboucePromise, throttlePromise, curry, multipleCurry, once, memoize, compose, 
+    - 拷贝: 1, 2, 3,
+- 11.15
+    - leetcode: 19, 189, 238, 41, 54, 240, 138, 108, 98, 230, 437, 124, 208, 33, 153, 394, 84, 347, 
 ```

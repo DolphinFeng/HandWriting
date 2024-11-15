@@ -7,8 +7,8 @@ function sortFn (...args) {
 }
 
 const currying = (fn) => {
-    let args = []
-    
+    const args = []
+
     const res = (...rest) => {
         if (rest.length === 0) {
             return fn(...args)
@@ -17,7 +17,7 @@ const currying = (fn) => {
             return res
         }
     }
-    
+
     return res
 }
 

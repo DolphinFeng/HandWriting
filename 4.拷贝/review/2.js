@@ -1,6 +1,5 @@
 function deepCopy (obj) {
-    if (typeof obj !== 'object' || obj === null) return
-
+    if (typeof obj !== 'object' || obj === null) return 
     let objCopy = obj instanceof Array ? [] : {}
 
     for (let key in obj) {
@@ -14,8 +13,7 @@ function deepCopy (obj) {
     }
 
     return objCopy
-}
-
+} 
 let obj = {
     a: 1
 }

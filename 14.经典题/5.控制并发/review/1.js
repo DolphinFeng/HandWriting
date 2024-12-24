@@ -2,23 +2,23 @@
 // 手写：写一个并发控制函数，和生成模拟请求列表函数
 
 class SuperTask {
-    constructor (max) {
-        this.capacity = max
+    constructor (capacity) {
+        this.capacity = capacity
         this.tasks = []
         this.runNum = 0
     }
 
     run (task) {
         return new Promise((resolve, reject) => {
-            this.tasks.push({ task, resolve, reject })
+            this.tasks.push({task, resolve, reject})
             this.runTask()
         })
     }
 
     runTask () {
-        if (this.capacity > this.runNum && this.tasks.length) {
+        if (this.runNum >= this.capacity && this.tasks.length) {
             this.runNum++
-            const { task, resolve, reject } = this.tasks.shift()
+            let { task, resolve, reject } = this.tasks.shift()
             task()
                 .then(resolve, reject)
                 .finally(() => {
@@ -42,10 +42,9 @@ const timer = (delay) => {
 const addPromise = (delay, taskName) => {
     p.run(() => timer(delay))
         .then(() => {
-            console.log(`任务${taskName}完成`)
+            console.log(`${taskName} 完成`)
         })
 }
-
 
 addPromise(1000, 1)
 addPromise(500, 2)

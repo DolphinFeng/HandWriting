@@ -112,7 +112,7 @@ fixes issue #12
 场景：已经把当前 commit 推入到远程，其实 commit 信息写错了，现在希望撤回。拿到那个 commit 的 hash 值 然后 `git reset <commit hash>`，这个效果就是将指定 commit 从远程撤回，然后重新 commit 即可
 
 ## rebase
-场景：git rebase master 将当前分支的更改应用到另一个分支上面
+场景：git rebase master 将当前分支的更改应用到另一个分支上面，这就是将 master 分支的更改应用到当前分支上面
 
 ## git branch -m new-branch-name
 场景：当前分支因为命名问题无法推送到远程，需要重新命名。当当前分支上使用此指令，再 push 即可

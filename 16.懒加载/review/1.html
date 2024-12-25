@@ -29,7 +29,7 @@
         let viewport = window.innerHeight
 
         function lazyLoad () {
-            let imgs = document.querySelectorAll('img[data-original]')
+            const imgs = document.querySelectorAll('img[data-original]')
             imgs.forEach(el => {
                 let rect = el.getBoundingClientRect()
                 if (rect.top < viewport) {

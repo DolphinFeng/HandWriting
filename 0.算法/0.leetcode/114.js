@@ -6,6 +6,11 @@ function TreeNode(val, left, right) {
 }
 
 // 示例二叉树
+//      1
+//    /   \
+//   2     5
+//  / \     \
+// 3   4     6
 let tree = {
     val: 1, 
     left: {
@@ -54,3 +59,4 @@ function flatten(tree) {
 flatten(tree)
 // 打印转换后的链表
 console.log(tree);
+console.log(11);

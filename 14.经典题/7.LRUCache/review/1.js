@@ -1,4 +1,4 @@
-class URLCache {
+class LRUCache {
     constructor (capacity) {
         this.capacity = capacity
         this.cache = new Map()
@@ -16,14 +16,14 @@ class URLCache {
         if (this.cache.has(key)) {
             this.cache.delete(key)
         } else if (this.capacity <= this.cache.size) {
-            const firstkey = this.cache.keys().next().value
-            this.cache.delete(firstkey)
+            const firstKey = this.cache.keys().next().value
+            this.cache.delete(firstKey)
         }
         this.cache.set(key, value)
     }
 }
 
-let cache = new URLCache(2)
+let cache = new LRUCache(2)
 
 cache.put(1, 1)
 cache.put(2, 2)

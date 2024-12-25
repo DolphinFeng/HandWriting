@@ -5,7 +5,7 @@ class EventEmitter {
 
     on (type, cb) {
         if (!this.events[type]) {
-            this.events[type] = [cb]
+            this.events[type] = []
         } else {
             this.events[type].push(cb)
         }
@@ -13,9 +13,12 @@ class EventEmitter {
 
     emit (type, ...args) {
         if (!this.events[type]) return 
-        this.events[type].forEach(cb => {
-            cb(...args)
-        })
+        this.events[type].forEach(cb => cb(...args))
+    }
+
+    off (type, cb) {
+        if (!this.events[type]) return 
+        this.events[type] = this.events[type].filter(item => item !== cb)
     }
 
     once (type, cb) {
@@ -24,11 +27,6 @@ class EventEmitter {
             this.off(type, fn)
         }
         this.on(type, fn)
-    }
-
-    off (type, cb) {
-        if (!this.events[type]) return
-        this.events[type] = this.events[type].filter(item !== cb)
     }
 }
 

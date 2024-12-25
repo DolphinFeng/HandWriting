@@ -1,3 +1,5 @@
+// 496. 下一个更大元素 I
+
 let nextGreaterElement = function(nums1, nums2) {
     let map = new Map(), stack = [], ans = [];
   //循环nums2，如果循环的元素大于栈顶元素，并且栈不为空，则不断将栈顶元素作为key，当前元素作为value加入map中

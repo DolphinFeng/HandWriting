@@ -5,14 +5,13 @@ function findLengthOfLCI (nums) {
         return nums.length
     }
 
-    let left = 0, cur = 0, right = 1, len = 1
+    let left = 0, right = 1, len = 1
     while(right < nums.length) {
         if(nums[right] <= nums[cur]) {
             left = right
         }
 
         len = Math.max(len, right - left + 1)
-        cur++
         right++
     }
     return len

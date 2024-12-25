@@ -36,7 +36,7 @@
             let imgs = document.querySelectorAll('img[data-original]') 
             imgs.forEach(el => {
                 // 获取图片相对于视口的位置
-                let rect = el.getBoundingClientRect() 
+                let rect = el.getBoundingClientRect() // 包含边框，不包含是 clientWidth
                 // 如果图片的顶部位置在视口内
                 if(rect.top < viewHeight) {
                     // 创建一个新的 Image 对象

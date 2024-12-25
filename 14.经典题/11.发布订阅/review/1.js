@@ -5,19 +5,19 @@ class EventEmitter {
 
     on (type, cb) {
         if (!this.events[type]) {
-            this.events[type] = [cb]
+            this.events[type] = []
         } else {
             this.events[type].push(cb)
         }
     }
 
     emit (type, ...args) {
-        if (!this.events[type]) return
+        if (!this.events[type]) return 
         this.events[type].forEach(cb => cb(...args))
     }
 
     off (type, cb) {
-        if (!this.events[type]) return
+        if (!this.events[type]) return 
         this.events[type] = this.events[type].filter(item => item !== cb)
     }
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌套标签示例</title>
+</head>
+<body>
+    <div id="parent">
+        <p>这是一个段落。</p>
+        <div id="child">
+            <span>这是一个嵌套的子标签。</span>
+        </div>
+    </div>
+
+    <script>
+        function isChildInParent(parent, child) {
+            return parent.contains(child);
+        }
+
+        const parentElement = document.querySelector('#parent'); // 父标签
+        const childElement = document.querySelector('#child');   // 子标签
+
+        const allDivs = document.querySelectorAll('div')
+        console.log(allDivs)
+
+        if (isChildInParent(parentElement, childElement)) {
+            console.log('子标签在父标签内');
+        } else {
+            console.log('子标签不在父标签内');
+        }
+    </script>
+</body>
+</html>

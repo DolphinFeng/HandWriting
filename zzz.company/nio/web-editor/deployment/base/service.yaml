@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nmap-web-editor
+spec:
+  selector:
+    app.kubernetes.io/name: nmap-web-editor
+    app.kubernetes.io/instance: nmap-web-editor
+  type: ClusterIP
+  ports:
+    - name: http-port
+      port: 80
+      targetPort: 80

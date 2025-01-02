@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nmap-web-editor
+  labels:
+    app.kubernetes.io/name: nmap-web-editor
+    app.kubernetes.io/instance: nmap-web-editor
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nmap-web-editor
+      app.kubernetes.io/instance: nmap-web-editor
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nmap-web-editor
+        app.kubernetes.io/instance: nmap-web-editor
+    spec:
+      containers:
+        - image: nmap-web-editor:latest
+          name: nmap-web-editor
+          ports:
+            - containerPort: 80
+              name: http-port
+          imagePullPolicy: Always

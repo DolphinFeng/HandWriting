@@ -1,0 +1,15 @@
+.aside-form-item {
+  margin: 8px 0;
+}
+.aside-form-label {
+  margin-bottom: 6px;
+  color: #9b9c9e;
+  font-size: 14px;
+  user-select: none;
+}
+.aside-form-label2 {
+  margin-bottom: 6px;
+  color: #ee0f0b;
+  font-size: 14px;
+  user-select: none;
+}

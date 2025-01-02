@@ -1,0 +1,27 @@
+.nio-header {
+    --btn-bg-color: #4b90e2;
+    --btn-hover-bg-color: #79bbff;
+    --btn-active-bg-color: #337ecc;
+}
+.tool-item {
+    background-color: #333546;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.tool-item-header {
+    display: flex;
+    background-color: #393b4f;
+    font-size: 14px;
+    align-items: center;
+    padding: 6px 12px;
+    color: #fff;
+}
+
+.tool-item-body {
+    margin-top: 6px;
+}
+
+.data-box {
+    padding: 4px 12px 10px;
+}

@@ -1,0 +1,18 @@
+.aim-tab {
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .check-status {
+    float: right;
+  }
+  
+  .ml-4 {
+    margin-left: 16px;
+  }
+  
+  #cesium-container {
+    flex-grow: 1;
+    overflow-y: auto;
+  }

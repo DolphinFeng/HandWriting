@@ -1,0 +1,441 @@
+:root {
+  font-family: PingFang SC,Microsoft YaHei,Arial Regular,sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*一些公共样式*/
+label {
+  font-weight: 700;
+}
+
+html {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.el-tooltip__popper{
+  font-size: 14px;
+  max-width: 80%;
+  min-width: 30%;
+  line-height: 23px;
+  color: rgba(0, 0, 0, 0.9) !important;
+  background-color: #fff !important;
+  border: 2px solid ghostwhite;
+  border-radius: 10px;
+  margin-bottom: -15px !important;
+}
+
+.el-tooltip__popper .popper__arrow {
+  display: none !important;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding-right: 0!important;
+}
+
+.nio-body{
+  display: flex;
+  flex-flow: row nowrap;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+.menu-collapse{
+  cursor: pointer;
+  transition: transform .3s;
+}
+.collapseRotate {
+  transform: rotateZ(180deg);
+}
+.menu-animate{
+  transition: transform .3s;
+}
+.menu-animate:hover{
+  transform: scale(1.2);
+}
+
+.aside_class {
+  z-index: 10;
+  /*box-shadow: 6px 0 8px -5px #ccc;*/
+  margin-right: 2px;
+}
+
+.el-menu-vertical-demo::-webkit-scrollbar{
+  display: none;
+}
+
+.search-tool {
+  padding: 5px 0 5px 20px;
+  text-align: left;
+  color: black;
+  font-size: 15px;
+}
+
+#main-wrapper{
+  flex: 1;
+  overflow: hidden;
+  height: calc(100vh - 64px);
+  background: white;
+  color: black;
+  text-align: left;
+  padding-top: 4px;
+}
+
+[class*="tdesign-demo-item--layout"] .t-layout--content {
+  padding: 0 !important;
+  height: 100% !important;
+  text-align: left !important;
+  color: black;
+}
+
+/*设置主content样式*/
+.tdesign-demo-item--layout .t-layout--content {
+  padding: 0 !important;
+  height: 100% !important;
+  text-align: left !important;
+  color: black;
+}
+
+/*表格header加下线*/
+.t-table--bordered.t-table__header--fixed .t-table-content tr:last-child td {
+  border-bottom: 1px solid #eee !important;
+}
+
+/*取消横向导航栏的阴影*/
+.t-head-menu {
+  position: relative;
+  width: 100% !important;
+  border-bottom: 1px solid #ededed !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.t-table th,
+.t-table td {
+  position: relative;
+  line-height: 20px !important;
+  padding: 6px 10px !important;
+}
+
+.t-form-inline {
+  row-gap: 3px;
+}
+
+.t-form__item {
+  margin: 2px 0 2px 0 !important;
+}
+
+.t-form__label {
+  padding-right: 4px !important;
+}
+
+.t-steps .t-steps-item-title {
+  font-size: 14px !important;
+  padding-right: 0 !important;
+}
+
+/*跟input的disabled设置一样的格式*/
+.input_dis {
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  padding: 0 8px;
+  background-color: #eeeeee;
+  outline: none;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 14px;
+  width: 100%;
+  cursor: not-allowed;
+}
+#refreshHeader{
+  position: relative;
+  z-index: 1000;
+}
+.top-head {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background-color: white;
+  font-size: 22px;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  box-shadow: 5px 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+#nioTitle{
+  display: flex;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: default;
+  margin-left: 10px;
+  align-items: center;
+}
+
+#accountDiv {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 8px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #606266;
+}
+.header-icon-item{
+  display: flex;
+  align-items: center;
+  width: 38px;
+  height: 100%;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.header-icon-item:hover{
+  background-color: #f5f5f5;
+}
+.header-icon-item > div{
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+#accountUser{
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+}
+
+.avatar-pop-menu > div{
+  padding: 7px 20px;
+  cursor: pointer;
+}
+.avatar-pop-menu > div:hover{
+  background-color: #ecf5ff;
+  color: #409eff;
+}
+
+.el-popover-self{
+  min-width: 100px;
+  padding: 8px 0!important;
+}
+
+#quit_class {
+  display: none;
+  transform: translateX(-10px);
+  position: absolute;
+  z-index: 1001;
+  text-align: center;
+  font-size: 15px;
+  color: #606266;
+  padding: 6px 10px;
+  background-color: white;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  box-shadow: 5px 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transition: color .3s;
+}
+
+#accountUser:hover>#quit_class{
+  display: block;
+}
+#cur-user-arrow{
+  transition: transform .3s ease;
+}
+#accountUser:hover #cur-user-arrow{
+  transform: rotateZ(180deg);
+}
+
+#quit_class:hover{
+  color: #589ef8;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 231px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  will-change: opacity, transform;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.fade-enter-from{
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.fade-leave-to{
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.component{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+.el-range-separator {
+  font-weight: normal;
+}
+.breadcrumbItem {
+  color: rgba(0, 0, 0, .4);
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 22px;
+  transition: color .2s linear;
+}
+.active-breadcrumb-item {
+  color: rgba(0, 0, 0, 0.9);
+}
+.breadcrumbItem:hover {
+  color: #337ecc;
+}
+.breadcrumb{
+  padding: 6px 0 2px 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.copy-link {
+  font-weight: normal;
+  font-size: 13px;
+  user-select: none;
+}
+.is-flex {
+  max-width: 100%!important;
+}
+.step-item-icon {
+  box-sizing: content-box;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  border: 2px solid #337ecc;
+}
+.el-step {
+  cursor: pointer;
+  user-select: none;
+  flex-basis: 0!important;
+}
+.el-step__icon.is-icon {
+  width: 20px!important;
+  transform: translateY(-4px);
+}
+.el-step__head.is-wait, .el-step__head.is-process, .el-step__head.is-finish {
+  transform: translateX(4px);
+  width: 124px!important;
+}
+.el-step__line {
+  background-color: #337ecc!important;
+}
+.step-item-title {
+  color: #141414;
+  font: normal 14px PingFang SC,Microsoft YaHei,Arial Regular;
+}
+.is-process .step-item-title {
+  color: red;
+}
+.is-process .step-item-icon {
+  border-color: red;
+}
+
+.tool {
+  padding: 5px 20px;
+  text-align: left;
+  color: black;
+  font-size: 15px;
+}
+.table{
+  margin: 5px 20px 10px 20px;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+.table-container{
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+.pagination-container{
+  height: 42px;
+}
+.link-btn-underline {
+  font-size: 13px;
+  font-weight: normal;
+}
+.link-btn-underline:hover {
+  text-decoration: underline;
+}
+.link-btn {
+  font-size: 14px;
+  font-weight: normal;
+}
+.box-confirm-title {
+  color: #7fbcff;
+  margin: 0 4px;
+  cursor: pointer;
+}
+.t-breadcrumb--text-oveflow .t-breadcrumb__inner:active{
+  color: #409eff!important;
+}
+.t-breadcrumb--text-oveflow .t-breadcrumb__inner:hover{
+  color: #409eff;
+}
+.detail-panel{
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.detail-tab{
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.text-copy-board {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+}
+.high-index-message {
+  z-index: 9999!important;
+}

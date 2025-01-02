@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nmap-tms-web
+  labels:
+    app.kubernetes.io/name: nmap-tms-web
+    app.kubernetes.io/instance: nmap-tms-web
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nmap-tms-web
+      app.kubernetes.io/instance: nmap-tms-web
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nmap-tms-web
+        app.kubernetes.io/instance: nmap-tms-web
+    spec:
+      containers:
+        - image: nmap-tms-web:latest
+          name: nmap-tms-web
+          ports:
+            - containerPort: 80
+              name: http-port
+          imagePullPolicy: Always

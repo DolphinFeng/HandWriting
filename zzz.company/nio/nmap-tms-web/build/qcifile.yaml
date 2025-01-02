@@ -1,0 +1,31 @@
+# author
+
+# QCIFile版本号
+version: 2.0
+
+#worker:
+#    docker: ~
+
+env:
+  # 镜像仓库用户名
+  DOCKER_USER: v_jhxzzhang
+  # 镜像仓库密码，已加密
+  DOCKER_PWD:
+    secret: ptSNR4i34ZfOQ12989r+xK2JX0MjgkmgFKvI/Ep64LLUfcgR7jtIztEXAKxSVdkO/X9oxL3MfMBj45ohysYxyqTumeur5+8G5uGnfP4ufrdLAiQy7/bHFVB+gT+CtAhOKVDx7AsfGwNTWf2BNti5PNJUqroAcQyJ7rlWVcyL5Gs=
+  # 镜像地址：正式镜像
+  DOCKER_REMOTE_PATH: csighub.tencentyun.com/nio_tool_chain/nio-web:${QCI_REPO_TAG}
+
+
+stages:
+  - stage: 登录镜像仓库
+    cmds:
+      - docker login -u $DOCKER_USER -p $DOCKER_PWD csighub.tencentyun.com
+  - stage: 编译镜像
+    cmds:
+      - docker build -t $DOCKER_REMOTE_PATH -f $QCI_WORKSPACE/build/Dockerfile --network=host --build-arg http_proxy=devproxy.oa.com:8080 --build-arg https_proxy=devproxy.oa.com:8080 .
+  - stage: 推送镜像
+    cmds:
+      - docker push $DOCKER_REMOTE_PATH
+  - stage: 注销登录
+    cmds:
+      - docker logout csighub.tencentyun.com

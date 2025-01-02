@@ -1,0 +1,141 @@
+.city-list-wrapper {
+    display: inline-block;
+    position: absolute;
+    border: 1px solid #ededed;
+    top: 32px;
+    left: -1px;
+    padding: 10px 0;
+    background-color: #fff;
+    font-size: 11px;
+    font-family: Arial,Helvetica,"\5B8B\4F53",serif;
+    text-align: left;
+    border: 1px solid #ededed;
+    height: 438px;
+    width: 310px;
+    color: #4c4c4c;
+    .blue-color {
+        color: rgb(22, 106, 190);
+    }
+    .title-info {
+        color: #000;
+        padding: 0 10px 3px 10px;
+    }
+    .show-city-info {
+        padding: 0 10px 5px 10px;
+        border-bottom: 1px solid #ededed;
+        p {
+            line-height: 19px;
+            span {
+                padding-right: 5px;
+            }
+        }
+    }
+    .city-input-wrapper {
+        margin: 4px 12px 10px 10px;
+        .el-select {
+            :deep(.el-input__inner) {
+                height: 35px;
+                line-height: 35px;
+                font-size: 12px;
+            }
+            :deep(.el-input__icon) {
+                line-height: 34px;
+            }
+        }
+
+        /*放大镜按钮的样式*/
+        #search_icon {
+            padding: 0;
+            margin: 0 0 2px 1px;
+            height: 34px;
+            width: 25px;
+            background: white;
+            border: 1px solid #ededed;
+            display: inline-block;
+        }
+
+        #search_icon:hover {
+            border: 1px solid #deedff;
+            background: #deedff;
+        }
+    }
+    .city-menu-wrapper {
+        overflow: auto;
+        height: 342px;
+        .hot-city-entry {
+            border-bottom: 1px solid #ededed;
+            padding: 0 10px 5px 10px;
+            .text-content {
+                padding-top: 8px;
+                span {
+                    line-height: 19px;
+                    a {
+                        padding-right: 14px;
+                    }
+                }
+            }
+        }
+        .city-list-container {
+            padding-top: 10px;
+            .list-title {
+                line-height: 27px;
+                padding: 0 10px;
+                .show-list-btn {
+                    float: right;
+                    .show-city-by-prov,
+                    .show-city-by-letter {
+                        display: inline-block;
+                        height: 22px;
+                        line-height: 22px;
+                        overflow: hidden;
+                        width: 60px;
+                        border: 1px solid #dedede;
+                        text-align: center;
+                        color: #444;
+                        background: #f5f5f5;
+                        cursor: pointer;
+                    }
+                    .active {
+                        color: #166abe;
+                        background: #deedff;
+                    }
+                }
+            }
+            .city-list-by-prov-container,
+            .city-list-by-letter-container {
+                .default {
+                    width: 93%;
+                    margin: 10px;
+                }
+                .prov-list {
+                    border-bottom: 1px solid #ededed;
+                    margin: 7px;
+                    display: flex;
+                    padding: 5px;
+                    .left {
+                        width: 60px;
+                        line-height: 20px;
+                    }
+                    .citys {
+                        display: inline-block;
+                        flex: 1;
+                        span {
+                            padding-right: 9px;
+                            line-height: 19px;
+                        }
+                    }
+                }
+                .prov-list:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+.el-select-dropdown {
+    .el-select-dropdown__item {
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+    }
+}

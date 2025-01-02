@@ -1,0 +1,22 @@
+  ######## 构建阶段 生成可执行文件 #######
+
+  FROM csighub.tencentyun.com/admin/tlinux2.2-bridge-tcloud-underlay
+
+  COPY . .
+#环境变量：设置代理
+#  ENV http_proxy=http://127.0.0.1:12639
+#  ENV https_proxy=http://127.0.0.1:12639
+#   && yum install -y nginx \
+#   && tnpm install -g tnpm \
+
+  RUN  yum install -y nodejs \
+   && npm config delete http-proxy  \
+   && npm config delete https-proxy  \
+   && npm config delete proxy  \
+   && npm install @tencent/tnpm@5 -g --registry=http://r.tnpm.oa.com --proxy=http://r.tnpm.oa.com:80 --verbose  \
+   && tnpm install  \
+   && tnpm install webpack -g  \
+   && yum install -y nginx
+
+
+

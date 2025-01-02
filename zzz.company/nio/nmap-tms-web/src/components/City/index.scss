@@ -1,0 +1,28 @@
+#city {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    border: 1px solid #DCDFE6;
+    font-size: 12px;
+    padding: 6px 11px 7px;
+    border-radius: 4px;
+    color: #565555;
+    user-select: none;
+    cursor: pointer;
+    z-index: 1001;
+    .city-list-btn {
+        i {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-left: 5px;
+            background-image: url(../../assets/toolIcon.png);
+            background-repeat: no-repeat;
+            background-position: 0;
+            background-size: 318%;
+        }
+        i.active {
+            background-position: -17px 1px;
+        }
+    }
+}

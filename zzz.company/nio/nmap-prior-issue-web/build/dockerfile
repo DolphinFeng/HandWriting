@@ -1,0 +1,5 @@
+  ######## 生成最终镜像 #######
+  FROM csighub.tencentyun.com/v_jhxzzhang/map_web:v0.0.2
+  ENV LANG="zh_CN.UTF-8"
+  COPY . .
+  RUN cp /build/nginx_start.sh /etc/kickStart.d/

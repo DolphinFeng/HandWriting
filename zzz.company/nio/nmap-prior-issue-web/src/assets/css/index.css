@@ -1,0 +1,53 @@
+/*一些公共样式*/
+*{
+  margin: 0;
+  padding: 0;
+}
+
+label {
+font-weight: 700;
+}
+
+html {
+box-sizing: border-box;
+overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+cursor: pointer;
+color: inherit;
+text-decoration: none;
+}
+
+div:focus {
+outline: none;
+}
+
+.el-tooltip__popper{
+  font-size: 14px;
+  max-width: 80%;
+  min-width: 30%;
+  line-height: 23px;
+  color: rgba(0, 0, 0, 0.9) !important;
+  background-color: #fff !important;
+  border: 2px solid ghostwhite;
+  border-radius: 10px;
+  margin-bottom: -15px !important;
+}
+
+.el-tooltip__popper .popper__arrow {
+  display: none !important;
+}

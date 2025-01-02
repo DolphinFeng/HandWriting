@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nmap-tms-web
+spec:
+  selector:
+    app.kubernetes.io/name: nmap-tms-web
+    app.kubernetes.io/instance: nmap-tms-web
+  type: ClusterIP
+  ports:
+    - name: http-port
+      port: 80
+      targetPort: 80

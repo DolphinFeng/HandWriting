@@ -1,0 +1,233 @@
+.el-main {
+  padding: 0px;
+  overflow: hidden;
+  height: 100%;
+}
+
+#map {
+  width: 100%;
+}
+
+.nio-map {
+  background: white;
+  position: relative;
+  top: 3px;
+  width: 100%;
+
+  .title {
+    line-height: 56px;
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  .selectCount {
+    float: right;
+    margin-right: 20px;
+    line-height: 66px;
+    font-size: 14px;
+
+    span {
+      color: #1272EE;
+    }
+  }
+
+  .nioMap {
+    :deep(.PlanSearchContainer) {
+      margin-top: 12px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.searchContainer {
+  display: inline-block;
+
+  :deep(.el-input__inner) {
+    border: 1px solid #dddede;
+    border-right: 0;
+    height: 30px;
+    padding-right: 10px;
+    width: 160px;
+    font-size: 12px;
+  }
+
+  :deep(.el-input-group__append) {
+    border: 1px solid #dddede;
+    border-left: 0;
+    background: #fff;
+    padding-left: 5px;
+    padding-right: 10px;
+    color: #999;
+    font-size: 18px;
+  }
+
+  :deep(.el-input__icon) {
+    margin-top: -4px;
+  }
+}
+
+:deep(path.tile) {
+  fill-opacity: 0;
+  stroke-width: 1px;
+  stroke: #022d42;
+  stroke-opacity: 1.0;
+  cursor: pointer;
+}
+
+:deep(path.tile:hover) {
+  fill-opacity: 0.7 !important;
+}
+
+:deep(rect.tile.selected) {
+  stroke-width: 2px;
+  stroke: rosybrown;
+}
+
+:deep(rect.tile) {
+  fill: #FFFFFF;
+  fill-opacity: 0;
+}
+
+:deep(rect.tile.meshSelected) {
+  fill-opacity: 0.3;
+  fill: red;
+  stroke-width: 2px;
+  stroke: red;
+}
+
+:deep(rect.tile.version1) {
+  stroke-width: 2px;
+  stroke: yellow;
+}
+
+:deep(rect.tile.version2) {
+  fill-opacity: 0.8;
+  fill: #FF3400;
+}
+
+:deep(.leaflet-pane > svg path.tile) {
+  pointer-events: all;
+}
+
+:deep(.leaflet-popup-content-wrapper) {
+  padding: 0;
+  width: 353px;
+}
+
+:deep(.leaflet-popup-close-button) {
+  top: 14px !important;
+  right: 5px !important;
+}
+
+:deep(.leaflet-popup-tip-container) {
+  bottom: -6px;
+}
+
+:deep(.leaflet-map-pane) canvas {
+  z-index: 201;
+  pointer-events: none;
+}
+
+:deep(.leaflet-marker-pane) {
+  z-index: 400;
+
+  .region-text {
+    background: rgba(200, 200, 200, 0.65);
+    line-height: 84px;
+    font-size: 60px;
+    font-weight: 600;
+    font-family: PingFangSC-Semibold;
+    letter-spacing: 1.09px;
+    text-align: center;
+    color: #FF3400;
+    pointer-events: none;
+  }
+}
+
+:deep(.tile-detail)  {
+  width: 435px;
+  font-size: 14px;
+  margin: 0px;
+  padding: 8px 0;
+
+  .tile-title {
+    width: 315px;
+    line-height: 36px;
+    text-align: center;
+    font-weight: bold;
+    color: #0336B1;
+    background-color: rgb(243 249 255);
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  .tile-item {
+    width: 325px;
+    border-bottom: 1px solid #EEEEEE;
+    padding: 3px 0;
+
+    .tile-label {
+      width: 120px;
+      display: inline-block;
+      padding: 8px 0;
+      font-size: 14px;
+      color: #606266;
+    }
+
+    .tile-value {
+      width: 199px;
+      display: inline-block;
+      padding: 8px 0;
+    }
+  }
+
+  .tile-item-hidden {
+    display: none;
+  }
+
+  .tile-info {
+    border: none;
+    color: #333333;
+    font-size: 15px;
+  }
+}
+
+:deep(span.task-id-actived)  {
+  color: #1272EE;
+  text-decoration: underline;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+:deep(span.task-id-actived:hover)  {
+  color: rgb(154, 154, 196);
+}
+
+.version-item {
+  padding-bottom: 10px;
+  color: #333333;
+  font-size: 14px;
+  text-align: center;
+}
+
+:deep(.el-dialog__body)  {
+  padding: 20px 30px !important;
+}
+
+:deep(.el-dialog__header)  {
+  background-color: #F3F8FF;
+  padding: 10px 20px 10px;
+}
+
+:deep(.el-dialog__title)  {
+  font-size: 16px;
+}
+
+:deep(.el-dialog__headerbtn)  {
+  top: 10px;
+}
+
+:deep(.el-header)  {
+  padding: 0 0;
+}

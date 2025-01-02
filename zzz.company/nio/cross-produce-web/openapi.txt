@@ -1,0 +1,7 @@
+npx openapi-typescript http://produce-demand-management.idc-dev.nioint.com/produce-demand-management/v3/api-docs -o ./openapi.d.ts
+
+npx openapi-typescript http://produce-demand-management.idc-stg.nioint.com/produce-demand-management/v3/api-docs -o ./openapi.d.ts
+
+npx openapi-typescript http://cross-produce-management.idc-dev.nioint.com/cross-produce-management/v3/api-docs -o ./openapi.d.ts
+
+npx openapi-typescript http://nmap-alg-eval.idc-stg.nioint.com/nmap-alg-eval/v3/api-docs -o ./openapi-alg.d.ts

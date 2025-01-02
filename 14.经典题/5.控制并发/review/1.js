@@ -13,17 +13,17 @@ class SuperTask {
             this.tasks.push({task, resolve, reject})
             this.runTask()
         })
-    }
+    } 
 
     runTask () {
-        if (this.runNum >= this.capacity && this.tasks.length) {
+        if (this.runNum < this.this.capacity && this.tasks.length) {
             this.runNum++
             let { task, resolve, reject } = this.tasks.shift()
             task()
                 .then(resolve, reject)
                 .finally(() => {
-                    this.runNum--
                     this.runTask()
+                    this.runNum--
                 })
         }
     }

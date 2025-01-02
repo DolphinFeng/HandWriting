@@ -483,4 +483,10 @@
     - 明日秋招 阿里
     - 经典题: LRUCache, EventEmitter, Query, 
     - 懒加载
+- 12.26
+    - 今日秋招 阿里
+    - 排序: 快排、合并有序数组
+    - 经典题: SuperTask、大数相加
+    - 高级函数: curry, once
+    - leetcode: 1556
 ```
